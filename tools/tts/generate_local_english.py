@@ -51,13 +51,24 @@ def main() -> int:
         print(f"ERROR: cannot read voice manifest: {exc}")
         return 2
 
-    role_models: dict[str, Path] = {}
+    role_voices: dict[str, dict[str, object]] = {}
     if args.voices_json:
         try:
             raw = json.loads(args.voices_json.read_text(encoding="utf-8"))
-            role_models = {role: Path(path) for role, path in raw.items()}
-        except (OSError, json.JSONDecodeError, AttributeError) as exc:
-            print(f"ERROR: invalid role-to-model JSON: {exc}")
+            if not isinstance(raw, dict):
+                raise ValueError("voice map must be a JSON object")
+            for role, value in raw.items():
+                if isinstance(value, str):
+                    spec = {"model": value}
+                elif isinstance(value, dict) and isinstance(value.get("model"), str):
+                    spec = {"model": value["model"]}
+                    if "speaker_id" in value:
+                        spec["speaker_id"] = int(value["speaker_id"])
+                else:
+                    raise ValueError(f"invalid voice mapping for role {role!r}")
+                role_voices[str(role)] = spec
+        except (OSError, json.JSONDecodeError, AttributeError, TypeError, ValueError) as exc:
+            print(f"ERROR: invalid role-to-voice JSON: {exc}")
             return 2
 
     selected = [c for c in cues if int(c.get("id", 0)) >= args.start_id]
@@ -74,7 +85,11 @@ def main() -> int:
         role = str(cue.get("role", "Narrator"))
         text = str(cue.get("english_text", "")).replace("\n", " ").strip()
         destination = args.output / f"{cue_id:03d}.wav"
-        model = role_models.get(role, args.model)
+        voice_spec = role_voices.get(role, {"model": str(args.model)})
+        model = Path(str(voice_spec["model"]))
+        if not model.is_absolute():
+            model = (ROOT / model).resolve()
+        speaker_id = voice_spec.get("speaker_id")
         if not model.is_file():
             print(f"FAIL cue {cue_id}: model missing for role {role}: {model}")
             failed += 1
@@ -83,9 +98,11 @@ def main() -> int:
             skipped += 1
             continue
         command = [executable or args.piper, "--model", str(model), "--output_file", str(destination)]
-        config = args.config if model == args.model else Path(str(model) + ".json")
-        if config and config.is_file():
+        config = args.config if model == args.model and args.config else Path(str(model) + ".json")
+        if config.is_file():
             command.extend(["--config", str(config)])
+        if speaker_id is not None:
+            command.extend(["--speaker", str(int(speaker_id))])
         if args.dry_run:
             print(f"DRY RUN cue {cue_id:02d} [{role}] -> {destination.name} | model={model.name}")
             continue
