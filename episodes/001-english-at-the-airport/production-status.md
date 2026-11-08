@@ -71,3 +71,21 @@ Last updated: 2026-11-08
 
 ## Release gate
 Do not publish until voice licensing, asset licensing, pronunciation, subtitle timing, and the full video review are complete.
+
+
+## Approved settings — 2026-11-08
+- [x] User approved British English as the spoken accent.
+- [x] User approved Afghan Dari subtitles only; Dari voiceover is disabled.
+- [x] User approved local/offline audio generation; paid or cloud TTS APIs are not part of the active workflow.
+- [x] User approved a hybrid visual pipeline: pursue a premium cinematic 3D look where feasible, with high-quality 2.5D compositing and controlled camera/character motion as the honest fallback.
+- [x] GPU model is unknown; audio generation and the fallback visual workflow must work without GPU acceleration.
+- [x] Machine-readable settings committed at `project-settings.json`.
+- [x] Local Piper British English TTS generator committed at `tools/tts/generate_local_english.py`.
+- [x] Local TTS setup, model-license checks, audition, and generation guide committed at `tools/tts/LOCAL_TTS.md`.
+
+## Current blockers / release gates
+- The British English Piper voice model has not yet been downloaded or auditioned. Its individual model license must be checked before commercial publication.
+- The final English audio files do not yet exist. The previous bilingual 96-file manifest is retained as a legacy production source; the active delivery uses English audio plus Dari subtitles only.
+- Subtitle timestamps are provisional and must be retimed to the generated English audio.
+- The six-second SVG render is only a technical test. It is not the seven-minute episode master and not a 3D animation.
+- Full 3D rendering is not promised until the machine's capabilities are known; the hybrid fallback remains available without a discrete GPU.
