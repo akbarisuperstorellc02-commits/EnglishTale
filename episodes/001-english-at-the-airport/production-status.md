@@ -32,7 +32,7 @@ Last updated: 2026-11-08
 - [x] Uploaded the English audio, all cue WAVs, retimed SRTs, and VCTK attribution note as a GitHub Actions artifact.
 - [x] FFmpeg/CairoSVG 7-minute scene-plate renderer with optional British English audio and selectable English/Dari subtitle streams.
 - [x] Complete 420-second 1280×720 H.264 review MP4 rendered with AAC English dialogue and two selectable subtitle tracks; technical stream/duration validation passed.
-- [x] Complete 420-second 1920×1080/30 fps H.264 master candidate rendered with loudness-normalized British English dialogue and two selectable subtitle tracks; technical stream/duration validation passed.
+- [x] Complete 420-second 1920×1080/30 fps H.264 master candidate rendered with loudness-normalized British English dialogue and two selectable subtitle tracks; technical stream/duration validation passed using the SVG 2.5D fallback.
 - [x] 4K YouTube thumbnail and vertical Shorts cover source artwork, renderers, validators, and CI artifacts.
 - [x] Procedural Blender 3D look-development scene and successful 1280×720 still render.
 - [x] Short 3D character motion-study MP4 rendered and validated at 640×360/24 fps; this is a two-second technical preview, not a finished episode shot.
@@ -42,7 +42,8 @@ Last updated: 2026-11-08
 
 - [ ] Listen to all 48 generated English WAV clips for pronunciation, pacing, role consistency, clipping, and quality.
 - [ ] Listen to and approve the generated English track; manually review both WAV-duration-retimed subtitle files. Duration-based retiming is only a first pass.
-- [ ] Complete final 3D/2.5D character animation, scene coverage, hand interactions, and appropriate dialogue acting. The current Blender still is only look-development, not the final character rig.
+- [ ] Validate the new 18-angle Blender 3D still library and regenerate the 1080p master candidate from those 3D stills. The previously validated 1080p candidate uses the SVG 2.5D fallback.
+- [ ] Complete continuous character animation, hand interactions, and dialogue-specific acting. The current Blender motion study is a short technical preview, not a finished character rig.
 - [ ] Human-review the 720p review cut and 1080p30 master candidate with sound and muted; fix visual/timing issues and decide whether additional sound design is needed before publication.
 - [ ] Final human review of thumbnails, licenses, subtitles, audio, and YouTube metadata before publication.
 
