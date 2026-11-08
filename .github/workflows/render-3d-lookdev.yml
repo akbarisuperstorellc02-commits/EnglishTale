@@ -1,0 +1,49 @@
+name: Render EnglishTale 3D Look Development
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "tools/blender/**"
+      - ".github/workflows/render-3d-lookdev.yml"
+      - "project-settings.json"
+
+permissions:
+  contents: read
+
+jobs:
+  render-lookdev:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Install Blender
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y blender
+          blender --version
+      - name: Render procedural 3D character look development
+        run: |
+          mkdir -p build
+          blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --output build/episode-001-3d-lookdev.png
+      - name: Validate rendered image
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+          p = Path("build/episode-001-3d-lookdev.png")
+          data = p.read_bytes()
+          assert data[:8] == b"\x89PNG\r\n\x1a\n", "Not a PNG file"
+          width, height = struct.unpack(">II", data[16:24])
+          assert (width, height) == (1280, 720), f"Unexpected dimensions: {width}x{height}"
+          assert len(data) > 50000, f"Render looks unexpectedly small: {len(data)} bytes"
+          print(f"PASS: {width}x{height}, {len(data)} bytes")
+          PY
+      - name: Upload 3D look-development still
+        uses: actions/upload-artifact@v4
+        with:
+          name: EnglishTale-3D-character-lookdev
+          path: build/episode-001-3d-lookdev.png
+          if-no-files-found: error
+          retention-days: 14
