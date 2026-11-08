@@ -24,6 +24,7 @@ Episode 001 has moved beyond the planning-only stage. The repository now include
 - 48-cue bilingual voice manifest and recording package.
 - Separate English/Dari WAV track assembler with timeline-gap preservation.
 - Resumable Gemini and ElevenLabs TTS generator tools; provider access and commercial rights are documented.
+- Dependency-free validator and unit tests for all 96 bilingual WAV recordings, with a strict release gate.
 - MP4 export option for selectable English and Afghan Dari audio tracks.
 - YouTube metadata and thumbnail brief.
 - Four YouTube Shorts cutdown plans for repurposing Episode 001.
@@ -105,9 +106,10 @@ EnglishTale/
 ## Quick start
 
 1. Run the input validator: `python tools/video-pipeline/validate_episode.py`.
-2. After recording all cues, assemble the separate language tracks with `python tools/video-pipeline/build_audio_tracks.py`.
-3. Build a silent visual review cut: `python tools/video-pipeline/render_episode.py` (requires FFmpeg and CairoSVG; see `tools/video-pipeline/README.md`). To include both selectable language tracks, pass `--english-audio` and `--dari-audio`.
-4. Export the long-form 4K thumbnail with `python tools/video-pipeline/render_thumbnail.py` and the vertical Shorts cover with `python tools/video-pipeline/render_shorts_cover.py`.
+2. Check generated recordings with `python tools/tts/validate_voice_assets.py`; use `--strict` to require all 96 valid WAV files. See `tools/tts/VOICE_ASSET_VALIDATION.md`.
+3. After recording all cues, assemble the separate language tracks with `python tools/video-pipeline/build_audio_tracks.py`.
+4. Build a silent visual review cut: `python tools/video-pipeline/render_episode.py` (requires FFmpeg and CairoSVG; see `tools/video-pipeline/README.md`). To include both selectable language tracks, pass `--english-audio` and `--dari-audio`.
+5. Export the long-form 4K thumbnail with `python tools/video-pipeline/render_thumbnail.py` and the vertical Shorts cover with `python tools/video-pipeline/render_shorts_cover.py`.
 5. Review `tools/tts/README.md` and `tools/tts/elevenlabs-README.md` before generating narration. Do not generate all clips until the English and Afghan Dari sample voices have been auditioned.
 6. Read `brand/brand-guide.md` and `characters/character-bible.md`.
 7. Review the SVG scene plates in `assets/scenes/` and character rigs in `assets/animation/`.
