@@ -13,7 +13,7 @@ Each episode should:
 4. Give the viewer a chance to listen, repeat, and answer.
 
 ## Audience
-Primary initial audience: Persian-speaking beginner and elementary English learners (A1–A2). The format should remain globally understandable: English dialogue, clear English captions, concise Persian explanations. Future language editions can be produced as separate localized versions rather than mixing many languages into one video.
+Primary initial audience: Afghan Dari-speaking beginner and elementary English learners (A1–A2). The format should remain globally understandable: English dialogue, clear English captions, concise Afghan Dari explanations. Future language editions can be produced as separate localized versions rather than mixing many languages into one video.
 
 ## Visual identity
 - Primary: deep navy / petrol blue — `#123B52`
@@ -38,7 +38,7 @@ Use a clean, highly legible sans-serif. Suggested options: Nunito, Poppins, or a
 ## Recurring structure
 1. Cold open / story problem.
 2. Story in natural English.
-3. Short Persian explanation of selected phrases.
+3. Short Afghan Dari explanation of selected phrases.
 4. Listen-and-repeat practice.
 5. Quick quiz.
 6. Friendly invitation to watch the next story.
@@ -49,7 +49,7 @@ Use a clean, highly legible sans-serif. Suggested options: Nunito, Poppins, or a
 - Emma: young female voice, calm, supportive, upbeat.
 - Airport agent: polite, professional adult voice.
 - Ollie: cheerful guide voice; use sparingly.
-- Persian explanations: clear, natural Persian, moderate pace.
+- Afghan Dari explanations: clear, natural Afghan Dari, moderate pace.
 
 ## Naming convention
 `ET_E001_SC03_LEO_001.wav`
