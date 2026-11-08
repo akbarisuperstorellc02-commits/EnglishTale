@@ -7,7 +7,7 @@ Last updated: 2026-11-08
 - British English dialogue and narration (en-GB).
 - Afghan Dari subtitles only; no Dari voiceover or Dari WAV files.
 - Local/offline Piper TTS; no paid API or cloud dependency in the active workflow.
-- Hybrid visuals targeting premium cinematic 3D; use high-quality 2.5D only as an honestly labelled fallback.
+- Hybrid visuals targeting premium cinematic 3D; the active episode uses Blender 3D stills with gentle Ken Burns-style zoom. SVG 2.5D is the fallback, not continuous character animation.
 - GPU acceleration is optional. The pipeline must remain usable on CPU.
 - Canonical characters: Leo (blue hoodie), Emma (pink sweater), Ollie (brown owl with cream face/chest, round glasses, navy scarf with gold trim).
 - Airport gate: Gate 12.
