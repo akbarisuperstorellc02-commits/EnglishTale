@@ -12,7 +12,7 @@ blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --output b
 
 ## Short motion study
 
-The same scene can render a short 3D motion study with subtle character body movement and a slow camera push:
+The same scene can render a short 3D motion study with subtle character body movement and a slow camera push. The CI proof is intentionally 640×360 at 24 fps to keep CPU rendering practical; the look-development still remains 1280×720:
 
 ```bash
 blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --animation --duration 2 --fps 24 --output build/episode-001-3d-motion-study.mp4
