@@ -1,4 +1,4 @@
-# Gemini TTS voice generation
+# TTS tools — active and legacy paths\n\n**Active project decision:** British English audio generated locally with Piper; Afghan Dari is subtitles only. Use [LOCAL_TTS.md](LOCAL_TTS.md). No paid API or cloud key is required for the active workflow. The voice model's own license must be reviewed before commercial use.\n\nThe Gemini and ElevenLabs sections below are retained as historical optional alternatives only; they are not the current production path.\n\n---\n\n# Gemini TTS voice generation
 
 This optional tool generates one WAV per voice-manifest cue and language. It supports resume: existing clips are skipped unless `--overwrite` is supplied.
 
