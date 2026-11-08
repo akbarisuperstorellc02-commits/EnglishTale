@@ -3,13 +3,13 @@
   "aspect_ratio": "16:9",
   "image_size": "1K",
   "output_dir": "build/images/episode-001",
-  "style": "Original polished family-friendly 3D animated educational film, cinematic composition, expressive natural faces, soft realistic lighting, detailed but clean environment, warm inviting color grade, 16:9 landscape, leave safe negative space for subtitles, no text, no logos, no watermark. Preserve supplied character references exactly. Leo always wears a blue hoodie; Emma always wears a pink sweater; Ollie is a small owl.",
+  "style": "Create a premium, original 3D animated feature-film frame for a polished educational adventure series. NOT flat illustration, NOT vector art, NOT 2D cartoon, NOT clipart, NOT a simple SVG look. Beautiful dimensional character models with appealing stylized anatomy, expressive large but natural eyes, detailed sculpted hair and fabric, subtle skin and material textures, physically based soft global illumination, cinematic three-point lighting, realistic contact shadows, rich atmospheric depth, carefully art-directed modern airport environments, cinematic color grading, professional animated-movie composition, visually rich foreground/midground/background, 16:9 widescreen. Keep faces and clothing consistent across shots. Leave uncluttered subtitle-safe space near the lower edge. No text, no logos, no watermark. Character canon: Leo is a 19-year-old young man with tousled medium-brown hair, expressive brown eyes, a vivid blue hoodie, dark blue jeans and white sneakers. Emma is a 19-year-old young woman with shoulder-length brown hair, expressive brown eyes, a warm pink sweater, dark jeans and white sneakers. Ollie is a small cute brown owl with a cream face and chest, large expressive eyes, round glasses and a navy scarf with a tiny gold accent. Airport agent is a friendly adult in a tailored navy and light-blue uniform without logos.",
   "scenes": [
     {
       "id": "01-airport-establishing",
       "file": "01-airport-establishing.png",
       "refs": [],
-      "prompt": "Wide establishing view of a spacious modern international airport departure hall, tall glass windows, distant passenger airplanes on the runway, flight information boards with abstract unreadable rows, travelers softly out of focus, welcoming cinematic atmosphere. No recognizable airline branding."
+      "prompt": "A breathtaking cinematic wide establishing shot of a grand modern international airport departure hall. Sweeping curved glass roof, tall sunlit windows, polished reflective floor, elegant check-in islands, distant passenger aircraft visible outside, a few softly defocused travelers for scale. Rich architectural detail, beautiful depth and atmospheric sunlight, premium 3D animated feature-film environment. No recognizable airline branding."
     },
     {
       "id": "02-leo-lost",
@@ -17,7 +17,7 @@
       "refs": [
         "leo"
       ],
-      "prompt": "Leo, matching the supplied reference exactly, stands in a modern airport terminal holding one medium suitcase, looking around with a mildly confused and nervous expression. Medium-wide shot, airport information screens in the background, clear readable silhouette."
+      "prompt": "Medium-wide cinematic shot of Leo, full character clearly visible, standing in the modern airport terminal beside one medium rolling suitcase. He looks around with a mildly nervous, uncertain expression, eyebrows slightly raised and one hand holding the suitcase handle. Make his blue hoodie prominent. Beautiful dimensional 3D character, detailed hair and fabric, expressive face, airport information screens softly blurred behind him."
     },
     {
       "id": "03-emma-reassures-leo",
@@ -26,7 +26,7 @@
         "leo",
         "emma"
       ],
-      "prompt": "Leo and Emma, matching both supplied references exactly, stand near the airport entrance. Emma kindly reassures Leo and gestures toward the check-in area. Leo looks slightly nervous; Emma smiles warmly. Medium two-shot."
+      "prompt": "Cinematic medium two-shot of Leo and Emma near the airport entrance. Emma warmly reassures Leo with a kind smile and gestures toward the check-in area; Leo looks relieved and listens. Both characters fully readable, clearly distinct silhouettes, Leo in his blue hoodie and Emma in her pink sweater. Natural friendly body language, beautiful 3D animated feature-film rendering."
     },
     {
       "id": "04-check-in-counter",
@@ -35,7 +35,7 @@
         "leo",
         "emma"
       ],
-      "prompt": "Leo stands at a generic airport check-in counter and politely hands over a closed passport to a friendly airport agent. Emma stands beside him. No airline logos, no visible personal information. Medium-wide shot."
+      "prompt": "Cinematic medium-wide airport check-in scene. Leo politely hands a closed passport to a friendly adult airport agent behind a beautifully detailed modern counter. Emma stands beside Leo supportively. Keep all three people naturally proportioned, hands anatomically clean, faces expressive. Navy and light-blue agent uniform, no airline logos, no visible personal information."
     },
     {
       "id": "05-suitcase-drop",
@@ -43,7 +43,7 @@
       "refs": [
         "leo"
       ],
-      "prompt": "At an airport check-in desk, one medium suitcase rests on the baggage belt while a friendly airport agent gestures politely and Leo watches attentively. Clean modern airport, natural proportions, medium shot."
+      "prompt": "Dynamic medium shot at the check-in desk: one attractive medium rolling suitcase rests on the moving baggage belt while the friendly airport agent gestures politely and Leo watches attentively. Detailed belt machinery and modern terminal background, cinematic depth of field, rich 3D materials and soft reflections."
     },
     {
       "id": "06-boarding-pass",
@@ -51,7 +51,7 @@
       "refs": [
         "leo"
       ],
-      "prompt": "Close-up of a friendly airport agent handing a generic blank boarding pass to Leo. No readable text, no barcode, no personal details. Hands anatomically correct; uncluttered airport background."
+      "prompt": "Cinematic close-up of a friendly airport agent's hand passing a clean generic blank boarding pass to Leo. Leo's recognizable face and blue hoodie are softly visible in the background. The pass must contain no readable text, barcode, logo or personal details. Natural anatomically correct hands, premium 3D animated film lighting, shallow depth of field."
     },
     {
       "id": "07-gate-information",
@@ -60,7 +60,7 @@
         "leo",
         "emma"
       ],
-      "prompt": "Leo and Emma look up at a large airport departure information screen. Over-shoulder composition. Screen content is abstract and unreadable, with a clean empty area where Gate 12 can be added later in editing."
+      "prompt": "Over-the-shoulder cinematic shot of Leo and Emma looking up at a large elegant airport departure information display. Their faces are seen in partial profile with curious expressions; Leo's blue hoodie and Emma's pink sweater clearly visible. The screen has a clean blank central area for adding the words GATE 12 in editing. Sophisticated airport architecture and cinematic reflections."
     },
     {
       "id": "08-walking-to-gate",
@@ -69,7 +69,7 @@
         "leo",
         "emma"
       ],
-      "prompt": "Leo and Emma walk side by side through a bright modern airport concourse toward the departure gates, suitcase rolling beside Leo. Natural walking poses, cinematic wide tracking composition."
+      "prompt": "Wide cinematic tracking shot of Leo and Emma walking side by side through a beautiful bright airport concourse toward the departure gates. Leo pulls his rolling suitcase. Natural mid-stride movement, relaxed conversation, full bodies visible, polished floor reflections, glass architecture, lively but uncluttered background. Premium 3D animated feature-film quality."
     },
     {
       "id": "09-security-checkpoint",
@@ -77,7 +77,7 @@
       "refs": [
         "leo"
       ],
-      "prompt": "Leo calmly places a small carry-on bag into a plastic security tray at a modern airport checkpoint. A friendly security officer is nearby. Respectful, family-friendly scene, no logos and no detailed security procedures."
+      "prompt": "Cinematic medium shot of Leo calmly placing a small carry-on bag into a grey plastic security tray at a modern airport checkpoint. A friendly security officer stands nearby. Respectful family-friendly atmosphere, natural pose and hands, detailed but not intimidating environment, premium 3D animated film look. No logos and no detailed security procedures."
     },
     {
       "id": "10-gate-goodbye",
@@ -86,7 +86,7 @@
         "leo",
         "emma"
       ],
-      "prompt": "At the departure gate, Leo smiles and waves goodbye to Emma. A passenger airplane is visible through large glass windows in the background. Warm emotional cinematic medium-wide shot."
+      "prompt": "Warm emotional cinematic medium-wide shot at the departure gate. Leo smiles gratefully and waves goodbye to Emma; Emma returns a friendly wave. A passenger airplane is visible through huge glass windows behind them in golden late-afternoon light. Expressive faces, believable emotional moment, rich 3D environment and beautiful cinematic lighting."
     },
     {
       "id": "11-ollie-recap",
@@ -94,7 +94,7 @@
       "refs": [
         "ollie"
       ],
-      "prompt": "Ollie, matching the supplied small owl reference exactly, stands beside a clean navy presentation board with generous empty space for lesson phrases to be added later. Cheerful teacher expression, simple polished studio setting."
+      "prompt": "Ollie, the small owl guide, stands beside a beautifully designed deep-navy presentation board in a polished cozy 3D animated learning studio. Ollie has a cheerful teacher expression and gestures toward generous empty board space for lesson phrases to be added later. Detailed soft feathers, round glasses, navy scarf, warm studio lighting, appealing cinematic composition."
     },
     {
       "id": "12-ollie-quiz",
@@ -102,7 +102,7 @@
       "refs": [
         "ollie"
       ],
-      "prompt": "Ollie, matching the supplied small owl reference exactly, gestures toward three large empty rounded cards arranged vertically. Leave all cards blank for editable A/B/C text. Friendly clean educational end-card composition."
+      "prompt": "Ollie, the same small owl guide, stands on the right side of a polished colorful 3D animated educational end card and gestures toward three large empty rounded cards arranged vertically on the left. Cards must remain completely blank for editable A/B/C text. Charming dimensional feathers, expressive eyes, round glasses, navy scarf, bright premium studio lighting and clear visual hierarchy."
     }
   ]
 }
