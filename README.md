@@ -37,6 +37,9 @@ Episode 001 has moved beyond the planning-only stage. The repository now include
 
 ```text
 EnglishTale/
+├── .github/
+│   └── workflows/
+│       └── validate-episode.yml
 ├── README.md
 ├── production-workflow.md
 ├── brand/
@@ -46,16 +49,17 @@ EnglishTale/
 │   ├── character-bible.md
 │   └── prompts.md
 ├── assets/
-│   ├── characters/          # Original static character SVGs
-│   ├── scenes/              # Five original scene plates
-│   └── thumbnails/          # Original Episode 001 thumbnail artwork
-│   └── animation/           # Animated SVG rigs + pipeline notes
+│   ├── characters/
+│   ├── scenes/
+│   ├── animation/
+│   └── thumbnails/
 ├── episodes/
 │   └── 001-english-at-the-airport/
 │       ├── episode-brief.md
 │       ├── script-en-fa.md
 │       ├── storyboard.md
 │       ├── animation-shot-plan.md
+│       ├── render-shotlist.json
 │       ├── voice-and-sound.md
 │       ├── voice-subtitle-production.md
 │       ├── voice-recording-package.md
@@ -64,6 +68,14 @@ EnglishTale/
 │       ├── subtitles-fa.srt
 │       ├── youtube-metadata.md
 │       └── thumbnail-prompt.md
+├── tools/
+│   └── video-pipeline/
+│       ├── README.md
+│       ├── requirements.txt
+│       ├── render_episode.py
+│       ├── build_audio_tracks.py
+│       ├── render_thumbnail.py
+│       └── validate_episode.py
 ├── prompts/
 │   ├── image-generation.md
 │   └── image-to-video.md
