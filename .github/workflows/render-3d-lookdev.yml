@@ -58,7 +58,7 @@ jobs:
           streams = info["streams"]
           v = next(s for s in streams if s["codec_type"] == "video")
           duration = float(info["format"]["duration"])
-          assert (v["width"], v["height"]) == (1280, 720), f"Unexpected motion dimensions: {v}"
+          assert (v["width"], v["height"]) == (640, 360), f"Unexpected motion dimensions: {v}"
           assert v["codec_name"] == "h264", f"Expected H.264, got {v['codec_name']}"
           assert 1.8 <= duration <= 2.3, f"Unexpected motion duration: {duration}"
           print(f"PASS: still {width}x{height}, {len(data)} bytes")
