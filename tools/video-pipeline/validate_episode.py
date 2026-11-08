@@ -37,6 +37,11 @@ def main() -> int:
     shots = json.loads(shot_path.read_text(encoding="utf-8"))
     if sum(int(s["duration"]) for s in shots) != 420:
         errors.append("Shot durations do not total 420 seconds.")
+    if any(int(s.get("duration", 0)) <= 0 for s in shots):
+        errors.append("Every shot must have a positive duration.")
+    shot_ids = [str(s.get("id", "")) for s in shots]
+    if len(shot_ids) != len(set(shot_ids)):
+        errors.append("Shot IDs are not unique.")
     for shot in shots:
         if not (SCENES / shot["scene"]).is_file():
             errors.append(f"Missing scene file: {shot['scene']}")
@@ -44,6 +49,10 @@ def main() -> int:
     fa = parse_srt(EP / "subtitles-fa.srt")
     manifest = json.loads((EP / "voice-manifest.json").read_text(encoding="utf-8"))
     manifest_cues = manifest.get("cues", [])
+    if int(manifest.get("target_duration_seconds", 0)) != 420:
+        errors.append("Voice manifest target duration must be 420 seconds.")
+    valid_roles = {"Narrator", "Leo", "Emma", "Airport Agent", "Security Officer", "Ollie"}
+    voice_paths = []
     if len(manifest_cues) != len(en):
         errors.append(f"Voice manifest cue count differs from English SRT: {len(manifest_cues)} vs {len(en)}.")
     else:
@@ -52,10 +61,15 @@ def main() -> int:
                 errors.append(f"Voice manifest timing/ID differs at cue {index + 1}.")
             if cue.get("english_text", "").strip() == "" or cue.get("dari_text", "").strip() == "":
                 errors.append(f"Voice manifest cue {index + 1} has an empty language text.")
+            if cue.get("role") not in valid_roles:
+                errors.append(f"Voice manifest cue {index + 1} has an unknown role: {cue.get('role')}.")
+            voice_paths.extend([cue.get("english_file", ""), cue.get("dari_file", "")])
             if cue.get("english_text", "").strip() != en[index][3].strip():
                 errors.append(f"Voice manifest English text differs from SRT at cue {index + 1}.")
             if index < len(fa) and cue.get("dari_text", "").strip() != fa[index][3].strip():
                 errors.append(f"Voice manifest Dari text differs from SRT at cue {index + 1}.")
+    if len(voice_paths) != len(set(voice_paths)):
+        errors.append("Voice manifest contains duplicate or empty output paths.")
     if len(en) != len(fa):
         errors.append(f"Subtitle cue count differs: EN={len(en)}, FA={len(fa)}.")
     if [x[1:3] for x in en] != [x[1:3] for x in fa]:
@@ -76,7 +90,9 @@ def main() -> int:
     svg_paths = list((ROOT / "assets").rglob("*.svg"))
     for svg_path in svg_paths:
         try:
-            ET.parse(svg_path)
+            root = ET.parse(svg_path).getroot()
+            if svg_path.parent == SCENES and (root.attrib.get("width") != "1280" or root.attrib.get("height") != "720"):
+                errors.append(f"Scene plate must be 1280x720: {svg_path.relative_to(ROOT)}")
         except ET.ParseError as exc:
             errors.append(f"Invalid SVG/XML in {svg_path.relative_to(ROOT)}: {exc}")
     if not svg_paths:
@@ -88,7 +104,7 @@ def main() -> int:
         return 1
     print("VALIDATION PASSED")
     print(f" - {len(shots)} shots / 420 seconds")
-    print(f" - {len(en)} English cues and {len(fa)} Dari cues; voice manifest text/timing aligned")
+    print(f" - {len(en)} English cues and {len(fa)} Dari cues; voice manifest text/timing/roles aligned")
     print(" - English/Dari cue boundaries match")
     print(" - all scene plates exist; Gate 12 confirmed")
     print(f" - {len(svg_paths)} SVG files parse as valid XML")
