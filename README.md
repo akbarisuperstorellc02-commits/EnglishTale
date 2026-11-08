@@ -31,17 +31,17 @@ The project has a validated production package and a working render/tooling foun
 - End-to-end offline audio pipeline tests using a deterministic fake Piper executable; these test software behavior, not real voice quality.
 - Voice WAV validator configured for 48 English files only; Afghan Dari remains subtitle-only.
 - All 48 real English cue WAVs generated and technically validated; the 420-second English master WAV and first-pass retimed English/Dari SRTs are packaged in GitHub Actions.
-- FFmpeg/CairoSVG 7-minute scene-plate renderer; both a 420-second 720p review MP4 and a 420-second 1080p30 H.264 master candidate with loudness-normalized AAC English dialogue and selectable English/Dari subtitles passed technical validation. The current 1080p candidate uses the SVG 2.5D fallback; the new 18-angle Blender 3D still library is being integrated into the next master build. The current cut is dialogue-only; music/ambience and final sound design remain release-stage decisions.
+- FFmpeg/CairoSVG 7-minute scene-plate renderer; both a 420-second 720p review MP4 and a 420-second 1080p30 H.264 master candidate with loudness-normalized AAC English dialogue and selectable English/Dari subtitles passed technical validation. The earlier 1080p candidate used the SVG 2.5D fallback. All 18 procedural Blender 3D stills have now passed 1920×1080 validation; the new hybrid master render is in progress. The current cut is dialogue-only; music/ambience and final sound design remain release-stage decisions.
 - [Download the 1080p30 master candidate, 720p review, English WAVs, retimed subtitles, and VCTK attribution](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42504752349/artifacts/13626009753).
 - 4K YouTube thumbnail artwork/export and vertical Shorts cover artwork/export.
 - Dependency-free source validation and GitHub Actions checks.
-- Procedural Blender 3D character/airport look-development scene with a validated 1280×720 still and a separate two-second 640×360 character motion-study MP4. The motion study proves the 3D-to-MP4 path; it is not a finished episode shot.
+- Procedural Blender 3D character/airport scene with a validated 1280×720 look-development still, an 18-angle 1920×1080 shot library, and a separate two-second 640×360 character motion-study MP4. The still library supports the hybrid master with 2.5D camera motion; it is not continuous full-3D character animation.
 - [Download the 3D look-development still and motion-study MP4](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42504752366/artifacts/13626574637).
 
 ### Still required before release
 - Listen to and approve all 48 generated English WAV clips for pronunciation, acting, pacing, and role consistency.
 - Manually review both WAV-duration-retimed subtitle files against the actual English recordings.
-- Validate the 18-angle Blender 3D shot library and regenerate the 1080p master from those 3D stills; complete dialogue-specific character animation and visual continuity. The Blender motion study is only a short technical preview.
+- Complete and validate the 1080p master render from the 18 Blender 3D stills; complete dialogue-specific character animation and visual continuity. The Blender motion study is only a short technical preview.
 - Human-review the 720p review cut and 1080p30 master candidate with sound and muted; revise visual/timing issues and decide whether additional sound design is needed before publication.
 - Review the final thumbnail and all asset/model licenses before YouTube publication.
 
