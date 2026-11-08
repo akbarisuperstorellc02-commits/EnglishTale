@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-labelledby="t d">
+<title id="t">Ollie — idle and wing flap animation</title><desc id="d">Original animated vector character asset for EnglishTale. CSS and SVG animations are embedded.</desc>
+<defs>
+ <linearGradient id="hood" x2="0" y2="1"><stop stop-color="#2587D8"/><stop offset="1" stop-color="#10519B"/></linearGradient>
+ <linearGradient id="sweater" x2="0" y2="1"><stop stop-color="#FFB4CB"/><stop offset="1" stop-color="#E96F9B"/></linearGradient>
+ <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#19374A" flood-opacity=".18"/></filter>
+</defs>
+<style>
+ .idle{transform-box:fill-box;transform-origin:center;animation:idle 3.2s ease-in-out infinite}
+ .blink{transform-box:fill-box;transform-origin:center;animation:blink 4.8s infinite}
+ .talk{animation:talk .34s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
+ .wing{transform-box:fill-box;transform-origin:top center;animation:flap .65s ease-in-out infinite alternate}
+ @keyframes idle{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+ @keyframes blink{0%,43%,47%,100%{transform:scaleY(1)}45%{transform:scaleY(.08)}}
+ @keyframes talk{from{transform:scaleY(.25)}to{transform:scaleY(1)}}
+ @keyframes flap{from{transform:rotate(-12deg)}to{transform:rotate(16deg)}}
+</style>
+<rect width="640" height="640" rx="36" fill="#EEF5F8"/>
+<circle cx="320" cy="275" r="230" fill="#DCEBF4"/>
+<g class="idle" filter="url(#shadow)">
+<ellipse cx="320" cy="555" rx="110" ry="18" fill="#31546B" opacity=".17"/>
+<g class="wing"><path d="M245 300Q130 240 160 150Q240 160 280 285Z" fill="#A66B35" stroke="#75451F" stroke-width="8"/></g>
+<g class="wing"><path d="M395 300Q510 240 480 150Q400 160 360 285Z" fill="#A66B35" stroke="#75451F" stroke-width="8"/></g>
+<ellipse cx="320" cy="330" rx="140" ry="170" fill="#B98245"/>
+<ellipse cx="320" cy="370" rx="95" ry="105" fill="#F2D6A5"/>
+<ellipse cx="270" cy="300" rx="42" ry="48" fill="#fff"/><ellipse cx="370" cy="300" rx="42" ry="48" fill="#fff"/>
+<g class="blink"><circle cx="275" cy="304" r="17" fill="#26394A"/><circle cx="365" cy="304" r="17" fill="#26394A"/></g>
+<path d="M302 345L320 374L338 345Z" fill="#E59A36"/>
+<ellipse class="talk" cx="320" cy="405" rx="13" ry="5" fill="#9A5632"/>
+<path d="M270 490L250 535M370 490L390 535" stroke="#8C572B" stroke-width="12" stroke-linecap="round"/>
+</g>
+</svg>
