@@ -18,6 +18,7 @@ from unittest.mock import patch
 
 from tools.tts import generate_local_english as generator
 from tools.tts import build_english_track as assembler
+from tools.tts import retime_subtitles as retimer
 
 
 class LocalAudioPipelineTests(unittest.TestCase):
@@ -48,12 +49,15 @@ class LocalAudioPipelineTests(unittest.TestCase):
         self.manifest_path.write_text(json.dumps(source), encoding="utf-8")
         self.original_generator_manifest = generator.MANIFEST
         self.original_assembler_manifest = assembler.MANIFEST
+        self.original_retimer_manifest = retimer.MANIFEST
         generator.MANIFEST = self.manifest_path
         assembler.MANIFEST = self.manifest_path
+        retimer.MANIFEST = self.manifest_path
 
     def tearDown(self):
         generator.MANIFEST = self.original_generator_manifest
         assembler.MANIFEST = self.original_assembler_manifest
+        retimer.MANIFEST = self.original_retimer_manifest
         self.temp.cleanup()
 
     def run_generator(self, *args):
@@ -102,6 +106,27 @@ class LocalAudioPipelineTests(unittest.TestCase):
         self.assertEqual(self.run_generator("--limit", "2"), 0)
         self.assertEqual(first.stat().st_mtime_ns, before)
         self.assertEqual(len(list(self.output_dir.glob("*.wav"))), 2)
+
+    def test_retimer_creates_two_subtitle_tracks_from_real_wav_durations(self):
+        self.assertEqual(self.run_generator(), 0)
+        en_out = self.root / "retimed-en.srt"
+        fa_out = self.root / "retimed-fa.srt"
+        argv = [
+            "retime_subtitles.py",
+            "--input", str(self.output_dir),
+            "--english-output", str(en_out),
+            "--dari-output", str(fa_out),
+            "--padding-ms", "150",
+        ]
+        with patch.object(sys, "argv", argv):
+            self.assertEqual(retimer.main(), 0)
+        for output in (en_out, fa_out):
+            self.assertTrue(output.is_file())
+            blocks = output.read_text(encoding="utf-8").strip().split("\\n\\n")
+            self.assertEqual(len(blocks), 48)
+            self.assertIn(" --> ", blocks[0])
+        first_timing = en_out.read_text(encoding="utf-8").splitlines()[1]
+        self.assertTrue(first_timing.startswith("00:00:00,000 --> 00:00:01,"))
 
     def test_assembler_fails_when_a_clip_is_missing(self):
         self.assertEqual(self.run_generator("--limit", "1"), 0)
