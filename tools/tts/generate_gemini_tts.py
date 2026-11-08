@@ -48,6 +48,7 @@ def validate_wav(data: bytes) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Generate Episode 001 voice clips with Gemini TTS.")
     parser.add_argument("--language", choices=("en", "fa", "both"), default="both")
+    parser.add_argument("--cue-ids", type=str, default="", help="Comma-separated cue IDs for a representative audition set.")
     parser.add_argument("--limit", type=int, default=0, help="Generate only the first N cues per language (useful for auditioning).")
     parser.add_argument("--start-id", type=int, default=1, help="First cue ID to process.")
     parser.add_argument("--delay", type=float, default=1.0, help="Seconds to wait between API calls.")
@@ -62,9 +63,19 @@ def main() -> int:
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
     settings = json.loads(VOICE_CONFIG.read_text(encoding="utf-8"))
     model = args.model or settings["model"]
-    selected = [c for c in manifest["cues"] if int(c["id"]) >= args.start_id]
-    if args.limit:
-        selected = selected[:args.limit]
+    if args.cue_ids and args.limit:
+        raise SystemExit("Use either --cue-ids or --limit, not both.")
+    if args.cue_ids:
+        requested_ids = {int(value.strip()) for value in args.cue_ids.split(",") if value.strip()}
+        selected = [c for c in manifest["cues"] if int(c["id"]) in requested_ids]
+        found_ids = {int(c["id"]) for c in selected}
+        missing_ids = sorted(requested_ids - found_ids)
+        if missing_ids:
+            raise SystemExit("Unknown cue IDs: " + ", ".join(map(str, missing_ids)))
+    else:
+        selected = [c for c in manifest["cues"] if int(c["id"]) >= args.start_id]
+        if args.limit:
+            selected = selected[:args.limit]
     languages = ("en", "fa") if args.language == "both" else (args.language,)
     if args.dry_run:
         for lang in languages:
