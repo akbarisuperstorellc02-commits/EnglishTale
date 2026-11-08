@@ -30,7 +30,7 @@ jobs:
           blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --output build/episode-001-3d-lookdev.png
       - name: Render short procedural 3D character motion study
         run: |
-          blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --animation --duration 4 --fps 24 --output build/episode-001-3d-motion-study.mp4
+          blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --animation --duration 2 --fps 24 --output build/episode-001-3d-motion-study.mp4
       - name: Validate 3D still and MP4 motion study
         run: |
           python3 - <<'PY'
@@ -60,7 +60,7 @@ jobs:
           duration = float(info["format"]["duration"])
           assert (v["width"], v["height"]) == (1280, 720), f"Unexpected motion dimensions: {v}"
           assert v["codec_name"] == "h264", f"Expected H.264, got {v['codec_name']}"
-          assert 3.8 <= duration <= 4.3, f"Unexpected motion duration: {duration}"
+          assert 1.8 <= duration <= 2.3, f"Unexpected motion duration: {duration}"
           print(f"PASS: still {width}x{height}, {len(data)} bytes")
           print(f"PASS: motion MP4 {v['width']}x{v['height']}, {duration:.2f}s, {video.stat().st_size} bytes")
           PY
