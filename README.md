@@ -30,17 +30,18 @@ The project has a validated production package and a working render/tooling foun
 - Local British English Piper generator, checksum-verified VCTK multi-speaker model downloader, role-specific speaker map, and English WAV assembler.
 - End-to-end offline audio pipeline tests using a deterministic fake Piper executable; these test software behavior, not real voice quality.
 - Voice WAV validator configured for 48 English files only; Afghan Dari remains subtitle-only.
+- All 48 real English cue WAVs generated and technically validated; the 420-second English master WAV and first-pass retimed English/Dari SRTs are packaged in GitHub Actions.
 - FFmpeg/CairoSVG 7-minute scene-plate review renderer with optional English audio and selectable English/Dari subtitle tracks.
 - 4K YouTube thumbnail artwork/export and vertical Shorts cover artwork/export.
 - Dependency-free source validation and GitHub Actions checks.
 - Procedural Blender 3D character/airport look-development scene. Its successful PNG render is a still style test, not a finished animated shot.
 
 ### Still required before release
-- Download the pinned multi-speaker British English VCTK model (checksum verification and CC BY 4.0 attribution note are automated; model weights remain local and are not committed).
+- Listen to and approve all 48 generated English WAV clips for pronunciation, acting, pacing, and role consistency.
 - Complete the 48-cue audio-generation workflow, then listen to and approve all English WAV clips.
-- Retiming both subtitle files against the actual English recordings.
-- Create and review final character animation, including appropriate dialogue timing and visual continuity.
-- Complete the sound mix, full 1080p export, and human quality review.
+- Manually review both WAV-duration-retimed subtitle files against the actual English recordings.
+- Create and review final character animation, including appropriate dialogue timing and visual continuity. The Blender motion study is only a short technical preview.
+- Complete sound design/mix, the full 720p review cut, final 1080p export, and human quality review.
 - Review the final thumbnail and all asset/model licenses before YouTube publication.
 
 ## Quick start
