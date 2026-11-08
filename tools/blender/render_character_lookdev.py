@@ -239,7 +239,6 @@ def main():
 
     scene = bpy.context.scene
     scene.render.engine = "BLENDER_EEVEE_NEXT" if "BLENDER_EEVEE_NEXT" in bpy.types.RenderSettings.bl_rna.properties["engine"].enum_items.keys() else "BLENDER_EEVEE"
-    scene.eevee.taa_render_samples = 48 if hasattr(scene, "eevee") else 48
     scene.render.resolution_x = 1280
     scene.render.resolution_y = 720
     scene.render.resolution_percentage = 100
@@ -253,7 +252,6 @@ def main():
     scene.render.film_transparent = False
     scene.render.resolution_percentage = 100
     scene.render.image_settings.color_depth = "8"
-    scene.render.engine = "BLENDER_EEVEE_NEXT" if hasattr(scene, "eevee") else scene.render.engine
     bpy.ops.render.render(write_still=True)
     print("ENGLISHTALE_3D_LOOKDEV_OUTPUT=" + str(output))
 
