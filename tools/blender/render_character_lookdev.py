@@ -263,7 +263,8 @@ def main():
         # Keep the CI motion proof CPU-friendly while preserving the 1280x720 frame.
         scene.camera.data.dof.use_dof = False
         if hasattr(scene, "eevee") and hasattr(scene.eevee, "taa_render_samples"):
-            scene.eevee.taa_render_samples = 16
+            scene.eevee.taa_render_samples = 8
+        scene.render.resolution_percentage = 50
 
         def character_root(prefix, label):
             root = bpy.data.objects.new(label + " animation root", None)
