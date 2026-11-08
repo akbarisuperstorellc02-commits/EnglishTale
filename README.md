@@ -95,7 +95,7 @@ A one-command local build script is provided:
 .\tools\windows\build_episode_001.ps1
 ```
 
-Use `-SkipVideo` to generate and validate audio/subtitles without FFmpeg, or `-Overwrite` to regenerate all English voice clips. The script creates a local virtual environment, downloads the pinned voice model, builds the English audio and retimed subtitles, and renders the 720p review plus 1080p30 master candidate when FFmpeg is installed.
+Use `-SkipVideo` to generate and validate audio/subtitles without FFmpeg, or `-Overwrite` to regenerate all English voice clips. The script creates a local virtual environment, downloads the pinned voice model, builds the English audio and retimed subtitles, and renders the 720p review plus 1080p30 master candidate when FFmpeg is installed. If Blender is also installed, it renders and uses the 18-shot 3D library; otherwise it clearly falls back to the SVG 2.5D shot list.
 
 ## Quality and rights principles
 
