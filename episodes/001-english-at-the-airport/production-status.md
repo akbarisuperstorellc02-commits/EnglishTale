@@ -26,26 +26,26 @@ Last updated: 2026-11-08
 - [x] English-only voice WAV validator; strict release gate requires all 48 English clips.
 - [x] Offline end-to-end tests for fake Piper generation, 48-cue assembly, resume behavior, missing-clip rejection, and subtitle retiming.
 - [x] WAV-duration subtitle retiming helper that writes separate English and Afghan Dari SRT tracks. Human listening and final manual review remain required.
-- [x] Generated all 48 real British English WAV cues in GitHub Actions using the pinned multi-speaker VCTK model; all 48 passed strict technical validation.
+- [x] Generated the corrected 48 British English WAV cues in GitHub Actions using the pinned multi-speaker VCTK model; all 48 passed strict technical validation.
 - [x] Assembled the complete 420-second English master WAV at 22,050 Hz mono PCM.
 - [x] Generated first-pass English and Afghan Dari retimed SRT files from the measured WAV cue durations.
 - [x] Uploaded the English audio, all cue WAVs, retimed SRTs, and VCTK attribution note as a GitHub Actions artifact.
 - [x] FFmpeg/CairoSVG 7-minute scene-plate renderer with optional British English audio and selectable English/Dari subtitle streams.
 - [x] Complete 420-second 1280×720 H.264 review MP4 rendered with AAC English dialogue and two selectable subtitle tracks; technical stream/duration validation passed.
-- [x] Complete 420-second 1920×1080/30 fps H.264 master candidate rendered with loudness-normalized British English dialogue and two selectable subtitle tracks; technical stream/duration validation passed using the SVG 2.5D fallback.
+- [x] Complete 420-second 1920×1080/30 fps H.264 master candidate rendered from the 18 Blender 3D stills with gentle Ken Burns-style zoom, normalized British English dialogue, and two selectable subtitle tracks; technical stream/duration validation passed.
 - [x] 4K YouTube thumbnail and vertical Shorts cover source artwork, renderers, validators, and CI artifacts.
 - [x] Procedural Blender 3D look-development scene and successful 1280×720 still render.
 - [x] Short 3D character motion-study MP4 rendered and validated at 640×360/24 fps; this is a two-second technical preview, not a finished episode shot.
-- [x] A first 18-shot procedural Blender 3D library passed 1920×1080 technical validation. The phrase/quiz boards and check-in props are in the scene; corrected camera framing for shots 16–17 is being rebuilt in the current pipeline.
+- [x] All 18 procedural Blender 3D stills, including correctly framed phrase-review and quiz boards, passed 1920×1080 technical validation.
 - [x] Corrected the boarding-pass quiz so option B defines the document rather than repeating the phrase; added a regression check to the episode validator.
 - [x] Added the YouTube title, description, chapters, tags, pinned comment, VCTK attribution, and upload checklist.
 - [x] GitHub Actions validation checks for source assets, scripts, TTS pipeline tests, thumbnail outputs, and cover outputs.
 
 ## Not yet complete — release blockers
 
-- [ ] Listen to all 48 generated English WAV clips for pronunciation, pacing, role consistency, clipping, and quality. The boarding-pass quiz wording has been corrected in the voice manifest and both source subtitle files; regenerated audio is in progress.
+- [ ] Human-listen to all 48 corrected English WAV clips for pronunciation, pacing, role consistency, clipping, and voice quality.
 - [ ] Listen to and approve the generated English track; manually review both WAV-duration-retimed subtitle files. Duration-based retiming is only a first pass.
-- [ ] Finish and validate the new 1080p30 hybrid master rendered from the 18 validated 1920×1080 Blender 3D stills. The earlier validated master used the SVG 2.5D fallback.
+
 - [ ] Complete continuous character animation, hand interactions, and dialogue-specific acting. The current Blender motion study is a short technical preview, not a finished character rig.
 - [ ] Human-review the 720p review cut and 1080p30 master candidate with sound and muted; fix visual/timing issues and decide whether additional sound design is needed before publication.
 - [ ] Final human review of thumbnails, licenses, subtitles, audio, and YouTube metadata before publication.
@@ -53,7 +53,8 @@ Last updated: 2026-11-08
 ## Latest pipeline runs
 
 - [x] [18 procedural Blender 3D stills validated at 1920×1080; current master render is processing](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42505448916).
-- [x] [Corrected English audio and 18-shot 3D stills rendered and validated; final 1080p30 master rendering](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42507408492).
+- [x] [Corrected English audio, all 18 3D stills, 7-minute 720p review, and 1080p30 master candidate validated](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42507408492).
+- [x] [Download the 1080p30 3D-still master, 720p review, all 18 Blender stills, 48 cue WAVs, retimed English/Dari SRTs, and VCTK attribution](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42507408492/artifacts/13628127892).
 - [x] [4K 3D thumbnail and vertical Shorts cover generated and validated; both JPEGs are under 1 MB](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42507835859/artifacts/13627908807).
 
 ## Verified GitHub checks
