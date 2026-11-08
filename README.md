@@ -34,7 +34,7 @@ The project has a validated production package and a working render/tooling foun
 - FFmpeg/CairoSVG 7-minute scene-plate review renderer with optional English audio and selectable English/Dari subtitle tracks.
 - 4K YouTube thumbnail artwork/export and vertical Shorts cover artwork/export.
 - Dependency-free source validation and GitHub Actions checks.
-- Procedural Blender 3D character/airport look-development scene. Its successful PNG render is a still style test, not a finished animated shot.
+- Procedural Blender 3D character/airport look-development scene with a validated 1280×720 still and a separate two-second 640×360 character motion-study MP4. The motion study proves the 3D-to-MP4 path; it is not a finished episode shot.
 
 ### Still required before release
 - Listen to and approve all 48 generated English WAV clips for pronunciation, acting, pacing, and role consistency.
