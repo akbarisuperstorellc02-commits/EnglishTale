@@ -1,0 +1,131 @@
+1
+00:00:00,000 --> 00:00:06,000
+Leo is at the airport.
+
+2
+00:00:06,000 --> 00:00:12,000
+He's going on his first trip to London.
+
+3
+00:00:12,000 --> 00:00:20,000
+But something is wrong. He doesn't know where to go!
+
+4
+00:00:20,000 --> 00:00:25,000
+Oh no! Where is the check-in counter?
+
+5
+00:00:25,000 --> 00:00:30,000
+Don't worry, Leo! I'll help you.
+
+6
+00:00:30,000 --> 00:00:38,000
+Leo and Emma walk into the airport.
+
+7
+00:00:38,000 --> 00:00:44,000
+Emma, I'm a little nervous.
+
+8
+00:00:44,000 --> 00:00:50,000
+It's okay! Traveling is exciting.
+
+9
+00:00:50,000 --> 00:00:56,000
+What's the first thing we need to do?
+
+10
+00:00:56,000 --> 00:01:00,000
+We need to check in and get your boarding pass.
+
+11
+00:01:00,000 --> 00:01:08,000
+Good morning! Where are you flying today?
+
+12
+00:01:08,000 --> 00:01:13,000
+I'm flying to London.
+
+13
+00:01:13,000 --> 00:01:19,000
+May I see your passport, please?
+
+14
+00:01:19,000 --> 00:01:23,000
+Of course. Here you are.
+
+15
+00:01:23,000 --> 00:01:30,000
+Do you have any bags to check in?
+
+16
+00:01:30,000 --> 00:01:35,000
+Yes, I have one suitcase.
+
+17
+00:01:35,000 --> 00:01:42,000
+Here is your boarding pass.
+
+18
+00:01:42,000 --> 00:01:47,000
+Thank you very much!
+
+19
+00:01:47,000 --> 00:01:54,000
+Emma, where is Gate 12?
+
+20
+00:01:54,000 --> 00:02:00,000
+Let's look at the information screen.
+
+21
+00:02:00,000 --> 00:02:06,000
+It says Gate 12 is on the left.
+
+22
+00:02:06,000 --> 00:02:12,000
+That's right! Let's go.
+
+23
+00:02:12,000 --> 00:02:20,000
+Thank you for helping me!
+
+24
+00:02:20,000 --> 00:02:27,000
+Please put your bag on the tray.
+
+25
+00:02:27,000 --> 00:02:33,000
+Okay. Is this everything?
+
+26
+00:02:33,000 --> 00:02:40,000
+Please walk through the scanner.
+
+27
+00:02:40,000 --> 00:02:48,000
+Leo passes the security check. Everything is fine!
+
+28
+00:02:48,000 --> 00:02:58,000
+Passengers for London, boarding is now open.
+
+29
+00:02:58,000 --> 00:03:04,000
+Emma! It's time to board!
+
+30
+00:03:04,000 --> 00:03:10,000
+Have a wonderful trip!
+
+31
+00:03:10,000 --> 00:03:17,000
+Thank you! See you soon!
+
+32
+00:03:17,000 --> 00:03:25,000
+Leo smiles and walks toward the airplane.
+
+33
+00:03:25,000 --> 00:03:35,000
+He is ready for his first adventure!
