@@ -40,6 +40,7 @@ Last updated: 2026-11-08
 - [x] Four vertical YouTube Shorts cutdown plans prepared for post-release promotion.
 - [x] Dependency-free voice asset validator added for all 96 English/Dari WAV clips, including strict release mode and unit tests.
 - [x] CI now runs voice validator unit tests and reports missing recordings as pending without falsely failing the source-package build.
+- [x] Audio assembly now automatically blocks until all 96 WAV clips pass strict technical validation.
 
 ## Quality notes
 - Subtitle timestamps are editorial estimates, not measured against recorded audio.
