@@ -81,7 +81,7 @@ def main() -> int:
             frames = int(shot["duration"]) * args.fps
             vf = f"scale={args.width}:{args.height},format=yuv420p"
             if not args.no_motion:
-                vf = (f"zoompan=z='min(zoom+0.00035,1.045)':d={frames}:"
+                vf = (f"zoompan=z='min(zoom+0.00035,1.045)':d=1:"
                       f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
                       f"s={args.width}x{args.height}:fps={args.fps},format=yuv420p")
             run([ffmpeg, "-y", "-loop", "1", "-framerate", str(args.fps),
