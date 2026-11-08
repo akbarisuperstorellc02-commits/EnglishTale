@@ -1,0 +1,63 @@
+name: Render EnglishTale 3D YouTube Brand Assets
+
+on:
+  workflow_run:
+    workflows: ["Generate Episode 001 British English Audio"]
+    types: [completed]
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  render-3d-brand-assets:
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Download the validated episode render package
+        uses: actions/download-artifact@v4
+        with:
+          name: EnglishTale-Episode001-1080p-Master-Candidate-and-Review
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: release-package
+      - name: Set up Python and image dependencies
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install CairoSVG and Pillow
+        run: python -m pip install cairosvg pillow
+      - name: Render premium 3D thumbnail and Shorts cover
+        run: |
+          python tools/video-pipeline/render_3d_brand_assets.py \
+            --shots-dir release-package/build/3d-shots \
+            --output-dir build/brand-assets
+      - name: Validate JPEG dimensions and upload sizes
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+
+          checks = {
+              "build/brand-assets/episode-001-thumbnail-3d.jpg": (3840, 2160),
+              "build/brand-assets/episode-001-shorts-cover-3d.jpg": (2160, 3840),
+          }
+          for name, expected in checks.items():
+              path = Path(name)
+              assert path.is_file(), f"Missing output: {name}"
+              assert path.stat().st_size < 2_000_000, f"Image exceeds 2 MB: {name}"
+              with Image.open(path) as image:
+                  assert image.size == expected, f"Unexpected dimensions: {name} {image.size}"
+                  assert image.format == "JPEG"
+              print(f"PASS: {name} {expected[0]}x{expected[1]} {path.stat().st_size:,} bytes")
+          PY
+      - name: Upload 3D brand assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: EnglishTale-Episode001-3D-YouTube-Brand-Assets
+          path: build/brand-assets/*.jpg
+          if-no-files-found: error
+          retention-days: 90
