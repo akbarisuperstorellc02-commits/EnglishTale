@@ -2,67 +2,57 @@
 
 ## Phase 1 — Pre-production
 1. Confirm episode learning goal and CEFR level.
-2. Review script for natural English and accurate Afghan Dari.
-3. Lock character reference images.
+2. Review script for natural British English and accurate Afghan Dari subtitles.
+3. Lock character reference designs and continuity details.
 4. Create storyboard and shot list.
-5. Create a folder for each episode and asset type.
+5. Organize episode assets and maintain a license log.
 
 ## Phase 2 — Visual production
-1. Generate character sheets first.
-2. Select and approve one master image per character.
-3. Generate scene stills using the approved references.
-4. Reject inconsistent faces, clothing, hands, or visual artifacts.
-5. Generate image-to-video clips only for shots where motion improves the story.
-6. Use slow camera moves and subtle character motion to protect continuity.
+1. Build and review the 3D character look-development scene first.
+2. Lock Leo, Emma, and Ollie appearance, proportions, clothing, and palette.
+3. Create 3D shots where feasible; use layered 2.5D compositing, parallax, camera movement, and selective character animation for remaining shots.
+4. Reject inconsistent faces, clothing, proportions, or visual artifacts.
+5. Use lighting, depth of field, atmospheric perspective, and controlled camera movement to create a cohesive cinematic look.
+6. Never describe a 2.5D shot as full 3D.
 
 ## Phase 3 — Audio
-1. Generate English lines separately by character.
-2. Generate Afghan Dari explanations separately.
-3. Review pronunciation, stress, pacing, and emotional tone.
-4. Export clean files and use consistent voice settings.
-5. Add quiet ambience and licensed background music.
-6. Duck music under all dialogue.
+1. Generate British English lines locally with Piper TTS; no paid or cloud API is part of the active workflow.
+2. Keep dialogue roles consistent; use individually licensed local voice models only when needed.
+3. Listen to all lines for pronunciation, stress, timing, clipping, and character consistency.
+4. Assemble the English track with `python tools/tts/build_english_track.py`.
+5. Afghan Dari is subtitle-only; do not generate or mix Dari voiceover.
+6. Use only sound effects and music with documented commercial-use permission. Keep music quiet beneath dialogue.
 
 ## Phase 4 — Editing
 Suggested CapCut track layout:
-- V1: animated scene clips / stills
-- V2: phrase cards, graphics, logo, end screen
-- A1: English dialogue
-- A2: Afghan Dari explanations
-- A3: ambience and sound effects
-- A4: background music
-- Captions: English main captions; Afghan Dari subtitles as separate track or clearly timed secondary captions
+- V1: 3D / 2.5D animated scene shots
+- V2: English phrase cards, graphics, logo, end screen
+- A1: English dialogue and narration
+- A2: ambience and sound effects
+- A3: licensed background music
+- Captions: English captions and a separate Afghan Dari subtitle track
 
-Suggested project settings:
-- 1920×1080
-- 16:9
-- 30 fps
-- MP4 / H.264 export
-- Use consistent subtitle font, size, outline, and safe margins.
+Suggested export settings:
+- 1920×1080, 16:9, 30 fps
+- MP4 / H.264
+- Safe margins for both subtitle languages
+- No Dari narration track
 
 ## Phase 5 — Learning design
-- Speak the English line first.
-- Show the English caption while it is spoken.
-- Give a short Afghan Dari explanation after the line or phrase group.
-- Include 2–3 seconds of silence for repeat-after-me moments.
-- Do not overload a single episode with too many new phrases.
+- Speak the English line first and show the matching English caption.
+- Keep the Afghan Dari subtitle concise and aligned with the spoken English.
+- Include 2–3 seconds for repeat-after-me moments.
+- Teach a manageable number of new phrases.
 - Use a quiz with one unambiguous correct answer.
 
 ## Phase 6 — Publishing
 1. Export a full-resolution master.
-2. Watch the whole video on a phone with headphones and on a phone speaker.
-3. Review captions and translations.
-4. Upload thumbnail, title, description, and tags.
-5. Add the episode to the correct playlist.
-6. Pin a question that encourages a meaningful English-language response.
+2. Watch the entire video on a phone with headphones and a phone speaker.
+3. Review English pronunciation, Dari translation, subtitle timing, and text safe areas.
+4. Verify every asset and voice-model license for commercial use.
+5. Upload the thumbnail, title, description, and tags.
+6. Add the episode to the correct playlist.
 7. Create 2–3 Shorts only after the long-form episode is complete.
 
-## Suggested release cadence
-Start sustainably:
-- 1–2 long-form episodes per week only if quality can be maintained.
-- 2–3 Shorts cut from each finished episode.
-- Review retention and click-through rate after enough impressions accrue.
-- Improve the next episode based on audience behavior, not guesses.
-
 ## Free / low-cost approach
-Begin with still-image animation, slow pans/zooms, and a small number of AI motion clips. Use free editing tools and only voice/image services whose current license permits the intended use. Do not buy multiple subscriptions before validating the workflow.
+Use local Piper TTS and CPU-capable Blender rendering. GPU acceleration is optional. Use a hybrid mix of original 3D shots and 2.5D scenes when rendering every shot in full 3D is impractical. No paid API is required for the active production path.
