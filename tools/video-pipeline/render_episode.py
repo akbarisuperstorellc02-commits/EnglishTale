@@ -126,8 +126,9 @@ def main() -> int:
                     input_index += 1
             cmd += ["-map", "0:v:0", "-c:v", "copy"]
             if args.english_audio:
-                cmd += ["-map", "1:a:0", "-c:a", "aac", "-b:a", "192k",
-                        "-metadata:s:a:0", "language=eng", "-metadata:s:a:0", "title=British English"]
+                cmd += ["-map", "1:a:0", "-af", "loudnorm=I=-16:TP=-1.5:LRA=11",
+                        "-c:a", "aac", "-b:a", "192k",
+                        "-metadata:s:a:0", "language=eng", "-metadata:s:a:0", "title=British English (normalized)"]
             if subtitle_inputs:
                 for stream_index, (_, subtitle) in enumerate(subtitle_inputs):
                     cmd += ["-map", f"{subtitle_inputs[stream_index][0]}:s:0"]
