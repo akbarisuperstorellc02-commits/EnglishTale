@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate Episode 001 scene illustrations with the Gemini Developer API."""
+"""Generate cinematic 3D Episode 001 scene artwork with the Gemini Developer API."""
 from __future__ import annotations
 
 import argparse
@@ -12,18 +12,15 @@ import time
 from pathlib import Path
 
 import requests
-import cairosvg
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = ROOT / "episodes/001-english-at-the-airport/image-manifest.json"
-CHARACTERS = {
-    "leo": ROOT / "assets/characters/leo.svg",
-    "emma": ROOT / "assets/characters/emma.svg",
-    "ollie": ROOT / "assets/characters/ollie.svg",
-}
 
-def svg_png(path: Path) -> bytes:
-    return cairosvg.svg2png(url=str(path), output_width=768, output_height=768)
+CHARACTER_DESCRIPTIONS = {
+    "leo": "Leo: fictional 19-year-old young man, tousled medium-brown hair, expressive brown eyes, vivid blue hoodie, dark blue jeans, white sneakers. Keep this exact face, hairstyle, age, outfit and proportions.",
+    "emma": "Emma: fictional 19-year-old young woman, shoulder-length brown hair, expressive brown eyes, warm pink sweater, dark jeans, white sneakers. Keep this exact face, hairstyle, age, outfit and proportions.",
+    "ollie": "Ollie: same small cute brown owl mascot, cream face and chest, large expressive eyes, round glasses, navy scarf with a tiny gold accent. Clearly an owl, never a dog or another animal.",
+}
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -47,7 +44,7 @@ def main() -> int:
     if args.dry_run:
         print(f"DRY RUN: {len(scenes)} scene(s), model={manifest['model']}, ratio={manifest['aspect_ratio']}")
         for scene in scenes:
-            print(f"  {scene['id']} -> {scene['file']} (refs: {', '.join(scene['refs']) or 'none'})")
+            print(f"  {scene['id']} -> {scene['file']} (3D character descriptions: {', '.join(scene['refs']) or 'environment'})")
         return 0
 
     api_key = os.environ.get("GEMINI_API_KEY", "").strip()
@@ -66,19 +63,11 @@ def main() -> int:
             print(f"SKIP existing: {scene['id']}")
             continue
 
-        parts = [{"text": manifest["style"] + "\n\nScene direction: " + scene["prompt"]}]
-        for ref_name in scene["refs"]:
-            ref_path = CHARACTERS[ref_name]
-            ref_bytes = svg_png(ref_path)
-            parts.append({
-                "inlineData": {
-                    "mimeType": "image/png",
-                    "data": base64.b64encode(ref_bytes).decode("ascii")
-                }
-            })
-
+        character_notes = [CHARACTER_DESCRIPTIONS[name] for name in scene["refs"]]
+        prompt = manifest["style"] + "\n\nCharacter continuity notes:\n" + "\n".join(character_notes)
+        prompt += "\n\nScene direction: " + scene["prompt"]
         payload = {
-            "contents": [{"role": "user", "parts": parts}],
+            "contents": [{"role": "user", "parts": [{"text": prompt}]}],
             "generationConfig": {
                 "responseModalities": ["IMAGE"],
                 "imageConfig": {
