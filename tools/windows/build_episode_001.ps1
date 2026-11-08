@@ -62,7 +62,22 @@ try {
         & $venvPython -m pip install -r "tools/video-pipeline/requirements.txt"
         if ($LASTEXITCODE -ne 0) { throw "CairoSVG installation failed." }
 
-        Write-Host "[8/8] Rendering the 720p review cut and 1080p30 master candidate..."
+        $shotListArgs = @()
+        $blenderCommand = Get-Command blender -ErrorAction SilentlyContinue
+        if ($blenderCommand) {
+            Write-Host "[8/9] Rendering the 18-angle Blender 3D still library..."
+            New-Item -ItemType Directory -Force -Path "build/3d-shots" | Out-Null
+            & $blenderCommand.Path -b -t 2 --python "tools/blender/render_character_lookdev.py" -- --shot-library --shots-dir "build/3d-shots" --width 1920 --height 1080
+            if ($LASTEXITCODE -ne 0) { throw "Blender 3D shot-library render failed." }
+            $shotCount = @(Get-ChildItem "build/3d-shots/shot-*.png" -ErrorAction Stop).Count
+            if ($shotCount -ne 18) { throw "Expected 18 Blender 3D stills, found $shotCount." }
+            $shotListArgs = @("--shot-list", "episodes/001-english-at-the-airport/render-shotlist-3d.json")
+        }
+        else {
+            Write-Warning "Blender was not found. The master will use the documented SVG 2.5D fallback."
+        }
+
+        Write-Host "[9/9] Rendering the 720p review cut and 1080p30 master candidate..."
         $reviewArgs = @(
             "tools/video-pipeline/render_episode.py",
             "--output", "build/episode-001-review-720p.mp4",
@@ -82,6 +97,7 @@ try {
             "--subtitles-en", "build/subtitles/episode-001-en-retimed.srt",
             "--subtitles-fa", "build/subtitles/episode-001-fa-retimed.srt"
         )
+        $masterArgs += $shotListArgs
         & $venvPython @masterArgs
         if ($LASTEXITCODE -ne 0) { throw "1080p30 master candidate render failed." }
     }
