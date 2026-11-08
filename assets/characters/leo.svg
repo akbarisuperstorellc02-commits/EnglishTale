@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+<title>LEO</title><desc>Original vector artwork generated with SVG code for EnglishTale Episode 001.</desc>
+<defs>
+ <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#142B4A"/><stop offset="1" stop-color="#39718A"/></linearGradient>
+ <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#DDEAF0"/><stop offset="1" stop-color="#A9C2D0"/></linearGradient>
+ <linearGradient id="blue" x2="0" y2="1"><stop stop-color="#2587D8"/><stop offset="1" stop-color="#10519B"/></linearGradient>
+ <linearGradient id="pink" x2="0" y2="1"><stop stop-color="#FFB4CB"/><stop offset="1" stop-color="#E96F9B"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#081B2C" flood-opacity=".22"/></filter>
+</defs>
+<rect width="1280" height="720" fill="#F1F6FA"/><circle cx="640" cy="320" r="260" fill="#DCEBF4"/><circle cx="640" cy="320" r="210" fill="#EAF3F8"/><g transform="translate(640 270)" filter="url(#shadow)">
+ <ellipse cx="0" cy="250" rx="105" ry="22" fill="#35566B" opacity=".22"/>
+ <path d="M-62 140L-80 255L-28 255L-12 174L12 174L28 255L80 255L62 140Z" fill="#263B59"/>
+ <path d="M-85 75Q-95 105-82 190L-70 224Q0 248 70 224L82 190Q95 105 85 75Q48 48 0 48Q-48 48-85 75Z" fill="url(#blue)"/>
+ <path d="M-34 62Q0 105 34 62L20 125H-20Z" fill="#123F75"/><path d="M-20 122L0 155L20 122" fill="none" stroke="#8CC8F4" stroke-width="6"/>
+ <path d="M-83 95Q-125 125-112 190L-88 196L-61 125M83 95Q125 125 112 190L88 196L61 125" fill="#1766B0"/>
+ <rect x="-112" y="182" width="28" height="58" rx="14" fill="#E9B58E"/><rect x="84" y="182" width="28" height="58" rx="14" fill="#E9B58E"/>
+ <ellipse cx="0" cy="0" rx="77" ry="88" fill="#F2C49F"/><path d="M-77 4Q-92-90-10-96Q70-105 79-24L58-42Q20-55-12-32Q-43-9-77 4Z" fill="#342A2A"/>
+ <path d="M-62-18Q-45-48-18-48M16-48Q44-48 61-18" fill="none" stroke="#342A2A" stroke-width="12" stroke-linecap="round"/>
+ <ellipse cx="-28" cy="4" rx="7" ry="10" fill="#243448"/><ellipse cx="28" cy="4" rx="7" ry="10" fill="#243448"/>
+ <path d="M-14 42Q0 54 15 42" fill="none" stroke="#A94F4F" stroke-width="5" stroke-linecap="round"/>
+ <path d="M-42-79Q0-110 46-78" fill="none" stroke="#342A2A" stroke-width="12" stroke-linecap="round"/>
+ </g><text x="640" y="610" font-family="Arial,sans-serif" font-size="58" font-weight="800" text-anchor="middle" fill="#163754">LEO</text><text x="640" y="660" font-family="Arial,sans-serif" font-size="24" text-anchor="middle" fill="#547084">Blue hoodie • curious first-time traveller</text>
+</svg>
