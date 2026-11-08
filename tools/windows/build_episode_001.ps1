@@ -18,22 +18,22 @@ try {
 
     $venvPython = Join-Path $repoRoot ".venv-englishtale\Scripts\python.exe"
     if (-not (Test-Path $venvPython)) {
-        Write-Host "[1/8] Creating local Python environment..."
+        Write-Host "[1/9] Creating local Python environment..."
         & python -m venv (Join-Path $repoRoot ".venv-englishtale")
         if ($LASTEXITCODE -ne 0) { throw "Could not create Python virtual environment." }
     }
 
-    Write-Host "[2/8] Installing local Piper TTS runtime..."
+    Write-Host "[2/9] Installing local Piper TTS runtime..."
     & $venvPython -m pip install --upgrade pip
     if ($LASTEXITCODE -ne 0) { throw "pip upgrade failed." }
     & $venvPython -m pip install -r "tools/tts/local-requirements.txt"
     if ($LASTEXITCODE -ne 0) { throw "Piper installation failed." }
 
-    Write-Host "[3/8] Downloading and verifying British English voice model..."
+    Write-Host "[3/9] Downloading and verifying British English voice model..."
     & $venvPython "tools/tts/download_british_voice.py"
     if ($LASTEXITCODE -ne 0) { throw "Voice model download or checksum validation failed." }
 
-    Write-Host "[4/8] Generating the 48 English dialogue cues..."
+    Write-Host "[4/9] Generating the 48 English dialogue cues..."
     $ttsArgs = @(
         "tools/tts/generate_local_english.py",
         "--model", "models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx",
@@ -43,18 +43,18 @@ try {
     & $venvPython @ttsArgs
     if ($LASTEXITCODE -ne 0) { throw "English voice generation failed." }
 
-    Write-Host "[5/8] Validating all English WAV files..."
+    Write-Host "[5/9] Validating all English WAV files..."
     & $venvPython "tools/tts/validate_voice_assets.py" --strict
     if ($LASTEXITCODE -ne 0) { throw "One or more English WAV clips failed validation." }
 
-    Write-Host "[6/8] Assembling the 7-minute English track and retiming subtitles..."
+    Write-Host "[6/9] Assembling the 7-minute English track and retiming subtitles..."
     & $venvPython "tools/tts/build_english_track.py"
     if ($LASTEXITCODE -ne 0) { throw "English audio assembly failed." }
     & $venvPython "tools/tts/retime_subtitles.py"
     if ($LASTEXITCODE -ne 0) { throw "Subtitle retiming failed." }
 
     if (-not $SkipVideo) {
-        Write-Host "[7/8] Checking FFmpeg and installing SVG renderer..."
+        Write-Host "[7/9] Checking FFmpeg and installing SVG renderer..."
         if (-not (Get-Command ffmpeg -ErrorAction SilentlyContinue) -or
             -not (Get-Command ffprobe -ErrorAction SilentlyContinue)) {
             throw "FFmpeg and FFprobe are required for video rendering. Install them from https://ffmpeg.org/download.html or rerun with -SkipVideo."
