@@ -40,7 +40,9 @@ Initial English voice assignments are in `voices.json`. They are audition candid
 
 ## Model and language support
 
-The configured model is `gemini-3.8-flash-tts`. Google's current TTS language list explicitly includes English and Persian (Afghanistan). The model detects the input language automatically; the Afghan Dari style instruction is included to guide pronunciation, but does not guarantee a perfect regional accent.
+The configured model is `gemini-3.8-flash-tts`. Google's current TTS language list explicitly includes English and Persian (Afghanistan). However, Google's official Gemini API supported-region list currently does not include Afghanistan. This backend is only an option if the user's API account and calling environment are legitimately in a supported region; do not assume it will work from Afghanistan. The model detects input language automatically; the Afghan Dari style instruction is only guidance and does not guarantee a perfect regional accent.
+
+For an alternative, see `tools/tts/elevenlabs-README.md`. ElevenLabs advertises Persian TTS and has a paid plan with a commercial license, but the selected Persian voice still needs Afghan Dari audition.
 
 ## Cost and data-use caution
 
