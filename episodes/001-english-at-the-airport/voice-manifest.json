@@ -1,17 +1,17 @@
 {
   "episode": "001-english-at-the-airport",
   "target_duration_seconds": 420,
-  "note": "Voice clips do not exist yet. Generate and review them separately. Time slots are provisional and must be retimed after recording.",
+  "note": "48 English audio cues with provisional timing. Afghan Dari text is subtitle content only; no Dari voice clips are generated. Cue times must be retimed after English WAV generation.",
   "languages": {
     "en": {
-      "track": "English main dialogue",
+      "track": "British English dialogue and narration",
       "folder": "audio/episode-001/en",
-      "voice_policy": "Use stable, distinct voice identities for each role."
+      "voice_policy": "Use a stable, reviewed British English voice identity for each role."
     },
     "fa": {
-      "track": "Afghan Dari explanation",
-      "folder": "audio/episode-001/fa",
-      "voice_policy": "Use one clear Afghan Dari explainer voice; review dialect and pronunciation."
+      "track": "Afghan Dari subtitles only",
+      "file": "episodes/001-english-at-the-airport/subtitles-fa.srt",
+      "voice_policy": "Subtitle-only; no Dari voiceover or WAV assets."
     }
   },
   "cues": [
@@ -22,8 +22,7 @@
       "end": "00:00:08,000",
       "english_text": "Leo is at the airport.",
       "dari_text": "لئو در فرودگاه است.",
-      "english_file": "audio/episode-001/en/001.wav",
-      "dari_file": "audio/episode-001/fa/001.wav"
+      "english_file": "audio/episode-001/en/001.wav"
     },
     {
       "id": 2,
@@ -32,8 +31,7 @@
       "end": "00:00:16,000",
       "english_text": "He's going on his first trip to London.",
       "dari_text": "او برای نخستین بار به لندن سفر می‌کند.",
-      "english_file": "audio/episode-001/en/002.wav",
-      "dari_file": "audio/episode-001/fa/002.wav"
+      "english_file": "audio/episode-001/en/002.wav"
     },
     {
       "id": 3,
@@ -42,8 +40,7 @@
       "end": "00:00:24,000",
       "english_text": "But something is wrong. He doesn't know where to go!",
       "dari_text": "اما مشکلی وجود دارد؛ او نمی‌داند باید کجا برود!",
-      "english_file": "audio/episode-001/en/003.wav",
-      "dari_file": "audio/episode-001/fa/003.wav"
+      "english_file": "audio/episode-001/en/003.wav"
     },
     {
       "id": 4,
@@ -52,8 +49,7 @@
       "end": "00:00:31,000",
       "english_text": "Oh no! Where is the check-in counter?",
       "dari_text": "اوه نه! کانتر پذیرش کجاست؟",
-      "english_file": "audio/episode-001/en/004.wav",
-      "dari_file": "audio/episode-001/fa/004.wav"
+      "english_file": "audio/episode-001/en/004.wav"
     },
     {
       "id": 5,
@@ -62,8 +58,7 @@
       "end": "00:00:38,000",
       "english_text": "Don't worry, Leo! I'll help you.",
       "dari_text": "نگران نباش، لئو! کمکت می‌کنم.",
-      "english_file": "audio/episode-001/en/005.wav",
-      "dari_file": "audio/episode-001/fa/005.wav"
+      "english_file": "audio/episode-001/en/005.wav"
     },
     {
       "id": 6,
@@ -72,8 +67,7 @@
       "end": "00:00:48,000",
       "english_text": "Leo and Emma walk into the airport.",
       "dari_text": "لئو و اما وارد فرودگاه می‌شوند.",
-      "english_file": "audio/episode-001/en/006.wav",
-      "dari_file": "audio/episode-001/fa/006.wav"
+      "english_file": "audio/episode-001/en/006.wav"
     },
     {
       "id": 7,
@@ -82,8 +76,7 @@
       "end": "00:00:56,000",
       "english_text": "Emma, I'm a little nervous.",
       "dari_text": "اما، کمی اضطراب دارم.",
-      "english_file": "audio/episode-001/en/007.wav",
-      "dari_file": "audio/episode-001/fa/007.wav"
+      "english_file": "audio/episode-001/en/007.wav"
     },
     {
       "id": 8,
@@ -92,8 +85,7 @@
       "end": "00:01:04,000",
       "english_text": "It's okay! Traveling is exciting. Just follow me.",
       "dari_text": "اشکالی ندارد! سفر هیجان‌انگیز است. فقط دنبالم بیا.",
-      "english_file": "audio/episode-001/en/008.wav",
-      "dari_file": "audio/episode-001/fa/008.wav"
+      "english_file": "audio/episode-001/en/008.wav"
     },
     {
       "id": 9,
@@ -102,8 +94,7 @@
       "end": "00:01:12,000",
       "english_text": "What's the first thing we need to do?",
       "dari_text": "اولین کاری که باید انجام بدهیم چیست؟",
-      "english_file": "audio/episode-001/en/009.wav",
-      "dari_file": "audio/episode-001/fa/009.wav"
+      "english_file": "audio/episode-001/en/009.wav"
     },
     {
       "id": 10,
@@ -112,8 +103,7 @@
       "end": "00:01:20,000",
       "english_text": "We need to check in and get your boarding pass.",
       "dari_text": "باید پذیرش پرواز را انجام بدهیم و کارت پروازت را بگیریم.",
-      "english_file": "audio/episode-001/en/010.wav",
-      "dari_file": "audio/episode-001/fa/010.wav"
+      "english_file": "audio/episode-001/en/010.wav"
     },
     {
       "id": 11,
@@ -122,8 +112,7 @@
       "end": "00:01:29,000",
       "english_text": "Good morning! Where are you flying today?",
       "dari_text": "صبح بخیر! امروز به کجا پرواز می‌کنید؟",
-      "english_file": "audio/episode-001/en/011.wav",
-      "dari_file": "audio/episode-001/fa/011.wav"
+      "english_file": "audio/episode-001/en/011.wav"
     },
     {
       "id": 12,
@@ -132,8 +121,7 @@
       "end": "00:01:36,000",
       "english_text": "I'm flying to London.",
       "dari_text": "من به لندن پرواز می‌کنم.",
-      "english_file": "audio/episode-001/en/012.wav",
-      "dari_file": "audio/episode-001/fa/012.wav"
+      "english_file": "audio/episode-001/en/012.wav"
     },
     {
       "id": 13,
@@ -142,8 +130,7 @@
       "end": "00:01:44,000",
       "english_text": "May I see your passport, please?",
       "dari_text": "لطفاً می‌توانم پاسپورتتان را ببینم؟",
-      "english_file": "audio/episode-001/en/013.wav",
-      "dari_file": "audio/episode-001/fa/013.wav"
+      "english_file": "audio/episode-001/en/013.wav"
     },
     {
       "id": 14,
@@ -152,8 +139,7 @@
       "end": "00:01:50,000",
       "english_text": "Of course. Here you are.",
       "dari_text": "البته، بفرمایید.",
-      "english_file": "audio/episode-001/en/014.wav",
-      "dari_file": "audio/episode-001/fa/014.wav"
+      "english_file": "audio/episode-001/en/014.wav"
     },
     {
       "id": 15,
@@ -162,8 +148,7 @@
       "end": "00:01:59,000",
       "english_text": "Thank you. Do you have any bags to check in?",
       "dari_text": "ممنون. چمدانی برای تحویل دادن دارید؟",
-      "english_file": "audio/episode-001/en/015.wav",
-      "dari_file": "audio/episode-001/fa/015.wav"
+      "english_file": "audio/episode-001/en/015.wav"
     },
     {
       "id": 16,
@@ -172,8 +157,7 @@
       "end": "00:02:06,000",
       "english_text": "Yes, I have one suitcase.",
       "dari_text": "بله، یک چمدان دارم.",
-      "english_file": "audio/episode-001/en/016.wav",
-      "dari_file": "audio/episode-001/fa/016.wav"
+      "english_file": "audio/episode-001/en/016.wav"
     },
     {
       "id": 17,
@@ -182,8 +166,7 @@
       "end": "00:02:14,000",
       "english_text": "Perfect. Here is your boarding pass.",
       "dari_text": "بسیار خوب. این هم کارت پرواز شما.",
-      "english_file": "audio/episode-001/en/017.wav",
-      "dari_file": "audio/episode-001/fa/017.wav"
+      "english_file": "audio/episode-001/en/017.wav"
     },
     {
       "id": 18,
@@ -192,8 +175,7 @@
       "end": "00:02:20,000",
       "english_text": "Thank you very much!",
       "dari_text": "بسیار ممنونم!",
-      "english_file": "audio/episode-001/en/018.wav",
-      "dari_file": "audio/episode-001/fa/018.wav"
+      "english_file": "audio/episode-001/en/018.wav"
     },
     {
       "id": 19,
@@ -202,8 +184,7 @@
       "end": "00:02:28,000",
       "english_text": "Emma, where is Gate 12?",
       "dari_text": "اما، گیت شماره ۱۲ کجاست؟",
-      "english_file": "audio/episode-001/en/019.wav",
-      "dari_file": "audio/episode-001/fa/019.wav"
+      "english_file": "audio/episode-001/en/019.wav"
     },
     {
       "id": 20,
@@ -212,8 +193,7 @@
       "end": "00:02:36,000",
       "english_text": "Let's look at the information screen.",
       "dari_text": "بیا صفحه اطلاعات را نگاه کنیم.",
-      "english_file": "audio/episode-001/en/020.wav",
-      "dari_file": "audio/episode-001/fa/020.wav"
+      "english_file": "audio/episode-001/en/020.wav"
     },
     {
       "id": 21,
@@ -222,8 +202,7 @@
       "end": "00:02:44,000",
       "english_text": "Oh! It says Gate 12 is on the left.",
       "dari_text": "اوه! نوشته گیت شماره ۱۲ در سمت چپ است.",
-      "english_file": "audio/episode-001/en/021.wav",
-      "dari_file": "audio/episode-001/fa/021.wav"
+      "english_file": "audio/episode-001/en/021.wav"
     },
     {
       "id": 22,
@@ -232,8 +211,7 @@
       "end": "00:02:51,000",
       "english_text": "That's right! Let's go.",
       "dari_text": "درست است! بیا برویم.",
-      "english_file": "audio/episode-001/en/022.wav",
-      "dari_file": "audio/episode-001/fa/022.wav"
+      "english_file": "audio/episode-001/en/022.wav"
     },
     {
       "id": 23,
@@ -242,8 +220,7 @@
       "end": "00:03:00,000",
       "english_text": "Thank you for helping me!",
       "dari_text": "ممنون که کمکم کردی!",
-      "english_file": "audio/episode-001/en/023.wav",
-      "dari_file": "audio/episode-001/fa/023.wav"
+      "english_file": "audio/episode-001/en/023.wav"
     },
     {
       "id": 24,
@@ -252,8 +229,7 @@
       "end": "00:03:09,000",
       "english_text": "Please put your bag on the tray.",
       "dari_text": "لطفاً کیفتان را داخل سینی بگذارید.",
-      "english_file": "audio/episode-001/en/024.wav",
-      "dari_file": "audio/episode-001/fa/024.wav"
+      "english_file": "audio/episode-001/en/024.wav"
     },
     {
       "id": 25,
@@ -262,8 +238,7 @@
       "end": "00:03:17,000",
       "english_text": "Okay. Is this everything?",
       "dari_text": "بسیار خوب. همین کافی است؟",
-      "english_file": "audio/episode-001/en/025.wav",
-      "dari_file": "audio/episode-001/fa/025.wav"
+      "english_file": "audio/episode-001/en/025.wav"
     },
     {
       "id": 26,
@@ -272,8 +247,7 @@
       "end": "00:03:25,000",
       "english_text": "Yes. Please walk through the scanner.",
       "dari_text": "بله. لطفاً از دستگاه بازرسی عبور کنید.",
-      "english_file": "audio/episode-001/en/026.wav",
-      "dari_file": "audio/episode-001/fa/026.wav"
+      "english_file": "audio/episode-001/en/026.wav"
     },
     {
       "id": 27,
@@ -282,8 +256,7 @@
       "end": "00:03:35,000",
       "english_text": "Leo passes the security check. Everything is fine!",
       "dari_text": "لئو از بازرسی امنیتی عبور می‌کند. همه‌چیز خوب است!",
-      "english_file": "audio/episode-001/en/027.wav",
-      "dari_file": "audio/episode-001/fa/027.wav"
+      "english_file": "audio/episode-001/en/027.wav"
     },
     {
       "id": 28,
@@ -292,8 +265,7 @@
       "end": "00:03:46,000",
       "english_text": "Attention, please! Passengers for London, boarding is now open.",
       "dari_text": "توجه، لطفاً! مسافران پرواز لندن، زمان سوار شدن به هواپیما فرا رسیده است.",
-      "english_file": "audio/episode-001/en/028.wav",
-      "dari_file": "audio/episode-001/fa/028.wav"
+      "english_file": "audio/episode-001/en/028.wav"
     },
     {
       "id": 29,
@@ -302,8 +274,7 @@
       "end": "00:03:54,000",
       "english_text": "Emma! It's time to board!",
       "dari_text": "اما! وقت سوار شدن است!",
-      "english_file": "audio/episode-001/en/029.wav",
-      "dari_file": "audio/episode-001/fa/029.wav"
+      "english_file": "audio/episode-001/en/029.wav"
     },
     {
       "id": 30,
@@ -312,8 +283,7 @@
       "end": "00:04:03,000",
       "english_text": "Yes! Have a wonderful trip!",
       "dari_text": "بله! سفر فوق‌العاده‌ای داشته باشی!",
-      "english_file": "audio/episode-001/en/030.wav",
-      "dari_file": "audio/episode-001/fa/030.wav"
+      "english_file": "audio/episode-001/en/030.wav"
     },
     {
       "id": 31,
@@ -322,8 +292,7 @@
       "end": "00:04:10,000",
       "english_text": "Thank you! See you soon!",
       "dari_text": "ممنون! به‌زودی می‌بینمت!",
-      "english_file": "audio/episode-001/en/031.wav",
-      "dari_file": "audio/episode-001/fa/031.wav"
+      "english_file": "audio/episode-001/en/031.wav"
     },
     {
       "id": 32,
@@ -332,8 +301,7 @@
       "end": "00:04:21,000",
       "english_text": "Leo smiles and walks toward the airplane.",
       "dari_text": "لئو لبخند می‌زند و به‌سوی هواپیما می‌رود.",
-      "english_file": "audio/episode-001/en/032.wav",
-      "dari_file": "audio/episode-001/fa/032.wav"
+      "english_file": "audio/episode-001/en/032.wav"
     },
     {
       "id": 33,
@@ -342,8 +310,7 @@
       "end": "00:04:30,000",
       "english_text": "He is ready for his first adventure!",
       "dari_text": "او برای نخستین ماجراجویی‌اش آماده است!",
-      "english_file": "audio/episode-001/en/033.wav",
-      "dari_file": "audio/episode-001/fa/033.wav"
+      "english_file": "audio/episode-001/en/033.wav"
     },
     {
       "id": 34,
@@ -352,8 +319,7 @@
       "end": "00:04:39,000",
       "english_text": "Great job! Now let's learn five useful English phrases from Leo's story.",
       "dari_text": "آفرین! حالا پنج عبارت کاربردی انگلیسی را از داستان لئو یاد می‌گیریم.",
-      "english_file": "audio/episode-001/en/034.wav",
-      "dari_file": "audio/episode-001/fa/034.wav"
+      "english_file": "audio/episode-001/en/034.wav"
     },
     {
       "id": 35,
@@ -362,8 +328,7 @@
       "end": "00:04:49,000",
       "english_text": "Where is the check-in counter?",
       "dari_text": "کانتر پذیرش کجاست؟",
-      "english_file": "audio/episode-001/en/035.wav",
-      "dari_file": "audio/episode-001/fa/035.wav"
+      "english_file": "audio/episode-001/en/035.wav"
     },
     {
       "id": 36,
@@ -372,8 +337,7 @@
       "end": "00:04:59,000",
       "english_text": "May I see your passport?",
       "dari_text": "می‌توانم پاسپورتتان را ببینم؟",
-      "english_file": "audio/episode-001/en/036.wav",
-      "dari_file": "audio/episode-001/fa/036.wav"
+      "english_file": "audio/episode-001/en/036.wav"
     },
     {
       "id": 37,
@@ -382,8 +346,7 @@
       "end": "00:05:07,000",
       "english_text": "Here you are.",
       "dari_text": "بفرمایید.",
-      "english_file": "audio/episode-001/en/037.wav",
-      "dari_file": "audio/episode-001/fa/037.wav"
+      "english_file": "audio/episode-001/en/037.wav"
     },
     {
       "id": 38,
@@ -392,8 +355,7 @@
       "end": "00:05:17,000",
       "english_text": "Where is Gate 12?",
       "dari_text": "گیت شماره ۱۲ کجاست؟",
-      "english_file": "audio/episode-001/en/038.wav",
-      "dari_file": "audio/episode-001/fa/038.wav"
+      "english_file": "audio/episode-001/en/038.wav"
     },
     {
       "id": 39,
@@ -402,8 +364,7 @@
       "end": "00:05:27,000",
       "english_text": "Have a wonderful trip!",
       "dari_text": "سفر فوق‌العاده‌ای داشته باشی!",
-      "english_file": "audio/episode-001/en/039.wav",
-      "dari_file": "audio/episode-001/fa/039.wav"
+      "english_file": "audio/episode-001/en/039.wav"
     },
     {
       "id": 40,
@@ -412,8 +373,7 @@
       "end": "00:05:36,000",
       "english_text": "Listen and repeat. Where is Gate 12?",
       "dari_text": "گوش کن و تکرار کن: گیت شماره ۱۲ کجاست؟",
-      "english_file": "audio/episode-001/en/040.wav",
-      "dari_file": "audio/episode-001/fa/040.wav"
+      "english_file": "audio/episode-001/en/040.wav"
     },
     {
       "id": 41,
@@ -422,8 +382,7 @@
       "end": "00:05:45,000",
       "english_text": "May I see your passport, please?",
       "dari_text": "لطفاً می‌توانم پاسپورتتان را ببینم؟",
-      "english_file": "audio/episode-001/en/041.wav",
-      "dari_file": "audio/episode-001/fa/041.wav"
+      "english_file": "audio/episode-001/en/041.wav"
     },
     {
       "id": 42,
@@ -432,8 +391,7 @@
       "end": "00:05:53,000",
       "english_text": "Here you are.",
       "dari_text": "بفرمایید.",
-      "english_file": "audio/episode-001/en/042.wav",
-      "dari_file": "audio/episode-001/fa/042.wav"
+      "english_file": "audio/episode-001/en/042.wav"
     },
     {
       "id": 43,
@@ -442,8 +400,7 @@
       "end": "00:06:03,000",
       "english_text": "Let's take a quick quiz! What does “boarding pass” mean?",
       "dari_text": "بیایید یک آزمون کوتاه انجام بدهیم! «Boarding pass» به چه معناست؟",
-      "english_file": "audio/episode-001/en/043.wav",
-      "dari_file": "audio/episode-001/fa/043.wav"
+      "english_file": "audio/episode-001/en/043.wav"
     },
     {
       "id": 44,
@@ -452,8 +409,7 @@
       "end": "00:06:11,000",
       "english_text": "A) Passport\nB) Boarding pass\nC) Suitcase",
       "dari_text": "الف) پاسپورت\nب) کارت پرواز\nج) چمدان",
-      "english_file": "audio/episode-001/en/044.wav",
-      "dari_file": "audio/episode-001/fa/044.wav"
+      "english_file": "audio/episode-001/en/044.wav"
     },
     {
       "id": 45,
@@ -462,8 +418,7 @@
       "end": "00:06:19,000",
       "english_text": "Pause the video and choose your answer!",
       "dari_text": "ویدئو را متوقف کن و پاسخ درست را انتخاب کن!",
-      "english_file": "audio/episode-001/en/045.wav",
-      "dari_file": "audio/episode-001/fa/045.wav"
+      "english_file": "audio/episode-001/en/045.wav"
     },
     {
       "id": 46,
@@ -472,8 +427,7 @@
       "end": "00:06:29,000",
       "english_text": "The answer is B: boarding pass means a pass to board the airplane. Well done!",
       "dari_text": "پاسخ درست گزینه ب است: Boarding pass یعنی کارت پرواز. آفرین!",
-      "english_file": "audio/episode-001/en/046.wav",
-      "dari_file": "audio/episode-001/fa/046.wav"
+      "english_file": "audio/episode-001/en/046.wav"
     },
     {
       "id": 47,
@@ -482,8 +436,7 @@
       "end": "00:06:43,000",
       "english_text": "If you enjoyed this story, subscribe to EnglishTale and learn English with us.",
       "dari_text": "اگر از این داستان لذت بردی، EnglishTale را دنبال کن و همراه ما انگلیسی یاد بگیر.",
-      "english_file": "audio/episode-001/en/047.wav",
-      "dari_file": "audio/episode-001/fa/047.wav"
+      "english_file": "audio/episode-001/en/047.wav"
     },
     {
       "id": 48,
@@ -492,8 +445,7 @@
       "end": "00:07:00,000",
       "english_text": "See you in the next story!",
       "dari_text": "در داستان بعدی می‌بینمت!",
-      "english_file": "audio/episode-001/en/048.wav",
-      "dari_file": "audio/episode-001/fa/048.wav"
+      "english_file": "audio/episode-001/en/048.wav"
     }
   ]
 }
