@@ -22,6 +22,7 @@ Episode 001 has moved beyond the planning-only stage. The repository now include
 - Voice and subtitle production instructions.
 - 48-cue bilingual voice manifest and recording package.
 - Separate English/Dari WAV track assembler with timeline-gap preservation.
+- Resumable Gemini and ElevenLabs TTS generator tools; provider access and commercial rights are documented.
 - MP4 export option for selectable English and Afghan Dari audio tracks.
 - YouTube metadata and thumbnail brief.
 
@@ -91,13 +92,14 @@ EnglishTale/
 2. After recording all cues, assemble the separate language tracks with `python tools/video-pipeline/build_audio_tracks.py`.
 3. Build a silent visual review cut: `python tools/video-pipeline/render_episode.py` (requires FFmpeg and CairoSVG; see `tools/video-pipeline/README.md`). To include both selectable language tracks, pass `--english-audio` and `--dari-audio`.
 4. Export the thumbnail PNG with `python tools/video-pipeline/render_thumbnail.py`.
-5. Read `brand/brand-guide.md` and `characters/character-bible.md`.
-6. Review the SVG scene plates in `assets/scenes/` and character rigs in `assets/animation/`.
-7. Follow `episodes/001-english-at-the-airport/animation-shot-plan.md` for the edit structure.
-8. Generate each speaker line separately using `voice-and-sound.md`; keep English and Dari audio separate.
-9. Retiming both SRT tracks against the final audio is mandatory.
-10. Assemble and review the video using `production-workflow.md`.
-11. Check every item in `publishing/quality-control.md` and verify commercial-use permissions before upload.
+5. Review `tools/tts/README.md` and `tools/tts/elevenlabs-README.md` before generating narration. Do not generate all clips until the English and Afghan Dari sample voices have been auditioned.
+6. Read `brand/brand-guide.md` and `characters/character-bible.md`.
+7. Review the SVG scene plates in `assets/scenes/` and character rigs in `assets/animation/`.
+8. Follow `episodes/001-english-at-the-airport/animation-shot-plan.md` for the edit structure.
+9. Generate each speaker line separately using `voice-and-sound.md`; keep English and Dari audio separate.
+10. Retiming both SRT tracks against the final audio is mandatory.
+11. Assemble and review the video using `production-workflow.md`.
+12. Check every item in `publishing/quality-control.md` and verify commercial-use permissions before upload.
 
 ## Important production principles
 
