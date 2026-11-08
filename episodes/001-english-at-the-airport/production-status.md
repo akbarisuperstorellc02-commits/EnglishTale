@@ -41,12 +41,17 @@ Last updated: 2026-11-08
 
 ## Not yet complete — release blockers
 
-- [ ] Listen to all 48 generated English WAV clips for pronunciation, pacing, role consistency, clipping, and quality.
+- [ ] Listen to all 48 generated English WAV clips for pronunciation, pacing, role consistency, clipping, and quality. The boarding-pass quiz wording has been corrected in the voice manifest and both source subtitle files; regenerated audio is in progress.
 - [ ] Listen to and approve the generated English track; manually review both WAV-duration-retimed subtitle files. Duration-based retiming is only a first pass.
-- [ ] Validate the new 18-angle Blender 3D still library and regenerate the 1080p master candidate from those 3D stills. The previously validated 1080p candidate uses the SVG 2.5D fallback.
+- [ ] Finish and validate the new 1080p30 hybrid master rendered from the 18 validated 1920×1080 Blender 3D stills. The earlier validated master used the SVG 2.5D fallback.
 - [ ] Complete continuous character animation, hand interactions, and dialogue-specific acting. The current Blender motion study is a short technical preview, not a finished character rig.
 - [ ] Human-review the 720p review cut and 1080p30 master candidate with sound and muted; fix visual/timing issues and decide whether additional sound design is needed before publication.
 - [ ] Final human review of thumbnails, licenses, subtitles, audio, and YouTube metadata before publication.
+
+## Latest pipeline runs
+
+- [x] [18 procedural Blender 3D stills validated at 1920×1080; current master render is processing](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42505448916).
+- [ ] [Regenerate all English audio and the master with the corrected boarding-pass quiz](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42506132198).
 
 ## Verified GitHub checks
 
