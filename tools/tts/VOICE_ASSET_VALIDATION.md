@@ -1,17 +1,28 @@
-# Voice asset validation
+# English voice asset validation
 
-Run the non-strict validator at any time, including before audio has been generated:
+The active Episode 001 release uses **48 British English WAV files**. Afghan Dari is subtitle-only; no Dari voice files are expected.
 
-\`\`\`bash
+Run the non-strict validator at any time:
+
+```bash
 python tools/tts/validate_voice_assets.py
-\`\`\`
+```
 
-Missing recordings are reported as **pending** and do not fail the source-package check. Once all 96 files have been generated, run the release gate:
+Missing English recordings are reported as pending and do not fail source-package checks. Before assembly, use the strict release gate:
 
-\`\`\`bash
+```bash
 python tools/tts/validate_voice_assets.py --strict
-\`\`\`
+```
 
-The validator uses only Python's standard library. It checks the 48-cue bilingual manifest, safe in-repository paths, WAV readability, uncompressed 16-bit PCM, supported 24/44.1/48 kHz rates, mono/stereo channels, non-empty/non-silent audio, consistent format within each language, and clip duration against each provisional cue slot (120 ms default tolerance).
+The standard-library validator checks:
+- 48 sequential cue IDs and valid cue timing.
+- Safe in-repository English WAV paths.
+- WAV readability, uncompressed 16-bit PCM, mono/stereo audio.
+- Supported native sample rates: 22050, 24000, 44100, or 48000 Hz.
+- Non-empty, non-silent recordings.
+- Consistent audio format across the English clips.
+- Clip duration against each provisional cue slot (120 ms default tolerance).
 
-A successful technical check does not approve pronunciation, voice identity, acting, or Afghan Dari dialect. Listen to all 96 clips and retime captions against the final audio before assembly. The audio assembler normalizes accepted clips to 48 kHz stereo.
+The end-to-end pipeline test uses a deterministic fake Piper executable. It verifies software behavior only; it does not approve voice quality.
+
+A successful technical check does not approve pronunciation, acting, character voice identity, or subtitle synchronization. Listen to all 48 clips and retime both SRT files against the approved English audio before final assembly. The assembler preserves the model's sample rate.
