@@ -27,7 +27,7 @@ The project has a validated production package and a working render/tooling foun
 - Five original airport SVG scene plates and three animated SVG character rigs.
 - English and Afghan Dari SRT subtitle guides with 48 aligned cue boundaries.
 - A 48-cue English voice manifest with role assignments.
-- Local British English Piper generator and English WAV assembler.
+- Local British English Piper generator, checksum-verified VCTK multi-speaker model downloader, role-specific speaker map, and English WAV assembler.
 - End-to-end offline audio pipeline tests using a deterministic fake Piper executable; these test software behavior, not real voice quality.
 - Voice WAV validator configured for 48 English files only; Afghan Dari remains subtitle-only.
 - FFmpeg/CairoSVG 7-minute scene-plate review renderer with optional English audio and selectable English/Dari subtitle tracks.
@@ -55,14 +55,14 @@ From the repository root:
    ```bash
    python -m unittest tools/tts/test_local_audio_pipeline.py -v
    ```
-3. Install Piper in a local Python environment and obtain a properly licensed British English voice model. Read `tools/tts/LOCAL_TTS.md`.
+3. Install Piper and download the pinned British English multi-speaker voice model (the script verifies file hashes and saves attribution):\n   `python tools/tts/download_british_voice.py`\n   Read `tools/tts/LOCAL_TTS.md` for voice casting and license details.
 4. Generate a short audition:
    ```bash
-   python tools/tts/generate_local_english.py --model /path/to/en_GB-alan-medium.onnx --limit 6
+   python tools/tts/generate_local_english.py --model models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx --voices-json tools/tts/episode-001-voices.json --limit 6
    ```
 5. After listening and license approval, generate all cues:
    ```bash
-   python tools/tts/generate_local_english.py --model /path/to/en_GB-alan-medium.onnx
+   python tools/tts/generate_local_english.py --model models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx --voices-json tools/tts/episode-001-voices.json
    python tools/tts/validate_voice_assets.py --strict
    python tools/tts/build_english_track.py
    python tools/tts/retime_subtitles.py
@@ -84,7 +84,7 @@ From the repository root:
 
 - Do not publish provisional subtitle timings as synchronized captions.
 - Do not describe SVG motion or a 2.5D composite as full 3D animation.
-- Check the voice model's license separately from the Piper software license.
+- Attribute the VCTK Corpus under CC BY 4.0 as documented in the downloaded model card and `ATTRIBUTION.txt`.
 - Use only music, voices, fonts, images, and video assets cleared for the intended commercial use.
 - AI use alone does not guarantee or prevent YouTube monetization; each episode must provide original educational value and meaningful editing.
 - Do not call the episode complete until the final MP4, audio, subtitles, and visual quality checks pass.
