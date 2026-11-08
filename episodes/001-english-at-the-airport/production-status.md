@@ -19,6 +19,8 @@ Last updated: 2026-11-08
 - [x] Bilingual 48-cue voice manifest created with role assignments and WAV file paths.
 - [x] Audio assembler added to build separate 7-minute English and Dari WAV tracks from reviewed cue recordings.
 - [x] Validator extended to check voice-manifest alignment with both SRT tracks.
+- [x] Original 1280×720 vector thumbnail artwork added, using the canonical blue Leo / pink Emma / owl Ollie identities.
+- [x] Thumbnail PNG export script added.
 
 ## Quality notes
 - Subtitle timestamps are editorial estimates, not measured against recorded audio.
@@ -30,6 +32,7 @@ Last updated: 2026-11-08
 ## Automation and local tooling
 - Run `python tools/video-pipeline/validate_episode.py` to validate source assets, subtitle/timeline integrity, and voice-manifest alignment.
 - The voice manifest lists 48 English cue files and 48 Dari cue files. No audio clips have been generated yet.
+- Export the vector thumbnail with `python tools/video-pipeline/render_thumbnail.py` (CairoSVG required).
 - Once all clips are recorded and reviewed, run `python tools/video-pipeline/build_audio_tracks.py` to assemble two separate WAV tracks.
 - Run `python tools/video-pipeline/render_episode.py` to create a silent visual review cut. FFmpeg, FFprobe, and CairoSVG must be installed locally.
 - The GitHub Actions workflow is configured, but its first hosted run has not yet been independently confirmed in this status update.
