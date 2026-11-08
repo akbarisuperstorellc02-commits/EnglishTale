@@ -1,0 +1,30 @@
+name: Validate Windows PowerShell Build Script
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "tools/windows/**"
+      - ".github/workflows/validate-windows-script.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  parse-powershell-51:
+    runs-on: windows-2019
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Parse build script with Windows PowerShell 5.1
+        shell: powershell
+        run: |
+          $tokens = $null
+          $errors = $null
+          $path = Join-Path $PWD "tools/windows/build_episode_001.ps1"
+          [System.Management.Automation.Language.Parser]::ParseFile($path, [ref]$tokens, [ref]$errors) | Out-Null
+          if ($errors.Count -gt 0) {
+            $errors | ForEach-Object { Write-Error $_.Message }
+            exit 1
+          }
+          Write-Host "PASS: build_episode_001.ps1 parses in Windows PowerShell 5.1"
