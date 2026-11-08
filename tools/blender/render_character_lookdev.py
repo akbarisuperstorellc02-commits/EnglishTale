@@ -221,7 +221,10 @@ def main():
     uv_sphere("Airplane tail", (7.3, 3.05, 2.7), (0.18, 0.12, 0.65), M["white"])
 
     # Check-in and security staff use the same canonical stylized proportions.
-    build_person(-7.4, "Airport Agent", M["navy"], M["jeans"], M["hair"], M["skin"], M["navy"])
+    build_person(-5.8, "Airport Agent", M["navy"], M["jeans"], M["hair"], M["skin"], M["navy"])
+    for agent_part in bpy.data.objects:
+        if agent_part.name.startswith("Airport Agent"):
+            agent_part.location.y += 1.55
     build_person(5.7, "Security Officer", M["navy"], M["jeans"], M["hair"], M["skin"], M["navy"])
 
     # Security scanner, conveyor, tray, and a small cabin suitcase.
@@ -233,6 +236,9 @@ def main():
     text_obj("SECURITY", (4.2, 0.46, 2.78), 0.18, M["text"])
     cube("Leo cabin suitcase", (-3.25, 0.38, 0.55), (0.62, 0.42, 0.98), M["sign"], 0.10)
     cylinder("Suitcase handle", (-3.25, 0.38, 1.10), 0.025, 0.36, M["metal"])
+    cube("Passport", (-4.45, -0.05, 1.48), (0.34, 0.045, 0.25), M["gold"], 0.02)
+    cube("Boarding pass", (-3.95, -0.05, 1.48), (0.62, 0.045, 0.25), M["white"], 0.02)
+    text_obj("LONDON / GATE 12", (-3.95, -0.085, 1.45), 0.075, M["sign"])
 
     # Canonical characters. Their outfit palette is deliberately fixed.
     build_person(-2.3, "Leo", M["blue"], M["jeans"], M["hair"], M["skin"], M["blue"])
