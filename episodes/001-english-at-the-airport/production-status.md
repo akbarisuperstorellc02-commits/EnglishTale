@@ -31,6 +31,7 @@ Last updated: 2026-11-08
 - [x] Generated first-pass English and Afghan Dari retimed SRT files from the measured WAV cue durations.
 - [x] Uploaded the English audio, all cue WAVs, retimed SRTs, and VCTK attribution note as a GitHub Actions artifact.
 - [x] FFmpeg/CairoSVG 7-minute scene-plate renderer with optional British English audio and selectable English/Dari subtitle streams.
+- [x] Complete 420-second 1280×720 H.264 review MP4 rendered with AAC English dialogue and two selectable subtitle tracks; technical stream/duration validation passed.
 - [x] 4K YouTube thumbnail and vertical Shorts cover source artwork, renderers, validators, and CI artifacts.
 - [x] Procedural Blender 3D look-development scene and successful 1280×720 still render.
 - [x] Short 3D character motion-study MP4 rendered and validated at 640×360/24 fps; this is a two-second technical preview, not a finished episode shot.
@@ -41,12 +42,13 @@ Last updated: 2026-11-08
 - [ ] Listen to all 48 generated English WAV clips for pronunciation, pacing, role consistency, clipping, and quality.
 - [ ] Listen to and approve the generated English track; manually review both WAV-duration-retimed subtitle files. Duration-based retiming is only a first pass.
 - [ ] Complete final 3D/2.5D character animation, scene coverage, hand interactions, and appropriate dialogue acting. The current Blender still is only look-development, not the final character rig.
-- [ ] Complete the 720p review-cut render, review it with sound and muted, fix issues, then export and review the final 1080p master.
+- [ ] Human-review the 720p review cut with sound and muted, fix visual/timing issues, complete sound design, then export and review the final 1080p/30fps master.
 - [ ] Final human review of thumbnails, licenses, subtitles, audio, and YouTube metadata before publication.
 
 ## Verified GitHub checks
 
 - [x] [48 real English WAV cues, 7-minute master, and retimed subtitles generated successfully](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42503923500).
+- [x] [Complete 7-minute 720p review MP4 with English audio and two selectable subtitle tracks](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42504251122).
 - [x] [Offline TTS generation and WAV assembly tests passed](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42503217997).
 - [x] [Episode source, TTS, thumbnail, and Shorts validation passed](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42503053663).
 - [x] [Procedural 3D still render passed](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42501465316).
