@@ -41,6 +41,16 @@ def main() -> int:
             errors.append(f"Missing scene file: {shot['scene']}")
     en = parse_srt(EP / "subtitles-en.srt")
     fa = parse_srt(EP / "subtitles-fa.srt")
+    manifest = json.loads((EP / "voice-manifest.json").read_text(encoding="utf-8"))
+    manifest_cues = manifest.get("cues", [])
+    if len(manifest_cues) != len(en):
+        errors.append(f"Voice manifest cue count differs from English SRT: {len(manifest_cues)} vs {len(en)}.")
+    else:
+        for index, cue in enumerate(manifest_cues):
+            if cue.get("id") != en[index][0] or cue.get("start") != en[index][1] or cue.get("end") != en[index][2]:
+                errors.append(f"Voice manifest timing/ID differs at cue {index + 1}.")
+            if cue.get("english_text", "").strip() == "" or cue.get("dari_text", "").strip() == "":
+                errors.append(f"Voice manifest cue {index + 1} has an empty language text.")
     if len(en) != len(fa):
         errors.append(f"Subtitle cue count differs: EN={len(en)}, FA={len(fa)}.")
     if [x[1:] for x in en] != [x[1:] for x in fa]:
@@ -73,7 +83,7 @@ def main() -> int:
         return 1
     print("VALIDATION PASSED")
     print(f" - {len(shots)} shots / 420 seconds")
-    print(f" - {len(en)} English cues and {len(fa)} Dari cues")
+    print(f" - {len(en)} English cues and {len(fa)} Dari cues; voice manifest aligned")
     print(" - English/Dari cue boundaries match")
     print(" - all scene plates exist; Gate 12 confirmed")
     print(f" - {len(svg_paths)} SVG files parse as valid XML")
