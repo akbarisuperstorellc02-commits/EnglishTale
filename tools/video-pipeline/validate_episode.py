@@ -22,7 +22,8 @@ def parse_srt(path: Path):
         match = re.fullmatch(r"(\d{2}:\d{2}:\d{2},\d{3}) --> (\d{2}:\d{2}:\d{2},\d{3})", lines[1].strip())
         if not match:
             raise ValueError(f"Invalid timestamp in {path.name}: {lines[1]}")
-        cues.append((int(lines[0]), match.group(1), match.group(2)))
+        cue_text = "\\n".join(lines[2:]).strip()
+        cues.append((int(lines[0]), match.group(1), match.group(2), cue_text))
     return cues
 
 def to_ms(value: str) -> int:
@@ -51,9 +52,13 @@ def main() -> int:
                 errors.append(f"Voice manifest timing/ID differs at cue {index + 1}.")
             if cue.get("english_text", "").strip() == "" or cue.get("dari_text", "").strip() == "":
                 errors.append(f"Voice manifest cue {index + 1} has an empty language text.")
+            if cue.get("english_text", "").strip() != en[index][3].strip():
+                errors.append(f"Voice manifest English text differs from SRT at cue {index + 1}.")
+            if index < len(fa) and cue.get("dari_text", "").strip() != fa[index][3].strip():
+                errors.append(f"Voice manifest Dari text differs from SRT at cue {index + 1}.")
     if len(en) != len(fa):
         errors.append(f"Subtitle cue count differs: EN={len(en)}, FA={len(fa)}.")
-    if [x[1:] for x in en] != [x[1:] for x in fa]:
+    if [x[1:3] for x in en] != [x[1:3] for x in fa]:
         errors.append("English and Dari subtitle time boundaries do not match.")
     for lang, cues in (("EN", en), ("FA", fa)):
         if [x[0] for x in cues] != list(range(1, len(cues) + 1)):
@@ -83,7 +88,7 @@ def main() -> int:
         return 1
     print("VALIDATION PASSED")
     print(f" - {len(shots)} shots / 420 seconds")
-    print(f" - {len(en)} English cues and {len(fa)} Dari cues; voice manifest aligned")
+    print(f" - {len(en)} English cues and {len(fa)} Dari cues; voice manifest text/timing aligned")
     print(" - English/Dari cue boundaries match")
     print(" - all scene plates exist; Gate 12 confirmed")
     print(f" - {len(svg_paths)} SVG files parse as valid XML")
