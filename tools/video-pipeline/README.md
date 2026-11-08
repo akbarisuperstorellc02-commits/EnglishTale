@@ -23,7 +23,7 @@ python tools/video-pipeline/render_episode.py --audio path/to/reviewed-full-mix.
 python tools/video-pipeline/render_episode.py --english-audio build/audio/episode-001-en.wav --dari-audio build/audio/episode-001-fa.wav
 ```
 
-The optional audio file(s) must be at least 419 seconds long. The tool refuses to mux short files and silently truncate the episode. Use `--english-audio` and `--dari-audio` together to place both languages in one MP4 as selectable audio tracks; the English track is the default. `--audio` remains available for a single pre-mixed track.
+Before assembling language tracks, `build_audio_tracks.py` automatically runs `tools/tts/validate_voice_assets.py --strict`; all 96 clips must pass technical validation. The optional audio file(s) must be at least 419 seconds long. The tool refuses to mux short files and silently truncate the episode. Use `--english-audio` and `--dari-audio` together to place both languages in one MP4 as selectable audio tracks; the English track is the default. `--audio` remains available for a single pre-mixed track.
 
 ## Current limitations
 - The renderer uses scene plates with gentle camera movement; it does not composite the animated character rigs.
