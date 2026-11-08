@@ -29,6 +29,8 @@ Last updated: 2026-11-08
 - [x] Resumable Gemini TTS generator added for 48 English and 48 Dari cue files.
 - [x] ElevenLabs TTS fallback generator added with voice-listing and WAV conversion.
 - [x] Provider research updated: Gemini API regional restriction and ElevenLabs commercial-plan caveat documented.
+- [x] Both TTS generators support a six-role audition sample set before full generation.
+- [x] CI smoke-tests both TTS generators in dry-run mode without API keys.
 
 ## Quality notes
 - Subtitle timestamps are editorial estimates, not measured against recorded audio.
