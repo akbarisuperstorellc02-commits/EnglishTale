@@ -1,0 +1,51 @@
+{
+  "project": "EnglishTale",
+  "episode": "001-english-at-the-airport",
+  "language": {
+    "english_accent": "British English (en-GB)",
+    "english_audio": true,
+    "afghan_dari_audio": false,
+    "afghan_dari_subtitles": true,
+    "subtitle_file": "episodes/001-english-at-the-airport/subtitles-fa.srt"
+  },
+  "audio": {
+    "mode": "local_offline",
+    "engine": "Piper TTS",
+    "api_required": false,
+    "default_voice_model": "en_GB-alan-medium.onnx",
+    "output_directory": "build/audio/episode-001/en",
+    "sample_rate_target": 24000,
+    "channels": 1,
+    "format": "WAV PCM"
+  },
+  "visuals": {
+    "mode": "hybrid",
+    "target_style": "premium cinematic 3D look",
+    "preferred_pipeline": "locally rendered approved stills with camera motion, layered depth, lighting, compositing, and selective character animation",
+    "gpu_required": false,
+    "gpu_acceleration": "optional",
+    "fallback": "high-quality 2.5D compositing and vector motion; never label it full 3D"
+  },
+  "delivery": {
+    "aspect_ratio": "16:9",
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "container": "MP4",
+    "video_codec": "H.264",
+    "target_runtime_seconds": 420
+  },
+  "continuity": {
+    "leo": "19-year-old young man, brown hair, blue hoodie, dark blue jeans, white shoes",
+    "emma": "19-year-old young woman, shoulder-length brown hair, pink sweater, dark jeans, white shoes",
+    "ollie": "small brown owl, cream face and chest, large eyes, round glasses, navy scarf with gold details",
+    "airport_gate": "Gate 12"
+  },
+  "production_policy": {
+    "no_paid_api": true,
+    "no_api_keys_in_repository": true,
+    "no_dari_voiceover": true,
+    "commercial_rights_must_be_verified_for_each_model_and_asset": true,
+    "do_not_claim_finished_until_full_render_and_quality_checks_pass": true
+  }
+}
