@@ -75,7 +75,7 @@ jobs:
       - name: Install FFmpeg and scene-render dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y ffmpeg
+          sudo apt-get install -y ffmpeg blender libegl1 libgl1 libxrender1 libxi6
           python -m pip install -r tools/video-pipeline/requirements.txt
       - name: Render complete 7-minute 720p review cut with English audio and selectable subtitles
         run: |
@@ -113,11 +113,33 @@ jobs:
           print(f"PASS: 7-minute H.264 review MP4, {duration:.2f}s, 1280x720, AAC, 2 subtitle tracks")
           print(f"File size: {video.stat().st_size:,} bytes")
           PY
+      - name: Render the 18-shot procedural Blender 3D still library
+        run: |
+          mkdir -p build/3d-shots
+          blender -b -t 2 --python tools/blender/render_character_lookdev.py -- \
+            --shot-library --shots-dir build/3d-shots --width 1920 --height 1080
+      - name: Validate all 18 procedural 3D shot images
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+
+          shots = sorted(Path("build/3d-shots").glob("shot-*.png"))
+          assert len(shots) == 18, f"Expected 18 3D stills, found {len(shots)}"
+          for path in shots:
+              data = path.read_bytes()
+              assert data[:8] == bytes.fromhex("89504e470d0a1a0a"), f"Invalid PNG: {path}"
+              width, height = struct.unpack(">II", data[16:24])
+              assert (width, height) == (1920, 1080), f"Unexpected dimensions for {path}: {width}x{height}"
+              assert len(data) > 20000, f"3D shot unexpectedly small: {path}"
+          print(f"PASS: {len(shots)} procedural 3D PNG shots at 1920x1080")
+          PY
       - name: Render 1080p30 master candidate with normalized English dialogue
         run: |
           python tools/video-pipeline/render_episode.py \
             --output build/episode-001-master-1080p.mp4 \
             --width 1920 --height 1080 --fps 30 \
+            --shot-list episodes/001-english-at-the-airport/render-shotlist-3d.json \
             --english-audio build/audio/episode-001-en.wav \
             --subtitles-en build/subtitles/episode-001-en-retimed.srt \
             --subtitles-fa build/subtitles/episode-001-fa-retimed.srt
@@ -161,5 +183,6 @@ jobs:
             models/piper/en_GB-vctk-medium/ATTRIBUTION.txt
             build/episode-001-review-720p.mp4
             build/episode-001-master-1080p.mp4
+            build/3d-shots/*.png
           if-no-files-found: error
           retention-days: 14
