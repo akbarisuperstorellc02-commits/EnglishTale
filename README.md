@@ -40,11 +40,12 @@ The project has a validated production package and a working render/tooling foun
 - [Download the 3D look-development still and motion-study MP4](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42504752366/artifacts/13626574637).
 
 ### Still required before release
-- Listen to and approve all 48 generated English WAV clips for pronunciation, acting, pacing, and role consistency.
-- Manually review both WAV-duration-retimed subtitle files against the actual English recordings.
-- Complete and validate the 1080p master render from the 18 Blender 3D stills; complete dialogue-specific character animation and visual continuity. The Blender motion study is only a short technical preview.
-- Human-review the 720p review cut and 1080p30 master candidate with sound and muted; revise visual/timing issues and decide whether additional sound design is needed before publication.
+- Human-listen to all 48 corrected English WAV clips and approve pronunciation, acting, pacing, role consistency, and the complete audio track.
+- Manually review both WAV-duration-retimed subtitle tracks against the recordings.
+- Human-review the 720p review cut and 1080p30 master candidate with sound and muted; revise any visual/timing issues and decide whether additional sound design is needed before publication.
 - Review the final thumbnail and all asset/model licenses before YouTube publication.
+
+The current visual delivery is a hybrid of 18 procedural Blender 3D stills and gentle Ken Burns-style zoom. It is not continuous full-body character animation or lip sync; those are a separate optional enhancement phase.
 
 ## Quick start
 
