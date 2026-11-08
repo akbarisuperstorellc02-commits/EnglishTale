@@ -1,0 +1,73 @@
+#!/usr/bin/env python3
+"""Validate Episode 001's production inputs without external dependencies."""
+from __future__ import annotations
+import json
+import re
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+EP = ROOT / "episodes" / "001-english-at-the-airport"
+SCENES = ROOT / "assets" / "scenes"
+
+def parse_srt(path: Path):
+    raw = path.read_text(encoding="utf-8-sig").strip()
+    blocks = re.split(r"\n\s*\n", raw)
+    cues = []
+    for block in blocks:
+        lines = block.splitlines()
+        if len(lines) < 3 or not lines[0].strip().isdigit():
+            raise ValueError(f"Malformed SRT block in {path.name}: {block[:80]!r}")
+        match = re.fullmatch(r"(\d{2}:\d{2}:\d{2},\d{3}) --> (\d{2}:\d{2}:\d{2},\d{3})", lines[1].strip())
+        if not match:
+            raise ValueError(f"Invalid timestamp in {path.name}: {lines[1]}")
+        cues.append((int(lines[0]), match.group(1), match.group(2)))
+    return cues
+
+def to_ms(value: str) -> int:
+    h, m, rest = value.split(":")
+    s, ms = rest.split(",")
+    return ((int(h) * 60 + int(m)) * 60 + int(s)) * 1000 + int(ms)
+
+def main() -> int:
+    errors = []
+    shot_path = EP / "render-shotlist.json"
+    shots = json.loads(shot_path.read_text(encoding="utf-8"))
+    if sum(int(s["duration"]) for s in shots) != 420:
+        errors.append("Shot durations do not total 420 seconds.")
+    for shot in shots:
+        if not (SCENES / shot["scene"]).is_file():
+            errors.append(f"Missing scene file: {shot['scene']}")
+    en = parse_srt(EP / "subtitles-en.srt")
+    fa = parse_srt(EP / "subtitles-fa.srt")
+    if len(en) != len(fa):
+        errors.append(f"Subtitle cue count differs: EN={len(en)}, FA={len(fa)}.")
+    if [x[1:] for x in en] != [x[1:] for x in fa]:
+        errors.append("English and Dari subtitle time boundaries do not match.")
+    for lang, cues in (("EN", en), ("FA", fa)):
+        if [x[0] for x in cues] != list(range(1, len(cues) + 1)):
+            errors.append(f"{lang} subtitle cue numbering is not sequential.")
+        for i, cue in enumerate(cues):
+            if to_ms(cue[1]) >= to_ms(cue[2]):
+                errors.append(f"{lang} cue {cue[0]} has zero/negative duration.")
+            if i and to_ms(cues[i-1][2]) > to_ms(cue[1]):
+                errors.append(f"{lang} cues {cues[i-1][0]} and {cue[0]} overlap.")
+    if en and en[-1][2] != "00:07:00,000":
+        errors.append("English subtitle track does not end at 07:00.")
+    gate_scene = (SCENES / "04-departure-gate.svg").read_text(encoding="utf-8")
+    if "GATE 12" not in gate_scene:
+        errors.append("Departure gate artwork is missing Gate 12 signage.")
+    if errors:
+        print("VALIDATION FAILED")
+        for item in errors:
+            print(" -", item)
+        return 1
+    print("VALIDATION PASSED")
+    print(f" - {len(shots)} shots / 420 seconds")
+    print(f" - {len(en)} English cues and {len(fa)} Dari cues")
+    print(" - English/Dari cue boundaries match")
+    print(" - all scene plates exist; Gate 12 confirmed")
+    return 0
+
+if __name__ == "__main__":
+    sys.exit(main())
