@@ -7,7 +7,7 @@
 **Target runtime:** 6–8 minutes  
 **Format:** 16:9, 1920×1080, 30 fps, MP4
 
-## Approved production settings\n\nThe active settings are recorded in `project-settings.json`: British English, Afghan Dari subtitles only (no Dari voiceover), local/offline TTS with no paid API, and a hybrid visual pipeline. The target look is premium cinematic 3D; when local hardware cannot support full 3D, use carefully composited 2.5D scenes and camera motion without misrepresenting them as full 3D. GPU acceleration is optional because the computer's GPU model is not yet known.\n\n## Current production status
+## Approved production settings\n\nThe active settings are recorded in `project-settings.json`: British English, Afghan Dari subtitles only (no Dari voiceover), local/offline TTS with no paid API, and a hybrid visual pipeline. The target look is premium cinematic 3D; when local hardware cannot support full 3D, use carefully composited 2.5D scenes and camera motion without misrepresenting them as full 3D. GPU acceleration is optional because the computer's GPU model is not yet known.\n\n## 3D look-development\n\nA procedural Blender scene builds the canonical Leo, Emma, and Ollie designs in a Gate 12 airport terminal. The CPU-rendered 1280×720 look-development preview is a style test, not the finished episode. See `tools/blender/README.md` and the GitHub Actions workflow **Render EnglishTale 3D Look Development**.\n\n## Current production status
 
 Episode 001 has moved beyond the planning-only stage. The repository now includes original coded vector artwork, animated SVG character rigs, an 18-shot edit plan, and aligned English/Dari subtitle guide tracks.
 
