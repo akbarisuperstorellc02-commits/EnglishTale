@@ -15,7 +15,7 @@ blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --output b
 The same scene can render a short 3D motion study with subtle character body movement and a slow camera push:
 
 ```bash
-blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --animation --duration 4 --fps 24 --output build/episode-001-3d-motion-study.mp4
+blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --animation --duration 2 --fps 24 --output build/episode-001-3d-motion-study.mp4
 ```
 
 This is an animation pipeline proof, not the final seven-minute episode. The motion is deliberately limited to test the scene, camera, character grouping, and MP4 export path. Dialogue-specific acting, hand interactions, detailed facial rigging, and lip sync remain production tasks.
