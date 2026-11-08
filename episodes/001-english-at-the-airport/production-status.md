@@ -57,7 +57,7 @@ Last updated: 2026-11-08
 - Export the vector thumbnail with `python tools/video-pipeline/render_thumbnail.py` (CairoSVG required).
 - Once all 48 English clips are generated and reviewed, run `python tools/tts/build_english_track.py` to assemble the English WAV track.
 - Run `python tools/video-pipeline/render_episode.py` to create a silent visual review cut. FFmpeg, FFprobe, and CairoSVG must be installed locally.
-- For an MP4 with British English audio and selectable subtitles, use `--english-audio build/audio/episode-001-en.wav --subtitles-en episodes/001-english-at-the-airport/subtitles-en.srt --subtitles-fa episodes/001-english-at-the-airport/subtitles-fa.srt`.
+- For an MP4 with British English audio and selectable subtitles, use `--english-audio build/audio/episode-001-en.wav --subtitles-en build/subtitles/episode-001-en-retimed.srt --subtitles-fa build/subtitles/episode-001-fa-retimed.srt`.
 - GitHub Actions run #65 completed successfully. It compiled all tools, passed the expanded episode validator, smoke-tested both TTS generators without API credentials, rendered and validated the 1280×720 PNG thumbnail, and uploaded the thumbnail artifact. [Open run #65](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42495946177).
 
 ## Next production sequence
