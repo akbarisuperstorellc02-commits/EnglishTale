@@ -24,6 +24,7 @@ Episode 001 has moved beyond the planning-only stage. The repository now include
 - 48-cue bilingual voice manifest and recording package.
 - Separate English/Dari WAV track assembler with timeline-gap preservation.
 - Resumable Gemini and ElevenLabs TTS generator tools; provider access and commercial rights are documented.
+- Gemini image-generation pipeline using the current Gemini image model, reusable character-reference artwork, and a four-image audition before the full 12-scene batch.
 - Dependency-free validator and unit tests for all 96 bilingual WAV recordings, with a strict release gate.
 - MP4 export option for selectable English and Afghan Dari audio tracks.
 - YouTube metadata and thumbnail brief.
@@ -132,3 +133,7 @@ EnglishTale/
 ## Release strategy
 
 Publish one polished long-form episode first. Then create 2–3 useful Shorts from the episode, each with a complete mini-lesson and a pointer to the full story.
+
+## AI image generation
+
+The repository includes a manual GitHub Actions workflow named **Generate Episode 001 images**. It uses the `GEMINI_API_KEY` repository secret, creates a four-image audition first, and can then generate all 12 scene illustrations. See `tools/image-pipeline/README.md`. Generated PNGs are uploaded as workflow artifacts for review; they are not committed automatically. API availability, quota, and billing depend on the Google AI Studio project.
