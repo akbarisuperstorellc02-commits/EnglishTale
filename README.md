@@ -19,6 +19,8 @@ Episode 001 has moved beyond the planning-only stage. The repository now include
 - 18-shot animation/edit plan for the 7-minute episode.
 - English SRT and Afghan Dari SRT, each with 48 matching cue boundaries.
 - Voice and subtitle production instructions.
+- 48-cue bilingual voice manifest and recording package.
+- Separate English/Dari WAV track assembler.
 - YouTube metadata and thumbnail brief.
 
 ### Not yet produced
@@ -54,6 +56,8 @@ EnglishTale/
 │       ├── animation-shot-plan.md
 │       ├── voice-and-sound.md
 │       ├── voice-subtitle-production.md
+│       ├── voice-recording-package.md
+│       ├── voice-manifest.json
 │       ├── subtitles-en.srt
 │       ├── subtitles-fa.srt
 │       ├── youtube-metadata.md
@@ -69,14 +73,15 @@ EnglishTale/
 ## Quick start
 
 1. Run the input validator: `python tools/video-pipeline/validate_episode.py`.
-2. Build a silent visual review cut: `python tools/video-pipeline/render_episode.py` (requires FFmpeg and CairoSVG; see `tools/video-pipeline/README.md`).
-3. Read `brand/brand-guide.md` and `characters/character-bible.md`.
-4. Review the SVG scene plates in `assets/scenes/` and character rigs in `assets/animation/`.
-5. Follow `episodes/001-english-at-the-airport/animation-shot-plan.md` for the edit structure.
-6. Generate each speaker line separately using `voice-and-sound.md`; keep English and Dari audio separate.
-7. Retiming both SRT tracks against the final audio is mandatory.
-8. Assemble and review the video using `production-workflow.md`.
-9. Check every item in `publishing/quality-control.md` and verify commercial-use permissions before upload.
+2. After recording all cues, assemble the separate language tracks with `python tools/video-pipeline/build_audio_tracks.py`.
+3. Build a silent visual review cut: `python tools/video-pipeline/render_episode.py` (requires FFmpeg and CairoSVG; see `tools/video-pipeline/README.md`).
+4. Read `brand/brand-guide.md` and `characters/character-bible.md`.
+5. Review the SVG scene plates in `assets/scenes/` and character rigs in `assets/animation/`.
+6. Follow `episodes/001-english-at-the-airport/animation-shot-plan.md` for the edit structure.
+7. Generate each speaker line separately using `voice-and-sound.md`; keep English and Dari audio separate.
+8. Retiming both SRT tracks against the final audio is mandatory.
+9. Assemble and review the video using `production-workflow.md`.
+10. Check every item in `publishing/quality-control.md` and verify commercial-use permissions before upload.
 
 ## Important production principles
 
