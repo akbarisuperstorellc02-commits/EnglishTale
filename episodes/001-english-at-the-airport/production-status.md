@@ -38,6 +38,8 @@ Last updated: 2026-11-08
 - [x] GitHub Actions run #75 passed the full pipeline and uploaded both thumbnail previews as one 827,839-byte artifact. [Open run #75](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42496255600).
 - [x] Vertical Shorts cover added to the asset license log.
 - [x] Four vertical YouTube Shorts cutdown plans prepared for post-release promotion.
+- [x] Dependency-free voice asset validator added for all 96 English/Dari WAV clips, including strict release mode and unit tests.
+- [x] CI now runs voice validator unit tests and reports missing recordings as pending without falsely failing the source-package build.
 
 ## Quality notes
 - Subtitle timestamps are editorial estimates, not measured against recorded audio.
@@ -49,6 +51,7 @@ Last updated: 2026-11-08
 ## Automation and local tooling
 - Run `python tools/video-pipeline/validate_episode.py` to validate source assets, subtitle/timeline integrity, and voice-manifest alignment.
 - The voice manifest lists 48 English cue files and 48 Dari cue files. No audio clips have been generated yet.
+- Run `python tools/tts/validate_voice_assets.py` to inspect available clips; run `python tools/tts/validate_voice_assets.py --strict` before audio assembly to require all 96 technically valid WAVs.
 - TTS generation tools are ready, but API credentials and user-selected voice IDs are not present. Gemini API's official supported-region list excludes Afghanistan; ElevenLabs is the practical alternative to audition, but Persian output must pass Afghan Dari review.
 - Export the vector thumbnail with `python tools/video-pipeline/render_thumbnail.py` (CairoSVG required).
 - Once all clips are recorded and reviewed, run `python tools/video-pipeline/build_audio_tracks.py` to assemble two separate WAV tracks.
