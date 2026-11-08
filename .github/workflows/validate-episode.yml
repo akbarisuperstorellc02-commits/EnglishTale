@@ -34,9 +34,15 @@ jobs:
         run: python tools/video-pipeline/render_thumbnail.py
       - name: Validate thumbnail PNG dimensions
         run: python tools/video-pipeline/validate_thumbnail.py
-      - name: Upload thumbnail preview
+      - name: Render vertical YouTube Shorts cover
+        run: python tools/video-pipeline/render_shorts_cover.py
+      - name: Validate vertical Shorts cover
+        run: python tools/video-pipeline/validate_shorts_cover.py
+      - name: Upload thumbnail previews
         uses: actions/upload-artifact@v4
         with:
-          name: englishtale-episode-001-thumbnail
-          path: build/episode-001-thumbnail.png
+          name: englishtale-episode-001-thumbnails
+          path: |
+            build/episode-001-thumbnail.png
+            build/episode-001-shorts-cover.png
           if-no-files-found: error
