@@ -103,3 +103,4 @@ From the repository root:
 - `tools/tts/LOCAL_TTS.md` — offline British English voice generation.
 - `tools/video-pipeline/README.md` — FFmpeg renderer and subtitle muxing.
 - `tools/blender/README.md` — procedural 3D look-development.
+- `publishing/youtube-metadata-episode-001.md` — title, description, chapters, tags, attribution, and upload checklist.
