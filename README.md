@@ -15,6 +15,7 @@ Episode 001 has moved beyond the planning-only stage. The repository now include
 - Full episode script and bilingual teaching content.
 - Character bible: Leo (blue hoodie), Emma (pink sweater), and Ollie (owl guide).
 - Five original 1280×720 airport/airplane SVG scene plates.
+- Original 1280×720 Episode 001 thumbnail artwork in SVG, with a PNG export script.
 - Three original 640×640 SVG character rigs with embedded CSS animation.
 - 18-shot animation/edit plan for the 7-minute episode.
 - English SRT and Afghan Dari SRT, each with 48 matching cue boundaries.
@@ -47,6 +48,7 @@ EnglishTale/
 ├── assets/
 │   ├── characters/          # Original static character SVGs
 │   ├── scenes/              # Five original scene plates
+│   └── thumbnails/          # Original Episode 001 thumbnail artwork
 │   └── animation/           # Animated SVG rigs + pipeline notes
 ├── episodes/
 │   └── 001-english-at-the-airport/
@@ -75,13 +77,14 @@ EnglishTale/
 1. Run the input validator: `python tools/video-pipeline/validate_episode.py`.
 2. After recording all cues, assemble the separate language tracks with `python tools/video-pipeline/build_audio_tracks.py`.
 3. Build a silent visual review cut: `python tools/video-pipeline/render_episode.py` (requires FFmpeg and CairoSVG; see `tools/video-pipeline/README.md`).
-4. Read `brand/brand-guide.md` and `characters/character-bible.md`.
-5. Review the SVG scene plates in `assets/scenes/` and character rigs in `assets/animation/`.
-6. Follow `episodes/001-english-at-the-airport/animation-shot-plan.md` for the edit structure.
-7. Generate each speaker line separately using `voice-and-sound.md`; keep English and Dari audio separate.
-8. Retiming both SRT tracks against the final audio is mandatory.
-9. Assemble and review the video using `production-workflow.md`.
-10. Check every item in `publishing/quality-control.md` and verify commercial-use permissions before upload.
+4. Export the thumbnail PNG with `python tools/video-pipeline/render_thumbnail.py`.
+5. Read `brand/brand-guide.md` and `characters/character-bible.md`.
+6. Review the SVG scene plates in `assets/scenes/` and character rigs in `assets/animation/`.
+7. Follow `episodes/001-english-at-the-airport/animation-shot-plan.md` for the edit structure.
+8. Generate each speaker line separately using `voice-and-sound.md`; keep English and Dari audio separate.
+9. Retiming both SRT tracks against the final audio is mandatory.
+10. Assemble and review the video using `production-workflow.md`.
+11. Check every item in `publishing/quality-control.md` and verify commercial-use permissions before upload.
 
 ## Important production principles
 
