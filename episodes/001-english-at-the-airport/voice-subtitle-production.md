@@ -2,7 +2,7 @@
 
 ## Current deliverables
 - `subtitles-en.srt`: complete English subtitle pass covering the full 7-minute editorial timeline.
-- `subtitles-fa.srt`: Dari/Persian subtitle pass aligned cue-for-cue with the English track.
+- `subtitles-fa.srt`: Afghan Dari subtitle pass aligned cue-for-cue with the English track.
 - Both tracks use the same 48 cue boundaries so they can be imported as separate subtitle tracks in an editor.
 
 ## Important timing note
