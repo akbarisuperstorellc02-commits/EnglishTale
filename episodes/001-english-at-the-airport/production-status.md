@@ -51,7 +51,7 @@ Last updated: 2026-11-08
 - GitHub Actions run #20 completed successfully. It compiled the pipeline scripts, passed the episode/SVG/manifest validator, rendered the 1280×720 PNG thumbnail, and uploaded the thumbnail artifact.
 
 ## Next production sequence
-1. Confirm an accessible TTS provider and a plan with commercial-use rights; audition Persian output for Afghan Dari before committing.
+1. Confirm an accessible TTS provider and a plan with commercial-use rights; audition the Persian voice for natural Afghan Dari before committing.
 2. Generate and audition each English character/narrator line separately.
 3. Generate the Dari explanation track separately if Dari narration is retained in the final edit.
 4. Replace placeholder pauses with real timing and retime both subtitle tracks to the final audio.
