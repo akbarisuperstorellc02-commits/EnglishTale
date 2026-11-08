@@ -45,6 +45,15 @@ def main() -> int:
     for shot in shots:
         if not (SCENES / shot["scene"]).is_file():
             errors.append(f"Missing scene file: {shot['scene']}")
+    shot3d_path = EP / "render-shotlist-3d.json"
+    if shot3d_path.is_file():
+        shots3d = json.loads(shot3d_path.read_text(encoding="utf-8"))
+        if len(shots3d) != len(shots) or sum(int(s["duration"]) for s in shots3d) != 420:
+            errors.append("3D shot list must match the 18-shot, 420-second base timeline.")
+        for index, shot in enumerate(shots3d, start=1):
+            expected = f"build/3d-shots/shot-{index:02d}.png"
+            if shot.get("scene") != expected:
+                errors.append(f"3D shot {index} must reference {expected}.")
     en = parse_srt(EP / "subtitles-en.srt")
     fa = parse_srt(EP / "subtitles-fa.srt")
     manifest = json.loads((EP / "voice-manifest.json").read_text(encoding="utf-8"))
