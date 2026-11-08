@@ -98,7 +98,7 @@ def main() -> int:
             skipped += 1
             continue
         command = [executable or args.piper, "--model", str(model), "--output_file", str(destination)]
-        config = args.config if model == args.model and args.config else Path(str(model) + ".json")
+        config = args.config if args.config and model == args.model.resolve() else Path(str(model) + ".json")
         if config.is_file():
             command.extend(["--config", str(config)])
         if speaker_id is not None:
