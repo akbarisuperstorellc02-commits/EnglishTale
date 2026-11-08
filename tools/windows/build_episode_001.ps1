@@ -13,6 +13,8 @@ try {
     if (-not $pythonCommand) {
         throw "Python 3.11+ was not found. Install Python and enable 'Add Python to PATH'."
     }
+    & python -c "import sys; sys.exit(0 if sys.version_info >= (3, 11) else 1)"
+    if ($LASTEXITCODE -ne 0) { throw "Python 3.11 or newer is required." }
 
     $venvPython = Join-Path $repoRoot ".venv-englishtale\Scripts\python.exe"
     if (-not (Test-Path $venvPython)) {
