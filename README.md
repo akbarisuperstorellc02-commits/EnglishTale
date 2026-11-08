@@ -15,7 +15,7 @@ Episode 001 has moved beyond the planning-only stage. The repository now include
 - Full episode script and bilingual teaching content.
 - Character bible: Leo (blue hoodie), Emma (pink sweater), and Ollie (owl guide).
 - Five original 1280×720 airport/airplane SVG scene plates.
-- Original 1280×720 Episode 001 thumbnail artwork in SVG, with a PNG export script.
+- Original 16:9 Episode 001 thumbnail artwork in SVG, exported as a 3840×2160 4K PNG for YouTube.
 - Three original 640×640 SVG character rigs with embedded CSS animation.
 - 18-shot animation/edit plan for the 7-minute episode.
 - English SRT and Afghan Dari SRT, each with 48 matching cue boundaries.
