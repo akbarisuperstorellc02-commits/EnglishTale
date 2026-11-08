@@ -16,10 +16,10 @@ PowerShell example (current terminal only):
 
 ```powershell
 $env:GEMINI_API_KEY = "YOUR_API_KEY"
-python tools/tts/generate_gemini_tts.py --language both --limit 2
+python tools/tts/generate_gemini_tts.py --language both --cue-ids 1,4,5,11,24,34
 ```
 
-Review the sample clips, then generate the remaining clips:
+This representative set auditions Narrator, Leo, Emma, Airport Agent, Security Officer, and Ollie, plus the single Dari explainer voice. Review every sample before generating the remaining clips:
 
 ```powershell
 python tools/tts/generate_gemini_tts.py --language both
