@@ -8,14 +8,14 @@
  <linearGradient id="pink" x2="0" y2="1"><stop stop-color="#FFB4CB"/><stop offset="1" stop-color="#E96F9B"/></linearGradient>
  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#081B2C" flood-opacity=".22"/></filter>
 </defs>
-<rect width="1280" height="720" fill="#EAF3F7"/><rect width="1280" height="470" fill="#D9EDF5"/><path d="M0 460H1280V720H0Z" fill="url(#floor)"/><path d="M0 470H1280" stroke="#8EACBA" stroke-width="5"/><g opacity=".7" stroke="#A5C7D6" stroke-width="7"><path d="M70 80V450M350 80V450M630 80V450M910 80V450M1190 80V450"/></g><g fill="#fff" opacity=".65"><rect x="95" y="100" width="220" height="250" rx="18"/><rect x="375" y="100" width="220" height="250" rx="18"/><rect x="655" y="100" width="220" height="250" rx="18"/><rect x="935" y="100" width="220" height="250" rx="18"/></g><rect x="70" y="40" width="1140" height="65" rx="20" fill="#163754"/><text x="640" y="83" fill="#fff" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="5">INTERNATIONAL AIRPORT</text><text x="85" y="155" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#163754">GATE 24 • BOARDING</text><rect x="105" y="230" width="430" height="245" rx="20" fill="#153B5A"/><rect x="130" y="255" width="380" height="195" rx="12" fill="#B9D9E8"/><text x="320" y="320" text-anchor="middle" font-family="Arial" font-size="28" fill="#163754">LONDON</text><text x="320" y="390" text-anchor="middle" font-family="Arial" font-size="62" font-weight="800" fill="#163754">24</text><g transform="translate(800 365) scale(.78)"><g transform="translate(0 0)" filter="url(#shadow)">
+<rect width="1280" height="720" fill="#EAF3F7"/><rect width="1280" height="470" fill="#D9EDF5"/><path d="M0 460H1280V720H0Z" fill="url(#floor)"/><path d="M0 470H1280" stroke="#8EACBA" stroke-width="5"/><g opacity=".7" stroke="#A5C7D6" stroke-width="7"><path d="M70 80V450M350 80V450M630 80V450M910 80V450M1190 80V450"/></g><g fill="#fff" opacity=".65"><rect x="95" y="100" width="220" height="250" rx="18"/><rect x="375" y="100" width="220" height="250" rx="18"/><rect x="655" y="100" width="220" height="250" rx="18"/><rect x="935" y="100" width="220" height="250" rx="18"/></g><rect x="70" y="40" width="1140" height="65" rx="20" fill="#163754"/><text x="640" y="83" fill="#fff" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="700" letter-spacing="5">INTERNATIONAL AIRPORT</text><text x="85" y="155" font-family="Arial,sans-serif" font-size="34" font-weight="700" fill="#163754">GATE 12 • BOARDING</text><rect x="105" y="230" width="430" height="125" rx="20" fill="#153B5A"/><rect x="130" y="255" width="380" height="195" rx="12" fill="#B9D9E8"/><text x="320" y="320" text-anchor="middle" font-family="Arial" font-size="28" fill="#163754">LONDON</text><text x="320" y="390" text-anchor="middle" font-family="Arial" font-size="62" font-weight="800" fill="#163754">12</text><g transform="translate(800 365) scale(.78)"><g transform="translate(0 0)" filter="url(#shadow)">
  <ellipse cx="0" cy="250" rx="105" ry="22" fill="#35566B" opacity=".22"/>
  <path d="M-60 145L-78 255H-25L-10 180H10L25 255H78L60 145Z" fill="#39465C"/>
  <path d="M-84 78Q0 35 84 78L90 220Q0 250-90 220Z" fill="url(#pink)"/>
  <path d="M-82 95Q-125 120-112 190L-88 198L-62 128M82 95Q125 120 112 190L88 198L62 128" fill="#E982A5"/>
  <rect x="-112" y="184" width="28" height="56" rx="14" fill="#F0C4A8"/><rect x="84" y="184" width="28" height="56" rx="14" fill="#F0C4A8"/>
  <ellipse cx="0" cy="0" rx="76" ry="88" fill="#F4C9A9"/>
- <path d="M-76 10Q-100-72-42-93Q20-124 70-74Q95-36 75 72L48 115L46 20Q5-30-26-20Q-52-10-55 38L-55 115L-78 78Z" fill="#57352D"/>
+ <path d="M-76 10Q-100-72-42-93Q20-112 70-74Q95-36 75 72L48 115L46 20Q5-30-26-20Q-52-10-55 38L-55 115L-78 78Z" fill="#57352D"/>
  <path d="M-68-45Q-92-6-62 22M66-45Q92-6 62 22" fill="none" stroke="#57352D" stroke-width="13" stroke-linecap="round"/>
  <ellipse cx="-27" cy="3" rx="7" ry="10" fill="#26394A"/><ellipse cx="27" cy="3" rx="7" ry="10" fill="#26394A"/>
  <path d="M-15 43Q0 56 16 43" fill="none" stroke="#B45E68" stroke-width="5" stroke-linecap="round"/>
@@ -23,13 +23,13 @@
  </g></g><g transform="translate(1010 365) scale(.78)"><g transform="translate(0 0)" filter="url(#shadow)">
  <ellipse cx="0" cy="250" rx="105" ry="22" fill="#35566B" opacity=".22"/>
  <path d="M-62 140L-80 255L-28 255L-12 174L12 174L28 255L80 255L62 140Z" fill="#263B59"/>
- <path d="M-85 75Q-95 105-82 190L-70 224Q0 248 70 224L82 190Q95 105 85 75Q48 48 0 48Q-48 48-85 75Z" fill="url(#blue)"/>
+ <path d="M-85 75Q-95 105-82 190L-70 212Q0 128 70 212L82 190Q95 105 85 75Q48 48 0 48Q-48 48-85 75Z" fill="url(#blue)"/>
  <path d="M-34 62Q0 105 34 62L20 125H-20Z" fill="#123F75"/><path d="M-20 122L0 155L20 122" fill="none" stroke="#8CC8F4" stroke-width="6"/>
  <path d="M-83 95Q-125 125-112 190L-88 196L-61 125M83 95Q125 125 112 190L88 196L61 125" fill="#1766B0"/>
  <rect x="-112" y="182" width="28" height="58" rx="14" fill="#E9B58E"/><rect x="84" y="182" width="28" height="58" rx="14" fill="#E9B58E"/>
- <ellipse cx="0" cy="0" rx="77" ry="88" fill="#F2C49F"/><path d="M-77 4Q-92-90-10-96Q70-105 79-24L58-42Q20-55-12-32Q-43-9-77 4Z" fill="#342A2A"/>
+ <ellipse cx="0" cy="0" rx="77" ry="88" fill="#F2C49F"/><path d="M-77 4Q-92-90-10-96Q70-105 79-12L58-42Q20-55-12-32Q-43-9-77 4Z" fill="#342A2A"/>
  <path d="M-62-18Q-45-48-18-48M16-48Q44-48 61-18" fill="none" stroke="#342A2A" stroke-width="12" stroke-linecap="round"/>
- <ellipse cx="-28" cy="4" rx="7" ry="10" fill="#243448"/><ellipse cx="28" cy="4" rx="7" ry="10" fill="#243448"/>
+ <ellipse cx="-28" cy="4" rx="7" ry="10" fill="#123448"/><ellipse cx="28" cy="4" rx="7" ry="10" fill="#123448"/>
  <path d="M-14 42Q0 54 15 42" fill="none" stroke="#A94F4F" stroke-width="5" stroke-linecap="round"/>
  <path d="M-42-79Q0-110 46-78" fill="none" stroke="#342A2A" stroke-width="12" stroke-linecap="round"/>
  </g></g><rect x="130" y="525" width="480" height="75" rx="15" fill="#fff"/><text x="370" y="575" text-anchor="middle" font-family="Arial" font-size="27" fill="#163754">Your flight is boarding.</text>
