@@ -407,7 +407,7 @@
       "role": "Ollie",
       "start": "00:06:03,000",
       "end": "00:06:11,000",
-      "english_text": "A) A passport. B) A boarding document. C) A suitcase.",
+      "english_text": "A) A passport.\nB) A boarding document.\nC) A suitcase.",
       "dari_text": "الف) پاسپورت\nب) سند سوار شدن به هواپیما\nج) چمدان",
       "english_file": "build/audio/episode-001/en/044.wav"
     },
