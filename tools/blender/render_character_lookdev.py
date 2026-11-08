@@ -112,13 +112,20 @@ def build_person(x, name, body_mat, pants_mat, hair_mat, skin_mat, accent_mat):
     uv_sphere(name + " neck", (x, -0.01, 2.06), (0.16, 0.15, 0.22), skin_mat)
     uv_sphere(name + " head", (x, -0.03, 2.55), (0.43, 0.38, 0.52), skin_mat)
     uv_sphere(name + " hair cap", (x, 0.0, 2.89), (0.44, 0.39, 0.25), hair_mat)
-    uv_sphere(name + " hair left", (x - 0.34, 0.0, 2.66), (0.13, 0.34, 0.35), hair_mat)
-    uv_sphere(name + " hair right", (x + 0.34, 0.0, 2.66), (0.13, 0.34, 0.35), hair_mat)
-    # Face points toward the camera (-Y).
+    if name == "Emma":
+        # Shoulder-length hair and a soft fringe distinguish Emma from Leo.
+        uv_sphere("Emma shoulder hair left", (x - 0.35, 0.015, 2.35), (0.14, 0.35, 0.57), hair_mat)
+        uv_sphere("Emma shoulder hair right", (x + 0.35, 0.015, 2.35), (0.14, 0.35, 0.57), hair_mat)
+        uv_sphere("Emma soft fringe", (x, -0.32, 2.83), (0.32, 0.075, 0.13), hair_mat)
+    else:
+        uv_sphere(name + " hair left", (x - 0.34, 0.0, 2.66), (0.13, 0.34, 0.35), hair_mat)
+        uv_sphere(name + " hair right", (x + 0.34, 0.0, 2.66), (0.13, 0.34, 0.35), hair_mat)
+    # Face points toward the camera (-Y); brows add expression.
     for dx in (-0.16, 0.16):
         uv_sphere(name + " eye white", (x + dx, -0.385, 2.61), (0.075, 0.035, 0.095), M["white"])
         uv_sphere(name + " iris", (x + dx, -0.418, 2.60), (0.036, 0.022, 0.052), M["iris"])
         uv_sphere(name + " pupil", (x + dx, -0.438, 2.60), (0.017, 0.012, 0.027), M["dark"])
+        uv_sphere(name + " eyebrow", (x + dx, -0.414, 2.745), (0.085, 0.024, 0.023), hair_mat)
     uv_sphere(name + " nose", (x, -0.425, 2.48), (0.055, 0.05, 0.07), skin_mat)
     # Smile as a thin dark curved tube.
     curve = bpy.data.curves.new(name + " smile", "CURVE")
