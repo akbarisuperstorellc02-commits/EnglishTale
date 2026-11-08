@@ -83,18 +83,28 @@ def main() -> int:
       <defs>
         <linearGradient id="top" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#06172b" stop-opacity=".98"/><stop offset="1" stop-color="#06172b" stop-opacity="0"/></linearGradient>
         <linearGradient id="bottom" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#06172b" stop-opacity="0"/><stop offset="1" stop-color="#06172b" stop-opacity=".98"/></linearGradient>
+        <clipPath id="shortLeoClip"><rect x="120" y="1450" width="900" height="1680" rx="80"/></clipPath>
+        <clipPath id="shortEmmaClip"><rect x="1140" y="1450" width="900" height="1680" rx="80"/></clipPath>
+        <clipPath id="shortOwlClip"><circle cx="1080" cy="3060" r="300"/></clipPath>
       </defs>
-      {svg_image(ending,0,0,2160,3840)}
-      <rect width="2160" height="1300" fill="url(#top)"/>
-      <rect y="2800" width="2160" height="1040" fill="url(#bottom)"/>
+      {svg_image(bg,0,0,2160,3840)}
+      <rect width="2160" height="3840" fill="#06172b" opacity=".40"/>
+      <rect width="2160" height="1350" fill="url(#top)"/>
+      <rect y="2780" width="2160" height="1060" fill="url(#bottom)"/>
       <rect x="180" y="190" width="600" height="170" rx="85" fill="#ffc653"/>
       <text x="480" y="305" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="98" font-weight="900" fill="#08203a">A1 ENGLISH</text>
       <text x="1080" y="820" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="180" font-weight="900" fill="#ffffff">ENGLISH AT</text>
       <text x="1080" y="1050" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="220" font-weight="900" fill="#63d8f2">THE AIRPORT</text>
       <rect x="280" y="1140" width="1600" height="18" rx="9" fill="#ffc653"/>
-      <text x="1080" y="3340" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="100" font-weight="800" fill="#ffffff">LEARN ENGLISH THROUGH STORY</text>
-      <text x="1080" y="3500" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="72" fill="#c8e2f2">LISTEN  •  LEARN  •  SPEAK</text>
-      <text x="1080" y="3670" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="64" font-weight="700" fill="#ffc653">ENGLISHTALE  •  EPISODE 001</text>
+      <rect x="100" y="1430" width="940" height="1720" rx="95" fill="#ffc653"/>
+      {svg_image(leo,120,1450,900,1680,"shortLeoClip")}
+      <rect x="1120" y="1430" width="940" height="1720" rx="95" fill="#ffc653"/>
+      {svg_image(emma,1140,1450,900,1680,"shortEmmaClip")}
+      <circle cx="1080" cy="3060" r="320" fill="#ffc653"/>
+      {svg_image(ollie,780,2760,600,600,"shortOwlClip")}
+      <text x="1080" y="3470" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="100" font-weight="800" fill="#ffffff">LEARN ENGLISH THROUGH STORY</text>
+      <text x="1080" y="3620" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="72" fill="#c8e2f2">LISTEN  •  LEARN  •  SPEAK</text>
+      <text x="1080" y="3770" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="64" font-weight="700" fill="#ffc653">ENGLISHTALE  •  EPISODE 001</text>
     </svg>'''
     render_jpeg(thumb, args.output_dir / "episode-001-thumbnail-3d.jpg", 3840, 2160)
     render_jpeg(shorts, args.output_dir / "episode-001-shorts-cover-3d.jpg", 2160, 3840)
