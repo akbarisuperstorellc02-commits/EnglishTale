@@ -18,7 +18,7 @@
 ## Audio
 - [ ] Every English line has been checked for pronunciation.
 - [ ] No clipped words, awkward pauses, or abrupt edits.
-- [ ] English and Afghan Dari levels are balanced.
+- [ ] British English dialogue loudness is consistent and clear; Afghan Dari is subtitle-only, with no Dari voiceover.
 - [ ] Music is quiet under dialogue.
 - [ ] All sound and voice assets have appropriate usage rights.
 
@@ -31,6 +31,7 @@
 
 ## Rights and monetization readiness
 - [ ] Commercial-use terms checked for every AI tool and asset.
+- [ ] Include VCTK Corpus attribution under CC BY 4.0 in the video description or credits.
 - [ ] License evidence or source details saved.
 - [ ] Music and sound effects are cleared for YouTube use.
 - [ ] No unlicensed character, story, image, or music imitation.
@@ -38,7 +39,8 @@
 - [ ] Audience designation and synthetic-content disclosure reviewed according to current YouTube rules.
 
 ## Final export
-- [ ] 1920×1080, 16:9, 30 fps.
+- [ ] 1920×1080, 16:9, 30 fps; verify the 1080p30 master candidate before publication.
+- [ ] Compare the 720p review cut and 1080p master candidate for framing, caption placement, and audio synchronization.
 - [ ] Audio checked on phone speaker and headphones.
 - [ ] Full video watched from beginning to end.
 - [ ] Title, description, thumbnail, playlist, and end screen checked.
