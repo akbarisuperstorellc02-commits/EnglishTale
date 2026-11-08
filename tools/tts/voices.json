@@ -1,0 +1,17 @@
+{
+  "model": "gemini-3.8-flash-tts",
+  "english_voices": {
+    "Narrator": "Charon",
+    "Leo": "Puck",
+    "Emma": "Kore",
+    "Airport Agent": "Fenrir",
+    "Security Officer": "Orus",
+    "Ollie": "Zephyr"
+  },
+  "dari_voice": "Kore",
+  "notes": [
+    "Voice assignments are initial audition candidates, not final approved casting.",
+    "Generate a small sample with --limit 2 first, listen, then adjust voice names before generating all clips.",
+    "Dari uses one consistent voice with a style instruction for Afghan Dari/Kabul pronunciation."
+  ]
+}
