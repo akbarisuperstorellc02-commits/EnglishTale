@@ -19,9 +19,9 @@ Last updated: 2026-11-08
 - [x] Bilingual 48-cue voice manifest created with role assignments and WAV file paths.
 - [x] Audio assembler added to build separate 7-minute English and Dari WAV tracks from reviewed cue recordings.
 - [x] Validator extended to check voice-manifest alignment with both SRT tracks.
-- [x] Original 1280×720 vector thumbnail artwork added, using the canonical blue Leo / pink Emma / owl Ollie identities.
+- [x] Original 16:9 vector thumbnail artwork added, using the canonical blue Leo / pink Emma / owl Ollie identities; export upgraded to YouTube's recommended 3840×2160 resolution.
 - [x] Thumbnail PNG export script added.
-- [x] Thumbnail PNG dimension validator added to CI.
+- [x] Thumbnail PNG validator checks 3840×2160 dimensions and desktop upload size; warns when mobile's 2 MB limit is exceeded.
 - [x] FFmpeg renderer corrected to avoid multiplying frames on still-image zoom shots.
 - [x] MP4 export supports selectable English and Afghan Dari audio tracks.
 - [x] Audio assembler preserves any intentional subtitle timeline gaps with silence.
@@ -32,7 +32,7 @@ Last updated: 2026-11-08
 - [x] Both TTS generators support a six-role audition sample set before full generation.
 - [x] CI smoke-tests both TTS generators in dry-run mode without API keys.
 - [x] Expanded validator checks shot IDs/durations, voice roles and paths, bilingual subtitle text/timing, Gate 12, scene dimensions, and SVG XML.
-- [x] GitHub Actions run #65 passed all compile, validation, TTS smoke, thumbnail render, thumbnail-dimension, and artifact-upload steps.
+- [x] GitHub Actions run #66 passed all compile, validation, TTS smoke, thumbnail render, thumbnail-dimension, and artifact-upload steps for the previous 1280×720 export. The new 4K export is awaiting its own CI run.
 - [x] Four vertical YouTube Shorts cutdown plans prepared for post-release promotion.
 
 ## Quality notes
