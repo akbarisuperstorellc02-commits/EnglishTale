@@ -37,11 +37,10 @@ Last updated: 2026-11-08
 
 ## Not yet complete — release blockers
 
-- [x] Run and verify the GitHub audio-generation workflow; it downloads the pinned VCTK model to the runner, generates all 48 clips, and packages the English WAV plus retimed subtitles. The model is intentionally not stored in Git. VCTK requires CC BY 4.0 attribution.
 - [ ] Listen to all 48 generated English WAV clips for pronunciation, pacing, role consistency, clipping, and quality.
-- [ ] Assemble the approved English track and retime both subtitle files; duration-based retiming is only a first pass.
+- [ ] Listen to and approve the generated English track; manually review both WAV-duration-retimed subtitle files. Duration-based retiming is only a first pass.
 - [ ] Complete final 3D/2.5D character animation, scene coverage, hand interactions, and appropriate dialogue acting. The current Blender still is only look-development, not the final character rig.
-- [ ] Render the complete seven-minute episode, review the full MP4 with sound and muted, fix issues, and export the final 1080p master.
+- [ ] Complete the 720p review-cut render, review it with sound and muted, fix issues, then export and review the final 1080p master.
 - [ ] Final human review of thumbnails, licenses, subtitles, audio, and YouTube metadata before publication.
 
 ## Verified GitHub checks
