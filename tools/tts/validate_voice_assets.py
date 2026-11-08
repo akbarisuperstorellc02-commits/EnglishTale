@@ -13,7 +13,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 MANIFEST = ROOT / "episodes" / "001-english-at-the-airport" / "voice-manifest.json"
-ALLOWED_RATES = {24000, 44100, 48000}
+ALLOWED_RATES = {22050, 24000, 44100, 48000}
 ALLOWED_CHANNELS = {1, 2}
 VALID_ROLES = {"Narrator", "Leo", "Emma", "Airport Agent", "Security Officer", "Ollie"}
 
@@ -130,7 +130,7 @@ def main() -> int:
             continue
         slot_seconds = slot_ms / 1000.0
 
-        for lang, key in (("en", "english_file"), ("fa", "dari_file")):
+        for lang, key in (("en", "english_file"),):
             relative = cue.get(key, "")
             if not isinstance(relative, str) or not relative:
                 errors.append(f"cue {cue_id} ({lang}): missing {key} path")
@@ -164,11 +164,11 @@ def main() -> int:
         if len(found) > 1:
             errors.append(f"{lang}: audio format is inconsistent across clips: {sorted(found)}")
 
-    expected = len(cues) * 2
-    completed = checked["en"] + checked["fa"]
+    expected = len(cues)
+    completed = checked["en"]
     print("ENGLISHTALE VOICE ASSET VALIDATION")
-    print(f"Manifest cues: {len(cues)} | expected WAV files: {expected}")
-    print(f"Valid clips: {completed} | English: {checked['en']}/48 | Dari: {checked['fa']}/48")
+    print(f"Manifest cues: {len(cues)} | expected English WAV files: {expected}")
+    print(f"Valid English clips: {completed}/{len(cues)} | Afghan Dari voiceover: disabled (subtitles only)")
     print(f"Missing clips: {len(missing)} | Invalid clips/issues: {len(errors)}")
     if missing:
         print("\nPENDING — missing recordings:")
