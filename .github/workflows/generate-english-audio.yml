@@ -1,0 +1,86 @@
+name: Generate Episode 001 British English Audio
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "tools/tts/**"
+      - "episodes/001-english-at-the-airport/voice-manifest.json"
+      - "project-settings.json"
+      - ".github/workflows/generate-english-audio.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  generate-english-audio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+          cache-dependency-path: tools/tts/local-requirements.txt
+      - name: Install local Piper TTS runtime
+        run: python -m pip install -r tools/tts/local-requirements.txt
+      - name: Download and verify pinned British English multi-speaker model
+        run: python tools/tts/download_british_voice.py
+      - name: Verify Piper CLI and model files
+        run: |
+          piper --help
+          test -s models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx
+          test -s models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx.json
+          test -s models/piper/en_GB-vctk-medium/ATTRIBUTION.txt
+      - name: Generate all 48 British English character and narrator cues
+        run: |
+          python tools/tts/generate_local_english.py \
+            --model models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx \
+            --voices-json tools/tts/episode-001-voices.json
+      - name: Strictly validate all English WAV clips
+        run: python tools/tts/validate_voice_assets.py --strict
+      - name: Assemble the 7-minute English master WAV
+        run: python tools/tts/build_english_track.py
+      - name: Retiming English and Afghan Dari subtitles from measured cue WAVs
+        run: python tools/tts/retime_subtitles.py
+      - name: Validate final audio and subtitle package
+        run: |
+          python3 - <<'PY'
+          import json
+          import subprocess
+          import wave
+          from pathlib import Path
+
+          clips = sorted(Path("build/audio/episode-001/en").glob("*.wav"))
+          assert len(clips) == 48, f"Expected 48 English cue WAVs, found {len(clips)}"
+          master = Path("build/audio/episode-001-en.wav")
+          with wave.open(str(master), "rb") as wav:
+              assert wav.getnchannels() == 1
+              assert wav.getsampwidth() == 2
+              assert wav.getnframes() / wav.getframerate() == 420
+          for subtitle in (
+              Path("build/subtitles/episode-001-en-retimed.srt"),
+              Path("build/subtitles/episode-001-fa-retimed.srt"),
+          ):
+              assert subtitle.is_file() and subtitle.stat().st_size > 1000
+              assert len(subtitle.read_text(encoding="utf-8").strip().split("\\n\\n")) == 48
+          print(f"PASS: {len(clips)} English cue WAVs")
+          print(f"PASS: 420-second master WAV ({master.stat().st_size:,} bytes)")
+          print("PASS: 48-cue English and Afghan Dari subtitle files")
+          PY
+      - name: Upload Episode 001 English audio and retimed subtitles
+        uses: actions/upload-artifact@v4
+        with:
+          name: EnglishTale-Episode001-English-Audio-Subtitles
+          path: |
+            build/audio/episode-001/en/*.wav
+            build/audio/episode-001-en.wav
+            build/subtitles/episode-001-en-retimed.srt
+            build/subtitles/episode-001-fa-retimed.srt
+            models/piper/en_GB-vctk-medium/ATTRIBUTION.txt
+          if-no-files-found: error
+          retention-days: 14
