@@ -33,6 +33,7 @@ Last updated: 2026-11-08
 - [x] FFmpeg/CairoSVG 7-minute scene-plate renderer with optional British English audio and selectable English/Dari subtitle streams.
 - [x] 4K YouTube thumbnail and vertical Shorts cover source artwork, renderers, validators, and CI artifacts.
 - [x] Procedural Blender 3D look-development scene and successful 1280×720 still render.
+- [x] Short 3D character motion-study MP4 rendered and validated at 640×360/24 fps; this is a two-second technical preview, not a finished episode shot.
 - [x] GitHub Actions validation checks for source assets, scripts, TTS pipeline tests, thumbnail outputs, and cover outputs.
 
 ## Not yet complete — release blockers
@@ -49,7 +50,7 @@ Last updated: 2026-11-08
 - [x] [Offline TTS generation and WAV assembly tests passed](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42503217997).
 - [x] [Episode source, TTS, thumbnail, and Shorts validation passed](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42503053663).
 - [x] [Procedural 3D still render passed](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42501465316).
-- [ ] Short 3D motion-study MP4 render and validation are being tested in GitHub Actions; do not treat it as a completed episode shot until the artifact is verified.
+- [x] [3D look-development still and motion-study MP4 artifact uploaded](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42504288974).
 
 ## Local production commands
 
