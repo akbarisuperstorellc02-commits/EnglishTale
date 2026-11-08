@@ -14,9 +14,10 @@
     "api_required": false,
     "default_voice_model": "en_GB-alan-medium.onnx",
     "output_directory": "build/audio/episode-001/en",
-    "sample_rate_target": 24000,
+    "sample_rate_target": 22050,
     "channels": 1,
-    "format": "WAV PCM"
+    "format": "WAV PCM",
+    "sample_rate_policy": "Use the voice model's native sample rate; the assembler preserves it."
   },
   "visuals": {
     "mode": "hybrid",
