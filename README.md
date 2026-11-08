@@ -16,6 +16,7 @@ Episode 001 has moved beyond the planning-only stage. The repository now include
 - Character bible: Leo (blue hoodie), Emma (pink sweater), and Ollie (owl guide).
 - Five original 1280×720 airport/airplane SVG scene plates.
 - Original 16:9 Episode 001 thumbnail artwork in SVG, exported as a 3840×2160 4K PNG for YouTube.
+- Original 9:16 Episode 001 Shorts cover in SVG, exported as a 2160×3840 PNG.
 - Three original 640×640 SVG character rigs with embedded CSS animation.
 - 18-shot animation/edit plan for the 7-minute episode.
 - English SRT and Afghan Dari SRT, each with 48 matching cue boundaries.
@@ -81,6 +82,8 @@ EnglishTale/
 │   │   ├── render_episode.py
 │   │   ├── build_audio_tracks.py
 │   │   ├── render_thumbnail.py
+│   │   ├── render_shorts_cover.py
+│   │   ├── validate_shorts_cover.py
 │   │   ├── validate_thumbnail.py
 │   │   └── validate_episode.py
 │   └── tts/
@@ -104,7 +107,7 @@ EnglishTale/
 1. Run the input validator: `python tools/video-pipeline/validate_episode.py`.
 2. After recording all cues, assemble the separate language tracks with `python tools/video-pipeline/build_audio_tracks.py`.
 3. Build a silent visual review cut: `python tools/video-pipeline/render_episode.py` (requires FFmpeg and CairoSVG; see `tools/video-pipeline/README.md`). To include both selectable language tracks, pass `--english-audio` and `--dari-audio`.
-4. Export the thumbnail PNG with `python tools/video-pipeline/render_thumbnail.py`.
+4. Export the long-form 4K thumbnail with `python tools/video-pipeline/render_thumbnail.py` and the vertical Shorts cover with `python tools/video-pipeline/render_shorts_cover.py`.
 5. Review `tools/tts/README.md` and `tools/tts/elevenlabs-README.md` before generating narration. Do not generate all clips until the English and Afghan Dari sample voices have been auditioned.
 6. Read `brand/brand-guide.md` and `characters/character-bible.md`.
 7. Review the SVG scene plates in `assets/scenes/` and character rigs in `assets/animation/`.
