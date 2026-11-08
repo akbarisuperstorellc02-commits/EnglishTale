@@ -6,11 +6,10 @@ on:
     branches: [main]
     paths:
       - "tools/tts/**"
-      - "tools/blender/**"
-      - "tools/video-pipeline/**"
+      - "tools/blender/*.py"
+      - "tools/video-pipeline/*.py"
       - "episodes/001-english-at-the-airport/voice-manifest.json"
       - "project-settings.json"
-      - ".github/workflows/generate-english-audio.yml"
 
 permissions:
   contents: read
