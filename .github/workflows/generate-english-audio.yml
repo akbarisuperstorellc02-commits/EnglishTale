@@ -67,7 +67,7 @@ jobs:
               Path("build/subtitles/episode-001-fa-retimed.srt"),
           ):
               assert subtitle.is_file() and subtitle.stat().st_size > 1000
-              assert len(subtitle.read_text(encoding="utf-8").strip().split("\\n\\n")) == 48
+              assert len(subtitle.read_text(encoding="utf-8").strip().split("\n\n")) == 48
           print(f"PASS: {len(clips)} English cue WAVs")
           print(f"PASS: 420-second master WAV ({master.stat().st_size:,} bytes)")
           print("PASS: 48-cue English and Afghan Dari subtitle files")
