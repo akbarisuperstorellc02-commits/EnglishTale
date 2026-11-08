@@ -77,6 +77,7 @@ EnglishTale/
 │       ├── render_episode.py
 │       ├── build_audio_tracks.py
 │       ├── render_thumbnail.py
+│       ├── validate_thumbnail.py
 │       └── validate_episode.py
 ├── prompts/
 │   ├── image-generation.md
