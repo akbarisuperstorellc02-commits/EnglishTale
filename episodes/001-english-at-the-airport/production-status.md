@@ -20,6 +20,8 @@ Last updated: 2026-11-08
 - [x] English and Afghan Dari SRT subtitle guides with 48 aligned cue boundaries.
 - [x] 48-cue English voice manifest with role assignments and Dari subtitle text references only.
 - [x] Local British English Piper TTS generator with resumable cue generation.
+- [x] Pinned multi-speaker VCTK voice downloader with MD5/size verification and CC BY 4.0 attribution note.
+- [x] Role-specific British English speaker IDs committed for narrator, Leo, Emma, airport agent, security officer, and Ollie.
 - [x] English WAV assembler that preserves the model's native sample rate and blocks missing, silent, invalid, or overlong clips.
 - [x] English-only voice WAV validator; strict release gate requires all 48 English clips.
 - [x] Offline end-to-end tests for fake Piper generation, 48-cue assembly, resume behavior, missing-clip rejection, and subtitle retiming.
@@ -31,8 +33,8 @@ Last updated: 2026-11-08
 
 ## Not yet complete — release blockers
 
-- [ ] Obtain a British English Piper voice model locally and verify the individual model license permits the intended commercial use. The model is intentionally not stored in Git.
-- [ ] Generate all 48 real English WAV clips and listen to every line for pronunciation, pacing, role consistency, clipping, and quality.
+- [ ] Run and verify the GitHub audio-generation workflow; it downloads the pinned VCTK model to the runner, generates all 48 clips, and packages the English WAV plus retimed subtitles. The model is intentionally not stored in Git. VCTK requires CC BY 4.0 attribution.
+- [ ] Listen to all 48 generated English WAV clips for pronunciation, pacing, role consistency, clipping, and quality.
 - [ ] Assemble the approved English track and retime both subtitle files; duration-based retiming is only a first pass.
 - [ ] Complete final 3D/2.5D character animation, scene coverage, hand interactions, and appropriate dialogue acting. The current Blender still is only look-development, not the final character rig.
 - [ ] Render the complete seven-minute episode, review the full MP4 with sound and muted, fix issues, and export the final 1080p master.
@@ -50,8 +52,9 @@ Last updated: 2026-11-08
 ```bash
 python tools/video-pipeline/validate_episode.py
 python -m unittest tools/tts/test_validate_voice_assets.py tools/tts/test_local_audio_pipeline.py -v
-python tools/tts/generate_local_english.py --model /path/to/en_GB-alan-medium.onnx --limit 6
-python tools/tts/generate_local_english.py --model /path/to/en_GB-alan-medium.onnx
+python tools/tts/download_british_voice.py
+python tools/tts/generate_local_english.py --model models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx --voices-json tools/tts/episode-001-voices.json --limit 6
+python tools/tts/generate_local_english.py --model models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx --voices-json tools/tts/episode-001-voices.json
 python tools/tts/validate_voice_assets.py --strict
 python tools/tts/build_english_track.py
 python tools/tts/retime_subtitles.py
