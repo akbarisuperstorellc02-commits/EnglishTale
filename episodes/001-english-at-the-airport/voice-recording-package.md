@@ -25,9 +25,25 @@ Create the folders locally; Git does not retain empty folders. WAV PCM is prefer
 
 Keep one voice identity for each role across all cues. Listen to every clip and reject clipped words, unnatural stress, mispronunciations, or abrupt endings. Verify that the TTS provider's selected plan explicitly allows commercial YouTube use before production.
 
+## Validate the recordings
+
+After generating clips, run the technical validator:
+
+```bash
+python tools/tts/validate_voice_assets.py
+```
+
+Missing clips are reported as pending. Before assembly, require all 96 valid clips:
+
+```bash
+python tools/tts/validate_voice_assets.py --strict
+```
+
+The validator checks PCM WAV integrity, 16-bit depth, supported sample rates, mono/stereo channels, silence, consistent formats, safe file paths, and cue-slot duration. It cannot judge pronunciation or performance; listen to every clip and confirm Afghan Dari with a native speaker.
+
 ## Assemble the two tracks
 
-After all 96 WAV clips are present and reviewed:
+After all 96 WAV clips pass strict validation and are approved by listening:
 
 ```bash
 python tools/video-pipeline/build_audio_tracks.py
