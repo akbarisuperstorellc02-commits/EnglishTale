@@ -29,11 +29,11 @@
 ## Phase 4 — Editing and export
 The automated FFmpeg pipeline creates:
 - A 1280×720, 24 fps review cut using the original SVG scene plates.
-- A 1920×1080, 30 fps master candidate using the procedural Blender 3D still library with 2.5D camera motion.
+- A 1920×1080, 30 fps master candidate using the procedural Blender 3D still library with gentle Ken Burns-style zoom.
 - One normalized British English audio stream and separate selectable English and Afghan Dari subtitle streams.
 
 Suggested manual finishing track layout:
-- V1: 3D / 2.5D scene shots
+- V1: Blender 3D still shots with subtle camera zoom
 - V2: English phrase cards, graphics, logo, end screen
 - A1: English dialogue and narration
 - A2: optional ambience and sound effects
@@ -57,4 +57,4 @@ Suggested manual finishing track layout:
 5. Create Shorts only after the long-form episode is approved.
 
 ## Free / low-cost approach
-Use local Piper TTS and CPU-capable Blender rendering. GPU acceleration is optional. Use the hybrid combination of procedural 3D stills, 2.5D camera motion, and original SVG assets when continuous full-3D character animation is impractical. No paid API is required for the active production path.
+Use local Piper TTS and CPU-capable Blender rendering. GPU acceleration is optional. Use procedural Blender 3D stills with gentle camera zoom when continuous full-3D character animation is impractical; retain original SVG assets as a separate lightweight fallback. No paid API is required for the active production path.
