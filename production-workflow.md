@@ -20,7 +20,8 @@
 2. Keep dialogue roles consistent; use individually licensed local voice models only when needed.
 3. Listen to all lines for pronunciation, stress, timing, clipping, and character consistency.
 4. Assemble the English track with `python tools/tts/build_english_track.py`.
-5. Afghan Dari is subtitle-only; do not generate or mix Dari voiceover.
+5. Retiming helper: run `python tools/tts/retime_subtitles.py` to derive subtitle cue ends from the measured WAV durations. This is a duration-based first pass, not phoneme-level alignment; listen and review both SRT tracks manually.
+6. Afghan Dari is subtitle-only; do not generate or mix Dari voiceover.
 6. Use only sound effects and music with documented commercial-use permission. Keep music quiet beneath dialogue.
 
 ## Phase 4 — Editing
