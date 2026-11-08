@@ -25,6 +25,9 @@ Last updated: 2026-11-08
 - [x] MP4 export supports selectable English and Afghan Dari audio tracks.
 - [x] Audio assembler preserves any intentional subtitle timeline gaps with silence.
 - [x] GitHub Actions run #20 passed: Python compile, source validation, thumbnail render, and artifact upload.
+- [x] Resumable Gemini TTS generator added for 48 English and 48 Dari cue files.
+- [x] ElevenLabs TTS fallback generator added with voice-listing and WAV conversion.
+- [x] Provider research updated: Gemini API regional restriction and ElevenLabs commercial-plan caveat documented.
 
 ## Quality notes
 - Subtitle timestamps are editorial estimates, not measured against recorded audio.
@@ -36,6 +39,7 @@ Last updated: 2026-11-08
 ## Automation and local tooling
 - Run `python tools/video-pipeline/validate_episode.py` to validate source assets, subtitle/timeline integrity, and voice-manifest alignment.
 - The voice manifest lists 48 English cue files and 48 Dari cue files. No audio clips have been generated yet.
+- TTS generation tools are ready, but API credentials and user-selected voice IDs are not present. Gemini API's official supported-region list excludes Afghanistan; ElevenLabs is the practical alternative to audition, but Persian output must pass Afghan Dari review.
 - Export the vector thumbnail with `python tools/video-pipeline/render_thumbnail.py` (CairoSVG required).
 - Once all clips are recorded and reviewed, run `python tools/video-pipeline/build_audio_tracks.py` to assemble two separate WAV tracks.
 - Run `python tools/video-pipeline/render_episode.py` to create a silent visual review cut. FFmpeg, FFprobe, and CairoSVG must be installed locally.
@@ -43,7 +47,7 @@ Last updated: 2026-11-08
 - GitHub Actions run #20 completed successfully. It compiled the pipeline scripts, passed the episode/SVG/manifest validator, rendered the 1280×720 PNG thumbnail, and uploaded the thumbnail artifact.
 
 ## Next production sequence
-1. Select a TTS/voice workflow whose commercial-use license covers YouTube publication.
+1. Confirm an accessible TTS provider and a plan with commercial-use rights; audition Persian output for Afghan Dari before committing.
 2. Generate and audition each English character/narrator line separately.
 3. Generate the Dari explanation track separately if Dari narration is retained in the final edit.
 4. Replace placeholder pauses with real timing and retime both subtitle tracks to the final audio.
