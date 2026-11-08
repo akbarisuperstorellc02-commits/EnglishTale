@@ -31,7 +31,7 @@ Episode 001 has moved beyond the planning-only stage. The repository now include
 - Final voice recordings / TTS audio.
 - Waveform-verified subtitle timing and phoneme-accurate lip sync.
 - Fully animated, rendered MP4 master.
-- Final thumbnail image and final audio mix.
+- Final approved thumbnail after manual review and final audio mix.
 - YouTube upload or publication.
 
 **Important:** The subtitle timecodes are editorial guides across the planned 07:00 runtime. They must be retimed after the real voice track is generated. The SVG character mouth movement is a placeholder, not accurate lip sync. Do not describe this repository as containing a finished episode video.
@@ -70,16 +70,27 @@ EnglishTale/
 │       ├── subtitles-en.srt
 │       ├── subtitles-fa.srt
 │       ├── youtube-metadata.md
-│       └── thumbnail-prompt.md
+│       ├── thumbnail-prompt.md
+│       ├── shorts-plan.md
+│       ├── tts-provider-research.md
+│       └── production-status.md
 ├── tools/
-│   └── video-pipeline/
+│   ├── video-pipeline/
+│   │   ├── README.md
+│   │   ├── requirements.txt
+│   │   ├── render_episode.py
+│   │   ├── build_audio_tracks.py
+│   │   ├── render_thumbnail.py
+│   │   ├── validate_thumbnail.py
+│   │   └── validate_episode.py
+│   └── tts/
 │       ├── README.md
+│       ├── elevenlabs-README.md
 │       ├── requirements.txt
-│       ├── render_episode.py
-│       ├── build_audio_tracks.py
-│       ├── render_thumbnail.py
-│       ├── validate_thumbnail.py
-│       └── validate_episode.py
+│       ├── generate_gemini_tts.py
+│       ├── generate_elevenlabs_tts.py
+│       ├── voices.json
+│       └── elevenlabs-voices.json
 ├── prompts/
 │   ├── image-generation.md
 │   └── image-to-video.md
