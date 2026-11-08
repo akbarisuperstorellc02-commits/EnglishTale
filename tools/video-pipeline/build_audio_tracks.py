@@ -78,14 +78,33 @@ def main() -> int:
         for lang in languages:
             key = "english_file" if lang == "en" else "dari_file"
             parts = []
+            cursor_ms = 0
             for cue in cues:
+                start_ms, end_ms = ms(cue["start"]), ms(cue["end"])
+                if start_ms > cursor_ms:
+                    gap_seconds = (start_ms - cursor_ms) / 1000.0
+                    silence = tempdir / f"{lang}-gap-{int(cue['id']):03d}.wav"
+                    run([ffmpeg, "-y", "-f", "lavfi", "-i",
+                         "anullsrc=channel_layout=stereo:sample_rate=48000",
+                         "-t", f"{gap_seconds:.3f}", "-c:a", "pcm_s16le", str(silence)])
+                    parts.append(silence)
+                if start_ms < cursor_ms:
+                    raise SystemExit(f"Voice cue {cue['id']} overlaps the preceding cue in {lang}.")
                 source = ROOT / cue[key]
-                slot = (ms(cue["end"]) - ms(cue["start"])) / 1000.0
+                slot = (end_ms - start_ms) / 1000.0
                 part = tempdir / f"{lang}-{int(cue['id']):03d}.wav"
                 filter_chain = f"apad=pad_dur={slot:.3f},atrim=duration={slot:.3f}"
                 run([ffmpeg, "-y", "-i", str(source), "-vn", "-af", filter_chain,
                      "-ar", "48000", "-ac", "2", "-c:a", "pcm_s16le", str(part)])
                 parts.append(part)
+                cursor_ms = end_ms
+            if cursor_ms < int(data["target_duration_seconds"]) * 1000:
+                gap_seconds = (int(data["target_duration_seconds"]) * 1000 - cursor_ms) / 1000.0
+                silence = tempdir / f"{lang}-tail-silence.wav"
+                run([ffmpeg, "-y", "-f", "lavfi", "-i",
+                     "anullsrc=channel_layout=stereo:sample_rate=48000",
+                     "-t", f"{gap_seconds:.3f}", "-c:a", "pcm_s16le", str(silence)])
+                parts.append(silence)
             concat_file = tempdir / f"{lang}-concat.txt"
             concat_file.write_text(
                 "".join(f"file '{p.as_posix()}'\n" for p in parts), encoding="utf-8"
@@ -95,7 +114,8 @@ def main() -> int:
                  "-ar", "48000", "-ac", "2", "-c:a", "pcm_s16le", str(output)])
             print(f"Created {output} ({duration(ffprobe, output):.2f}s)")
 
-    print("Audio tracks assembled. Listen through and retime captions before final video export.")
+    print("Audio tracks assembled with timeline gaps preserved as silence.")
+    print("Listen through and retime captions before final video export.")
     return 0
 
 if __name__ == "__main__":
