@@ -31,18 +31,18 @@ The project has a validated production package and a working render/tooling foun
 - End-to-end offline audio pipeline tests using a deterministic fake Piper executable; these test software behavior, not real voice quality.
 - Voice WAV validator configured for 48 English files only; Afghan Dari remains subtitle-only.
 - All 48 real English cue WAVs generated and technically validated; the 420-second English master WAV and first-pass retimed English/Dari SRTs are packaged in GitHub Actions.
-- FFmpeg/CairoSVG 7-minute scene-plate renderer; a complete 420-second 720p H.264 review MP4 with loudness-normalized AAC English dialogue and selectable English/Dari subtitles has passed technical validation. The current cut is dialogue-only; music/ambience and final sound design remain optional release-stage work.
-- [Download the review MP4, English audio, retimed subtitles, and attribution package](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42504251122/artifacts/13626981971).
+- FFmpeg/CairoSVG 7-minute scene-plate renderer; both a 420-second 720p review MP4 and a 420-second 1080p30 H.264 master candidate with loudness-normalized AAC English dialogue and selectable English/Dari subtitles passed technical validation. The current cut is dialogue-only; music/ambience and final sound design remain release-stage decisions.
+- [Download the 1080p30 master candidate, 720p review, English WAVs, retimed subtitles, and VCTK attribution](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42504752349/artifacts/13626009753).
 - 4K YouTube thumbnail artwork/export and vertical Shorts cover artwork/export.
 - Dependency-free source validation and GitHub Actions checks.
 - Procedural Blender 3D character/airport look-development scene with a validated 1280×720 still and a separate two-second 640×360 character motion-study MP4. The motion study proves the 3D-to-MP4 path; it is not a finished episode shot.
+- [Download the 3D look-development still and motion-study MP4](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42504752366/artifacts/13626574637).
 
 ### Still required before release
 - Listen to and approve all 48 generated English WAV clips for pronunciation, acting, pacing, and role consistency.
-- Complete the 48-cue audio-generation workflow, then listen to and approve all English WAV clips.
 - Manually review both WAV-duration-retimed subtitle files against the actual English recordings.
 - Create and review final character animation, including appropriate dialogue timing and visual continuity. The Blender motion study is only a short technical preview.
-- Human-review the 720p cut with sound and muted; complete sound design/mix, revise visual/timing issues, and export the final 1080p/30fps master.
+- Human-review the 720p review cut and 1080p30 master candidate with sound and muted; revise visual/timing issues and decide whether additional sound design is needed before publication.
 - Review the final thumbnail and all asset/model licenses before YouTube publication.
 
 ## Quick start
