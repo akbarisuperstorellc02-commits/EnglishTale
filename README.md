@@ -9,17 +9,17 @@
 
 ## Project status
 
-This repository contains the production blueprint and publish-ready text package for Episode 01:
+The repository contains the production blueprint and publish-ready text package for Episode 01:
 - Story concept and timed script
 - English dialogue with Persian translations
-- Character design prompts and continuity guidance
+- Canonical character bible and strict reference prompts
 - Scene image and image-to-video prompts
 - Voice casting and recording plan
 - Editing workflow and subtitle guidance
 - YouTube title, description, tags, and thumbnail brief
 - Production checklist and asset/licensing log
 
-**Not included:** finished rendered animation, generated voice recordings, or a published YouTube video. Those require running the prompts in chosen creative tools and assembling the resulting media.
+**Media status:** No final character reference set, scene artwork, voice recordings, rendered animation, or published YouTube video is approved yet. A visual concept that conflicts with the canonical character bible must remain an unapproved draft and must not enter the episode.
 
 ## Folder map
 
@@ -54,8 +54,8 @@ EnglishTale/
 ## Quick start
 
 1. Read `brand/brand-guide.md` and `characters/character-bible.md`.
-2. Generate character reference sheets using `characters/prompts.md`.
-3. Create the storyboard images and animate selected shots using the prompts in `prompts/`.
+2. Generate and approve each character reference separately using `characters/prompts.md`.
+3. Create storyboard images and animate selected shots using the prompts in `prompts/`.
 4. Generate each voice line separately using `episodes/001-english-at-the-airport/voice-and-sound.md`.
 5. Assemble the video in CapCut or another editor using `production-workflow.md`.
 6. Check every item in `publishing/quality-control.md`.
@@ -64,7 +64,7 @@ EnglishTale/
 ## Important production principles
 
 - Make every episode genuinely original: new story, useful language, distinct examples, and meaningful teaching.
-- Keep the character designs consistent by using approved reference images.
+- Keep character designs consistent by using approved reference images; reject conflicting drafts.
 - Use only music, voices, fonts, images, and video assets that permit the intended commercial use. Keep proof of licenses.
 - Do not assume a free plan includes commercial rights. Check each provider's current terms before publishing.
 - AI use alone does not guarantee or prevent YouTube monetization. Avoid repetitive, mass-produced, low-value videos.
