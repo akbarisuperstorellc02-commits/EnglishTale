@@ -24,6 +24,10 @@ jobs:
         run: python -m compileall -q tools
       - name: Validate Episode 001 inputs and SVG assets
         run: python tools/video-pipeline/validate_episode.py
+      - name: Test voice asset validator
+        run: python -m unittest tools/tts/test_validate_voice_assets.py -v
+      - name: Check voice asset package readiness
+        run: python tools/tts/validate_voice_assets.py
       - name: Smoke-test TTS audition selection without API calls
         run: |
           python tools/tts/generate_gemini_tts.py --dry-run --cue-ids 1,4,5,11,24,34
