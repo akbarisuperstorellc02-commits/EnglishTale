@@ -24,7 +24,7 @@ Last updated: 2026-11-08
 - [x] Thumbnail PNG validator checks 3840×2160 dimensions and desktop upload size; warns when mobile's 2 MB limit is exceeded.
 - [x] A separate 9:16 Shorts cover and 2160×3840 renderer/validator added; both thumbnail formats are now checked and uploaded by CI.
 - [x] FFmpeg renderer corrected to avoid multiplying frames on still-image zoom shots.
-- [x] MP4 export supports selectable English and Afghan Dari audio tracks.
+- [x] MP4 renderer supports one British English audio track plus selectable English and Afghan Dari subtitle tracks.
 - [x] Audio assembler preserves any intentional subtitle timeline gaps with silence.
 - [x] GitHub Actions run #20 passed: Python compile, source validation, thumbnail render, and artifact upload.
 - [x] Resumable Gemini TTS generator added for 48 English and 48 Dari cue files.
@@ -81,11 +81,13 @@ Do not publish until voice licensing, asset licensing, pronunciation, subtitle t
 - [x] GPU model is unknown; audio generation and the fallback visual workflow must work without GPU acceleration.
 - [x] Machine-readable settings committed at `project-settings.json`.
 - [x] Local Piper British English TTS generator committed at `tools/tts/generate_local_english.py`.
+- [x] Offline end-to-end test covers 48-cue generation, resumable output, WAV assembly, and subtitle retiming using a fake Piper executable.
+- [x] WAV-duration subtitle retiming helper generates separate English and Afghan Dari SRT files; human review remains required.
 - [x] Local TTS setup, model-license checks, audition, and generation guide committed at `tools/tts/LOCAL_TTS.md`.
 
 ## Current blockers / release gates
 - The British English Piper voice model has not yet been downloaded or auditioned. Its individual model license must be checked before commercial publication.
 - The final English audio files do not yet exist. The manifest has 48 English cue files; its Dari text fields are subtitle references only and do not imply Dari voice generation.
-- Subtitle timestamps are provisional and must be retimed to the generated English audio.
+- Subtitle timestamps are provisional and must be retimed to the generated English audio. A WAV-duration retiming helper now creates a first-pass pair of SRTs; final listening and manual correction are still required.
 - The six-second SVG render is only a technical test. It is not the seven-minute episode master and not a 3D animation.
 - Full 3D rendering is not promised until the machine's capabilities are known; the hybrid fallback remains available without a discrete GPU.
