@@ -21,6 +21,10 @@ def args_after_separator():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", default="build/episode-001-3d-lookdev.png")
     parser.add_argument("--animation", action="store_true", help="Render a short procedural 3D motion study as MP4")
+    parser.add_argument("--shot-library", action="store_true", help="Render 18 camera angles for the hybrid episode pipeline")
+    parser.add_argument("--shots-dir", default="build/3d-shots", help="Output folder for the 3D shot library")
+    parser.add_argument("--width", type=int, default=1280)
+    parser.add_argument("--height", type=int, default=720)
     parser.add_argument("--duration", type=int, default=4, help="Animation duration in seconds")
     parser.add_argument("--fps", type=int, default=24, help="Animation frame rate")
     return parser.parse_args(raw)
@@ -216,6 +220,20 @@ def main():
     cube("Airplane wing", (5.3, 3.0, 2.35), (2.0, 0.22, 0.08), M["metal"], 0.03)
     uv_sphere("Airplane tail", (7.3, 3.05, 2.7), (0.18, 0.12, 0.65), M["white"])
 
+    # Check-in and security staff use the same canonical stylized proportions.
+    build_person(-7.4, "Airport Agent", M["navy"], M["jeans"], M["hair"], M["skin"], M["navy"])
+    build_person(5.7, "Security Officer", M["navy"], M["jeans"], M["hair"], M["skin"], M["navy"])
+
+    # Security scanner, conveyor, tray, and a small cabin suitcase.
+    cube("Security scanner left pillar", (3.55, 0.65, 1.55), (0.18, 0.32, 3.0), M["metal"], 0.06)
+    cube("Security scanner right pillar", (4.85, 0.65, 1.55), (0.18, 0.32, 3.0), M["metal"], 0.06)
+    cube("Security scanner top beam", (4.20, 0.65, 3.02), (1.48, 0.32, 0.18), M["metal"], 0.06)
+    cube("Security conveyor", (4.20, 0.55, 0.78), (2.1, 0.9, 0.28), M["sign"], 0.08)
+    cube("Security tray", (3.9, -0.02, 1.02), (0.82, 0.55, 0.07), M["metal"], 0.025)
+    text_obj("SECURITY", (4.2, 0.46, 2.78), 0.18, M["text"])
+    cube("Leo cabin suitcase", (-3.25, 0.38, 0.55), (0.62, 0.42, 0.98), M["sign"], 0.10)
+    cylinder("Suitcase handle", (-3.25, 0.38, 1.10), 0.025, 0.36, M["metal"])
+
     # Canonical characters. Their outfit palette is deliberately fixed.
     build_person(-2.3, "Leo", M["blue"], M["jeans"], M["hair"], M["skin"], M["blue"])
     build_person(0.0, "Emma", M["pink"], M["jeans"], M["hair"], M["skin"], M["pink"])
@@ -243,8 +261,8 @@ def main():
 
     scene = bpy.context.scene
     scene.render.engine = "BLENDER_EEVEE_NEXT" if "BLENDER_EEVEE_NEXT" in bpy.types.RenderSettings.bl_rna.properties["engine"].enum_items.keys() else "BLENDER_EEVEE"
-    scene.render.resolution_x = 1280
-    scene.render.resolution_y = 720
+    scene.render.resolution_x = args.width
+    scene.render.resolution_y = args.height
     scene.render.resolution_percentage = 100
     scene.render.image_settings.file_format = "PNG"
     scene.render.image_settings.color_mode = "RGBA"
@@ -257,7 +275,54 @@ def main():
     scene.render.resolution_percentage = 100
     scene.render.image_settings.color_depth = "8"
 
-    if args.animation:
+    if args.shot_library:
+        if args.animation:
+            raise SystemExit("Choose either --shot-library or --animation, not both.")
+        if args.width < 640 or args.height < 360 or args.width > 2560 or args.height > 1440:
+            raise SystemExit("Shot-library dimensions must be between 640x360 and 2560x1440.")
+        shot_dir = Path(args.shots_dir).resolve()
+        shot_dir.mkdir(parents=True, exist_ok=True)
+        scene.camera.data.dof.use_dof = False
+        if hasattr(scene, "eevee") and hasattr(scene.eevee, "taa_render_samples"):
+            scene.eevee.taa_render_samples = 8
+        scene.render.resolution_percentage = 100
+        scene.render.image_settings.file_format = "PNG"
+        scene.render.image_settings.color_mode = "RGBA"
+        camera_shots = [
+            ((0.0, -17.0, 5.0), (0.0, 1.4, 2.5), 42),       # 01 airport establishing
+            ((-2.3, -5.6, 2.8), (-2.3, 0.0, 2.55), 68),     # 02 Leo worried close-up
+            ((0.0, -5.6, 2.8), (0.0, 0.0, 2.55), 68),       # 03 Emma reassurance
+            ((-1.0, -8.5, 3.4), (-1.0, 0.0, 2.15), 54),     # 04 arrival two-shot
+            ((-5.2, -8.0, 3.1), (-5.2, 0.8, 1.45), 52),     # 05 check-in counter
+            ((-6.0, -6.0, 2.8), (-6.0, 0.5, 2.0), 58),      # 06 airport agent
+            ((-4.0, -4.8, 2.3), (-5.2, 0.7, 1.65), 72),     # 07 passport handoff
+            ((-3.4, -4.6, 1.8), (-5.2, 0.7, 1.45), 78),     # 08 boarding pass/counter detail
+            ((0.0, -8.0, 5.0), (0.0, 3.6, 4.45), 62),      # 09 Gate 12 sign
+            ((-1.0, -10.0, 3.5), (0.0, 0.5, 2.0), 48),      # 10 walk to gate
+            ((4.2, -9.0, 3.6), (4.2, 0.6, 1.9), 50),        # 11 security area
+            ((4.1, -4.5, 1.9), (4.2, 0.4, 1.1), 76),        # 12 security tray detail
+            ((4.2, -7.0, 3.0), (4.2, 0.6, 1.8), 58),        # 13 scanner walk-through
+            ((2.25, -4.5, 2.7), (2.25, 0.0, 1.95), 72),     # 14 Ollie close-up
+            ((0.0, -15.0, 4.5), (0.0, 2.3, 2.8), 44),       # 15 departure gate wide
+            ((0.0, -8.0, 4.6), (0.0, 3.6, 4.35), 64),       # 16 boarding sign
+            ((5.5, -8.0, 3.8), (5.5, 3.1, 2.4), 70),        # 17 airplane view
+            ((-1.0, -8.0, 3.2), (-1.0, 0.0, 2.1), 56),      # 18 story ending two-shot
+        ]
+        for index, (location, target_point, lens) in enumerate(camera_shots, start=1):
+            camera.location = location
+            camera.rotation_euler = (Vector(target_point) - camera.location).to_track_quat("-Z", "Y").to_euler()
+            camera.data.lens = lens
+            scene.camera = camera
+            scene.frame_set(1)
+            shot_path = shot_dir / f"shot-{index:02d}.png"
+            scene.render.filepath = str(shot_path)
+            bpy.ops.render.render(write_still=True)
+            if not shot_path.is_file() or shot_path.stat().st_size < 10000:
+                raise SystemExit(f"3D shot render missing or too small: {shot_path}")
+            print(f"ENGLISHTALE_3D_SHOT_{index:02d}={shot_path}")
+
+        print(f"ENGLISHTALE_3D_SHOT_LIBRARY={shot_dir}")
+    elif args.animation:
         if args.duration < 2 or args.duration > 12 or args.fps < 12 or args.fps > 30:
             raise SystemExit("Animation settings out of range: use 2–12 seconds and 12–30 fps.")
         # Keep the CI motion proof CPU-friendly while preserving the 1280x720 frame.
