@@ -55,7 +55,7 @@ Last updated: 2026-11-08
 - [x] [18 procedural Blender 3D stills validated at 1920×1080; current master render is processing](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42505448916).
 - [x] [Corrected English audio, all 18 3D stills, 7-minute 720p review, and 1080p30 master candidate validated](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42507408492).
 - [x] [Download the 1080p30 3D-still master, 720p review, all 18 Blender stills, 48 cue WAVs, retimed English/Dari SRTs, and VCTK attribution](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42507408492/artifacts/13628127892).
-- [x] [4K 3D thumbnail and vertical Shorts cover generated and validated; both JPEGs are under 1 MB](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42507835859/artifacts/13627908807).
+- [x] [4K 3D thumbnail and vertical Shorts cover generated and validated; both JPEGs are under 1 MB](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42508236377/artifacts/13628626381).
 
 ## Verified GitHub checks
 
