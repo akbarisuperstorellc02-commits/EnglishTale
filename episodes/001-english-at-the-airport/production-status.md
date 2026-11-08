@@ -12,6 +12,10 @@ Last updated: 2026-11-08
 - [x] Afghan Dari subtitle guide with 48 matching cue boundaries.
 - [x] Voice recording and subtitle synchronization instructions.
 - [x] Repository README updated to reflect actual assets and remaining work.
+- [x] Machine-readable 18-shot render timeline (420 seconds) committed.
+- [x] FFmpeg/CairoSVG review-render script committed for local silent preview generation.
+- [x] Dependency-free validator committed for shot timing, scene files, Gate 12, and subtitle alignment.
+- [x] GitHub Actions validation workflow added for pushes and pull requests.
 
 ## Quality notes
 - Subtitle timestamps are editorial estimates, not measured against recorded audio.
@@ -19,6 +23,11 @@ Last updated: 2026-11-08
 - The five scene plates are static vector backgrounds. They are not a rendered animation.
 - The voice and sound plan is documentation only. No voice audio files have been generated yet.
 - The script targets seven minutes, but final runtime must be measured after narration and dialogue are recorded.
+
+## Automation and local tooling
+- Run `python tools/video-pipeline/validate_episode.py` to validate source assets and subtitle/timeline integrity.
+- Run `python tools/video-pipeline/render_episode.py` to create a silent visual review cut. FFmpeg, FFprobe, and CairoSVG must be installed locally.
+- The GitHub Actions workflow is configured, but its first hosted run has not yet been independently confirmed in this status update.
 
 ## Next production sequence
 1. Select a TTS/voice workflow whose commercial-use license covers YouTube publication.
