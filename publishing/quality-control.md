@@ -19,7 +19,7 @@
 - [ ] Every English line has been checked for pronunciation.
 - [ ] No clipped words, awkward pauses, or abrupt edits.
 - [ ] British English dialogue loudness is consistent and clear; Afghan Dari is subtitle-only, with no Dari voiceover.
-- [ ] Music is quiet under dialogue.
+- [ ] If music or airport ambience is added, keep it subtle under dialogue; the current review candidate is dialogue-only.
 - [ ] All sound and voice assets have appropriate usage rights.
 
 ## Subtitles
