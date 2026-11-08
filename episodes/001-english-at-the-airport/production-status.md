@@ -43,16 +43,14 @@ Last updated: 2026-11-08
 
 ## Not yet complete — release blockers
 
-- [ ] Human-listen to all 48 corrected English WAV clips for pronunciation, pacing, role consistency, clipping, and voice quality.
-- [ ] Listen to and approve the generated English track; manually review both WAV-duration-retimed subtitle files. Duration-based retiming is only a first pass.
-
-- [ ] Complete continuous character animation, hand interactions, and dialogue-specific acting. The current Blender motion study is a short technical preview, not a finished character rig.
+- [ ] Human-listen to all 48 corrected English WAV clips for pronunciation, pacing, role consistency, clipping, and voice quality; approve the full track.
+- [ ] Manually review both WAV-duration-retimed subtitle files against the recordings. Duration-based retiming is only a first pass.
+- [ ] Optional next phase for a fully animated film: add continuous character animation, hand interactions, and dialogue-specific acting. The current master is a 3D-still hybrid with Ken Burns-style zoom, not continuous character animation.
 - [ ] Human-review the 720p review cut and 1080p30 master candidate with sound and muted; fix visual/timing issues and decide whether additional sound design is needed before publication.
 - [ ] Final human review of thumbnails, licenses, subtitles, audio, and YouTube metadata before publication.
 
 ## Latest pipeline runs
 
-- [x] [18 procedural Blender 3D stills validated at 1920×1080; current master render is processing](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42505448916).
 - [x] [Corrected English audio, all 18 3D stills, 7-minute 720p review, and 1080p30 master candidate validated](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42507408492).
 - [x] [Download the 1080p30 3D-still master, 720p review, all 18 Blender stills, 48 cue WAVs, retimed English/Dari SRTs, and VCTK attribution](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42507408492/artifacts/13628127892).
 - [x] [4K 3D thumbnail and vertical Shorts cover generated and validated; both JPEGs are under 1 MB](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42508236377/artifacts/13628626381).
