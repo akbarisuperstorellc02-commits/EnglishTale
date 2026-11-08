@@ -2,7 +2,7 @@
 
 ## Phase 1 — Pre-production
 1. Confirm episode learning goal and CEFR level.
-2. Review script for natural English and accurate Persian.
+2. Review script for natural English and accurate Afghan Dari.
 3. Lock character reference images.
 4. Create storyboard and shot list.
 5. Create a folder for each episode and asset type.
@@ -17,7 +17,7 @@
 
 ## Phase 3 — Audio
 1. Generate English lines separately by character.
-2. Generate Persian explanations separately.
+2. Generate Afghan Dari explanations separately.
 3. Review pronunciation, stress, pacing, and emotional tone.
 4. Export clean files and use consistent voice settings.
 5. Add quiet ambience and licensed background music.
@@ -28,10 +28,10 @@ Suggested CapCut track layout:
 - V1: animated scene clips / stills
 - V2: phrase cards, graphics, logo, end screen
 - A1: English dialogue
-- A2: Persian explanations
+- A2: Afghan Dari explanations
 - A3: ambience and sound effects
 - A4: background music
-- Captions: English main captions; Persian subtitles as separate track or clearly timed secondary captions
+- Captions: English main captions; Afghan Dari subtitles as separate track or clearly timed secondary captions
 
 Suggested project settings:
 - 1920×1080
@@ -43,7 +43,7 @@ Suggested project settings:
 ## Phase 5 — Learning design
 - Speak the English line first.
 - Show the English caption while it is spoken.
-- Give a short Persian explanation after the line or phrase group.
+- Give a short Afghan Dari explanation after the line or phrase group.
 - Include 2–3 seconds of silence for repeat-after-me moments.
 - Do not overload a single episode with too many new phrases.
 - Use a quiz with one unambiguous correct answer.
