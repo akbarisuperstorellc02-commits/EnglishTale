@@ -31,7 +31,7 @@ The project has a validated production package and a working render/tooling foun
 - End-to-end offline audio pipeline tests using a deterministic fake Piper executable; these test software behavior, not real voice quality.
 - Voice WAV validator configured for 48 English files only; Afghan Dari remains subtitle-only.
 - All 48 real English cue WAVs generated and technically validated; the 420-second English master WAV and first-pass retimed English/Dari SRTs are packaged in GitHub Actions.
-- FFmpeg/CairoSVG 7-minute scene-plate renderer; both a 420-second 720p review MP4 and a 420-second 1080p30 H.264 master candidate with loudness-normalized AAC English dialogue and selectable English/Dari subtitles passed technical validation. The current cut is dialogue-only; music/ambience and final sound design remain release-stage decisions.
+- FFmpeg/CairoSVG 7-minute scene-plate renderer; both a 420-second 720p review MP4 and a 420-second 1080p30 H.264 master candidate with loudness-normalized AAC English dialogue and selectable English/Dari subtitles passed technical validation. The current 1080p candidate uses the SVG 2.5D fallback; the new 18-angle Blender 3D still library is being integrated into the next master build. The current cut is dialogue-only; music/ambience and final sound design remain release-stage decisions.
 - [Download the 1080p30 master candidate, 720p review, English WAVs, retimed subtitles, and VCTK attribution](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42504752349/artifacts/13626009753).
 - 4K YouTube thumbnail artwork/export and vertical Shorts cover artwork/export.
 - Dependency-free source validation and GitHub Actions checks.
@@ -41,7 +41,7 @@ The project has a validated production package and a working render/tooling foun
 ### Still required before release
 - Listen to and approve all 48 generated English WAV clips for pronunciation, acting, pacing, and role consistency.
 - Manually review both WAV-duration-retimed subtitle files against the actual English recordings.
-- Create and review final character animation, including appropriate dialogue timing and visual continuity. The Blender motion study is only a short technical preview.
+- Validate the 18-angle Blender 3D shot library and regenerate the 1080p master from those 3D stills; complete dialogue-specific character animation and visual continuity. The Blender motion study is only a short technical preview.
 - Human-review the 720p review cut and 1080p30 master candidate with sound and muted; revise visual/timing issues and decide whether additional sound design is needed before publication.
 - Review the final thumbnail and all asset/model licenses before YouTube publication.
 
