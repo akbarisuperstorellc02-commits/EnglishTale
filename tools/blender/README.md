@@ -10,6 +10,16 @@ Install Blender 4.x or newer, then run:
 blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --output build/episode-001-3d-lookdev.png
 ```
 
+## 18-shot 3D still library
+
+Render the procedural airport scene from the 18 planned camera angles:
+
+```bash
+blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --shot-library --shots-dir build/3d-shots --width 1920 --height 1080
+```
+
+This creates `shot-01.png` through `shot-18.png` at 1920×1080. The 3D shot list `episodes/001-english-at-the-airport/render-shotlist-3d.json` maps each still to its timeline duration. The final renderer applies gentle 2.5D camera motion to each 3D still. This is a hybrid 3D-still/2.5D edit, not continuous full-3D character animation.
+
 ## Short motion study
 
 The same scene can render a short 3D motion study with subtle character body movement and a slow camera push. The CI proof is intentionally 640×360 at 24 fps to keep CPU rendering practical; the look-development still remains 1280×720:
