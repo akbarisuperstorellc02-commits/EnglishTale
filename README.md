@@ -2,12 +2,12 @@
 
 **Tagline:** Learn English Through Stories  
 **Episode 01:** English at the Airport  
-**Audience:** English learners worldwide; this first series uses English dialogue with Afghan Dari explanations.  
+**Audience:** English learners worldwide; British English dialogue with Afghan Dari subtitles only.  
 **Level:** CEFR A1–A2  
 **Target runtime:** 6–8 minutes  
 **Format:** 16:9, 1920×1080, 30 fps, MP4
 
-## Current production status
+## Approved production settings\n\nThe active settings are recorded in `project-settings.json`: British English, Afghan Dari subtitles only (no Dari voiceover), local/offline TTS with no paid API, and a hybrid visual pipeline. The target look is premium cinematic 3D; when local hardware cannot support full 3D, use carefully composited 2.5D scenes and camera motion without misrepresenting them as full 3D. GPU acceleration is optional because the computer's GPU model is not yet known.\n\n## Current production status
 
 Episode 001 has moved beyond the planning-only stage. The repository now includes original coded vector artwork, animated SVG character rigs, an 18-shot edit plan, and aligned English/Dari subtitle guide tracks.
 
@@ -22,8 +22,8 @@ Episode 001 has moved beyond the planning-only stage. The repository now include
 - English SRT and Afghan Dari SRT, each with 48 matching cue boundaries.
 - Voice and subtitle production instructions.
 - 48-cue bilingual voice manifest and recording package.
-- Separate English/Dari WAV track assembler with timeline-gap preservation.
-- Resumable Gemini and ElevenLabs TTS generator tools; provider access and commercial rights are documented.
+- English-only WAV generation is the active audio path; Afghan Dari is provided as subtitles, not a second narration track.
+- Local Piper-based British English TTS generator; no cloud API key is required. Optional Gemini/ElevenLabs tools remain archived as non-active alternatives.
 - Gemini image-generation pipeline using the current Gemini image model, reusable character-reference artwork, and a four-image audition before the full 12-scene batch.
 - Dependency-free validator and unit tests for all 96 bilingual WAV recordings, with a strict release gate.
 - MP4 export option for selectable English and Afghan Dari audio tracks.
@@ -108,7 +108,7 @@ EnglishTale/
 
 1. Run the input validator: `python tools/video-pipeline/validate_episode.py`.
 2. Check generated recordings with `python tools/tts/validate_voice_assets.py`; use `--strict` to require all 96 valid WAV files. See `tools/tts/VOICE_ASSET_VALIDATION.md`.
-3. After recording all cues, assemble the separate language tracks with `python tools/video-pipeline/build_audio_tracks.py`.
+3. Generate a local British English audition with `python tools/tts/generate_local_english.py --model /path/to/en_GB-alan-medium.onnx --limit 6`; after listening and license review, generate all English cues.
 4. Build a silent visual review cut: `python tools/video-pipeline/render_episode.py` (requires FFmpeg and CairoSVG; see `tools/video-pipeline/README.md`). To include both selectable language tracks, pass `--english-audio` and `--dari-audio`.
 5. Export the long-form 4K thumbnail with `python tools/video-pipeline/render_thumbnail.py` and the vertical Shorts cover with `python tools/video-pipeline/render_shorts_cover.py`.
 5. Review `tools/tts/README.md` and `tools/tts/elevenlabs-README.md` before generating narration. Do not generate all clips until the English and Afghan Dari sample voices have been auditioned.
@@ -125,7 +125,7 @@ EnglishTale/
 - Keep character designs consistent: Leo's hoodie is blue, Emma's sweater is pink, and Ollie is an owl.
 - Keep the airport gate number consistent: Gate 12.
 - English is the main learning audio. Dari explanations must not talk over English dialogue.
-- Use only music, voices, fonts, images, and video assets that permit the intended commercial use. Keep proof of licenses.
+- Use only music, voices, fonts, images, and video assets that permit the intended commercial use. Keep proof of licenses. The voice model's own license must be checked separately from the Piper software license.
 - Do not assume a free plan includes commercial rights. Check each provider's current terms before publishing.
 - AI use alone does not guarantee or prevent YouTube monetization. Make each episode original, useful, and meaningfully edited.
 - The Dari subtitles are a separate track and can be reviewed by a native Afghan Dari speaker before release.
