@@ -117,6 +117,7 @@ def main() -> int:
                 if duration < total - 1.0:
                     raise SystemExit(f"English audio is only {duration:.1f}s; expected about {total}s. Refusing to truncate the video.")
                 cmd += ["-i", str(args.english_audio)]
+                input_index += 1
             subtitle_inputs = []
             for subtitle in (args.subtitles_en, args.subtitles_fa):
                 if subtitle:
