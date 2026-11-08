@@ -1,9 +1,11 @@
 asset_id,asset_type,provider_or_creator,source_or_url,license_or_plan,commercial_use_confirmed,proof_saved,notes
-ET_BRAND_001,Logo/brand artwork,Pending,Pending,Pending,No,No,Create original EnglishTale identity
-ET_CHAR_LEO,Character reference,Pending,Pending,Pending,No,No,Save provider terms and generation record
-ET_CHAR_EMMA,Character reference,Pending,Pending,Pending,No,No,Save provider terms and generation record
-ET_CHAR_OLLIE,Character reference,Pending,Pending,Pending,No,No,Save provider terms and generation record
-ET_VOICE_EN,AI voice,Pending,Pending,Pending,No,No,Verify plan permits commercial YouTube use
-ET_VOICE_FA,AI voice,Pending,Pending,Pending,No,No,Verify plan permits commercial YouTube use
-ET_MUSIC_001,Background music,Pending,Pending,Pending,No,No,Use properly licensed track
-ET_SFX_001,Sound effects,Pending,Pending,Pending,No,No,Use properly licensed effects
+ET_BRAND_001,Logo/brand artwork,Pending,Pending,Pending,No,No,Create and record final original EnglishTale logo artwork
+ET_CHAR_LEO,Character reference,EnglishTale project (original coded SVG),assets/characters/leo.svg; assets/animation/leo-idle-talk.svg,Original project-authored vector source,Yes,Yes,Original project character artwork; preserve source and commit history
+ET_CHAR_EMMA,Character reference,EnglishTale project (original coded SVG),assets/characters/emma.svg; assets/animation/emma-idle-talk.svg,Original project-authored vector source,Yes,Yes,Original project character artwork; preserve source and commit history
+ET_CHAR_OLLIE,Character reference,EnglishTale project (original coded SVG),assets/characters/ollie.svg; assets/animation/ollie-idle-flap.svg,Original project-authored vector source,Yes,Yes,Original project character artwork; preserve source and commit history
+ET_SCENE_001,Scene artwork,EnglishTale project (original coded SVG),assets/scenes/01-airport-arrival.svg; assets/scenes/02-check-in.svg; assets/scenes/03-security.svg; assets/scenes/04-departure-gate.svg; assets/scenes/05-on-the-plane.svg,Original project-authored vector source,Yes,Yes,Five original scene plates; Gate 12 matches script
+ET_THUMB_001,Thumbnail artwork,EnglishTale project (original coded SVG),assets/thumbnails/episode-001-thumbnail.svg,Original project-authored vector source,Yes,Yes,Thumbnail PNG is rendered from this SVG in GitHub Actions
+ET_VOICE_EN,AI voice,Pending,Pending,Pending,No,No,Choose accessible provider and commercial plan; audition all English roles
+ET_VOICE_FA,AI voice,Pending,Pending,Pending,No,No,Choose provider and review Afghan Dari pronunciation with a native speaker
+ET_MUSIC_001,Background music,Pending,Pending,Pending,No,No,Use properly licensed track; save license evidence
+ET_SFX_001,Sound effects,Pending,Pending,Pending,No,No,Use properly licensed effects; save license evidence
