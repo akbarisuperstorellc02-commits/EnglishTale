@@ -70,7 +70,6 @@ EnglishTale/
 
 1. Run the input validator: `python tools/video-pipeline/validate_episode.py`.
 2. Build a silent visual review cut: `python tools/video-pipeline/render_episode.py` (requires FFmpeg and CairoSVG; see `tools/video-pipeline/README.md`).
-
 3. Read `brand/brand-guide.md` and `characters/character-bible.md`.
 4. Review the SVG scene plates in `assets/scenes/` and character rigs in `assets/animation/`.
 5. Follow `episodes/001-english-at-the-airport/animation-shot-plan.md` for the edit structure.
