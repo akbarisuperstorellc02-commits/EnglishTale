@@ -22,6 +22,7 @@ Last updated: 2026-11-08
 - [x] Original 16:9 vector thumbnail artwork added, using the canonical blue Leo / pink Emma / owl Ollie identities; export upgraded to YouTube's recommended 3840×2160 resolution.
 - [x] Thumbnail PNG export script added.
 - [x] Thumbnail PNG validator checks 3840×2160 dimensions and desktop upload size; warns when mobile's 2 MB limit is exceeded.
+- [x] A separate 9:16 Shorts cover and 2160×3840 renderer/validator added; both thumbnail formats are now checked and uploaded by CI.
 - [x] FFmpeg renderer corrected to avoid multiplying frames on still-image zoom shots.
 - [x] MP4 export supports selectable English and Afghan Dari audio tracks.
 - [x] Audio assembler preserves any intentional subtitle timeline gaps with silence.
@@ -33,6 +34,7 @@ Last updated: 2026-11-08
 - [x] CI smoke-tests both TTS generators in dry-run mode without API keys.
 - [x] Expanded validator checks shot IDs/durations, voice roles and paths, bilingual subtitle text/timing, Gate 12, scene dimensions, and SVG XML.
 - [x] GitHub Actions run #68 passed all compile, validation, TTS smoke, 4K thumbnail render, 3840×2160 dimension validation, and artifact upload. The generated 4K PNG artifact is 354,197 bytes (within YouTube's 2 MB mobile upload limit). [Open run #68](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42496181400).
+- [x] Vertical Shorts cover artwork, 2160×3840 renderer, and PNG validator added; CI now exports and checks both cover formats.
 - [x] Four vertical YouTube Shorts cutdown plans prepared for post-release promotion.
 
 ## Quality notes
