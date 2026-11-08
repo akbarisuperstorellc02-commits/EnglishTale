@@ -1,0 +1,18 @@
+{
+  "model_id": "eleven_multilingual_v2",
+  "output_format": "mp3_44100_128",
+  "english_voices": {
+    "Narrator": "",
+    "Leo": "",
+    "Emma": "",
+    "Airport Agent": "",
+    "Security Officer": "",
+    "Ollie": ""
+  },
+  "dari_voice": "",
+  "notes": [
+    "Fill voice IDs from your own ElevenLabs account; never paste API keys here.",
+    "Choose voices that support Persian where required and audition them before production.",
+    "A Persian voice is not automatically an Afghan Dari voice; native review is mandatory."
+  ]
+}
