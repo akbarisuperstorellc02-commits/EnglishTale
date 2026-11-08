@@ -6,7 +6,7 @@ English at the Airport ✈️ | Learn English Through Story | Beginner English A
 ## Alternative titles
 1. Learn English at the Airport | Easy English Conversation for Beginners
 2. English Listening Practice: A Trip to London | Animated Story A1
-3. Speak English at the Airport! | Beginner English Story with Persian Help
+3. Speak English at the Airport! | Beginner English Story with Afghan Dari Help
 
 ## Description
 ✈️ Learn English at the Airport with Leo and Emma!
@@ -24,7 +24,7 @@ Welcome to EnglishTale! In this original animated English-learning story, you'll
 
 **English Level:** Beginner (A1)  
 **Lesson:** English at the Airport  
-**Format:** Animated story + English captions + Persian explanations
+**Format:** Animated story + English captions + Afghan Dari explanations
 
 Subscribe to EnglishTale for more original animated English stories.
 
@@ -34,7 +34,7 @@ Learn English Through Stories!
 #LearnEnglish #EnglishStories #EnglishForBeginners #EnglishConversation #AirportEnglish
 
 ## Tags
-learn English, English stories, English for beginners, beginner English, A1 English, English listening practice, airport English, English conversation, learn English through stories, English subtitles, Persian English learning
+learn English, English stories, English for beginners, beginner English, A1 English, English listening practice, airport English, English conversation, learn English through stories, English subtitles, Afghan Dari English learning
 
 ## Pinned comment
 Which airport phrase was most useful for you?
@@ -47,7 +47,7 @@ Write one sentence using “Where is...?” in the comments. ✈️
 
 ## Upload checks
 - Add English captions and review timing.
-- Add Persian subtitles as a separate subtitle track if available.
+- Add Afghan Dari subtitles as a separate subtitle track if available.
 - Select the correct language and audience settings.
 - Check thumbnail on a phone-sized preview.
 - Confirm music, TTS, image, animation, and font commercial-use permissions.
