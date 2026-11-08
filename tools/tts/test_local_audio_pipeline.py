@@ -122,7 +122,7 @@ class LocalAudioPipelineTests(unittest.TestCase):
             self.assertEqual(retimer.main(), 0)
         for output in (en_out, fa_out):
             self.assertTrue(output.is_file())
-            blocks = output.read_text(encoding="utf-8").strip().split("\\n\\n")
+            blocks = output.read_text(encoding="utf-8").strip().split("\n\n")
             self.assertEqual(len(blocks), 48)
             self.assertIn(" --> ", blocks[0])
         first_timing = en_out.read_text(encoding="utf-8").splitlines()[1]
