@@ -25,6 +25,7 @@ Episode 001 has moved beyond the planning-only stage. The repository now include
 - Resumable Gemini and ElevenLabs TTS generator tools; provider access and commercial rights are documented.
 - MP4 export option for selectable English and Afghan Dari audio tracks.
 - YouTube metadata and thumbnail brief.
+- Four YouTube Shorts cutdown plans for repurposing Episode 001.
 
 ### Not yet produced
 - Final voice recordings / TTS audio.
