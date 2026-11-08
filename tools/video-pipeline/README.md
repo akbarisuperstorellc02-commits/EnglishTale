@@ -1,6 +1,6 @@
 # EnglishTale Episode Renderer
 
-This local tool assembles the 18-shot, 420-second Episode 001 timeline from either the original SVG scene plates or a procedural Blender PNG shot library. It applies gentle 2.5D camera motion; it is not continuous full-3D character animation.
+This local tool assembles the 18-shot, 420-second Episode 001 timeline from either the original SVG scene plates or a procedural Blender PNG shot library. It applies gentle Ken Burns-style zoom to the stills; it does not add multi-layer parallax or continuous full-3D character animation.
 
 ## Requirements
 - Python 3.10+
