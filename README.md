@@ -65,13 +65,14 @@ From the repository root:
    python tools/tts/generate_local_english.py --model /path/to/en_GB-alan-medium.onnx
    python tools/tts/validate_voice_assets.py --strict
    python tools/tts/build_english_track.py
+   python tools/tts/retime_subtitles.py
    ```
 6. Render a visual review cut. Once subtitles are retimed and the English WAV is approved:
    ```bash
    python tools/video-pipeline/render_episode.py \
      --english-audio build/audio/episode-001-en.wav \
-     --subtitles-en episodes/001-english-at-the-airport/subtitles-en.srt \
-     --subtitles-fa episodes/001-english-at-the-airport/subtitles-fa.srt
+     --subtitles-en build/subtitles/episode-001-en-retimed.srt \
+     --subtitles-fa build/subtitles/episode-001-fa-retimed.srt
    ```
 7. Export the long-form thumbnail and Shorts cover:
    ```bash
