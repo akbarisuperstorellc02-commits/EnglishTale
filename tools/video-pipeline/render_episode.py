@@ -48,7 +48,10 @@ def main() -> int:
     parser.add_argument("--width", type=int, default=1280)
     parser.add_argument("--height", type=int, default=720)
     parser.add_argument("--fps", type=int, default=24)
-    parser.add_argument("--audio", type=Path, help="Optional reviewed narration/dialogue mix.")
+    audio_group = parser.add_mutually_exclusive_group()
+    audio_group.add_argument("--audio", type=Path, help="Optional single reviewed narration/dialogue mix.")
+    audio_group.add_argument("--english-audio", type=Path, help="Reviewed English WAV track.")
+    parser.add_argument("--dari-audio", type=Path, help="Reviewed Afghan Dari WAV track; use with --english-audio.")
     parser.add_argument("--no-motion", action="store_true", help="Use static scene plates.")
     args = parser.parse_args()
 
@@ -97,17 +100,34 @@ def main() -> int:
         run([ffmpeg, "-y", "-f", "concat", "-safe", "0", "-i", str(concat),
              "-c", "copy", "-movflags", "+faststart", str(silent)])
 
-        if args.audio:
-            audio = args.audio.resolve()
-            if not audio.is_file():
-                raise SystemExit(f"Audio file not found: {audio}")
-            duration = probe_duration(audio)
-            if duration < total - 1.0:
-                raise SystemExit(f"Audio is only {duration:.1f}s; expected about {total}s. Refusing to truncate the video.")
-            run([ffmpeg, "-y", "-i", str(silent), "-i", str(audio),
-                 "-map", "0:v:0", "-map", "1:a:0", "-c:v", "copy",
-                 "-c:a", "aac", "-b:a", "192k", "-t", str(total),
-                 "-movflags", "+faststart", str(args.output)])
+        if args.dari_audio and not args.english_audio:
+            raise SystemExit("--dari-audio requires --english-audio so the MP4 can contain both selectable language tracks.")
+        if args.audio or args.english_audio:
+            audio_inputs = [args.audio] if args.audio else [args.english_audio, args.dari_audio]
+            resolved = []
+            for audio_arg in audio_inputs:
+                if audio_arg is None:
+                    continue
+                audio = audio_arg.resolve()
+                if not audio.is_file():
+                    raise SystemExit(f"Audio file not found: {audio}")
+                audio_duration = probe_duration(audio)
+                if audio_duration < total - 1.0:
+                    raise SystemExit(f"Audio is only {audio_duration:.1f}s; expected about {total}s. Refusing to truncate the video.")
+                resolved.append(audio)
+            cmd = [ffmpeg, "-y", "-i", str(silent)]
+            for audio in resolved:
+                cmd += ["-i", str(audio)]
+            cmd += ["-map", "0:v:0"]
+            for index in range(len(resolved)):
+                cmd += ["-map", f"{index + 1}:a:0"]
+            cmd += ["-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-t", str(total)]
+            if len(resolved) == 2:
+                cmd += ["-metadata:s:a:0", "language=eng", "-metadata:s:a:0", "title=English",
+                        "-metadata:s:a:1", "language=fas", "-metadata:s:a:1", "title=Afghan Dari",
+                        "-disposition:a:0", "default", "-disposition:a:1", "0"]
+            cmd += ["-movflags", "+faststart", str(args.output)]
+            run(cmd)
         else:
             shutil.copy2(silent, args.output)
 
