@@ -4,11 +4,11 @@ This checklist is the source of truth for production readiness. Do not mark a ta
 
 ## A. Pre-production
 - [x] Episode concept and A1–A2 learning objective documented
-- [x] English dialogue and Persian explanations drafted
+- [x] English dialogue and Afghan Dari explanations drafted
 - [x] Storyboard and shot sequence documented
 - [x] YouTube metadata and thumbnail brief drafted
 - [ ] Final script proofread by a fluent English reviewer
-- [ ] Persian explanations proofread for natural Afghan Dari
+- [ ] Afghan Dari explanations proofread for natural Afghan Dari
 
 ## B. Character assets
 - [ ] Leo master reference approved: brown hair, brown eyes, blue hoodie, dark jeans, white sneakers
@@ -29,7 +29,7 @@ This checklist is the source of truth for production readiness. Do not mark a ta
 
 ## D. Audio
 - [ ] Record/generate English dialogue separately by character
-- [ ] Record/generate Persian explanations
+- [ ] Record/generate Afghan Dari explanations
 - [ ] Review pronunciation, pacing, clarity, and voice consistency
 - [ ] Add licensed ambience, effects, and music
 - [ ] Save clean WAV masters and compressed editing copies
@@ -37,7 +37,7 @@ This checklist is the source of truth for production readiness. Do not mark a ta
 
 ## E. Edit and export
 - [ ] Assemble the full episode in 1920×1080, 16:9, 30 fps
-- [ ] Add English captions and synchronized Persian explanations/subtitles
+- [ ] Add English captions and synchronized Afghan Dari explanations/subtitles
 - [ ] Add phrase cards and quiz options as editable graphics
 - [ ] Mix dialogue clearly above music
 - [ ] Watch the complete export on a phone with headphones and speaker
