@@ -57,6 +57,8 @@ Last updated: 2026-11-08
 
 ## Local production commands
 
+On Windows PowerShell 5.1, run the one-command builder: `.\tools\windows\build_episode_001.ps1` (use `-SkipVideo` to build audio only, or `-Overwrite` to regenerate voice clips).
+
 ```bash
 python tools/video-pipeline/validate_episode.py
 python -m unittest tools/tts/test_validate_voice_assets.py tools/tts/test_local_audio_pipeline.py -v
