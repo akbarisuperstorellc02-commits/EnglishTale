@@ -407,8 +407,8 @@
       "role": "Ollie",
       "start": "00:06:03,000",
       "end": "00:06:11,000",
-      "english_text": "A) Passport\nB) Boarding pass\nC) Suitcase",
-      "dari_text": "الف) پاسپورت\nب) کارت پرواز\nج) چمدان",
+      "english_text": "A) A passport. B) A boarding document. C) A suitcase.",
+      "dari_text": "الف) پاسپورت\nب) سند سوار شدن به هواپیما\nج) چمدان",
       "english_file": "build/audio/episode-001/en/044.wav"
     },
     {
@@ -425,8 +425,8 @@
       "role": "Ollie",
       "start": "00:06:19,000",
       "end": "00:06:29,000",
-      "english_text": "The answer is B: boarding pass means a pass to board the airplane. Well done!",
-      "dari_text": "پاسخ درست گزینه ب است: Boarding pass یعنی کارت پرواز. آفرین!",
+      "english_text": "B is correct! A boarding pass is the document you need to get on the plane. Well done!",
+      "dari_text": "گزینه ب درست است! کارت پرواز سندی است که برای سوار شدن به هواپیما نیاز داری. آفرین!",
       "english_file": "build/audio/episode-001/en/046.wav"
     },
     {
