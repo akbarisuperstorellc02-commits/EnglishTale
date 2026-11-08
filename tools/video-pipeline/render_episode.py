@@ -46,6 +46,8 @@ def probe_duration(path: Path) -> float:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUT)
+    parser.add_argument("--shot-list", type=Path, default=SHOT_FILE,
+                        help="JSON shot list; supports SVG scene plates or PNG 3D stills")
     parser.add_argument("--width", type=int, default=1920)
     parser.add_argument("--height", type=int, default=1080)
     parser.add_argument("--fps", type=int, default=30)
@@ -70,7 +72,7 @@ def main() -> int:
         if path is not None and not path.is_file():
             raise SystemExit(f"{label} file not found: {path}")
 
-    shots = json.loads(SHOT_FILE.read_text(encoding="utf-8"))
+    shots = json.loads(args.shot_list.read_text(encoding="utf-8"))
     if not shots:
         raise SystemExit("Shot list is empty.")
     total = sum(int(shot["duration"]) for shot in shots)
@@ -82,13 +84,24 @@ def main() -> int:
         tempdir = Path(temp)
         rendered: list[Path] = []
         for index, shot in enumerate(shots, start=1):
-            scene = SCENES / shot["scene"]
+            scene_ref = Path(shot["scene"])
+            if scene_ref.is_absolute():
+                scene = scene_ref
+            elif scene_ref.parts and scene_ref.parts[0] == "build":
+                scene = ROOT / scene_ref
+            else:
+                scene = SCENES / scene_ref
             if not scene.is_file():
                 raise SystemExit(f"Missing scene asset: {scene}")
             png = tempdir / f"scene-{index:02d}.png"
             clip = tempdir / f"shot-{index:02d}.mp4"
-            cairosvg.svg2png(url=str(scene), write_to=str(png),
-                             output_width=args.width, output_height=args.height)
+            if scene.suffix.lower() == ".svg":
+                cairosvg.svg2png(url=str(scene), write_to=str(png),
+                                 output_width=args.width, output_height=args.height)
+            elif scene.suffix.lower() == ".png":
+                shutil.copy2(scene, png)
+            else:
+                raise SystemExit(f"Unsupported scene asset type: {scene.suffix}")
             frames = int(shot["duration"]) * args.fps
             vf = f"scale={args.width}:{args.height},format=yuv420p"
             if not args.no_motion:
