@@ -260,6 +260,10 @@ def main():
     if args.animation:
         if args.duration < 2 or args.duration > 12 or args.fps < 12 or args.fps > 30:
             raise SystemExit("Animation settings out of range: use 2–12 seconds and 12–30 fps.")
+        # Keep the CI motion proof CPU-friendly while preserving the 1280x720 frame.
+        scene.camera.data.dof.use_dof = False
+        if hasattr(scene, "eevee") and hasattr(scene.eevee, "taa_render_samples"):
+            scene.eevee.taa_render_samples = 16
 
         def character_root(prefix, label):
             root = bpy.data.objects.new(label + " animation root", None)
