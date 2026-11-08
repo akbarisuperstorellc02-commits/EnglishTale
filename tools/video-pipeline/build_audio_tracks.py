@@ -42,6 +42,12 @@ def main() -> int:
     parser.add_argument("--output-dir", type=Path, default=OUT)
     args = parser.parse_args()
 
+    validator = ROOT / "tools" / "tts" / "validate_voice_assets.py"
+    validation = subprocess.run([sys.executable, str(validator), "--strict"], cwd=ROOT)
+    if validation.returncode != 0:
+        print("Audio assembly stopped: all 96 WAV clips must pass strict validation first.")
+        return 4
+
     ffmpeg, ffprobe = tool("ffmpeg"), tool("ffprobe")
     data = json.loads(MANIFEST.read_text(encoding="utf-8"))
     cues = data["cues"]
