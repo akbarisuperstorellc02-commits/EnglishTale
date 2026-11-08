@@ -26,6 +26,10 @@ Last updated: 2026-11-08
 - [x] English-only voice WAV validator; strict release gate requires all 48 English clips.
 - [x] Offline end-to-end tests for fake Piper generation, 48-cue assembly, resume behavior, missing-clip rejection, and subtitle retiming.
 - [x] WAV-duration subtitle retiming helper that writes separate English and Afghan Dari SRT tracks. Human listening and final manual review remain required.
+- [x] Generated all 48 real British English WAV cues in GitHub Actions using the pinned multi-speaker VCTK model; all 48 passed strict technical validation.
+- [x] Assembled the complete 420-second English master WAV at 22,050 Hz mono PCM.
+- [x] Generated first-pass English and Afghan Dari retimed SRT files from the measured WAV cue durations.
+- [x] Uploaded the English audio, all cue WAVs, retimed SRTs, and VCTK attribution note as a GitHub Actions artifact.
 - [x] FFmpeg/CairoSVG 7-minute scene-plate renderer with optional British English audio and selectable English/Dari subtitle streams.
 - [x] 4K YouTube thumbnail and vertical Shorts cover source artwork, renderers, validators, and CI artifacts.
 - [x] Procedural Blender 3D look-development scene and successful 1280×720 still render.
@@ -33,7 +37,7 @@ Last updated: 2026-11-08
 
 ## Not yet complete — release blockers
 
-- [ ] Run and verify the GitHub audio-generation workflow; it downloads the pinned VCTK model to the runner, generates all 48 clips, and packages the English WAV plus retimed subtitles. The model is intentionally not stored in Git. VCTK requires CC BY 4.0 attribution.
+- [x] Run and verify the GitHub audio-generation workflow; it downloads the pinned VCTK model to the runner, generates all 48 clips, and packages the English WAV plus retimed subtitles. The model is intentionally not stored in Git. VCTK requires CC BY 4.0 attribution.
 - [ ] Listen to all 48 generated English WAV clips for pronunciation, pacing, role consistency, clipping, and quality.
 - [ ] Assemble the approved English track and retime both subtitle files; duration-based retiming is only a first pass.
 - [ ] Complete final 3D/2.5D character animation, scene coverage, hand interactions, and appropriate dialogue acting. The current Blender still is only look-development, not the final character rig.
@@ -42,6 +46,7 @@ Last updated: 2026-11-08
 
 ## Verified GitHub checks
 
+- [x] [48 real English WAV cues, 7-minute master, and retimed subtitles generated successfully](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42503923500).
 - [x] [Offline TTS generation and WAV assembly tests passed](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42503217997).
 - [x] [Episode source, TTS, thumbnail, and Shorts validation passed](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42503053663).
 - [x] [Procedural 3D still render passed](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42501465316).
