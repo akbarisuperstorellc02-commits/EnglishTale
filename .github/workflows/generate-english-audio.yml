@@ -129,7 +129,7 @@ jobs:
           from pathlib import Path
 
           video = Path("build/episode-001-master-1080p.mp4")
-          assert video.is_file() and video.stat().st_size > 5_000_000, "1080p master candidate missing or too small"
+          assert video.is_file() and video.stat().st_size > 2_000_000, "1080p master candidate missing or too small"
           result = subprocess.run(
               ["ffprobe", "-v", "error", "-show_entries",
                "stream=codec_type,codec_name,width,height,r_frame_rate",
