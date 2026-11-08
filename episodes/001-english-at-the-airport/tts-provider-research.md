@@ -1,9 +1,15 @@
 # TTS provider research — 2026-11-08
 
-Recommended first audition: Google's Gemini 3.8 Flash TTS, because its official language list explicitly includes both English and Persian (Afghanistan). It is a candidate to audition, not a guarantee of natural Kabul Dari.
+Gemini 3.8 Flash TTS has the best explicit language match on paper because its official language list includes both English and Persian (Afghanistan). However, Google's official Gemini API supported-region list currently excludes Afghanistan. Therefore it is not the default practical route for a user operating from Afghanistan; use only if the account/calling environment is legitimately supported. It remains an optional backend, not a guarantee of natural Kabul Dari.
+
+Practical fallback to audition: ElevenLabs Persian TTS. Its Starter plan currently advertises a commercial license and 30,000 monthly credits; Free has 10,000 credits but no commercial license. Persian support does not guarantee Afghan Dari pronunciation. Confirm service availability and review a sample with a native Afghan Dari speaker before buying or generating the full package.
 
 Official references:
 - Supported TTS languages and API usage: https://ai.google.dev/gemini-api/docs/speech-generation
+- Gemini API supported regions (Afghanistan is not listed): https://ai.google.dev/gemini-api/docs/available-regions
+- ElevenLabs Persian TTS: https://elevenlabs.io/text-to-speech/persian
+- ElevenLabs current plan pricing and commercial license: https://elevenlabs.io/pricing
+- ElevenLabs TTS API: https://elevenlabs.io/docs/api-reference/text-to-speech/convert
 - Gemini API pricing (including free-tier data use and TTS rates): https://ai.google.dev/gemini-api/docs/pricing
 - Gemini API additional terms: https://ai.google.dev/gemini-api/terms
 - Google Cloud generative AI service terms: https://cloud.google.com/terms/service-terms
@@ -15,5 +21,7 @@ Research notes:
 - Google says it does not claim ownership of generated output under the Gemini API terms; the user remains responsible for legal use.
 - TTS is a changing/preview technology. Confirm account access, regional availability, pricing, and current terms immediately before generating a full episode.
 
-Alternative considered:
-- ElevenLabs offers Persian TTS, but its Persian page does not establish a distinct Afghan Dari/Kabul voice. Its help documentation states free-plan output is not licensed for commercial use; paid plans include a commercial license subject to terms. For a low-budget first episode, Gemini is the stronger initial audition candidate, subject to native-speaker review.
+ElevenLabs practical notes:
+- The current pricing page lists Free at 10,000 credits/month and Starter at 30,000 credits/month with a commercial license; listed Starter monthly price is subject to change and taxes.
+- The TTS API supports voice IDs selected from the user's own account. The project includes a generator, but voice IDs are intentionally blank until the user chooses voices.
+- A Persian voice is not automatically Afghan Dari. The first two sample clips must be rejected unless the accent and pronunciation pass native review.
