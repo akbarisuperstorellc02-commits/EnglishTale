@@ -36,7 +36,7 @@ The project has a validated production package and a working render/tooling foun
 - Initial 4K thumbnail and vertical Shorts artwork/export; a new post-render workflow now creates matching 3D-character thumbnail and Shorts artwork from the approved Blender stills.
 - YouTube title, description, chapter markers, tags, pinned comment, VCTK attribution, and upload checklist in `episodes/001-english-at-the-airport/youtube-publishing-package.md`.
 - Dependency-free source validation and GitHub Actions checks.
-- Procedural Blender 3D character/airport scene with a validated 1280×720 look-development still, an 18-angle 1920×1080 shot library, and a separate two-second 640×360 character motion-study MP4. The still library supports the hybrid master with 2.5D camera motion; it is not continuous full-3D character animation.
+- Procedural Blender 3D character/airport scene with a validated 1280×720 look-development still, an 18-angle 1920×1080 shot library, and a separate two-second 640×360 character motion-study MP4. The still library supports a hybrid master with gentle Ken Burns-style zoom; it does not create multi-layer parallax or continuous full-3D character animation.
 - [Download the 3D look-development still and motion-study MP4](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42504752366/artifacts/13626574637).
 
 ### Still required before release
