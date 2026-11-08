@@ -1,10 +1,10 @@
-# Episode 001 — Full Script (English + Persian)
+# Episode 001 — Full Script (English + Afghan Dari)
 
 **Title:** English at the Airport ✈️ | Learn English Through Story | Beginner A1  
 **Target runtime:** 6–8 minutes  
 **Narration pace:** clear, moderate; leave room for learners to repeat.
 
-> Production note: English is the main audio. Persian translation follows each short dialogue beat or phrase group. Do not talk over the English line. Keep the English captions visible while the English is spoken.
+> Production note: English is the main audio. Afghan Dari translation follows each short dialogue beat or phrase group. Do not talk over the English line. Keep the English captions visible while the English is spoken.
 
 ## Scene 1 — Hook (00:00–00:20)
 
