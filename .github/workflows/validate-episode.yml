@@ -24,3 +24,13 @@ jobs:
         run: python -m compileall -q tools/video-pipeline
       - name: Validate Episode 001 inputs and SVG assets
         run: python tools/video-pipeline/validate_episode.py
+      - name: Install thumbnail renderer dependency
+        run: python -m pip install -r tools/video-pipeline/requirements.txt
+      - name: Render YouTube thumbnail
+        run: python tools/video-pipeline/render_thumbnail.py
+      - name: Upload thumbnail preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: englishtale-episode-001-thumbnail
+          path: build/episode-001-thumbnail.png
+          if-no-files-found: error
