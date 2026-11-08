@@ -16,7 +16,7 @@ permissions:
 jobs:
   generate-english-audio:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 90
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -72,15 +72,57 @@ jobs:
           print(f"PASS: 420-second master WAV ({master.stat().st_size:,} bytes)")
           print("PASS: 48-cue English and Afghan Dari subtitle files")
           PY
+      - name: Install FFmpeg and scene-render dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install -r tools/video-pipeline/requirements.txt
+      - name: Render complete 7-minute 720p review cut with English audio and selectable subtitles
+        run: |
+          python tools/video-pipeline/render_episode.py \
+            --output build/episode-001-review-720p.mp4 \
+            --width 1280 --height 720 --fps 24 \
+            --english-audio build/audio/episode-001-en.wav \
+            --subtitles-en build/subtitles/episode-001-en-retimed.srt \
+            --subtitles-fa build/subtitles/episode-001-fa-retimed.srt
+      - name: Validate complete review MP4
+        run: |
+          python3 - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+
+          video = Path("build/episode-001-review-720p.mp4")
+          assert video.is_file() and video.stat().st_size > 2_000_000, "Review MP4 missing or unexpectedly small"
+          probe = subprocess.run(
+              ["ffprobe", "-v", "error", "-show_entries",
+               "stream=codec_type,codec_name,width,height",
+               "-show_entries", "format=duration", "-of", "json", str(video)],
+              check=True, capture_output=True, text=True
+          )
+          data = json.loads(probe.stdout)
+          streams = data["streams"]
+          v = next(s for s in streams if s["codec_type"] == "video")
+          a = next(s for s in streams if s["codec_type"] == "audio")
+          subtitles = [s for s in streams if s["codec_type"] == "subtitle"]
+          duration = float(data["format"]["duration"])
+          assert (v["codec_name"], v["width"], v["height"]) == ("h264", 1280, 720), v
+          assert a["codec_name"] == "aac", a
+          assert len(subtitles) == 2, f"Expected two selectable subtitle tracks, got {subtitles}"
+          assert 419.0 <= duration <= 421.0, f"Unexpected review duration: {duration}"
+          print(f"PASS: 7-minute H.264 review MP4, {duration:.2f}s, 1280x720, AAC, 2 subtitle tracks")
+          print(f"File size: {video.stat().st_size:,} bytes")
+          PY
       - name: Upload Episode 001 English audio and retimed subtitles
         uses: actions/upload-artifact@v4
         with:
-          name: EnglishTale-Episode001-English-Audio-Subtitles
+          name: EnglishTale-Episode001-Review-Cut-Audio-Subtitles
           path: |
             build/audio/episode-001/en/*.wav
             build/audio/episode-001-en.wav
             build/subtitles/episode-001-en-retimed.srt
             build/subtitles/episode-001-fa-retimed.srt
             models/piper/en_GB-vctk-medium/ATTRIBUTION.txt
+            build/episode-001-review-720p.mp4
           if-no-files-found: error
           retention-days: 14
