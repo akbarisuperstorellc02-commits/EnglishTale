@@ -16,7 +16,7 @@ permissions:
 jobs:
   generate-english-audio:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    timeout-minutes: 120
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -113,10 +113,46 @@ jobs:
           print(f"PASS: 7-minute H.264 review MP4, {duration:.2f}s, 1280x720, AAC, 2 subtitle tracks")
           print(f"File size: {video.stat().st_size:,} bytes")
           PY
+      - name: Render 1080p30 master candidate with normalized English dialogue
+        run: |
+          python tools/video-pipeline/render_episode.py \
+            --output build/episode-001-master-1080p.mp4 \
+            --width 1920 --height 1080 --fps 30 \
+            --english-audio build/audio/episode-001-en.wav \
+            --subtitles-en build/subtitles/episode-001-en-retimed.srt \
+            --subtitles-fa build/subtitles/episode-001-fa-retimed.srt
+      - name: Validate 1080p30 master candidate
+        run: |
+          python3 - <<'PY'
+          import json
+          import subprocess
+          from pathlib import Path
+
+          video = Path("build/episode-001-master-1080p.mp4")
+          assert video.is_file() and video.stat().st_size > 5_000_000, "1080p master candidate missing or too small"
+          result = subprocess.run(
+              ["ffprobe", "-v", "error", "-show_entries",
+               "stream=codec_type,codec_name,width,height,r_frame_rate",
+               "-show_entries", "format=duration", "-of", "json", str(video)],
+              check=True, capture_output=True, text=True
+          )
+          data = json.loads(result.stdout)
+          streams = data["streams"]
+          v = next(s for s in streams if s["codec_type"] == "video")
+          a = next(s for s in streams if s["codec_type"] == "audio")
+          subs = [s for s in streams if s["codec_type"] == "subtitle"]
+          duration = float(data["format"]["duration"])
+          assert (v["codec_name"], v["width"], v["height"], v["r_frame_rate"]) == ("h264", 1920, 1080, "30/1"), v
+          assert a["codec_name"] == "aac", a
+          assert len(subs) == 2, f"Expected two selectable subtitle tracks, got {subs}"
+          assert 419.0 <= duration <= 421.0, f"Unexpected master duration: {duration}"
+          print(f"PASS: 1080p30 H.264 master candidate, {duration:.2f}s, AAC normalized dialogue, 2 subtitle tracks")
+          print(f"File size: {video.stat().st_size:,} bytes")
+          PY
       - name: Upload Episode 001 English audio and retimed subtitles
         uses: actions/upload-artifact@v4
         with:
-          name: EnglishTale-Episode001-Review-Cut-Audio-Subtitles
+          name: EnglishTale-Episode001-1080p-Master-Candidate-and-Review
           path: |
             build/audio/episode-001/en/*.wav
             build/audio/episode-001-en.wav
@@ -124,5 +160,6 @@ jobs:
             build/subtitles/episode-001-fa-retimed.srt
             models/piper/en_GB-vctk-medium/ATTRIBUTION.txt
             build/episode-001-review-720p.mp4
+            build/episode-001-master-1080p.mp4
           if-no-files-found: error
           retention-days: 14
