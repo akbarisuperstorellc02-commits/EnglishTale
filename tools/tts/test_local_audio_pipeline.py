@@ -36,7 +36,10 @@ class LocalAudioPipelineTests(unittest.TestCase):
             "import argparse, sys, wave, struct\n"
             "p=argparse.ArgumentParser()\n"
             "p.add_argument('--model'); p.add_argument('--output_file', required=True)\n"
+            "p.add_argument('--speaker', type=int, default=0)\n"
             "a=p.parse_args()\n"
+            "from pathlib import Path\n"
+            "Path(a.output_file + '.speaker').write_text(str(a.speaker))\n"
             "text=sys.stdin.read().strip()\n"
             "frames=max(22050, min(22050*3, len(text)*350))\n"
             "with wave.open(a.output_file, 'wb') as w:\n"
@@ -106,6 +109,16 @@ class LocalAudioPipelineTests(unittest.TestCase):
         self.assertEqual(self.run_generator("--limit", "2"), 0)
         self.assertEqual(first.stat().st_mtime_ns, before)
         self.assertEqual(len(list(self.output_dir.glob("*.wav"))), 2)
+
+    def test_generator_uses_role_specific_multi_speaker_ids(self):
+        voice_map = self.root / "voices.json"
+        voice_map.write_text(json.dumps({
+            "Narrator": {"model": str(self.model), "speaker_id": 107},
+            "Leo": {"model": str(self.model), "speaker_id": 95},
+        }), encoding="utf-8")
+        self.assertEqual(self.run_generator("--voices-json", str(voice_map), "--limit", "4"), 0)
+        self.assertEqual((self.output_dir / "001.wav.speaker").read_text(), "107")
+        self.assertEqual((self.output_dir / "004.wav.speaker").read_text(), "95")
 
     def test_retimer_creates_two_subtitle_tracks_from_real_wav_durations(self):
         self.assertEqual(self.run_generator(), 0)
