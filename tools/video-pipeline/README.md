@@ -1,36 +1,42 @@
 # EnglishTale Episode Renderer
 
-This local tool builds a **silent visual review cut** from the five original SVG scene plates. It is intended to validate the timeline, scene order, and export settings while the voice recordings are being produced.
+This local tool assembles the 18-shot, 420-second Episode 001 timeline from the five original SVG scene plates. It is a **visual review renderer**, not a replacement for final character animation.
 
 ## Requirements
 - Python 3.10+
-- FFmpeg and FFprobe installed and available on PATH
+- FFmpeg and FFprobe on PATH
 - CairoSVG: `python -m pip install -r tools/video-pipeline/requirements.txt`
 
-## Run from the repository root
+## Silent review
 ```bash
 python tools/video-pipeline/render_episode.py
 ```
+Default output: `build/episode-001-review.mp4`.
 
-Default output:
-`build/episode-001-review.mp4`
+## English audio and subtitle tracks
 
-Optional settings:
+The active delivery has one British English audio track and two optional selectable subtitle tracks. Afghan Dari is never generated as voiceover.
+
 ```bash
-python tools/video-pipeline/render_episode.py --output build/review.mp4 --width 960 --height 540 --fps 24
-python tools/video-pipeline/render_episode.py --no-motion
-python tools/video-pipeline/render_episode.py --audio path/to/reviewed-full-mix.wav
-python tools/video-pipeline/render_episode.py --english-audio build/audio/episode-001-en.wav --dari-audio build/audio/episode-001-fa.wav
+python tools/video-pipeline/render_episode.py \
+  --english-audio build/audio/episode-001-en.wav \
+  --subtitles-en episodes/001-english-at-the-airport/subtitles-en.srt \
+  --subtitles-fa episodes/001-english-at-the-airport/subtitles-fa.srt
 ```
 
-Before assembling language tracks, `build_audio_tracks.py` automatically runs `tools/tts/validate_voice_assets.py --strict`; all 96 clips must pass technical validation. The optional audio file(s) must be at least 419 seconds long. The tool refuses to mux short files and silently truncate the episode. Use `--english-audio` and `--dari-audio` together to place both languages in one MP4 as selectable audio tracks; the English track is the default. `--audio` remains available for a single pre-mixed track.
+Options:
+- `--width`, `--height`, `--fps` — review export dimensions and frame rate.
+- `--no-motion` — disable the gentle scene-plate zoom.
+- `--audio` — compatibility alias for `--english-audio`.
+- `--subtitles-en` and `--subtitles-fa` — mux selectable MP4 subtitle tracks (UTF-8).
+
+The renderer checks that the English audio is approximately the full 420-second runtime and refuses to silently truncate the video. Subtitle timestamps are still provisional and must be retimed after the actual voice recordings are approved.
 
 ## Current limitations
-- The renderer uses scene plates with gentle camera movement; it does not composite the animated character rigs.
-- It does not generate voices, music, or sound effects.
-- It does not synthesize or mix the English and Dari recordings together. The dual-track export keeps them selectable so learners do not hear two languages speaking over one another.
-- It does not burn captions into the picture. Keep the English and Dari SRT files as separate subtitle tracks until their timings are checked against real audio.
-- It is a review assembly, not a final broadcast-quality animation. A human review is required before publication.
+- Uses scene plates with gentle camera motion; it does not composite the animated character rigs.
+- Does not create full 3D character animation, lip sync, voice, music, or sound effects.
+- Soft subtitle tracks are optional; separate SRT files should also be retained for YouTube upload.
+- A human review of the complete MP4 is mandatory before publication.
 
 ## Timeline integrity
-The shot list is stored in `episodes/001-english-at-the-airport/render-shotlist.json`. The script checks that all shot durations total exactly 420 seconds (07:00). The still-image zoom effect emits one output frame per input frame to avoid accidental frame multiplication.
+The shot list is `episodes/001-english-at-the-airport/render-shotlist.json`. The renderer requires exactly 420 seconds (07:00) and verifies the output file exists and is not unexpectedly small.
