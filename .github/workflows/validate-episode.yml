@@ -30,10 +30,8 @@ jobs:
         run: python -m unittest tools/tts/test_local_audio_pipeline.py -v
       - name: Check voice asset package readiness
         run: python tools/tts/validate_voice_assets.py
-      - name: Smoke-test TTS audition selection without API calls
-        run: |
-          python tools/tts/generate_gemini_tts.py --dry-run --cue-ids 1,4,5,11,24,34
-          python tools/tts/generate_elevenlabs_tts.py --dry-run --cue-ids 1,4,5,11,24,34
+      - name: Verify active offline Piper CLI interface
+        run: python tools/tts/generate_local_english.py --help
       - name: Install thumbnail renderer dependency
         run: python -m pip install -r tools/video-pipeline/requirements.txt
       - name: Render YouTube thumbnail
