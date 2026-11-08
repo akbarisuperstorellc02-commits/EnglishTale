@@ -14,36 +14,62 @@ permissions:
 jobs:
   render-lookdev:
     runs-on: ubuntu-24.04
-    timeout-minutes: 25
+    timeout-minutes: 35
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Install Blender
+      - name: Install Blender and media tools
         run: |
           sudo apt-get update
-          sudo apt-get install -y blender libegl1 libgl1 libxrender1 libxi6
+          sudo apt-get install -y blender ffmpeg libegl1 libgl1 libxrender1 libxi6
           blender --version
-      - name: Render procedural 3D character look development
+          ffmpeg -version | head -n 1
+      - name: Render procedural 3D character look-development still
         run: |
           mkdir -p build
           blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --output build/episode-001-3d-lookdev.png
-      - name: Validate rendered image
+      - name: Render short procedural 3D character motion study
+        run: |
+          blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --animation --duration 4 --fps 24 --output build/episode-001-3d-motion-study.mp4
+      - name: Validate 3D still and MP4 motion study
         run: |
           python3 - <<'PY'
           from pathlib import Path
+          import json
           import struct
-          p = Path("build/episode-001-3d-lookdev.png")
-          data = p.read_bytes()
-          assert data[:8] == b"\x89PNG\r\n\x1a\n", "Not a PNG file"
+          import subprocess
+
+          still = Path("build/episode-001-3d-lookdev.png")
+          data = still.read_bytes()
+          assert data[:8] == b"\\x89PNG\\r\\n\\x1a\\n", "Lookdev output is not a PNG"
           width, height = struct.unpack(">II", data[16:24])
-          assert (width, height) == (1280, 720), f"Unexpected dimensions: {width}x{height}"
-          assert len(data) > 50000, f"Render looks unexpectedly small: {len(data)} bytes"
-          print(f"PASS: {width}x{height}, {len(data)} bytes")
+          assert (width, height) == (1280, 720), f"Unexpected still dimensions: {width}x{height}"
+          assert len(data) > 50000, f"Still is unexpectedly small: {len(data)} bytes"
+
+          video = Path("build/episode-001-3d-motion-study.mp4")
+          assert video.is_file() and video.stat().st_size > 50000, "Motion-study MP4 missing or too small"
+          probe = subprocess.run(
+              ["ffprobe", "-v", "error", "-show_entries",
+               "stream=codec_type,codec_name,width,height,r_frame_rate",
+               "-show_entries", "format=duration", "-of", "json", str(video)],
+              check=True, capture_output=True, text=True
+          )
+          info = json.loads(probe.stdout)
+          streams = info["streams"]
+          v = next(s for s in streams if s["codec_type"] == "video")
+          duration = float(info["format"]["duration"])
+          assert (v["width"], v["height"]) == (1280, 720), f"Unexpected motion dimensions: {v}"
+          assert v["codec_name"] == "h264", f"Expected H.264, got {v['codec_name']}"
+          assert 3.8 <= duration <= 4.3, f"Unexpected motion duration: {duration}"
+          print(f"PASS: still {width}x{height}, {len(data)} bytes")
+          print(f"PASS: motion MP4 {v['width']}x{v['height']}, {duration:.2f}s, {video.stat().st_size} bytes")
           PY
-      - name: Upload 3D look-development still
+      - name: Upload 3D look-development assets
         uses: actions/upload-artifact@v4
         with:
-          name: EnglishTale-3D-character-lookdev
-          path: build/episode-001-3d-lookdev.png
+          name: EnglishTale-3D-character-lookdev-and-motion
+          path: |
+            build/episode-001-3d-lookdev.png
+            build/episode-001-3d-motion-study.mp4
           if-no-files-found: error
           retention-days: 14
