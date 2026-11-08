@@ -1,0 +1,42 @@
+name: Render airport sample video
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "experiments/svg-motion/airport-arrival-study.html"
+      - "tools/video-render/**"
+      - ".github/workflows/render-airport-sample.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Install Playwright
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Render MP4
+        run: python tools/video-render/render_airport_sample.py
+      - name: Upload MP4 sample
+        uses: actions/upload-artifact@v4
+        with:
+          name: EnglishTale-airport-sample-mp4
+          path: dist/airport-arrival-sample.mp4
+          if-no-files-found: error
+          retention-days: 14
