@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -57,6 +58,14 @@ def main() -> int:
     gate_scene = (SCENES / "04-departure-gate.svg").read_text(encoding="utf-8")
     if "GATE 12" not in gate_scene:
         errors.append("Departure gate artwork is missing Gate 12 signage.")
+    svg_paths = list((ROOT / "assets").rglob("*.svg"))
+    for svg_path in svg_paths:
+        try:
+            ET.parse(svg_path)
+        except ET.ParseError as exc:
+            errors.append(f"Invalid SVG/XML in {svg_path.relative_to(ROOT)}: {exc}")
+    if not svg_paths:
+        errors.append("No SVG assets were found.")
     if errors:
         print("VALIDATION FAILED")
         for item in errors:
@@ -67,6 +76,7 @@ def main() -> int:
     print(f" - {len(en)} English cues and {len(fa)} Dari cues")
     print(" - English/Dari cue boundaries match")
     print(" - all scene plates exist; Gate 12 confirmed")
+    print(f" - {len(svg_paths)} SVG files parse as valid XML")
     return 0
 
 if __name__ == "__main__":
