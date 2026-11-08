@@ -53,8 +53,8 @@ Last updated: 2026-11-08
 ## Latest pipeline runs
 
 - [x] [18 procedural Blender 3D stills validated at 1920×1080; current master render is processing](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42505448916).
-- [ ] [Regenerate all English audio and the 1080p30 master with the corrected quiz and 3D teaching boards](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42506730680).
-- [ ] A post-render workflow will create a matching 4K 3D thumbnail and vertical Shorts cover from the validated character stills.
+- [x] [Corrected English audio and 18-shot 3D stills rendered and validated; final 1080p30 master rendering](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42507408492).
+- [x] [4K 3D thumbnail and vertical Shorts cover generated and validated; both JPEGs are under 1 MB](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42507835859/artifacts/13627908807).
 
 ## Verified GitHub checks
 
