@@ -1,0 +1,9 @@
+asset_id,asset_type,provider_or_creator,source_or_url,license_or_plan,commercial_use_confirmed,proof_saved,notes
+ET_BRAND_001,Logo/brand artwork,Pending,Pending,Pending,No,No,Create original EnglishTale identity
+ET_CHAR_LEO,Character reference,Pending,Pending,Pending,No,No,Save provider terms and generation record
+ET_CHAR_EMMA,Character reference,Pending,Pending,Pending,No,No,Save provider terms and generation record
+ET_CHAR_OLLIE,Character reference,Pending,Pending,Pending,No,No,Save provider terms and generation record
+ET_VOICE_EN,AI voice,Pending,Pending,Pending,No,No,Verify plan permits commercial YouTube use
+ET_VOICE_FA,AI voice,Pending,Pending,Pending,No,No,Verify plan permits commercial YouTube use
+ET_MUSIC_001,Background music,Pending,Pending,Pending,No,No,Use properly licensed track
+ET_SFX_001,Sound effects,Pending,Pending,Pending,No,No,Use properly licensed effects
