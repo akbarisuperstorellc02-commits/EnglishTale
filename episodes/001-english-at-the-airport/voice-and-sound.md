@@ -10,7 +10,7 @@
 | Airport agent | Adult; polite, professional | Clear enunciation |
 | Security officer | Adult; neutral and courteous | Short, direct instructions |
 | Ollie | Cheerful, friendly guide | Slightly playful, still clear |
-| Persian explainer | Natural Persian; moderate pace | Keep translation concise |
+| Afghan Dari explainer | Natural Afghan Dari; moderate pace | Keep translation concise |
 
 ## Recording / TTS workflow
 1. Generate one line or short paragraph per file, not one huge audio file.
@@ -18,7 +18,7 @@
 3. Listen to every line for mispronunciation, unnatural emphasis, and clipped endings.
 4. Re-generate lines with pronunciation errors.
 5. Export WAV when possible for editing; high-quality MP3 is acceptable if WAV is unavailable.
-6. Keep the English line and Persian translation as separate audio clips.
+6. Keep the English line and Afghan Dari translation as separate audio clips.
 7. Name files with the convention in the brand guide.
 
 ## Suggested filename list
