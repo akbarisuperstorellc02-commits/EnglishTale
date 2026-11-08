@@ -15,7 +15,7 @@ Default output: `build/episode-001-review.mp4`.
 
 ## English audio and subtitle tracks
 
-The active delivery has one British English audio track and two optional selectable subtitle tracks. Afghan Dari is never generated as voiceover.
+The active delivery has one British English audio track and two optional selectable subtitle tracks. Afghan Dari is never generated as voiceover. English dialogue is loudness-normalized to an approximately -16 LUFS target with a -1.5 dBTP true-peak ceiling during MP4 muxing.
 
 ```bash
 python tools/video-pipeline/render_episode.py \
@@ -30,7 +30,7 @@ Options:
 - `--audio` — compatibility alias for `--english-audio`.
 - `--subtitles-en` and `--subtitles-fa` — mux selectable MP4 subtitle tracks (UTF-8).
 
-The renderer checks that the English audio is approximately the full 420-second runtime and refuses to silently truncate the video. Subtitle timestamps are still provisional and must be retimed after the actual voice recordings are approved.
+The renderer checks that the English audio is approximately the full 420-second runtime and refuses to silently truncate the video. CI produces a 720p24 review cut and a 1080p30 master candidate; both are technical outputs and still require human review. Subtitle timestamps are still provisional and must be retimed after the actual voice recordings are approved.
 
 ## Current limitations
 - Uses scene plates with gentle camera motion; it does not composite the animated character rigs.
