@@ -1,0 +1,110 @@
+[
+  {
+    "id": "01",
+    "label": "Airport opening / establishing",
+    "scene": "01-airport-arrival.svg",
+    "duration": 8
+  },
+  {
+    "id": "02",
+    "label": "Leo worried close-up",
+    "scene": "01-airport-arrival.svg",
+    "duration": 12
+  },
+  {
+    "id": "03",
+    "label": "Leo and Emma enter airport",
+    "scene": "01-airport-arrival.svg",
+    "duration": 15
+  },
+  {
+    "id": "04",
+    "label": "Arrival dialogue coverage",
+    "scene": "01-airport-arrival.svg",
+    "duration": 25
+  },
+  {
+    "id": "05",
+    "label": "Check-in counter",
+    "scene": "02-check-in.svg",
+    "duration": 15
+  },
+  {
+    "id": "06",
+    "label": "Passport handoff",
+    "scene": "02-check-in.svg",
+    "duration": 20
+  },
+  {
+    "id": "07",
+    "label": "Suitcase check-in",
+    "scene": "02-check-in.svg",
+    "duration": 25
+  },
+  {
+    "id": "08",
+    "label": "Boarding pass insert",
+    "scene": "02-check-in.svg",
+    "duration": 20
+  },
+  {
+    "id": "09",
+    "label": "Gate 12 departure board",
+    "scene": "04-departure-gate.svg",
+    "duration": 20
+  },
+  {
+    "id": "10",
+    "label": "Walk to departure gate",
+    "scene": "04-departure-gate.svg",
+    "duration": 35
+  },
+  {
+    "id": "11",
+    "label": "Security checkpoint",
+    "scene": "03-security.svg",
+    "duration": 20
+  },
+  {
+    "id": "12",
+    "label": "Security actions",
+    "scene": "03-security.svg",
+    "duration": 40
+  },
+  {
+    "id": "13",
+    "label": "Boarding gate / aircraft",
+    "scene": "04-departure-gate.svg",
+    "duration": 20
+  },
+  {
+    "id": "14",
+    "label": "Goodbye and boarding",
+    "scene": "05-on-the-plane.svg",
+    "duration": 40
+  },
+  {
+    "id": "15",
+    "label": "Ollie lesson recap",
+    "scene": "01-airport-arrival.svg",
+    "duration": 20
+  },
+  {
+    "id": "16",
+    "label": "Five phrase cards",
+    "scene": "02-check-in.svg",
+    "duration": 40
+  },
+  {
+    "id": "17",
+    "label": "Ollie quiz",
+    "scene": "04-departure-gate.svg",
+    "duration": 30
+  },
+  {
+    "id": "18",
+    "label": "EnglishTale end card",
+    "scene": "05-on-the-plane.svg",
+    "duration": 15
+  }
+]
