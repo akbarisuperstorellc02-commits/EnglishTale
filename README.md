@@ -86,6 +86,16 @@ From the repository root:
    python tools/video-pipeline/render_shorts_cover.py
    ```
 
+## Windows PowerShell 5.1
+
+A one-command local build script is provided:
+
+```powershell
+.\tools\windows\build_episode_001.ps1
+```
+
+Use `-SkipVideo` to generate and validate audio/subtitles without FFmpeg, or `-Overwrite` to regenerate all English voice clips. The script creates a local virtual environment, downloads the pinned voice model, builds the English audio and retimed subtitles, and renders the 720p review plus 1080p30 master candidate when FFmpeg is installed.
+
 ## Quality and rights principles
 
 - Do not publish provisional subtitle timings as synchronized captions.
