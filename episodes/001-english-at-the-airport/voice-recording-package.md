@@ -6,7 +6,7 @@ The manifest contains **48 English dialogue/narration cues**. Each cue has a rol
 
 Save the reviewed English clips at the paths listed in `voice-manifest.json`:
 
-- English: `audio/episode-001/en/001.wav` through `048.wav`
+- English: `build/audio/episode-001/en/001.wav` through `048.wav`
 - Afghan Dari: `subtitles-fa.srt` only; do not create Dari WAV files.
 
 Create the English folder locally; Git does not retain empty folders. Use uncompressed 16-bit PCM WAV. Preserve the Piper model's native sample rate (commonly 22050 Hz for this voice family), mono output preferred. Do not upload private voice samples or provider credentials.
