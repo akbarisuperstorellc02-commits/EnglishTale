@@ -2,26 +2,35 @@
 
 **Tagline:** Learn English Through Stories  
 **Episode 01:** English at the Airport  
-**Audience:** English learners worldwide; this first series uses English dialogue with concise Persian explanations.  
+**Audience:** English learners worldwide; this first series uses English dialogue with Afghan Dari explanations.  
 **Level:** CEFR A1–A2  
 **Target runtime:** 6–8 minutes  
 **Format:** 16:9, 1920×1080, 30 fps, MP4
 
-## Project status
+## Current production status
 
-The repository contains the production blueprint and publish-ready text package for Episode 01:
-- Story concept and timed script
-- English dialogue with Persian translations
-- Canonical character bible and strict reference prompts
-- Scene image and image-to-video prompts
-- Voice casting and recording plan
-- Editing workflow and subtitle guidance
-- YouTube title, description, tags, and thumbnail brief
-- Production checklist and asset/licensing log
+Episode 001 has moved beyond the planning-only stage. The repository now includes original coded vector artwork, animated SVG character rigs, an 18-shot edit plan, and aligned English/Dari subtitle guide tracks.
 
-**Media status:** No final character reference set, scene artwork, voice recordings, rendered animation, or published YouTube video is approved yet. A visual concept that conflicts with the canonical character bible must remain an unapproved draft and must not enter the episode.
+### Completed and committed
+- Full episode script and bilingual teaching content.
+- Character bible: Leo (blue hoodie), Emma (pink sweater), and Ollie (owl guide).
+- Five original 1280×720 airport/airplane SVG scene plates.
+- Three original 640×640 SVG character rigs with embedded CSS animation.
+- 18-shot animation/edit plan for the 7-minute episode.
+- English SRT and Afghan Dari SRT, each with 48 matching cue boundaries.
+- Voice and subtitle production instructions.
+- YouTube metadata and thumbnail brief.
 
-## Folder map
+### Not yet produced
+- Final voice recordings / TTS audio.
+- Waveform-verified subtitle timing and phoneme-accurate lip sync.
+- Fully animated, rendered MP4 master.
+- Final thumbnail image and final audio mix.
+- YouTube upload or publication.
+
+**Important:** The subtitle timecodes are editorial guides across the planned 07:00 runtime. They must be retimed after the real voice track is generated. The SVG character mouth movement is a placeholder, not accurate lip sync. Do not describe this repository as containing a finished episode video.
+
+## Repository map
 
 ```text
 EnglishTale/
@@ -33,43 +42,50 @@ EnglishTale/
 ├── characters/
 │   ├── character-bible.md
 │   └── prompts.md
+├── assets/
+│   ├── characters/          # Original static character SVGs
+│   ├── scenes/              # Five original scene plates
+│   └── animation/           # Animated SVG rigs + pipeline notes
 ├── episodes/
 │   └── 001-english-at-the-airport/
 │       ├── episode-brief.md
 │       ├── script-en-fa.md
 │       ├── storyboard.md
+│       ├── animation-shot-plan.md
 │       ├── voice-and-sound.md
+│       ├── voice-subtitle-production.md
 │       ├── subtitles-en.srt
+│       ├── subtitles-fa.srt
 │       ├── youtube-metadata.md
 │       └── thumbnail-prompt.md
 ├── prompts/
 │   ├── image-generation.md
 │   └── image-to-video.md
-├── publishing/
-│   ├── quality-control.md
-│   └── asset-license-log.csv
-└── .gitignore
+└── publishing/
+    ├── quality-control.md
+    └── asset-license-log.csv
 ```
 
 ## Quick start
 
 1. Read `brand/brand-guide.md` and `characters/character-bible.md`.
-2. Generate and approve each character reference separately using `characters/prompts.md`.
-3. Create storyboard images and animate selected shots using the prompts in `prompts/`.
-4. Generate each voice line separately using `episodes/001-english-at-the-airport/voice-and-sound.md`.
-5. Assemble the video in CapCut or another editor using `production-workflow.md`.
-6. Check every item in `publishing/quality-control.md`.
-7. Upload using `youtube-metadata.md`.
+2. Review the SVG scene plates in `assets/scenes/` and character rigs in `assets/animation/`.
+3. Follow `episodes/001-english-at-the-airport/animation-shot-plan.md` for the edit structure.
+4. Generate each speaker line separately using `voice-and-sound.md`; keep English and Dari audio separate.
+5. Retiming both SRT tracks against the final audio is mandatory.
+6. Assemble and review the video using `production-workflow.md`.
+7. Check every item in `publishing/quality-control.md` and verify commercial-use permissions before upload.
 
 ## Important production principles
 
-- Make every episode genuinely original: new story, useful language, distinct examples, and meaningful teaching.
-- Keep character designs consistent by using approved reference images; reject conflicting drafts.
+- Keep character designs consistent: Leo's hoodie is blue, Emma's sweater is pink, and Ollie is an owl.
+- Keep the airport gate number consistent: Gate 12.
+- English is the main learning audio. Dari explanations must not talk over English dialogue.
 - Use only music, voices, fonts, images, and video assets that permit the intended commercial use. Keep proof of licenses.
 - Do not assume a free plan includes commercial rights. Check each provider's current terms before publishing.
-- AI use alone does not guarantee or prevent YouTube monetization. Avoid repetitive, mass-produced, low-value videos.
-- The Persian explanations are a learning aid. The English story remains the main experience.
+- AI use alone does not guarantee or prevent YouTube monetization. Make each episode original, useful, and meaningfully edited.
+- The Dari subtitles are a separate track and can be reviewed by a native Afghan Dari speaker before release.
 
-## Suggested first release
+## Release strategy
 
-Publish one polished long-form episode first. Then cut 2–3 genuinely useful Shorts from the episode, each with a complete mini-lesson and a link/prompt to watch the full story.
+Publish one polished long-form episode first. Then create 2–3 useful Shorts from the episode, each with a complete mini-lesson and a pointer to the full story.
