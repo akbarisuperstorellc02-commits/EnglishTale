@@ -63,8 +63,8 @@ def main() -> int:
       <rect width="3840" height="2160" fill="#06172b" opacity=".30"/>
       <rect width="2150" height="2160" fill="url(#shade)"/>
       <rect y="1750" width="3840" height="410" fill="url(#bottom)"/>
-      <rect x="130" y="135" width="620" height="180" rx="90" fill="#ffc653"/>
-      <text x="440" y="255" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="108" font-weight="800" fill="#08203a">ENGLISH A1</text>
+      <rect x="130" y="135" width="720" height="180" rx="90" fill="#ffc653"/>
+      <text x="490" y="255" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="82" font-weight="800" fill="#08203a">ENGLISH A1</text>
       <text x="180" y="690" font-family="DejaVu Sans, sans-serif" font-size="260" font-weight="900" fill="#ffffff">ENGLISH</text>
       <text x="180" y="1000" font-family="DejaVu Sans, sans-serif" font-size="260" font-weight="900" fill="#ffffff">AT THE</text>
       <text x="180" y="1310" font-family="DejaVu Sans, sans-serif" font-size="300" font-weight="900" fill="#63d8f2">AIRPORT</text>
@@ -92,7 +92,7 @@ def main() -> int:
       <rect width="2160" height="1350" fill="url(#top)"/>
       <rect y="2780" width="2160" height="1060" fill="url(#bottom)"/>
       <rect x="180" y="190" width="600" height="170" rx="85" fill="#ffc653"/>
-      <text x="480" y="305" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="98" font-weight="900" fill="#08203a">A1 ENGLISH</text>
+      <text x="480" y="305" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="78" font-weight="900" fill="#08203a">A1 ENGLISH</text>
       <text x="1080" y="820" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="180" font-weight="900" fill="#ffffff">ENGLISH AT</text>
       <text x="1080" y="1050" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="220" font-weight="900" fill="#63d8f2">THE AIRPORT</text>
       <rect x="280" y="1140" width="1600" height="18" rx="9" fill="#ffc653"/>
