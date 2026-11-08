@@ -67,9 +67,19 @@ def main() -> int:
     model = config.get("model_id", "eleven_multilingual_v2")
     output_format = config.get("output_format", "mp3_44100_128")
     languages = ("en", "fa") if args.language == "both" else (args.language,)
-    selected = [cue for cue in manifest["cues"] if int(cue["id"]) >= args.start_id]
-    if args.limit:
-        selected = selected[:args.limit]
+    if args.cue_ids and args.limit:
+        raise SystemExit("Use either --cue-ids or --limit, not both.")
+    if args.cue_ids:
+        requested_ids = {int(value.strip()) for value in args.cue_ids.split(",") if value.strip()}
+        selected = [cue for cue in manifest["cues"] if int(cue["id"]) in requested_ids]
+        found_ids = {int(cue["id"]) for cue in selected}
+        missing_ids = sorted(requested_ids - found_ids)
+        if missing_ids:
+            raise SystemExit("Unknown cue IDs: " + ", ".join(map(str, missing_ids)))
+    else:
+        selected = [cue for cue in manifest["cues"] if int(cue["id"]) >= args.start_id]
+        if args.limit:
+            selected = selected[:args.limit]
 
     if args.dry_run:
         count = 0
