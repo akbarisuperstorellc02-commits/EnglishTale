@@ -36,6 +36,7 @@ Last updated: 2026-11-08
 - [x] 4K YouTube thumbnail and vertical Shorts cover source artwork, renderers, validators, and CI artifacts.
 - [x] Procedural Blender 3D look-development scene and successful 1280×720 still render.
 - [x] Short 3D character motion-study MP4 rendered and validated at 640×360/24 fps; this is a two-second technical preview, not a finished episode shot.
+- [x] Rendered and technically validated all 18 procedural Blender 3D camera stills at 1920×1080; the 1080p30 hybrid master is now being rendered from these stills with 2.5D camera motion.
 - [x] GitHub Actions validation checks for source assets, scripts, TTS pipeline tests, thumbnail outputs, and cover outputs.
 
 ## Not yet complete — release blockers
