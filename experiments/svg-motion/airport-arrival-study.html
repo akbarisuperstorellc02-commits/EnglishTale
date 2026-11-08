@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EnglishTale — SVG Motion Study: Airport Arrival</title>
+<style>
+:root{color-scheme:dark;--navy:#102a43;--blue:#2378bb;--pink:#df7f9e}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#081725;font-family:Inter,Segoe UI,Arial,sans-serif}
+body{display:grid;place-items:center;padding:24px}
+.stage{width:min(1280px,100%);aspect-ratio:16/9;position:relative;overflow:hidden;border-radius:22px;background:linear-gradient(180deg,#91b9cf 0%,#d8e7e9 54%,#b7c9ce 55%,#78929d 100%);box-shadow:0 28px 90px #0009;isolation:isolate}
+.sky-glow{position:absolute;inset:-20%;background:radial-gradient(ellipse at 70% 32%,#fff9 0,transparent 38%);animation:lightshift 12s ease-in-out infinite alternate}
+.ceiling{position:absolute;inset:0 0 48% 0;background:linear-gradient(180deg,#16374e,#6f9eb4 70%,#b5d1d9);clip-path:polygon(0 0,100% 0,100% 70%,0 100%)}
+.beam{position:absolute;top:0;bottom:43%;width:12px;background:linear-gradient(90deg,#42677b,#d9e9ed,#42677b);opacity:.75;transform:skewX(-9deg)}
+.beam.b1{left:12%}.beam.b2{left:34%}.beam.b3{left:58%}.beam.b4{left:83%}
+.window{position:absolute;top:13%;height:32%;width:18%;border:9px solid #31566b;border-bottom-width:16px;background:linear-gradient(180deg,#a8d3e3,#e9f3ee);box-shadow:inset 0 0 28px #fff8}
+.window.w1{left:5%}.window.w2{left:27%}.window.w3{left:49%}.window.w4{left:71%}
+.plane{position:absolute;left:56%;top:29%;width:25%;height:10%;opacity:.75;filter:drop-shadow(0 8px 5px #31556a55);animation:planeDrift 18s ease-in-out infinite alternate}
+.board{position:absolute;right:5%;top:8%;width:23%;height:19%;border:8px solid #28465a;border-radius:10px;background:linear-gradient(145deg,#0d2637,#1c4357);box-shadow:0 14px 28px #18364a55;padding:1.3% 1.5%;color:#e9f4f6}
+.board-head{font-size:clamp(8px,1vw,14px);letter-spacing:.18em;color:#9fc4d2}.board-line{display:flex;justify-content:space-between;gap:8px;padding-top:5%;font-size:clamp(10px,1.5vw,20px);font-weight:800}.gate{color:#ffdc8b;text-shadow:0 0 16px #ffdc8b88;animation:gateGlow 2.4s ease-in-out infinite}
+.floor{position:absolute;inset:57% 0 0;background:linear-gradient(180deg,#c9d8d9,#829ba4 70%,#607985);clip-path:polygon(0 0,100% 0,100% 100%,0 100%)}
+.floor-line{position:absolute;left:-5%;right:-5%;height:3px;background:#edf5f3;opacity:.35;transform:perspective(300px) rotateX(55deg);transform-origin:center}
+.floor-line.l1{top:68%}.floor-line.l2{top:82%}.floor-line.l3{top:96%}
+.counter{position:absolute;left:5%;top:52%;width:29%;height:14%;background:linear-gradient(180deg,#32677f,#16445f);border-radius:12px 12px 4px 4px;box-shadow:0 18px 28px #17394b55}
+.counter:before{content:"CHECK-IN";position:absolute;left:8%;top:18%;color:#eaf4f5;font-weight:900;letter-spacing:.16em;font-size:clamp(9px,1.4vw,18px)}
+.counter:after{content:"";position:absolute;left:8%;right:8%;bottom:15%;height:12%;border-radius:8px;background:#80a9b8}
+.pillar{position:absolute;top:45%;bottom:0;width:1.2%;background:linear-gradient(90deg,#698b9a,#e0eceb,#718f9c);opacity:.7}
+.pillar.p1{left:39%}.pillar.p2{left:88%}
+.character{position:absolute;bottom:13%;width:19%;height:59%;filter:drop-shadow(0 18px 12px #1b3c4b44);transform-origin:50% 100%}
+.leo{left:39%;animation:arrive 2.4s cubic-bezier(.2,.7,.2,1) both, idle 3.4s 2.4s ease-in-out infinite}
+.emma{left:59%;animation:idle 3.7s ease-in-out infinite}
+.person .body{stroke:#243b4c;stroke-width:3;stroke-linejoin:round}
+.person .eye{transform-box:fill-box;transform-origin:center;animation:blink 5s infinite}
+.person .mouth{stroke:#914e4c;stroke-width:3;fill:none;stroke-linecap:round}
+.leo .hoodie{fill:url(#blueFabric)}.emma .sweater{fill:url(#pinkFabric)}
+.leo .hair{fill:#46332e}.emma .hair{fill:#51372f}
+.arm{transform-box:fill-box;transform-origin:50% 12%;animation:gesture 4s ease-in-out infinite}
+.emma .arm{animation-delay:.8s}
+.suitcase{position:absolute;left:34%;bottom:13%;width:8%;height:18%;filter:drop-shadow(0 10px 8px #18394b55);animation:caseRoll 2.5s ease-out both}
+.owl{position:absolute;right:8%;bottom:12%;width:9%;filter:drop-shadow(0 12px 9px #203e4d55);animation:owlBob 2.2s ease-in-out infinite}
+.caption{position:absolute;left:4%;bottom:4%;padding:.8% 1.5%;border-radius:12px;background:#102a43df;color:white;font-weight:700;font-size:clamp(12px,1.8vw,24px);box-shadow:0 8px 25px #18364a55}
+.caption span{color:#9fd8f0}
+.kicker{position:absolute;left:4%;top:5%;color:#16384d;font-weight:900;letter-spacing:.22em;font-size:clamp(9px,1.1vw,15px)}
+@keyframes idle{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.2%)}}
+@keyframes blink{0%,45%,49%,100%{transform:scaleY(1)}47%{transform:scaleY(.08)}}
+@keyframes gesture{0%,65%,100%{transform:rotate(0)}75%{transform:rotate(-13deg)}85%{transform:rotate(4deg)}}
+@keyframes arrive{from{transform:translateX(-65%) scale(.96);opacity:.25}to{transform:translateX(0) scale(1);opacity:1}}
+@keyframes caseRoll{from{transform:translateX(-120px) rotate(-4deg)}to{transform:translateX(0) rotate(0)}}
+@keyframes owlBob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}
+@keyframes planeDrift{from{transform:translateX(-8px)}to{transform:translateX(14px)}}
+@keyframes lightshift{from{transform:translateX(-2%)}to{transform:translateX(2%)}}
+@keyframes gateGlow{50%{opacity:.7}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important}}
+</style>
+</head>
+<body>
+<main class="stage" aria-label="Animated SVG airport scene prototype">
+<div class="sky-glow"></div><div class="ceiling"></div>
+<div class="beam b1"></div><div class="beam b2"></div><div class="beam b3"></div><div class="beam b4"></div>
+<div class="window w1"></div><div class="window w2"></div><div class="window w3"></div><div class="window w4"></div>
+<svg class="plane" viewBox="0 0 420 120" aria-hidden="true"><path d="M12 61L170 48 238 5 266 8 232 49 355 43 407 56 355 68 232 63 266 108 238 111 170 67 12 61Z" fill="#f4f8f5" stroke="#638797" stroke-width="4"/></svg>
+<div class="board"><div class="board-head">DEPARTURES · LONDON</div><div class="board-line"><span>FLIGHT 204</span><span class="gate">GATE 12</span></div><div class="board-line"><span>BOARDING</span><span>18:40</span></div></div>
+<div class="floor"></div><div class="floor-line l1"></div><div class="floor-line l2"></div><div class="floor-line l3"></div>
+<div class="counter"></div><div class="pillar p1"></div><div class="pillar p2"></div>
+<div class="kicker">ENGLISHTALE · EPISODE 001</div>
+<svg class="suitcase" viewBox="0 0 120 180" aria-hidden="true"><path d="M42 22V10Q42 3 50 3H70Q78 3 78 10V22" fill="none" stroke="#304b5a" stroke-width="8"/><rect x="15" y="20" width="90" height="130" rx="15" fill="#d49a53" stroke="#79552f" stroke-width="7"/><path d="M60 24V145" stroke="#f3d3a5" stroke-width="5"/><circle cx="35" cy="160" r="9" fill="#253e4b"/><circle cx="85" cy="160" r="9" fill="#253e4b"/></svg>
+<svg class="character leo person" viewBox="0 0 220 430" role="img" aria-label="Leo in blue hoodie">
+<defs><linearGradient id="blueFabric" x2="0" y2="1"><stop stop-color="#3697df"/><stop offset="1" stop-color="#14558f"/></linearGradient></defs>
+<ellipse cx="110" cy="416" rx="63" ry="10" fill="#234454" opacity=".22"/>
+<path d="M73 300L58 405H91L108 332 124 405H158L145 300Z" fill="#263c59" class="body"/><path d="M55 390L44 415H98L93 401Z M124 401L120 415H176L162 390Z" fill="#f6f7f4" class="body"/>
+<path class="hoodie body" d="M61 166Q110 139 159 166L177 306Q110 334 43 306Z"/><path d="M78 164Q110 203 142 164L132 230H88Z" fill="#104674"/><path d="M85 220L110 250 135 220" fill="none" stroke="#8dcaf0" stroke-width="5"/>
+<g class="arm"><path d="M53 184Q27 205 35 270L55 283 75 215Z" fill="#1e6cab" class="body"/><circle cx="45" cy="281" r="13" fill="#e7b995"/></g><path d="M167 184Q193 205 185 270L165 283 145 215Z" fill="#1e6cab" class="body"/><circle cx="175" cy="281" r="13" fill="#e7b995"/>
+<ellipse cx="110" cy="108" rx="58" ry="69" fill="#efc29e" class="body"/><path class="hair" d="M52 112Q39 34 101 28Q164 17 170 83L153 70Q119 51 93 73Q73 94 52 112Z"/><path class="eye" d="M82 108q7 -10 14 0" stroke="#2c3c48" stroke-width="5" fill="none"/><path class="eye" d="M124 108q7 -10 14 0" stroke="#2c3c48" stroke-width="5" fill="none"/><path class="mouth" d="M99 145q11 8 22 0"/>
+</svg>
+<svg class="character emma person" viewBox="0 0 220 430" role="img" aria-label="Emma in pink sweater">
+<defs><linearGradient id="pinkFabric" x2="0" y2="1"><stop stop-color="#ffc0d1"/><stop offset="1" stop-color="#d9668b"/></linearGradient></defs>
+<ellipse cx="110" cy="416" rx="63" ry="10" fill="#234454" opacity=".22"/>
+<path d="M73 300L58 405H91L108 332 124 405H158L145 300Z" fill="#303d53" class="body"/><path d="M55 390L44 415H98L93 401Z M124 401L120 415H176L162 390Z" fill="#f6f7f4" class="body"/>
+<path class="sweater body" d="M61 166Q110 139 159 166L177 306Q110 334 43 306Z"/>
+<g class="arm"><path d="M53 184Q27 205 35 270L55 283 75 215Z" fill="#e98cac" class="body"/><circle cx="45" cy="281" r="13" fill="#efc29e"/></g><path d="M167 184Q193 205 185 270L165 283 145 215Z" fill="#e98cac" class="body"/><circle cx="175" cy="281" r="13" fill="#efc29e"/>
+<ellipse cx="110" cy="108" rx="58" ry="69" fill="#f1c6a8" class="body"/><path class="hair" d="M52 115Q39 33 101 28Q164 17 170 83L178 180 158 215 151 105Q118 57 88 77L69 210 46 174Z"/><path class="eye" d="M82 108q7 -10 14 0" stroke="#2c3c48" stroke-width="5" fill="none"/><path class="eye" d="M124 108q7 -10 14 0" stroke="#2c3c48" stroke-width="5" fill="none"/><path class="mouth" d="M99 145q11 8 22 0"/>
+</svg>
+<svg class="owl" viewBox="0 0 180 210" role="img" aria-label="Ollie the owl mascot"><ellipse cx="90" cy="197" rx="52" ry="8" fill="#203c49" opacity=".22"/><path d="M45 70Q4 15 25 7Q65 13 78 59M135 70Q176 15 155 7Q115 13 102 59" fill="#9b6438" stroke="#674321" stroke-width="6"/><ellipse cx="90" cy="105" rx="62" ry="78" fill="#ae7845" stroke="#674321" stroke-width="5"/><ellipse cx="90" cy="127" rx="43" ry="49" fill="#f1d8ad"/><ellipse cx="66" cy="91" rx="24" ry="27" fill="#fff"/><ellipse cx="114" cy="91" rx="24" ry="27" fill="#fff"/><circle cx="68" cy="93" r="10" fill="#263b48"/><circle cx="112" cy="93" r="10" fill="#263b48"/><circle cx="68" cy="93" r="23" fill="none" stroke="#4c5660" stroke-width="4"/><circle cx="112" cy="93" r="23" fill="none" stroke="#4c5660" stroke-width="4"/><path d="M81 121L90 136 99 121Z" fill="#e4a03f"/><path d="M48 151Q90 179 132 151L141 181H39Z" fill="#203c5d"/><path d="M60 161L120 161" stroke="#d6ad55" stroke-width="4"/></svg>
+<div class="caption">Leo: <span>Where is Gate 12?</span></div>
+</main>
+</body>
+</html>
