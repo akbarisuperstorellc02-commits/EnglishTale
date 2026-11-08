@@ -41,7 +41,7 @@ jobs:
 
           still = Path("build/episode-001-3d-lookdev.png")
           data = still.read_bytes()
-          assert data[:8] == b"\\x89PNG\\r\\n\\x1a\\n", "Lookdev output is not a PNG"
+          assert data[:8] == bytes.fromhex("89504e470d0a1a0a"), "Lookdev output is not a PNG"
           width, height = struct.unpack(">II", data[16:24])
           assert (width, height) == (1280, 720), f"Unexpected still dimensions: {width}x{height}"
           assert len(data) > 50000, f"Still is unexpectedly small: {len(data)} bytes"
