@@ -1,131 +1,193 @@
 1
-00:00:00,000 --> 00:00:06,000
+00:00:00,000 --> 00:00:08,000
 Leo is at the airport.
 
 2
-00:00:06,000 --> 00:00:12,000
+00:00:08,000 --> 00:00:16,000
 He's going on his first trip to London.
 
 3
-00:00:12,000 --> 00:00:20,000
+00:00:16,000 --> 00:00:24,000
 But something is wrong. He doesn't know where to go!
 
 4
-00:00:20,000 --> 00:00:25,000
+00:00:24,000 --> 00:00:31,000
 Oh no! Where is the check-in counter?
 
 5
-00:00:25,000 --> 00:00:30,000
+00:00:31,000 --> 00:00:38,000
 Don't worry, Leo! I'll help you.
 
 6
-00:00:30,000 --> 00:00:38,000
+00:00:38,000 --> 00:00:48,000
 Leo and Emma walk into the airport.
 
 7
-00:00:38,000 --> 00:00:44,000
+00:00:48,000 --> 00:00:56,000
 Emma, I'm a little nervous.
 
 8
-00:00:44,000 --> 00:00:50,000
-It's okay! Traveling is exciting.
+00:00:56,000 --> 00:01:04,000
+It's okay! Traveling is exciting. Just follow me.
 
 9
-00:00:50,000 --> 00:00:56,000
+00:01:04,000 --> 00:01:12,000
 What's the first thing we need to do?
 
 10
-00:00:56,000 --> 00:01:00,000
+00:01:12,000 --> 00:01:20,000
 We need to check in and get your boarding pass.
 
 11
-00:01:00,000 --> 00:01:08,000
+00:01:20,000 --> 00:01:29,000
 Good morning! Where are you flying today?
 
 12
-00:01:08,000 --> 00:01:13,000
+00:01:29,000 --> 00:01:36,000
 I'm flying to London.
 
 13
-00:01:13,000 --> 00:01:19,000
+00:01:36,000 --> 00:01:44,000
 May I see your passport, please?
 
 14
-00:01:19,000 --> 00:01:23,000
+00:01:44,000 --> 00:01:50,000
 Of course. Here you are.
 
 15
-00:01:23,000 --> 00:01:30,000
-Do you have any bags to check in?
+00:01:50,000 --> 00:01:59,000
+Thank you. Do you have any bags to check in?
 
 16
-00:01:30,000 --> 00:01:35,000
+00:01:59,000 --> 00:02:06,000
 Yes, I have one suitcase.
 
 17
-00:01:35,000 --> 00:01:42,000
-Here is your boarding pass.
+00:02:06,000 --> 00:02:14,000
+Perfect. Here is your boarding pass.
 
 18
-00:01:42,000 --> 00:01:47,000
+00:02:14,000 --> 00:02:20,000
 Thank you very much!
 
 19
-00:01:47,000 --> 00:01:54,000
+00:02:20,000 --> 00:02:28,000
 Emma, where is Gate 12?
 
 20
-00:01:54,000 --> 00:02:00,000
+00:02:28,000 --> 00:02:36,000
 Let's look at the information screen.
 
 21
-00:02:00,000 --> 00:02:06,000
-It says Gate 12 is on the left.
+00:02:36,000 --> 00:02:44,000
+Oh! It says Gate 12 is on the left.
 
 22
-00:02:06,000 --> 00:02:12,000
+00:02:44,000 --> 00:02:51,000
 That's right! Let's go.
 
 23
-00:02:12,000 --> 00:02:20,000
+00:02:51,000 --> 00:03:00,000
 Thank you for helping me!
 
 24
-00:02:20,000 --> 00:02:27,000
+00:03:00,000 --> 00:03:09,000
 Please put your bag on the tray.
 
 25
-00:02:27,000 --> 00:02:33,000
+00:03:09,000 --> 00:03:17,000
 Okay. Is this everything?
 
 26
-00:02:33,000 --> 00:02:40,000
-Please walk through the scanner.
+00:03:17,000 --> 00:03:25,000
+Yes. Please walk through the scanner.
 
 27
-00:02:40,000 --> 00:02:48,000
+00:03:25,000 --> 00:03:35,000
 Leo passes the security check. Everything is fine!
 
 28
-00:02:48,000 --> 00:02:58,000
-Passengers for London, boarding is now open.
+00:03:35,000 --> 00:03:46,000
+Attention, please! Passengers for London, boarding is now open.
 
 29
-00:02:58,000 --> 00:03:04,000
+00:03:46,000 --> 00:03:54,000
 Emma! It's time to board!
 
 30
-00:03:04,000 --> 00:03:10,000
-Have a wonderful trip!
+00:03:54,000 --> 00:04:03,000
+Yes! Have a wonderful trip!
 
 31
-00:03:10,000 --> 00:03:17,000
+00:04:03,000 --> 00:04:10,000
 Thank you! See you soon!
 
 32
-00:03:17,000 --> 00:03:25,000
+00:04:10,000 --> 00:04:21,000
 Leo smiles and walks toward the airplane.
 
 33
-00:03:25,000 --> 00:03:35,000
+00:04:21,000 --> 00:04:30,000
 He is ready for his first adventure!
+
+34
+00:04:30,000 --> 00:04:39,000
+Great job! Now let's learn five useful English phrases from Leo's story.
+
+35
+00:04:39,000 --> 00:04:49,000
+Where is the check-in counter?
+
+36
+00:04:49,000 --> 00:04:59,000
+May I see your passport?
+
+37
+00:04:59,000 --> 00:05:07,000
+Here you are.
+
+38
+00:05:07,000 --> 00:05:17,000
+Where is Gate 12?
+
+39
+00:05:17,000 --> 00:05:27,000
+Have a wonderful trip!
+
+40
+00:05:27,000 --> 00:05:36,000
+Listen and repeat. Where is Gate 12?
+
+41
+00:05:36,000 --> 00:05:45,000
+May I see your passport, please?
+
+42
+00:05:45,000 --> 00:05:53,000
+Here you are.
+
+43
+00:05:53,000 --> 00:06:03,000
+Let's take a quick quiz! What does “boarding pass” mean?
+
+44
+00:06:03,000 --> 00:06:11,000
+A) Passport
+B) Boarding pass
+C) Suitcase
+
+45
+00:06:11,000 --> 00:06:19,000
+Pause the video and choose your answer!
+
+46
+00:06:19,000 --> 00:06:29,000
+The answer is B: boarding pass means a pass to board the airplane. Well done!
+
+47
+00:06:29,000 --> 00:06:43,000
+If you enjoyed this story, subscribe to EnglishTale and learn English with us.
+
+48
+00:06:43,000 --> 00:07:00,000
+See you in the next story!
