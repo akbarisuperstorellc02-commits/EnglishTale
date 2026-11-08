@@ -24,4 +24,4 @@ Research notes:
 ElevenLabs practical notes:
 - The current pricing page lists Free at 10,000 credits/month and Starter at 30,000 credits/month with a commercial license; listed Starter monthly price is subject to change and taxes.
 - The TTS API supports voice IDs selected from the user's own account. The project includes a generator, but voice IDs are intentionally blank until the user chooses voices.
-- A Persian voice is not automatically Afghan Dari. The first two sample clips must be rejected unless the accent and pronunciation pass native review.
+- A Persian voice is not automatically Afghan Dari. The six representative role samples must be reviewed; reject any voice unless its accent and pronunciation pass native Afghan Dari review.
