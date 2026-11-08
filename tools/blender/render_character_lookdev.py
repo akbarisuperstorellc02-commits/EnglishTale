@@ -357,8 +357,8 @@ def main():
             ((4.2, -7.0, 3.0), (4.2, 0.6, 1.8), 58),        # 13 scanner walk-through
             ((2.25, -4.5, 2.7), (2.25, 0.0, 1.95), 72),     # 14 Ollie close-up
             ((0.0, -15.0, 4.5), (0.0, 2.3, 2.8), 44),       # 15 departure gate wide
-            ((0.0, -8.0, 4.6), (0.0, 3.6, 4.35), 64),       # 16 boarding sign
-            ((5.5, -8.0, 3.8), (5.5, 3.1, 2.4), 70),        # 17 airplane view
+            ((0.0, -10.0, 4.0), (0.0, -0.8, 2.55), 48),    # 16 five airport phrases board
+            ((0.0, -10.0, 4.0), (0.0, -0.8, 2.55), 48),    # 17 boarding-pass quiz board
             ((-1.0, -8.0, 3.2), (-1.0, 0.0, 2.1), 56),      # 18 story ending two-shot
         ]
         for index, (location, target_point, lens) in enumerate(camera_shots, start=1):
