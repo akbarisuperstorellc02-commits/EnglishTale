@@ -31,6 +31,8 @@ Last updated: 2026-11-08
 - [x] Provider research updated: Gemini API regional restriction and ElevenLabs commercial-plan caveat documented.
 - [x] Both TTS generators support a six-role audition sample set before full generation.
 - [x] CI smoke-tests both TTS generators in dry-run mode without API keys.
+- [x] Expanded validator checks shot IDs/durations, voice roles and paths, bilingual subtitle text/timing, Gate 12, scene dimensions, and SVG XML.
+- [x] GitHub Actions run #65 passed all compile, validation, TTS smoke, thumbnail render, thumbnail-dimension, and artifact-upload steps.
 - [x] Four vertical YouTube Shorts cutdown plans prepared for post-release promotion.
 
 ## Quality notes
@@ -48,7 +50,7 @@ Last updated: 2026-11-08
 - Once all clips are recorded and reviewed, run `python tools/video-pipeline/build_audio_tracks.py` to assemble two separate WAV tracks.
 - Run `python tools/video-pipeline/render_episode.py` to create a silent visual review cut. FFmpeg, FFprobe, and CairoSVG must be installed locally.
 - For one MP4 with selectable language audio, use `--english-audio build/audio/episode-001-en.wav --dari-audio build/audio/episode-001-fa.wav`.
-- GitHub Actions run #20 completed successfully. It compiled the pipeline scripts, passed the episode/SVG/manifest validator, rendered the 1280×720 PNG thumbnail, and uploaded the thumbnail artifact.
+- GitHub Actions run #65 completed successfully. It compiled all tools, passed the expanded episode validator, smoke-tested both TTS generators without API credentials, rendered and validated the 1280×720 PNG thumbnail, and uploaded the thumbnail artifact. [Open run #65](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42495946177).
 
 ## Next production sequence
 1. Confirm an accessible TTS provider and a plan with commercial-use rights; audition the Persian voice for natural Afghan Dari before committing.
