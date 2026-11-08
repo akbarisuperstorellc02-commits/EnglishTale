@@ -3,7 +3,7 @@
 ## Story and teaching
 - [ ] Story has a clear beginning, problem, resolution, and ending.
 - [ ] English is natural and suitable for the stated level.
-- [ ] Persian translation preserves meaning and sounds natural.
+- [ ] Afghan Dari translation preserves meaning and sounds natural.
 - [ ] Every taught phrase is useful and correctly explained.
 - [ ] Quiz answer is unambiguous.
 - [ ] No factual travel/security advice is presented as universal.
@@ -18,13 +18,13 @@
 ## Audio
 - [ ] Every English line has been checked for pronunciation.
 - [ ] No clipped words, awkward pauses, or abrupt edits.
-- [ ] English and Persian levels are balanced.
+- [ ] English and Afghan Dari levels are balanced.
 - [ ] Music is quiet under dialogue.
 - [ ] All sound and voice assets have appropriate usage rights.
 
 ## Subtitles
 - [ ] English captions match the spoken audio.
-- [ ] Persian translation is accurate.
+- [ ] Afghan Dari translation is accurate.
 - [ ] Timing has been reviewed manually.
 - [ ] Spelling, punctuation, and line breaks are clean.
 - [ ] Captions stay within safe margins.
