@@ -1,139 +1,98 @@
 # EnglishTale — AI-Assisted English Learning Animation Studio
 
 **Tagline:** Learn English Through Stories  
-**Episode 01:** English at the Airport  
-**Audience:** English learners worldwide; British English dialogue with Afghan Dari subtitles only.  
+**Episode 001:** English at the Airport  
+**Audience:** English learners worldwide; British English dialogue with Afghan Dari subtitles only  
 **Level:** CEFR A1–A2  
-**Target runtime:** 6–8 minutes  
-**Format:** 16:9, 1920×1080, 30 fps, MP4
+**Target runtime:** 7 minutes  
+**Delivery target:** 16:9, 1920×1080, 30 fps, H.264 MP4
 
-## Approved production settings\n\nThe active settings are recorded in `project-settings.json`: British English, Afghan Dari subtitles only (no Dari voiceover), local/offline TTS with no paid API, and a hybrid visual pipeline. The target look is premium cinematic 3D; when local hardware cannot support full 3D, use carefully composited 2.5D scenes and camera motion without misrepresenting them as full 3D. GPU acceleration is optional because the computer's GPU model is not yet known.\n\n## 3D look-development\n\nA procedural Blender scene builds the canonical Leo, Emma, and Ollie designs in a Gate 12 airport terminal. The CPU-rendered 1280×720 look-development preview is a style test, not the finished episode. See `tools/blender/README.md` and the GitHub Actions workflow **Render EnglishTale 3D Look Development**.\n\n## Current production status
+## Approved production settings
 
-Episode 001 has moved beyond the planning-only stage. The repository now includes original coded vector artwork, animated SVG character rigs, an 18-shot edit plan, and aligned English/Dari subtitle guide tracks.
+The source of truth is `project-settings.json`:
+- British English dialogue (en-GB).
+- Afghan Dari subtitles only; no Dari voiceover.
+- Local/offline Piper TTS; no paid API or cloud generation.
+- Hybrid visuals: pursue premium cinematic 3D where practical; use polished 2.5D as an honest fallback.
+- GPU acceleration is optional; the workflow must remain usable without a discrete GPU.
+- Keep Leo, Emma, and Ollie visually consistent and retain Gate 12.
+
+## Current production status
+
+The project has a validated production package and a working render/tooling foundation. It is **not yet a finished episode**.
 
 ### Completed and committed
-- Full episode script and bilingual teaching content.
-- Character bible: Leo (blue hoodie), Emma (pink sweater), and Ollie (owl guide).
-- Five original 1280×720 airport/airplane SVG scene plates.
-- Original 16:9 Episode 001 thumbnail artwork in SVG, exported as a 3840×2160 4K PNG for YouTube.
-- Original 9:16 Episode 001 Shorts cover in SVG, exported as a 2160×3840 PNG.
-- Three original 640×640 SVG character rigs with embedded CSS animation.
-- 18-shot animation/edit plan for the 7-minute episode.
-- English SRT and Afghan Dari SRT, each with 48 matching cue boundaries.
-- Voice and subtitle production instructions.
-- 48-cue bilingual voice manifest and recording package.
-- English-only WAV generation is the active audio path; Afghan Dari is provided as subtitles, not a second narration track.
-- Local Piper-based British English TTS generator; no cloud API key is required. Optional Gemini/ElevenLabs tools remain archived as non-active alternatives.
-- Gemini image-generation pipeline using the current Gemini image model, reusable character-reference artwork, and a four-image audition before the full 12-scene batch.
-- Dependency-free validator and unit tests for all 96 bilingual WAV recordings, with a strict release gate.
-- MP4 export option for selectable English and Afghan Dari audio tracks.
-- YouTube metadata and thumbnail brief.
-- Four YouTube Shorts cutdown plans for repurposing Episode 001.
+- Episode script, learning sections, and 18-shot production plan.
+- Leo, Emma, and Ollie character bible and canonical outfit descriptions.
+- Five original airport SVG scene plates and three animated SVG character rigs.
+- English and Afghan Dari SRT subtitle guides with 48 aligned cue boundaries.
+- A 48-cue English voice manifest with role assignments.
+- Local British English Piper generator and English WAV assembler.
+- End-to-end offline audio pipeline tests using a deterministic fake Piper executable; these test software behavior, not real voice quality.
+- Voice WAV validator configured for 48 English files only; Afghan Dari remains subtitle-only.
+- FFmpeg/CairoSVG 7-minute scene-plate review renderer with optional English audio and selectable English/Dari subtitle tracks.
+- 4K YouTube thumbnail artwork/export and vertical Shorts cover artwork/export.
+- Dependency-free source validation and GitHub Actions checks.
+- Procedural Blender 3D character/airport look-development scene. Its successful PNG render is a still style test, not a finished animated shot.
 
-### Not yet produced
-- Final voice recordings / TTS audio.
-- Waveform-verified subtitle timing and phoneme-accurate lip sync.
-- Fully animated, rendered MP4 master.
-- Final approved thumbnail after manual review and final audio mix.
-- YouTube upload or publication.
-
-**Important:** The subtitle timecodes are editorial guides across the planned 07:00 runtime. They must be retimed after the real voice track is generated. The SVG character mouth movement is a placeholder, not accurate lip sync. Do not describe this repository as containing a finished episode video.
-
-## Repository map
-
-```text
-EnglishTale/
-├── .github/
-│   └── workflows/
-│       └── validate-episode.yml
-├── README.md
-├── production-workflow.md
-├── brand/
-│   ├── brand-guide.md
-│   └── channel-about.md
-├── characters/
-│   ├── character-bible.md
-│   └── prompts.md
-├── assets/
-│   ├── characters/
-│   ├── scenes/
-│   ├── animation/
-│   └── thumbnails/
-├── episodes/
-│   └── 001-english-at-the-airport/
-│       ├── episode-brief.md
-│       ├── script-en-fa.md
-│       ├── storyboard.md
-│       ├── animation-shot-plan.md
-│       ├── render-shotlist.json
-│       ├── voice-and-sound.md
-│       ├── voice-subtitle-production.md
-│       ├── voice-recording-package.md
-│       ├── voice-manifest.json
-│       ├── subtitles-en.srt
-│       ├── subtitles-fa.srt
-│       ├── youtube-metadata.md
-│       ├── thumbnail-prompt.md
-│       ├── shorts-plan.md
-│       ├── tts-provider-research.md
-│       └── production-status.md
-├── tools/
-│   ├── video-pipeline/
-│   │   ├── README.md
-│   │   ├── requirements.txt
-│   │   ├── render_episode.py
-│   │   ├── build_audio_tracks.py
-│   │   ├── render_thumbnail.py
-│   │   ├── render_shorts_cover.py
-│   │   ├── validate_shorts_cover.py
-│   │   ├── validate_thumbnail.py
-│   │   └── validate_episode.py
-│   └── tts/
-│       ├── README.md
-│       ├── elevenlabs-README.md
-│       ├── requirements.txt
-│       ├── generate_gemini_tts.py
-│       ├── generate_elevenlabs_tts.py
-│       ├── voices.json
-│       └── elevenlabs-voices.json
-├── prompts/
-│   ├── image-generation.md
-│   └── image-to-video.md
-└── publishing/
-    ├── quality-control.md
-    └── asset-license-log.csv
-```
+### Still required before release
+- Obtain a British English Piper voice model and verify that model's individual license permits the intended commercial use.
+- Generate, listen to, and approve all 48 English WAV clips.
+- Retiming both subtitle files against the actual English recordings.
+- Create and review final character animation, including appropriate dialogue timing and visual continuity.
+- Complete the sound mix, full 1080p export, and human quality review.
+- Review the final thumbnail and all asset/model licenses before YouTube publication.
 
 ## Quick start
 
-1. Run the input validator: `python tools/video-pipeline/validate_episode.py`.
-2. Check generated recordings with `python tools/tts/validate_voice_assets.py`; use `--strict` to require all 96 valid WAV files. See `tools/tts/VOICE_ASSET_VALIDATION.md`.
-3. Generate a local British English audition with `python tools/tts/generate_local_english.py --model /path/to/en_GB-alan-medium.onnx --limit 6`; after listening and license review, generate all English cues.
-4. Build a silent visual review cut: `python tools/video-pipeline/render_episode.py` (requires FFmpeg and CairoSVG; see `tools/video-pipeline/README.md`). To include both selectable language tracks, pass `--english-audio` and `--dari-audio`.
-5. Export the long-form 4K thumbnail with `python tools/video-pipeline/render_thumbnail.py` and the vertical Shorts cover with `python tools/video-pipeline/render_shorts_cover.py`.
-5. Review `tools/tts/README.md` and `tools/tts/elevenlabs-README.md` before generating narration. Do not generate all clips until the English and Afghan Dari sample voices have been auditioned.
-6. Read `brand/brand-guide.md` and `characters/character-bible.md`.
-7. Review the SVG scene plates in `assets/scenes/` and character rigs in `assets/animation/`.
-8. Follow `episodes/001-english-at-the-airport/animation-shot-plan.md` for the edit structure.
-9. Generate each speaker line separately using `voice-and-sound.md`; keep English and Dari audio separate.
-10. Retiming both SRT tracks against the final audio is mandatory.
-11. Assemble and review the video using `production-workflow.md`.
-12. Check every item in `publishing/quality-control.md` and verify commercial-use permissions before upload.
+From the repository root:
 
-## Important production principles
+1. Validate source assets:
+   ```bash
+   python tools/video-pipeline/validate_episode.py
+   ```
+2. Run the offline pipeline tests (no voice model or API needed):
+   ```bash
+   python -m unittest tools/tts/test_local_audio_pipeline.py -v
+   ```
+3. Install Piper in a local Python environment and obtain a properly licensed British English voice model. Read `tools/tts/LOCAL_TTS.md`.
+4. Generate a short audition:
+   ```bash
+   python tools/tts/generate_local_english.py --model /path/to/en_GB-alan-medium.onnx --limit 6
+   ```
+5. After listening and license approval, generate all cues:
+   ```bash
+   python tools/tts/generate_local_english.py --model /path/to/en_GB-alan-medium.onnx
+   python tools/tts/validate_voice_assets.py --strict
+   python tools/tts/build_english_track.py
+   ```
+6. Render a visual review cut. Once subtitles are retimed and the English WAV is approved:
+   ```bash
+   python tools/video-pipeline/render_episode.py \
+     --english-audio build/audio/episode-001-en.wav \
+     --subtitles-en episodes/001-english-at-the-airport/subtitles-en.srt \
+     --subtitles-fa episodes/001-english-at-the-airport/subtitles-fa.srt
+   ```
+7. Export the long-form thumbnail and Shorts cover:
+   ```bash
+   python tools/video-pipeline/render_thumbnail.py
+   python tools/video-pipeline/render_shorts_cover.py
+   ```
 
-- Keep character designs consistent: Leo's hoodie is blue, Emma's sweater is pink, and Ollie is an owl.
-- Keep the airport gate number consistent: Gate 12.
-- English is the main learning audio. Dari explanations must not talk over English dialogue.
-- Use only music, voices, fonts, images, and video assets that permit the intended commercial use. Keep proof of licenses. The voice model's own license must be checked separately from the Piper software license.
-- Do not assume a free plan includes commercial rights. Check each provider's current terms before publishing.
-- AI use alone does not guarantee or prevent YouTube monetization. Make each episode original, useful, and meaningfully edited.
-- The Dari subtitles are a separate track and can be reviewed by a native Afghan Dari speaker before release.
+## Quality and rights principles
 
-## Release strategy
+- Do not publish provisional subtitle timings as synchronized captions.
+- Do not describe SVG motion or a 2.5D composite as full 3D animation.
+- Check the voice model's license separately from the Piper software license.
+- Use only music, voices, fonts, images, and video assets cleared for the intended commercial use.
+- AI use alone does not guarantee or prevent YouTube monetization; each episode must provide original educational value and meaningful editing.
+- Do not call the episode complete until the final MP4, audio, subtitles, and visual quality checks pass.
 
-Publish one polished long-form episode first. Then create 2–3 useful Shorts from the episode, each with a complete mini-lesson and a pointer to the full story.
+## Repository guides
 
-## AI image generation
-
-The repository includes a manual GitHub Actions workflow named **Generate Episode 001 images**. It uses the `GEMINI_API_KEY` repository secret, creates a four-image audition first, and can then generate all 12 scene illustrations. See `tools/image-pipeline/README.md`. Generated PNGs are uploaded as workflow artifacts for review; they are not committed automatically. API availability, quota, and billing depend on the Google AI Studio project.
+- `project-settings.json` — approved settings.
+- `production-workflow.md` — end-to-end workflow.
+- `episodes/001-english-at-the-airport/production-status.md` — episode checklist and release gates.
+- `tools/tts/LOCAL_TTS.md` — offline British English voice generation.
+- `tools/video-pipeline/README.md` — FFmpeg renderer and subtitle muxing.
+- `tools/blender/README.md` — procedural 3D look-development.
