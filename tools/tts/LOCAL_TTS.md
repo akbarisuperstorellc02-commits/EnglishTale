@@ -26,7 +26,7 @@ If the audition passes listening review, generate all English cues:
 python tools/tts/generate_local_english.py --model /path/to/en_GB-alan-medium.onnx
 ```
 
-The script is resumable. Existing cue WAV files are skipped; pass `--overwrite` to replace them. It writes only English WAV files to `build/audio/episode-001/en/`.
+The script is resumable. Existing cue WAV files are skipped; pass `--overwrite` to replace them. It writes only English WAV files to `build/audio/episode-001/en/`. Piper normally uses the model's native sample rate (commonly 22050 Hz for this voice family); the assembler preserves that rate rather than resampling blindly.
 
 ## Character voice casting
 
@@ -37,5 +37,5 @@ For a consistent single British voice, omit `--voices-json`. For distinct charac
 - Listen to every line for natural pronunciation, pacing, clipping, and role consistency.
 - Verify that each model's license permits the intended commercial use.
 - Retiming the English captions against the actual audio is mandatory.
-- Keep `subtitles-fa.srt` as the Dari learning support. It is not an audio track.
+- Keep `subtitles-fa.srt` as the Dari learning support. It is not an audio track. The active release requires 48 English WAV clips only; no Dari WAV files are expected.
 - Do not claim final audio or a finished episode until the complete audio and video have passed human review.
