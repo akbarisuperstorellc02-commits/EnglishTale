@@ -32,7 +32,7 @@ Last updated: 2026-11-08
 - [x] Both TTS generators support a six-role audition sample set before full generation.
 - [x] CI smoke-tests both TTS generators in dry-run mode without API keys.
 - [x] Expanded validator checks shot IDs/durations, voice roles and paths, bilingual subtitle text/timing, Gate 12, scene dimensions, and SVG XML.
-- [x] GitHub Actions run #66 passed all compile, validation, TTS smoke, thumbnail render, thumbnail-dimension, and artifact-upload steps for the previous 1280×720 export. The new 4K export is awaiting its own CI run.
+- [x] GitHub Actions run #68 passed all compile, validation, TTS smoke, 4K thumbnail render, 3840×2160 dimension validation, and artifact upload. The generated 4K PNG artifact is 354,197 bytes (within YouTube's 2 MB mobile upload limit). [Open run #68](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42496181400).
 - [x] Four vertical YouTube Shorts cutdown plans prepared for post-release promotion.
 
 ## Quality notes
