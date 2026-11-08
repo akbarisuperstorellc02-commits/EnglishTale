@@ -36,6 +36,7 @@ def request(method: str, url: str, key: str, payload=None) -> bytes:
 def main() -> int:
     parser = argparse.ArgumentParser(description="Generate Episode 001 voice clips with ElevenLabs.")
     parser.add_argument("--language", choices=("en", "fa", "both"), default="both")
+    parser.add_argument("--cue-ids", type=str, default="", help="Comma-separated cue IDs for a representative audition set.")
     parser.add_argument("--limit", type=int, default=0)
     parser.add_argument("--start-id", type=int, default=1)
     parser.add_argument("--delay", type=float, default=0.5)
