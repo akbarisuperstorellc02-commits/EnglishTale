@@ -1,0 +1,79 @@
+name: Generate Episode 001 voice assets
+
+on:
+  workflow_dispatch:
+    inputs:
+      operation:
+        description: "List available voices, generate audition samples, or generate all cues"
+        required: true
+        type: choice
+        options:
+          - list-voices
+          - audition-samples
+          - generate-all
+        default: list-voices
+
+permissions:
+  contents: read
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Verify API secret
+        if: \${{ inputs.operation != 'list-voices' }}
+        env:
+          ELEVENLABS_API_KEY: \${{ secrets.ELEVENLABS_API_KEY }}
+        run: |
+          if [ -z "$ELEVENLABS_API_KEY" ]; then
+            echo "::error::Add ELEVENLABS_API_KEY under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+      - name: List account voices
+        if: \${{ inputs.operation == 'list-voices' }}
+        env:
+          ELEVENLABS_API_KEY: \${{ secrets.ELEVENLABS_API_KEY }}
+        run: |
+          if [ -z "$ELEVENLABS_API_KEY" ]; then
+            echo "::error::Add ELEVENLABS_API_KEY under Settings > Secrets and variables > Actions."
+            exit 1
+          fi
+          python tools/tts/generate_elevenlabs_tts.py --list-voices
+      - name: Generate representative audition samples
+        if: \${{ inputs.operation == 'audition-samples' }}
+        env:
+          ELEVENLABS_API_KEY: \${{ secrets.ELEVENLABS_API_KEY }}
+        run: |
+          python tools/tts/generate_elevenlabs_tts.py --language both --cue-ids 1,4,5,11,24,34 --delay 1 --retries 5
+      - name: Generate all 96 bilingual clips
+        if: \${{ inputs.operation == 'generate-all' }}
+        env:
+          ELEVENLABS_API_KEY: \${{ secrets.ELEVENLABS_API_KEY }}
+        run: |
+          python tools/tts/generate_elevenlabs_tts.py --language both --delay 1 --retries 5
+      - name: Validate all generated WAV files
+        if: \${{ inputs.operation == 'generate-all' }}
+        run: python tools/tts/validate_voice_assets.py --strict
+      - name: Assemble English and Dari tracks
+        if: \${{ inputs.operation == 'generate-all' }}
+        run: python tools/video-pipeline/build_audio_tracks.py --language both
+      - name: Upload generated audio assets
+        if: \${{ always() && inputs.operation != 'list-voices' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: englishtale-episode-001-voice-\${{ inputs.operation }}
+          path: |
+            audio/episode-001/
+            build/audio/
+          if-no-files-found: warn
+          retention-days: 14
