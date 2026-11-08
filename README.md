@@ -36,8 +36,8 @@ The project has a validated production package and a working render/tooling foun
 - Procedural Blender 3D character/airport look-development scene. Its successful PNG render is a still style test, not a finished animated shot.
 
 ### Still required before release
-- Obtain a British English Piper voice model and verify that model's individual license permits the intended commercial use.
-- Generate, listen to, and approve all 48 English WAV clips.
+- Download the pinned multi-speaker British English VCTK model (checksum verification and CC BY 4.0 attribution note are automated; model weights remain local and are not committed).
+- Complete the 48-cue audio-generation workflow, then listen to and approve all English WAV clips.
 - Retiming both subtitle files against the actual English recordings.
 - Create and review final character animation, including appropriate dialogue timing and visual continuity.
 - Complete the sound mix, full 1080p export, and human quality review.
