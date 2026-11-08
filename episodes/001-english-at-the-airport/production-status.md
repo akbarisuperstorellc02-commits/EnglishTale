@@ -21,6 +21,7 @@ Last updated: 2026-11-08
 - [x] Validator extended to check voice-manifest alignment with both SRT tracks.
 - [x] Original 1280×720 vector thumbnail artwork added, using the canonical blue Leo / pink Emma / owl Ollie identities.
 - [x] Thumbnail PNG export script added.
+- [x] Thumbnail PNG dimension validator added to CI.
 - [x] FFmpeg renderer corrected to avoid multiplying frames on still-image zoom shots.
 - [x] MP4 export supports selectable English and Afghan Dari audio tracks.
 - [x] Audio assembler preserves any intentional subtitle timeline gaps with silence.
