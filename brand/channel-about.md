@@ -10,7 +10,7 @@ Every lesson includes:
 - Natural English dialogue
 - Useful everyday vocabulary and phrases
 - Clear English subtitles
-- Short Persian explanations in our beginner series
+- Short Afghan Dari explanations in our beginner series
 - Listening, speaking, and quiz practice
 
 New stories help you build confidence one conversation at a time.
