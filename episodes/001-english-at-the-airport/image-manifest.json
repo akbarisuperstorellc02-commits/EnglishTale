@@ -1,0 +1,108 @@
+{
+  "model": "gemini-3.1-flash-image",
+  "aspect_ratio": "16:9",
+  "image_size": "1K",
+  "output_dir": "build/images/episode-001",
+  "style": "Original polished family-friendly 3D animated educational film, cinematic composition, expressive natural faces, soft realistic lighting, detailed but clean environment, warm inviting color grade, 16:9 landscape, leave safe negative space for subtitles, no text, no logos, no watermark. Preserve supplied character references exactly. Leo always wears a blue hoodie; Emma always wears a pink sweater; Ollie is a small owl.",
+  "scenes": [
+    {
+      "id": "01-airport-establishing",
+      "file": "01-airport-establishing.png",
+      "refs": [],
+      "prompt": "Wide establishing view of a spacious modern international airport departure hall, tall glass windows, distant passenger airplanes on the runway, flight information boards with abstract unreadable rows, travelers softly out of focus, welcoming cinematic atmosphere. No recognizable airline branding."
+    },
+    {
+      "id": "02-leo-lost",
+      "file": "02-leo-lost.png",
+      "refs": [
+        "leo"
+      ],
+      "prompt": "Leo, matching the supplied reference exactly, stands in a modern airport terminal holding one medium suitcase, looking around with a mildly confused and nervous expression. Medium-wide shot, airport information screens in the background, clear readable silhouette."
+    },
+    {
+      "id": "03-emma-reassures-leo",
+      "file": "03-emma-reassures-leo.png",
+      "refs": [
+        "leo",
+        "emma"
+      ],
+      "prompt": "Leo and Emma, matching both supplied references exactly, stand near the airport entrance. Emma kindly reassures Leo and gestures toward the check-in area. Leo looks slightly nervous; Emma smiles warmly. Medium two-shot."
+    },
+    {
+      "id": "04-check-in-counter",
+      "file": "04-check-in-counter.png",
+      "refs": [
+        "leo",
+        "emma"
+      ],
+      "prompt": "Leo stands at a generic airport check-in counter and politely hands over a closed passport to a friendly airport agent. Emma stands beside him. No airline logos, no visible personal information. Medium-wide shot."
+    },
+    {
+      "id": "05-suitcase-drop",
+      "file": "05-suitcase-drop.png",
+      "refs": [
+        "leo"
+      ],
+      "prompt": "At an airport check-in desk, one medium suitcase rests on the baggage belt while a friendly airport agent gestures politely and Leo watches attentively. Clean modern airport, natural proportions, medium shot."
+    },
+    {
+      "id": "06-boarding-pass",
+      "file": "06-boarding-pass.png",
+      "refs": [
+        "leo"
+      ],
+      "prompt": "Close-up of a friendly airport agent handing a generic blank boarding pass to Leo. No readable text, no barcode, no personal details. Hands anatomically correct; uncluttered airport background."
+    },
+    {
+      "id": "07-gate-information",
+      "file": "07-gate-information.png",
+      "refs": [
+        "leo",
+        "emma"
+      ],
+      "prompt": "Leo and Emma look up at a large airport departure information screen. Over-shoulder composition. Screen content is abstract and unreadable, with a clean empty area where Gate 12 can be added later in editing."
+    },
+    {
+      "id": "08-walking-to-gate",
+      "file": "08-walking-to-gate.png",
+      "refs": [
+        "leo",
+        "emma"
+      ],
+      "prompt": "Leo and Emma walk side by side through a bright modern airport concourse toward the departure gates, suitcase rolling beside Leo. Natural walking poses, cinematic wide tracking composition."
+    },
+    {
+      "id": "09-security-checkpoint",
+      "file": "09-security-checkpoint.png",
+      "refs": [
+        "leo"
+      ],
+      "prompt": "Leo calmly places a small carry-on bag into a plastic security tray at a modern airport checkpoint. A friendly security officer is nearby. Respectful, family-friendly scene, no logos and no detailed security procedures."
+    },
+    {
+      "id": "10-gate-goodbye",
+      "file": "10-gate-goodbye.png",
+      "refs": [
+        "leo",
+        "emma"
+      ],
+      "prompt": "At the departure gate, Leo smiles and waves goodbye to Emma. A passenger airplane is visible through large glass windows in the background. Warm emotional cinematic medium-wide shot."
+    },
+    {
+      "id": "11-ollie-recap",
+      "file": "11-ollie-recap.png",
+      "refs": [
+        "ollie"
+      ],
+      "prompt": "Ollie, matching the supplied small owl reference exactly, stands beside a clean navy presentation board with generous empty space for lesson phrases to be added later. Cheerful teacher expression, simple polished studio setting."
+    },
+    {
+      "id": "12-ollie-quiz",
+      "file": "12-ollie-quiz.png",
+      "refs": [
+        "ollie"
+      ],
+      "prompt": "Ollie, matching the supplied small owl reference exactly, gestures toward three large empty rounded cards arranged vertically. Leave all cards blank for editable A/B/C text. Friendly clean educational end-card composition."
+    }
+  ]
+}
