@@ -12,12 +12,17 @@
     "mode": "local_offline",
     "engine": "Piper TTS",
     "api_required": false,
-    "default_voice_model": "en_GB-alan-medium.onnx",
+    "default_voice_model": "en_GB-vctk-medium.onnx",
     "output_directory": "build/audio/episode-001/en",
     "sample_rate_target": 22050,
     "channels": 1,
     "format": "WAV PCM",
-    "sample_rate_policy": "Use the voice model's native sample rate; the assembler preserves it."
+    "sample_rate_policy": "Use the voice model's native sample rate; the assembler preserves it.",
+    "voice_model_source": "rhasspy/piper-voices v1.0.0, en/en_GB/vctk/medium",
+    "voice_model_dataset_license": "CC BY 4.0; attribution required",
+    "voice_model_download_script": "tools/tts/download_british_voice.py",
+    "role_voice_map": "tools/tts/episode-001-voices.json",
+    "speaker_policy": "Distinct British English speaker IDs for Narrator, Leo, Emma, Airport Agent, Security Officer, and Ollie."
   },
   "visuals": {
     "mode": "hybrid",
