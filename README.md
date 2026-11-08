@@ -55,7 +55,11 @@ From the repository root:
    ```bash
    python -m unittest tools/tts/test_local_audio_pipeline.py -v
    ```
-3. Install Piper and download the pinned British English multi-speaker voice model (the script verifies file hashes and saves attribution):\n   `python tools/tts/download_british_voice.py`\n   Read `tools/tts/LOCAL_TTS.md` for voice casting and license details.
+3. Install Piper and download the pinned British English multi-speaker voice model (the script verifies file hashes and saves attribution):
+   ```bash
+   python tools/tts/download_british_voice.py
+   ```
+   Read `tools/tts/LOCAL_TTS.md` for voice casting and license details.
 4. Generate a short audition:
    ```bash
    python tools/tts/generate_local_english.py --model models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx --voices-json tools/tts/episode-001-voices.json --limit 6
