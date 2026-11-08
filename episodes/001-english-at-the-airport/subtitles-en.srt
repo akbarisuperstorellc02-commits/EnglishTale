@@ -172,9 +172,9 @@ Let's take a quick quiz! What does “boarding pass” mean?
 
 44
 00:06:03,000 --> 00:06:11,000
-A) Passport
-B) Boarding pass
-C) Suitcase
+A) A passport.
+B) A boarding document.
+C) A suitcase.
 
 45
 00:06:11,000 --> 00:06:19,000
@@ -182,7 +182,7 @@ Pause the video and choose your answer!
 
 46
 00:06:19,000 --> 00:06:29,000
-The answer is B: boarding pass means a pass to board the airplane. Well done!
+B is correct! A boarding pass is the document you need to get on the plane. Well done!
 
 47
 00:06:29,000 --> 00:06:43,000
