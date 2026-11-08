@@ -29,8 +29,8 @@ This plan follows the approved episode script and storyboard. All times are targ
 - Ollie: `assets/animation/ollie-idle-flap.svg` for recap and quiz.
 
 ## Edit and sound rules
-1. English dialogue is heard first; Persian explanation follows without overlapping the English line.
-2. Keep English captions visible during English speech. Use a separate Persian caption track.
+1. English dialogue is heard first; Afghan Dari explanation follows without overlapping the English line.
+2. Keep English captions visible during English speech. Use a separate Afghan Dari caption track.
 3. Do not place subtitles over faces or important hand actions.
 4. Use short, gentle transitions; avoid fast cuts during listening practice.
 5. Add airport ambience quietly under dialogue; duck it during speech.
