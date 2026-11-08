@@ -1,0 +1,26 @@
+{
+  "Narrator": {
+    "model": "models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx",
+    "speaker_id": 107
+  },
+  "Leo": {
+    "model": "models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx",
+    "speaker_id": 95
+  },
+  "Emma": {
+    "model": "models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx",
+    "speaker_id": 90
+  },
+  "Airport Agent": {
+    "model": "models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx",
+    "speaker_id": 82
+  },
+  "Security Officer": {
+    "model": "models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx",
+    "speaker_id": 95
+  },
+  "Ollie": {
+    "model": "models/piper/en_GB-vctk-medium/en_GB-vctk-medium.onnx",
+    "speaker_id": 85
+  }
+}
