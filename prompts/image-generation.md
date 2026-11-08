@@ -1,47 +1,31 @@
-# Episode 001 — Image Generation Prompts
+# Episode 001 — Cinematic 3D Image Generation Prompts
 
-## Global style suffix
-Append this to each scene prompt:
-“Original polished family-friendly 3D animated educational film, cinematic composition, expressive natural faces, soft realistic lighting, detailed but clean environment, warm inviting color grade, 16:9 landscape, leave safe negative space for subtitles, no text, no logos, no watermark. Preserve the supplied character reference exactly.”
+## Global visual direction
+Create premium original 3D animated feature-film frames. Never use flat illustration, vector art, clipart, simple SVG-like artwork or 2D cartoon rendering. Use dimensional character models, expressive natural faces, detailed sculpted hair and fabric, subtle material textures, soft global illumination, cinematic three-point lighting, realistic contact shadows, atmospheric depth, rich art-directed environments and warm cinematic color grading. Compose in 16:9 widescreen with safe subtitle space. No text, logos or watermark.
 
-## Scene 01 — Airport establishing shot
-A spacious modern international airport departure hall, tall glass windows, distant airplanes on the runway, flight information boards with abstract unreadable rows, travelers softly out of focus, cinematic wide establishing shot. No recognizable airline branding.
+## Canonical characters
+- Leo: fictional 19-year-old young man, tousled medium-brown hair, expressive brown eyes, vivid blue hoodie, dark blue jeans and white sneakers.
+- Emma: fictional 19-year-old young woman, shoulder-length brown hair, expressive brown eyes, warm pink sweater, dark jeans and white sneakers.
+- Ollie: small brown owl, cream face and chest, large expressive eyes, round glasses, navy scarf with a tiny gold accent.
+- Airport agent: friendly adult in a tailored navy and light-blue uniform, no logos.
 
-## Scene 02 — Leo feels lost
-Use the approved Leo reference. Leo stands in the airport terminal holding one medium suitcase, looking around with a mildly confused and nervous expression. Medium-wide shot, airport information screens in the background, clear readable silhouette.
+## Scene directions
+1. **Airport establishing:** Grand modern international airport, sweeping glass roof, polished reflective floors, check-in islands, distant aircraft, softly defocused travelers, cinematic depth.
+2. **Leo feels lost:** Leo with one rolling suitcase, mildly nervous, expressive face, medium-wide shot.
+3. **Emma reassures Leo:** Warm two-shot; Emma gestures toward check-in while Leo relaxes.
+4. **Check-in:** Leo hands a closed passport to a friendly airport agent; Emma stands beside him.
+5. **Suitcase drop:** One suitcase on the baggage belt; Leo watches the agent's polite gesture.
+6. **Boarding pass:** Close-up of a blank boarding pass being handed to Leo; no text or barcode.
+7. **Gate information:** Leo and Emma look at a large departure display with blank space for Gate 12.
+8. **Walking to gate:** Leo and Emma walk through a bright concourse; suitcase rolls beside Leo.
+9. **Security:** Leo places a small carry-on in a tray at a modern checkpoint; calm family-friendly mood.
+10. **Gate goodbye:** Leo and Emma wave goodbye by large windows; airplane outside, warm emotional light.
+11. **Ollie recap:** Ollie presents beside a deep-navy board with empty space for lesson phrases.
+12. **Ollie quiz:** Ollie gestures toward three large blank rounded answer cards.
 
-## Scene 03 — Emma reassures Leo
-Use approved Leo and Emma references. Two-shot of Emma kindly reassuring Leo near the airport entrance. Leo looks slightly nervous; Emma smiles warmly and gestures toward the check-in area. Medium shot.
-
-## Scene 04 — Check-in counter
-Use approved Leo, Emma, and airport agent references. Leo stands at a generic airline check-in counter and politely hands over a closed passport. Emma stands beside him. No real airline logos, no visible personal information, medium-wide shot.
-
-## Scene 05 — Suitcase drop
-Use approved Leo and airport agent references. A single suitcase rests on the check-in baggage belt. The agent gestures politely while Leo watches. Close medium shot, safe hands and natural proportions.
-
-## Scene 06 — Boarding pass
-Close-up of a generic blank boarding pass being handed to Leo. No readable text, no barcode, no real personal details. Hands anatomically correct. The card can be composited with editable graphics later.
-
-## Scene 07 — Gate information
-Use approved Leo and Emma references. They look up at a large airport departure screen. Screen content is abstract and unreadable; leave a clear screen area so “Gate 12” can be added in editing. Over-shoulder composition.
-
-## Scene 08 — Walking to gate
-Use approved Leo and Emma references. They walk side by side through a bright airport concourse with suitcase rolling beside Leo. Natural walking poses, wide tracking composition.
-
-## Scene 09 — Security checkpoint
-Use approved Leo and security officer references. Leo places a small carry-on bag into a plastic security tray at a modern airport checkpoint. Respectful, calm, family-friendly scene. No logos or detailed security procedures.
-
-## Scene 10 — Boarding gate goodbye
-Use approved Leo and Emma references. At the gate, Leo smiles and waves goodbye to Emma. A passenger airplane is visible through large glass windows in the background. Warm emotional cinematic medium-wide shot.
-
-## Scene 11 — Ollie recap
-Use approved Ollie reference. Ollie stands beside a clean navy presentation board with empty space for phrases to be added manually. Cheerful teacher expression, simple studio/classroom setting.
-
-## Scene 12 — Quiz end card
-Use approved Ollie reference. Ollie gestures toward three large empty rounded cards arranged vertically. Leave cards blank for editable A/B/C text. Friendly, clean educational composition.
-
-## Quality constraints
-- Always provide reference images for recurring characters if supported.
-- If a generation changes the character's outfit or face, reject and regenerate.
-- Generate text-free artwork; add all readable text manually.
-- Check hands, eyes, accessories, shadows, and background continuity.
+## Acceptance checklist
+- Must read immediately as polished dimensional 3D animation, not flat 2D artwork.
+- Character faces, hair, age impression, outfits and proportions must remain consistent.
+- Leo's hoodie is always blue; Emma's sweater is always pink; Ollie is always an owl.
+- Gate 12 is added manually in editing for accurate typography.
+- Reject distorted hands, inconsistent accessories, duplicated characters or incorrect clothing.
