@@ -79,6 +79,13 @@ def main() -> int:
                 errors.append(f"Voice manifest Dari text differs from SRT at cue {index + 1}.")
     if len(voice_paths) != len(set(voice_paths)):
         errors.append("Voice manifest contains duplicate or empty output paths.")
+    if len(manifest_cues) >= 46:
+        quiz_options = " ".join(manifest_cues[43].get("english_text", "").split())
+        quiz_answer = " ".join(manifest_cues[45].get("english_text", "").split())
+        if "B) A boarding document." not in quiz_options:
+            errors.append("Boarding-pass quiz must describe option B without repeating the answer phrase.")
+        if "document you need to get on the plane" not in quiz_answer:
+            errors.append("Boarding-pass quiz explanation is missing the beginner-friendly definition.")
     if len(en) != len(fa):
         errors.append(f"Subtitle cue count differs: EN={len(en)}, FA={len(fa)}.")
     if [x[1:3] for x in en] != [x[1:3] for x in fa]:
