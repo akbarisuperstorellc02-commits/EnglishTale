@@ -1,6 +1,6 @@
 # EnglishTale Episode Renderer
 
-This local tool assembles the 18-shot, 420-second Episode 001 timeline from the five original SVG scene plates. It is a **visual review renderer**, not a replacement for final character animation.
+This local tool assembles the 18-shot, 420-second Episode 001 timeline from either the original SVG scene plates or a procedural Blender PNG shot library. It applies gentle 2.5D camera motion; it is not continuous full-3D character animation.
 
 ## Requirements
 - Python 3.10+
@@ -25,12 +25,13 @@ python tools/video-pipeline/render_episode.py \
 ```
 
 Options:
+- `--shot-list` — use an alternate JSON timeline, including `render-shotlist-3d.json` after the Blender stills are rendered.
 - `--width`, `--height`, `--fps` — review export dimensions and frame rate.
 - `--no-motion` — disable the gentle scene-plate zoom.
 - `--audio` — compatibility alias for `--english-audio`.
 - `--subtitles-en` and `--subtitles-fa` — mux selectable MP4 subtitle tracks (UTF-8).
 
-The renderer checks that the English audio is approximately the full 420-second runtime and refuses to silently truncate the video. CI produces a 720p24 review cut and a 1080p30 master candidate; both are technical outputs and still require human review. Subtitle timestamps are still provisional and must be retimed after the actual voice recordings are approved.
+The renderer checks that the English audio is approximately the full 420-second runtime and refuses to silently truncate the video. For the 3D-still workflow, first run `tools/blender/render_character_lookdev.py --shot-library` to create `build/3d-shots/shot-01.png` through `shot-18.png`, then pass `--shot-list episodes/001-english-at-the-airport/render-shotlist-3d.json`. CI produces a 720p24 review cut and a 1080p30 master candidate; both are technical outputs and still require human review. Subtitle timestamps are still provisional and must be retimed after the actual voice recordings are approved.
 
 ## Current limitations
 - Uses scene plates with gentle camera motion; it does not composite the animated character rigs.
