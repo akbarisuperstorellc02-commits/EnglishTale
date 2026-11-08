@@ -22,7 +22,7 @@ def parse_srt(path: Path):
         match = re.fullmatch(r"(\d{2}:\d{2}:\d{2},\d{3}) --> (\d{2}:\d{2}:\d{2},\d{3})", lines[1].strip())
         if not match:
             raise ValueError(f"Invalid timestamp in {path.name}: {lines[1]}")
-        cue_text = "\\n".join(lines[2:]).strip()
+        cue_text = "\n".join(lines[2:]).strip()
         cues.append((int(lines[0]), match.group(1), match.group(2), cue_text))
     return cues
 
