@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="640" viewBox="0 0 640 640" role="img" aria-labelledby="t d">
+<title id="t">Leo — idle and talking animation</title><desc id="d">Original animated vector character asset for EnglishTale. CSS and SVG animations are embedded.</desc>
+<defs>
+ <linearGradient id="hood" x2="0" y2="1"><stop stop-color="#2587D8"/><stop offset="1" stop-color="#10519B"/></linearGradient>
+ <linearGradient id="sweater" x2="0" y2="1"><stop stop-color="#FFB4CB"/><stop offset="1" stop-color="#E96F9B"/></linearGradient>
+ <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#19374A" flood-opacity=".18"/></filter>
+</defs>
+<style>
+ .idle{transform-box:fill-box;transform-origin:center;animation:idle 3.2s ease-in-out infinite}
+ .blink{transform-box:fill-box;transform-origin:center;animation:blink 4.8s infinite}
+ .talk{animation:talk .34s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:center}
+ .wing{transform-box:fill-box;transform-origin:top center;animation:flap .65s ease-in-out infinite alternate}
+ @keyframes idle{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+ @keyframes blink{0%,43%,47%,100%{transform:scaleY(1)}45%{transform:scaleY(.08)}}
+ @keyframes talk{from{transform:scaleY(.25)}to{transform:scaleY(1)}}
+ @keyframes flap{from{transform:rotate(-12deg)}to{transform:rotate(16deg)}}
+</style>
+<rect width="640" height="640" rx="36" fill="#EEF5F8"/>
+<circle cx="320" cy="275" r="230" fill="#DCEBF4"/>
+<g class="idle" filter="url(#shadow)">
+<ellipse cx="320" cy="560" rx="135" ry="22" fill="#31546B" opacity=".17"/>
+<path d="M245 420L225 548H280L300 455H340L360 548H415L395 420Z" fill="#263B59"/>
+<path d="M220 270Q320 220 420 270L440 455Q320 500 200 455Z" fill="url(#hood)"/>
+<path d="M270 255Q320 325 370 255L350 390H290Z" fill="#123F75"/>
+<path d="M300 380L320 410L340 380" fill="none" stroke="#8CC8F4" stroke-width="8"/>
+<ellipse cx="320" cy="190" rx="100" ry="112" fill="#F2C49F"/>
+<path d="M220 192Q205 78 300 70Q410 55 420 158L395 142Q340 108 300 142Q260 170 220 192Z" fill="#342A2A"/>
+<g class="blink"><ellipse cx="282" cy="196" rx="9" ry="13" fill="#243448"/><ellipse cx="358" cy="196" rx="9" ry="13" fill="#243448"/></g>
+<path d="M305 250Q320 260 335 250" fill="none" stroke="#A94F4F" stroke-width="5" stroke-linecap="round"/>
+<ellipse class="talk" cx="320" cy="240" rx="10" ry="3" fill="#7B3338"/>
+</g>
+</svg>
