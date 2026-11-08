@@ -63,7 +63,7 @@ def main() -> int:
                 errors.append(f"Voice manifest cue {index + 1} has an empty language text.")
             if cue.get("role") not in valid_roles:
                 errors.append(f"Voice manifest cue {index + 1} has an unknown role: {cue.get('role')}.")
-            voice_paths.extend([cue.get("english_file", ""), cue.get("dari_file", "")])
+            voice_paths.append(cue.get("english_file", ""))
             if cue.get("english_text", "").strip() != en[index][3].strip():
                 errors.append(f"Voice manifest English text differs from SRT at cue {index + 1}.")
             if index < len(fa) and cue.get("dari_text", "").strip() != fa[index][3].strip():
