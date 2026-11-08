@@ -1,0 +1,110 @@
+[
+  {
+    "id": "01",
+    "label": "Airport opening / establishing",
+    "scene": "build/3d-shots/shot-01.png",
+    "duration": 8
+  },
+  {
+    "id": "02",
+    "label": "Leo worried close-up",
+    "scene": "build/3d-shots/shot-02.png",
+    "duration": 12
+  },
+  {
+    "id": "03",
+    "label": "Leo and Emma enter airport",
+    "scene": "build/3d-shots/shot-03.png",
+    "duration": 15
+  },
+  {
+    "id": "04",
+    "label": "Arrival dialogue coverage",
+    "scene": "build/3d-shots/shot-04.png",
+    "duration": 25
+  },
+  {
+    "id": "05",
+    "label": "Check-in counter",
+    "scene": "build/3d-shots/shot-05.png",
+    "duration": 15
+  },
+  {
+    "id": "06",
+    "label": "Passport handoff",
+    "scene": "build/3d-shots/shot-06.png",
+    "duration": 20
+  },
+  {
+    "id": "07",
+    "label": "Suitcase check-in",
+    "scene": "build/3d-shots/shot-07.png",
+    "duration": 25
+  },
+  {
+    "id": "08",
+    "label": "Boarding pass insert",
+    "scene": "build/3d-shots/shot-08.png",
+    "duration": 20
+  },
+  {
+    "id": "09",
+    "label": "Gate 12 departure board",
+    "scene": "build/3d-shots/shot-09.png",
+    "duration": 20
+  },
+  {
+    "id": "10",
+    "label": "Walk to departure gate",
+    "scene": "build/3d-shots/shot-10.png",
+    "duration": 35
+  },
+  {
+    "id": "11",
+    "label": "Security checkpoint",
+    "scene": "build/3d-shots/shot-11.png",
+    "duration": 20
+  },
+  {
+    "id": "12",
+    "label": "Security actions",
+    "scene": "build/3d-shots/shot-12.png",
+    "duration": 40
+  },
+  {
+    "id": "13",
+    "label": "Boarding gate / aircraft",
+    "scene": "build/3d-shots/shot-13.png",
+    "duration": 20
+  },
+  {
+    "id": "14",
+    "label": "Goodbye and boarding",
+    "scene": "build/3d-shots/shot-14.png",
+    "duration": 40
+  },
+  {
+    "id": "15",
+    "label": "Ollie lesson recap",
+    "scene": "build/3d-shots/shot-15.png",
+    "duration": 20
+  },
+  {
+    "id": "16",
+    "label": "Five phrase cards",
+    "scene": "build/3d-shots/shot-16.png",
+    "duration": 40
+  },
+  {
+    "id": "17",
+    "label": "Ollie quiz",
+    "scene": "build/3d-shots/shot-17.png",
+    "duration": 30
+  },
+  {
+    "id": "18",
+    "label": "EnglishTale end card",
+    "scene": "build/3d-shots/shot-18.png",
+    "duration": 15
+  }
+]
