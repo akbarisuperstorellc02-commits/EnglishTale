@@ -20,6 +20,9 @@ def args_after_separator():
     raw = sys.argv[sys.argv.index("--") + 1:] if "--" in sys.argv else []
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", default="build/episode-001-3d-lookdev.png")
+    parser.add_argument("--animation", action="store_true", help="Render a short procedural 3D motion study as MP4")
+    parser.add_argument("--duration", type=int, default=4, help="Animation duration in seconds")
+    parser.add_argument("--fps", type=int, default=24, help="Animation frame rate")
     return parser.parse_args(raw)
 
 
@@ -253,8 +256,70 @@ def main():
     scene.render.film_transparent = False
     scene.render.resolution_percentage = 100
     scene.render.image_settings.color_depth = "8"
-    bpy.ops.render.render(write_still=True)
-    print("ENGLISHTALE_3D_LOOKDEV_OUTPUT=" + str(output))
+
+    if args.animation:
+        if args.duration < 2 or args.duration > 12 or args.fps < 12 or args.fps > 30:
+            raise SystemExit("Animation settings out of range: use 2–12 seconds and 12–30 fps.")
+
+        def character_root(prefix, label):
+            root = bpy.data.objects.new(label + " animation root", None)
+            bpy.context.collection.objects.link(root)
+            root.empty_display_type = "PLAIN_AXES"
+            root.location = (0, 0, 0)
+            for obj in list(bpy.data.objects):
+                if obj is root or not obj.name.startswith(prefix):
+                    continue
+                world_matrix = obj.matrix_world.copy()
+                obj.parent = root
+                obj.matrix_world = world_matrix
+            return root
+
+        roots = [
+            character_root("Leo", "Leo"),
+            character_root("Emma", "Emma"),
+            character_root("Ollie", "Ollie"),
+        ]
+        midpoint = max(2, (args.duration * args.fps) // 2)
+        last_frame = args.duration * args.fps
+        for index, root in enumerate(roots):
+            root.location.z = 0.0
+            root.rotation_euler[1] = 0.0
+            root.keyframe_insert(data_path="location", frame=1)
+            root.keyframe_insert(data_path="rotation_euler", frame=1)
+            root.location.z = 0.055 if index < 2 else 0.085
+            root.rotation_euler[1] = math.radians(2.0 if index != 1 else -2.0)
+            root.keyframe_insert(data_path="location", frame=midpoint)
+            root.keyframe_insert(data_path="rotation_euler", frame=midpoint)
+            root.location.z = 0.0
+            root.rotation_euler[1] = 0.0
+            root.keyframe_insert(data_path="location", frame=last_frame)
+            root.keyframe_insert(data_path="rotation_euler", frame=last_frame)
+
+        camera.location = (0, -14.8, 4.1)
+        camera.keyframe_insert(data_path="location", frame=1)
+        camera.data.lens = 48
+        camera.data.keyframe_insert(data_path="lens", frame=1)
+        camera.location = (0, -13.9, 4.1)
+        camera.keyframe_insert(data_path="location", frame=last_frame)
+        camera.data.lens = 50
+        camera.data.keyframe_insert(data_path="lens", frame=last_frame)
+
+        scene.frame_start = 1
+        scene.frame_end = last_frame
+        scene.render.fps = args.fps
+        scene.render.image_settings.file_format = "FFMPEG"
+        scene.render.image_settings.color_mode = "RGB"
+        scene.render.ffmpeg.format = "MPEG4"
+        scene.render.ffmpeg.codec = "H264"
+        scene.render.ffmpeg.constant_rate_factor = "MEDIUM"
+        scene.render.ffmpeg.ffmpeg_preset = "GOOD"
+        scene.render.filepath = str(output)
+        scene.frame_set(1)
+        bpy.ops.render.render(animation=True)
+        print("ENGLISHTALE_3D_MOTION_OUTPUT=" + str(output))
+    else:
+        bpy.ops.render.render(write_still=True)
+        print("ENGLISHTALE_3D_LOOKDEV_OUTPUT=" + str(output))
 
 
 if __name__ == "__main__":
