@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" role="img" aria-labelledby="title desc">
+<title id="title">Airport English — EnglishTale Shorts cover</title>
+<desc id="desc">Vertical original vector cover featuring Leo in a blue hoodie, Emma in a pink sweater, and Ollie the owl at an airport, with the words Airport English and Five Useful Phrases.</desc>
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0B1930"/><stop offset=".55" stop-color="#174B69"/><stop offset="1" stop-color="#57A6B7"/></linearGradient>
+ <linearGradient id="blue" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#42B6F2"/><stop offset="1" stop-color="#14549A"/></linearGradient>
+ <linearGradient id="pink" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFD2E1"/><stop offset="1" stop-color="#D95F91"/></linearGradient>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#04101E" flood-opacity=".38"/></filter>
+</defs>
+<rect width="1080" height="1920" fill="url(#bg)"/>
+<circle cx="870" cy="300" r="280" fill="#83E1F0" opacity=".12"/>
+<path d="M0 1080L1080 950V1920H0Z" fill="#D8E9EC" opacity=".18"/>
+<g opacity=".34" stroke="#E7FAFF" stroke-width="13" fill="none">
+ <rect x="90" y="180" width="900" height="680" rx="44"/>
+ <path d="M390 190V850M690 190V850M100 510H980"/>
+</g>
+<g transform="translate(760 350)" fill="#EAFBFF" opacity=".78">
+ <path d="M0 42L150 0L112 42L240 70L235 91L102 76L70 140L48 143L58 76L0 55Z"/>
+</g>
+<rect x="70" y="100" width="940" height="1160" rx="64" fill="#07172B" opacity=".78" stroke="#9BE5F1" stroke-opacity=".4" stroke-width="5"/>
+<rect x="125" y="165" width="320" height="78" rx="39" fill="#FFC857"/>
+<text x="285" y="217" text-anchor="middle" font-family="Arial,sans-serif" font-size="34" font-weight="900" letter-spacing="2" fill="#152D45">ENGLISHTALE</text>
+<text x="125" y="430" font-family="Arial,sans-serif" font-size="106" font-weight="900" fill="#FFFFFF" letter-spacing="-4">AIRPORT</text>
+<text x="125" y="555" font-family="Arial,sans-serif" font-size="106" font-weight="900" fill="#6CE2F4" letter-spacing="-4">ENGLISH</text>
+<path d="M130 605H930" stroke="#FFC857" stroke-width="12" stroke-linecap="round"/>
+<text x="130" y="700" font-family="Arial,sans-serif" font-size="54" font-weight="800" fill="#FFFFFF">5 USEFUL PHRASES</text>
+<text x="130" y="775" font-family="Arial,sans-serif" font-size="34" font-weight="600" fill="#C9E8F2">Learn English through a story</text>
+<g filter="url(#shadow)">
+ <!-- Leo -->
+ <g transform="translate(355 1120)">
+  <ellipse cx="0" cy="440" rx="155" ry="28" fill="#07172B" opacity=".35"/>
+  <path d="M-125 235Q-180 280-165 420H165Q180 280 125 235Z" fill="url(#blue)"/>
+  <path d="M-48 225Q0 290 48 225L32 400H-32Z" fill="#123F75"/>
+  <ellipse cx="0" cy="100" rx="112" ry="128" fill="#F1C39F"/>
+  <path d="M-110 90Q-132-48-30-72Q90-88 118 55L80 18Q28-36-30 2Q-84 36-110 90Z" fill="#342B2A"/>
+  <ellipse cx="-39" cy="110" rx="10" ry="15" fill="#26394A"/><ellipse cx="39" cy="110" rx="10" ry="15" fill="#26394A"/>
+  <path d="M-27 168Q0 190 27 166" fill="none" stroke="#9E5148" stroke-width="8" stroke-linecap="round"/>
+ </g>
+ <!-- Emma -->
+ <g transform="translate(735 1120)">
+  <ellipse cx="0" cy="440" rx="155" ry="28" fill="#07172B" opacity=".35"/>
+  <path d="M-125 235Q-180 280-165 420H165Q180 280 125 235Z" fill="url(#pink)"/>
+  <path d="M0 270V400" stroke="#FFEAF0" stroke-width="10" opacity=".8"/>
+  <ellipse cx="0" cy="100" rx="112" ry="128" fill="#F4C9A9"/>
+  <path d="M-110 95Q-140-75-5-86Q125-72 118 80L105 250L68 285L68 35Q0-35-68 35L-70 280L-110 230Z" fill="#57352D"/>
+  <ellipse cx="-39" cy="110" rx="10" ry="15" fill="#26394A"/><ellipse cx="39" cy="110" rx="10" ry="15" fill="#26394A"/>
+  <path d="M-27 168Q0 190 27 166" fill="none" stroke="#9E5148" stroke-width="8" stroke-linecap="round"/>
+ </g>
+ <!-- Ollie owl -->
+ <g transform="translate(540 1480)">
+  <ellipse cx="0" cy="230" rx="105" ry="22" fill="#07172B" opacity=".25"/>
+  <path d="M-100 65L-112-42L-42-12L0-72L42-12L112-42L100 65Q90 210 0 214Q-90 210-100 65Z" fill="#A96F39" stroke="#74451F" stroke-width="9"/>
+  <ellipse cx="-40" cy="72" rx="38" ry="45" fill="#FFFFFF"/><ellipse cx="40" cy="72" rx="38" ry="45" fill="#FFFFFF"/>
+  <circle cx="-36" cy="76" r="16" fill="#27384A"/><circle cx="36" cy="76" r="16" fill="#27384A"/>
+  <path d="M0 98L-22 126H22Z" fill="#F5A623"/>
+  <path d="M-58 168Q0 194 58 168" fill="none" stroke="#E9D3A9" stroke-width="12" stroke-linecap="round"/>
+ </g>
+</g>
+<rect x="130" y="1730" width="820" height="100" rx="50" fill="#FFC857"/>
+<text x="540" y="1795" text-anchor="middle" font-family="Arial,sans-serif" font-size="38" font-weight="900" fill="#172E45">LISTEN • LEARN • SPEAK</text>
+<text x="540" y="1880" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#E6F6FA">ENGLISHTALE • SHORTS</text>
+</svg>
