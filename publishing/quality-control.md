@@ -42,3 +42,10 @@
 - [ ] Audio checked on phone speaker and headphones.
 - [ ] Full video watched from beginning to end.
 - [ ] Title, description, thumbnail, playlist, and end screen checked.
+
+
+## Thumbnail export checks
+- Long-form thumbnail: PNG, 16:9, 3840×2160; keep under 2 MB when possible for mobile upload, and always under 50 MB for desktop upload.
+- Shorts cover: PNG, 9:16, 2160×3840; upload through YouTube Studio on desktop if the Shorts thumbnail control is unavailable on mobile.
+- Review both images at small phone-feed size; check face visibility, English text readability, and canonical character colors.
+- The CI artifact is a technical render check, not a substitute for human creative approval.
