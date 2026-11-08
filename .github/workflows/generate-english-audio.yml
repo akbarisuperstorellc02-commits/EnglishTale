@@ -7,7 +7,7 @@ on:
     paths:
       - "tools/tts/**"
       - "tools/blender/*.py"
-      - "tools/video-pipeline/*.py"
+      - "tools/video-pipeline/render_episode.py"
       - "episodes/001-english-at-the-airport/voice-manifest.json"
       - "project-settings.json"
 
