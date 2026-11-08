@@ -36,7 +36,7 @@ Last updated: 2026-11-08
 - [x] 4K YouTube thumbnail and vertical Shorts cover source artwork, renderers, validators, and CI artifacts.
 - [x] Procedural Blender 3D look-development scene and successful 1280×720 still render.
 - [x] Short 3D character motion-study MP4 rendered and validated at 640×360/24 fps; this is a two-second technical preview, not a finished episode shot.
-- [x] Rendered and technically validated all 18 procedural Blender 3D camera stills at 1920×1080; shot 16 includes a 3D phrase board, shot 17 a 3D quiz board, and the check-in close-ups include passport/boarding-pass props.
+- [x] A first 18-shot procedural Blender 3D library passed 1920×1080 technical validation. The phrase/quiz boards and check-in props are in the scene; corrected camera framing for shots 16–17 is being rebuilt in the current pipeline.
 - [x] Corrected the boarding-pass quiz so option B defines the document rather than repeating the phrase; added a regression check to the episode validator.
 - [x] Added the YouTube title, description, chapters, tags, pinned comment, VCTK attribution, and upload checklist.
 - [x] GitHub Actions validation checks for source assets, scripts, TTS pipeline tests, thumbnail outputs, and cover outputs.
