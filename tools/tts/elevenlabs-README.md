@@ -22,10 +22,10 @@ python tools/tts/generate_elevenlabs_tts.py --list-voices
 ```
 
 6. Copy chosen voice IDs into `elevenlabs-voices.json`. The file intentionally starts with blank IDs; no voice ID is invented.
-7. Generate two sample cues first:
+7. Generate a representative sample for every role first:
 
 ```powershell
-python tools/tts/generate_elevenlabs_tts.py --language both --limit 2
+python tools/tts/generate_elevenlabs_tts.py --language both --cue-ids 1,4,5,11,24,34
 ```
 
 8. Listen and review. If the Dari voice sounds Iranian rather than Afghan, reject it and select another voice. Do not proceed to all 96 clips until the sample is approved.
