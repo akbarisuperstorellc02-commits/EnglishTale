@@ -21,7 +21,7 @@ jobs:
         with:
           python-version: "3.11"
       - name: Compile pipeline scripts
-        run: python -m compileall -q tools/video-pipeline
+        run: python -m compileall -q tools
       - name: Validate Episode 001 inputs and SVG assets
         run: python tools/video-pipeline/validate_episode.py
       - name: Install thumbnail renderer dependency
