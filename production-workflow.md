@@ -11,7 +11,7 @@
 1. Build and review the procedural Blender character and airport look-development scene.
 2. Lock Leo, Emma, and Ollie appearance, proportions, clothing, and palette.
 3. Render the 18-angle Blender 3D still library at 1920×1080.
-4. Apply controlled 2.5D camera movement to the 3D stills for the 7-minute master candidate.
+4. Apply a gentle Ken Burns-style camera zoom to the 3D stills for the 7-minute master candidate; this does not add multi-layer parallax or continuous character animation.
 5. Use the original SVG scene plates for a separate lightweight review cut and fallback.
 6. Reject inconsistent faces, clothing, proportions, or visual artifacts.
 7. Never describe a 2.5D shot as continuous full-3D character animation.
