@@ -49,6 +49,7 @@ Last updated: 2026-11-08
 
 - [x] [48 real English WAV cues, 7-minute master, and retimed subtitles generated successfully](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42503923500).
 - [x] [Complete 7-minute 720p review MP4 with English audio and two selectable subtitle tracks](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42504251122).
+- [x] [Download the review MP4, 48 English cue WAVs, master WAV, retimed SRTs, and VCTK attribution](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42504251122/artifacts/13626981971).
 - [x] [Offline TTS generation and WAV assembly tests passed](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42503217997).
 - [x] [Episode source, TTS, thumbnail, and Shorts validation passed](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42503053663).
 - [x] [Procedural 3D still render passed](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42501465316).
