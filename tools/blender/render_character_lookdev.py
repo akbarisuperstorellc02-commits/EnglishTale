@@ -236,9 +236,11 @@ def main():
     text_obj("SECURITY", (4.2, 0.46, 2.78), 0.18, M["text"])
     cube("Leo cabin suitcase", (-3.25, 0.38, 0.55), (0.62, 0.42, 0.98), M["sign"], 0.10)
     cylinder("Suitcase handle", (-3.25, 0.38, 1.10), 0.025, 0.36, M["metal"])
-    cube("Passport", (-4.45, -0.05, 1.48), (0.34, 0.045, 0.25), M["gold"], 0.02)
-    cube("Boarding pass", (-3.95, -0.05, 1.48), (0.62, 0.045, 0.25), M["white"], 0.02)
-    text_obj("LONDON / GATE 12", (-3.95, -0.085, 1.45), 0.075, M["sign"])
+    cube("Passport", (-5.05, 0.18, 1.49), (0.52, 0.06, 0.38), M["gold"], 0.025)
+    text_obj("PASSPORT", (-5.05, 0.145, 1.47), 0.075, M["white"])
+    cube("Boarding pass", (-4.15, 0.18, 1.49), (0.88, 0.06, 0.38), M["white"], 0.025)
+    text_obj("LONDON  •  GATE 12", (-4.15, 0.145, 1.52), 0.075, M["sign"])
+    text_obj("BOARDING PASS", (-4.15, 0.145, 1.40), 0.055, M["sign"])
 
     # Canonical characters. Their outfit palette is deliberately fixed.
     build_person(-2.3, "Leo", M["blue"], M["jeans"], M["hair"], M["skin"], M["blue"])
@@ -294,6 +296,44 @@ def main():
         scene.render.resolution_percentage = 100
         scene.render.image_settings.file_format = "PNG"
         scene.render.image_settings.color_mode = "RGBA"
+        # Large in-world teaching boards for the phrase-review and quiz sections.
+        phrase_card_objects = []
+        quiz_card_objects = []
+
+        phrase_card_objects.append(cube("Phrase lesson board", (0.0, -0.86, 2.55),
+                                         (6.8, 0.14, 3.55), M["sign"], 0.16))
+        phrase_card_objects.append(cube("Phrase board gold header", (0.0, -0.95, 4.12),
+                                         (6.35, 0.035, 0.055), M["gold"], 0.02))
+        phrase_card_objects.append(text_obj("5 USEFUL AIRPORT PHRASES", (0.0, -0.965, 3.82),
+                                            0.30, M["text"]))
+        phrase_lines = [
+            "1. Where is the check-in counter?",
+            "2. May I see your passport?",
+            "3. Here you are.",
+            "4. Where is Gate 12?",
+            "5. Have a wonderful trip!",
+        ]
+        for phrase, z in zip(phrase_lines, (3.22, 2.72, 2.22, 1.72, 1.22)):
+            phrase_card_objects.append(text_obj(phrase, (-2.85, -0.966, z),
+                                                0.205, M["white"], align="LEFT"))
+
+        quiz_card_objects.append(cube("Quiz board", (0.0, -0.86, 2.55),
+                                       (6.8, 0.14, 3.55), M["sign"], 0.16))
+        quiz_card_objects.append(cube("Quiz board gold header", (0.0, -0.95, 4.12),
+                                      (6.35, 0.035, 0.055), M["gold"], 0.02))
+        quiz_card_objects.append(text_obj("QUICK ENGLISH QUIZ", (0.0, -0.965, 3.82),
+                                          0.32, M["text"]))
+        quiz_card_objects.append(text_obj("WHAT DOES BOARDING PASS MEAN?",
+                                          (0.0, -0.966, 3.12), 0.235, M["white"]))
+        for option, z in zip(
+            ("A) A passport", "B) A boarding document", "C) A suitcase"),
+            (2.48, 1.98, 1.48)
+        ):
+            quiz_card_objects.append(text_obj(option, (-2.2, -0.966, z),
+                                              0.25, M["white"], align="LEFT"))
+        for obj in phrase_card_objects + quiz_card_objects:
+            obj.hide_render = True
+
         camera_shots = [
             ((0.0, -17.0, 5.0), (0.0, 1.4, 2.5), 42),       # 01 airport establishing
             ((-2.3, -5.6, 2.8), (-2.3, 0.0, 2.55), 68),     # 02 Leo worried close-up
@@ -315,6 +355,10 @@ def main():
             ((-1.0, -8.0, 3.2), (-1.0, 0.0, 2.1), 56),      # 18 story ending two-shot
         ]
         for index, (location, target_point, lens) in enumerate(camera_shots, start=1):
+            for obj in phrase_card_objects:
+                obj.hide_render = index != 16
+            for obj in quiz_card_objects:
+                obj.hide_render = index != 17
             camera.location = location
             camera.rotation_euler = (Vector(target_point) - camera.location).to_track_quat("-Z", "Y").to_euler()
             camera.data.lens = lens
