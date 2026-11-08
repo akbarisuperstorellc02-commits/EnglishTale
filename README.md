@@ -31,7 +31,7 @@ The project has a validated production package and a working render/tooling foun
 - End-to-end offline audio pipeline tests using a deterministic fake Piper executable; these test software behavior, not real voice quality.
 - Voice WAV validator configured for 48 English files only; Afghan Dari remains subtitle-only.
 - All 48 real English cue WAVs generated and technically validated; the 420-second English master WAV and first-pass retimed English/Dari SRTs are packaged in GitHub Actions.
-- FFmpeg/CairoSVG 7-minute scene-plate renderer; a complete 420-second 720p H.264 review MP4 with AAC English dialogue and selectable English/Dari subtitles has passed technical validation.
+- FFmpeg/CairoSVG 7-minute scene-plate renderer; a complete 420-second 720p H.264 review MP4 with loudness-normalized AAC English dialogue and selectable English/Dari subtitles has passed technical validation. The current cut is dialogue-only; music/ambience and final sound design remain optional release-stage work.
 - [Download the review MP4, English audio, retimed subtitles, and attribution package](https://github.com/akbarisuperstorellc02-commits/EnglishTale/actions/runs/42504251122/artifacts/13626981971).
 - 4K YouTube thumbnail artwork/export and vertical Shorts cover artwork/export.
 - Dependency-free source validation and GitHub Actions checks.
