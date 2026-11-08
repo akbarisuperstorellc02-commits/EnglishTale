@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="title desc">
+<title id="title">English at the Airport — EnglishTale Episode 001 thumbnail</title>
+<desc id="desc">Original vector thumbnail with Leo in a blue hoodie, Emma in a pink sweater, and Ollie the owl at an airport terminal.</desc>
+<defs>
+  <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#10233F"/><stop offset="1" stop-color="#245B78"/></linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#B8E4F4"/><stop offset="1" stop-color="#4F8EAB"/></linearGradient>
+  <linearGradient id="blue" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#319CEB"/><stop offset="1" stop-color="#14549A"/></linearGradient>
+  <linearGradient id="pink" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#FFC0D4"/><stop offset="1" stop-color="#E56F9A"/></linearGradient>
+  <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#061526" flood-opacity=".35"/></filter>
+  <filter id="glow"><feGaussianBlur stdDeviation="12"/></filter>
+</defs>
+<rect width="1280" height="720" fill="url(#sky)"/>
+<circle cx="1000" cy="170" r="230" fill="#69C6E7" opacity=".12" filter="url(#glow)"/>
+<path d="M0 490H1280V720H0Z" fill="#DCEAF0"/>
+<path d="M0 520L1280 470V720H0Z" fill="#A8C4D2"/>
+<g opacity=".55">
+  <rect x="690" y="68" width="540" height="370" rx="24" fill="url(#glass)" stroke="#E4F6FC" stroke-width="12"/>
+  <path d="M820 75V435M950 75V435M1080 75V435" stroke="#E4F6FC" stroke-width="10"/>
+  <path d="M700 245H1220" stroke="#E4F6FC" stroke-width="9"/>
+  <path d="M760 340Q900 300 1030 340T1210 340" fill="none" stroke="#E9F7FB" stroke-width="7" opacity=".6"/>
+</g>
+<g transform="translate(930 205)" fill="#F4FBFF" opacity=".8">
+  <path d="M0 40L115 0L85 35L180 55L176 70L75 58L52 100L35 102L43 55L0 48Z"/>
+</g>
+<rect x="55" y="70" width="600" height="580" rx="42" fill="#0B1B32" opacity=".72" stroke="#7DD4F0" stroke-opacity=".35" stroke-width="3"/>
+<rect x="88" y="104" width="170" height="44" rx="22" fill="#FFC857"/>
+<text x="173" y="134" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="800" fill="#182B42" letter-spacing="1.5">ENGLISH A1</text>
+<text x="92" y="245" font-family="Arial,sans-serif" font-size="74" font-weight="900" fill="#FFFFFF" letter-spacing="-2">ENGLISH</text>
+<text x="92" y="330" font-family="Arial,sans-serif" font-size="74" font-weight="900" fill="#FFFFFF" letter-spacing="-2">AT THE</text>
+<text x="92" y="415" font-family="Arial,sans-serif" font-size="82" font-weight="900" fill="#62D6F5" letter-spacing="-3">AIRPORT</text>
+<path d="M96 450H585" stroke="#FFC857" stroke-width="8" stroke-linecap="round"/>
+<text x="96" y="505" font-family="Arial,sans-serif" font-size="25" font-weight="700" fill="#E7F5FB">LEARN ENGLISH THROUGH STORY</text>
+<text x="96" y="558" font-family="Arial,sans-serif" font-size="22" font-weight="500" fill="#B7D7E6">LISTEN • LEARN • SPEAK</text>
+<g filter="url(#shadow)">
+  <!-- Leo: blue hoodie -->
+  <g transform="translate(820 420)">
+    <ellipse cx="0" cy="230" rx="112" ry="18" fill="#25485D" opacity=".25"/>
+    <path d="M-72 125Q-115 150-110 230H110Q115 150 72 125Z" fill="url(#blue)"/>
+    <path d="M-35 118Q0 158 35 118L22 210H-22Z" fill="#123F75"/>
+    <path d="M-24 205L0 230L24 205" fill="none" stroke="#A7D9F8" stroke-width="7"/>
+    <ellipse cx="0" cy="42" rx="78" ry="88" fill="#F1C39F"/>
+    <path d="M-78 48Q-92-48-20-60Q68-75 82 20L55 0Q12-35-22-6Q-55 20-78 48Z" fill="#342B2A"/>
+    <ellipse cx="-27" cy="53" rx="7" ry="11" fill="#26394A"/>
+    <ellipse cx="28" cy="53" rx="7" ry="11" fill="#26394A"/>
+    <path d="M-18 92Q0 108 20 91" fill="none" stroke="#9E5148" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <!-- Emma: pink sweater -->
+  <g transform="translate(1065 420)">
+    <ellipse cx="0" cy="230" rx="112" ry="18" fill="#25485D" opacity=".25"/>
+    <path d="M-72 125Q-115 150-110 230H110Q115 150 72 125Z" fill="url(#pink)"/>
+    <path d="M0 145V220" stroke="#FFE2EB" stroke-width="7" opacity=".75"/>
+    <ellipse cx="0" cy="42" rx="78" ry="88" fill="#F4C9A9"/>
+    <path d="M-78 50Q-98-65-5-70Q86-65 84 40L75 155L48 190L46 18Q0-28-45 16L-50 185L-78 140Z" fill="#57352D"/>
+    <ellipse cx="-27" cy="53" rx="7" ry="11" fill="#26394A"/>
+    <ellipse cx="28" cy="53" rx="7" ry="11" fill="#26394A"/>
+    <path d="M-18 92Q0 108 20 91" fill="none" stroke="#9E5148" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <!-- Ollie: small owl guide -->
+  <g transform="translate(720 575)">
+    <ellipse cx="0" cy="82" rx="58" ry="12" fill="#25485D" opacity=".2"/>
+    <path d="M-55 25L-63-28L-22-12L0-44L22-12L63-28L55 25Q50 100 0 102Q-50 100-55 25Z" fill="#A96F39" stroke="#74451F" stroke-width="5"/>
+    <ellipse cx="-22" cy="28" rx="21" ry="24" fill="#FFFFFF"/>
+    <ellipse cx="22" cy="28" rx="21" ry="24" fill="#FFFFFF"/>
+    <circle cx="-20" cy="30" r="9" fill="#27384A"/><circle cx="20" cy="30" r="9" fill="#27384A"/>
+    <path d="M0 43L-11 57H11Z" fill="#F5A623"/>
+    <path d="M-34 75Q0 91 34 75" fill="none" stroke="#E9D3A9" stroke-width="7" stroke-linecap="round"/>
+  </g>
+</g>
+<g transform="translate(1140 95)">
+  <circle r="54" fill="#FFC857" stroke="#FFFFFF" stroke-width="7"/>
+  <path d="M-21-1L-4 18L28-23" fill="none" stroke="#17324A" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<text x="1190" y="680" text-anchor="end" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="#31556B">ENGLISHTALE • EPISODE 001</text>
+</svg>
