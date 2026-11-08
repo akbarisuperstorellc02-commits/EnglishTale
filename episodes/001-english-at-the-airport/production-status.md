@@ -31,6 +31,7 @@ Last updated: 2026-11-08
 - [x] Provider research updated: Gemini API regional restriction and ElevenLabs commercial-plan caveat documented.
 - [x] Both TTS generators support a six-role audition sample set before full generation.
 - [x] CI smoke-tests both TTS generators in dry-run mode without API keys.
+- [x] Four vertical YouTube Shorts cutdown plans prepared for post-release promotion.
 
 ## Quality notes
 - Subtitle timestamps are editorial estimates, not measured against recorded audio.
