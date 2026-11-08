@@ -21,6 +21,10 @@ Last updated: 2026-11-08
 - [x] Validator extended to check voice-manifest alignment with both SRT tracks.
 - [x] Original 1280×720 vector thumbnail artwork added, using the canonical blue Leo / pink Emma / owl Ollie identities.
 - [x] Thumbnail PNG export script added.
+- [x] FFmpeg renderer corrected to avoid multiplying frames on still-image zoom shots.
+- [x] MP4 export supports selectable English and Afghan Dari audio tracks.
+- [x] Audio assembler preserves any intentional subtitle timeline gaps with silence.
+- [x] GitHub Actions run #20 passed: Python compile, source validation, thumbnail render, and artifact upload.
 
 ## Quality notes
 - Subtitle timestamps are editorial estimates, not measured against recorded audio.
@@ -35,7 +39,8 @@ Last updated: 2026-11-08
 - Export the vector thumbnail with `python tools/video-pipeline/render_thumbnail.py` (CairoSVG required).
 - Once all clips are recorded and reviewed, run `python tools/video-pipeline/build_audio_tracks.py` to assemble two separate WAV tracks.
 - Run `python tools/video-pipeline/render_episode.py` to create a silent visual review cut. FFmpeg, FFprobe, and CairoSVG must be installed locally.
-- The GitHub Actions workflow is configured, but its first hosted run has not yet been independently confirmed in this status update.
+- For one MP4 with selectable language audio, use `--english-audio build/audio/episode-001-en.wav --dari-audio build/audio/episode-001-fa.wav`.
+- GitHub Actions run #20 completed successfully. It compiled the pipeline scripts, passed the episode/SVG/manifest validator, rendered the 1280×720 PNG thumbnail, and uploaded the thumbnail artifact.
 
 ## Next production sequence
 1. Select a TTS/voice workflow whose commercial-use license covers YouTube publication.
