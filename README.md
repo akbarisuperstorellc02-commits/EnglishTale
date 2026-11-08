@@ -21,7 +21,8 @@ Episode 001 has moved beyond the planning-only stage. The repository now include
 - English SRT and Afghan Dari SRT, each with 48 matching cue boundaries.
 - Voice and subtitle production instructions.
 - 48-cue bilingual voice manifest and recording package.
-- Separate English/Dari WAV track assembler.
+- Separate English/Dari WAV track assembler with timeline-gap preservation.
+- MP4 export option for selectable English and Afghan Dari audio tracks.
 - YouTube metadata and thumbnail brief.
 
 ### Not yet produced
@@ -88,7 +89,7 @@ EnglishTale/
 
 1. Run the input validator: `python tools/video-pipeline/validate_episode.py`.
 2. After recording all cues, assemble the separate language tracks with `python tools/video-pipeline/build_audio_tracks.py`.
-3. Build a silent visual review cut: `python tools/video-pipeline/render_episode.py` (requires FFmpeg and CairoSVG; see `tools/video-pipeline/README.md`).
+3. Build a silent visual review cut: `python tools/video-pipeline/render_episode.py` (requires FFmpeg and CairoSVG; see `tools/video-pipeline/README.md`). To include both selectable language tracks, pass `--english-audio` and `--dari-audio`.
 4. Export the thumbnail PNG with `python tools/video-pipeline/render_thumbnail.py`.
 5. Read `brand/brand-guide.md` and `characters/character-bible.md`.
 6. Review the SVG scene plates in `assets/scenes/` and character rigs in `assets/animation/`.
