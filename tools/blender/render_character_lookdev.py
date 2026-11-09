@@ -415,7 +415,8 @@ def main():
                         if part.name.startswith(prefix) and (" sleeve" in part.name or " trouser leg" in part.name):
                             base = part.rotation_euler.copy()
                             is_arm = " sleeve" in part.name
-                            side = -1 if "left" in part.name.lower() else 1
+                            center_x = -2.3 if prefix == "Leo" else 0.0
+                            side = -1 if part.location.x < center_x else 1
                             amplitude = (0.30 if is_arm else 0.16) if (walk_shot or gesture_shot) else (0.10 if is_arm else 0.035)
                             for frame in (1, frames // 4, mid_frame, (frames * 3) // 4, frames):
                                 scene.frame_set(frame)
