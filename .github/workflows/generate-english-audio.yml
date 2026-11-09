@@ -135,6 +135,15 @@ jobs:
               assert path.stat().st_size > 10000, path
           print("PASS: 18 rendered 3D MP4 clips, 640x360, 12 fps, ~8 seconds each")
           PY
+      - name: Re-render 720p review using animated 3D shots
+        run: |
+          python tools/video-pipeline/render_episode.py \
+            --output build/episode-001-review-720p.mp4 \
+            --width 1280 --height 720 --fps 24 \
+            --shot-list episodes/001-english-at-the-airport/render-shotlist-3d.json \
+            --english-audio build/audio/episode-001-en.wav \
+            --subtitles-en build/subtitles/episode-001-en-retimed.srt \
+            --subtitles-fa build/subtitles/episode-001-fa-retimed.srt
       - name: Render 1080p30 master candidate with normalized English dialogue
         run: |
           python tools/video-pipeline/render_episode.py \
