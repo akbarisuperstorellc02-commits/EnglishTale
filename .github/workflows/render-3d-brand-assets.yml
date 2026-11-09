@@ -4,6 +4,11 @@ on:
   workflow_run:
     workflows: ["Generate Episode 001 British English Audio"]
     types: [completed]
+  push:
+    branches: [main]
+    paths:
+      - "tools/video-pipeline/render_3d_brand_assets.py"
+      - ".github/workflows/render-3d-brand-assets.yml"
 
 permissions:
   contents: read
@@ -11,19 +16,28 @@ permissions:
 
 jobs:
   render-3d-brand-assets:
-    if: github.event.workflow_run.conclusion == 'success'
+    if: github.event_name == 'push' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Download the validated episode render package
+      - name: Download the validated episode render package (workflow completion)
+        if: github.event_name == 'workflow_run'
         uses: actions/download-artifact@v4
         with:
           name: EnglishTale-Episode001-1080p-Master-Candidate-and-Review
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path: release-package
+      - name: Download the latest successful episode package (pipeline update)
+        if: github.event_name == 'push'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          RUN_ID="$(gh run list --workflow "Generate Episode 001 British English Audio" --branch main --status success --limit 1 --json databaseId --jq '.[0].databaseId')"
+          test -n "$RUN_ID"
+          gh run download "$RUN_ID" --name EnglishTale-Episode001-1080p-Master-Candidate-and-Review --dir release-package
       - name: Set up Python and image dependencies
         uses: actions/setup-python@v5
         with:
