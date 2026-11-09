@@ -27,6 +27,7 @@ def args_after_separator():
     parser.add_argument("--width", type=int, default=1280)
     parser.add_argument("--height", type=int, default=720)
     parser.add_argument("--duration", type=int, default=4, help="Animation duration in seconds")
+    parser.add_argument("--clip-duration", type=int, default=8, help="Animated story clip duration in seconds")
     parser.add_argument("--fps", type=int, default=24, help="Animation frame rate")
     return parser.parse_args(raw)
 
@@ -298,6 +299,8 @@ def main():
             raise SystemExit("Choose either --shot-library or --animation, not both.")
         if args.width < 640 or args.height < 360 or args.width > 2560 or args.height > 1440:
             raise SystemExit("Shot-library dimensions must be between 640x360 and 2560x1440.")
+        if args.animated_shot_library and not 4 <= args.clip_duration <= 20:
+            raise SystemExit("Animated shot duration must be between 4 and 20 seconds.")
         shot_dir = Path(args.shots_dir).resolve()
         shot_dir.mkdir(parents=True, exist_ok=True)
         scene.camera.data.dof.use_dof = False
@@ -374,8 +377,9 @@ def main():
             camera.data.lens = lens
             scene.camera = camera
             if args.animated_shot_library:
-                # Real frame-by-frame 3D animation for every story shot.
-                frames = 36
+                # Frame-by-frame animation with a longer, less repetitive story beat.
+                frames = args.clip_duration * 12
+                mid_frame = frames // 2
                 rigs = []
                 for prefix in ("Leo", "Emma", "Ollie"):
                     rig = bpy.data.objects.new(prefix + f" animated shot {index:02d}", None)
@@ -388,7 +392,7 @@ def main():
                         part.matrix_world = matrix
                     rigs.append((prefix, rig))
                 for ci, (prefix, rig) in enumerate(rigs):
-                    for frame, amount in ((1, 0.0), (18, 1.0), (36, 0.0)):
+                    for frame, amount in ((1, 0.0), (mid_frame, 1.0), (frames, 0.0)):
                         scene.frame_set(frame)
                         rig.location.z = amount * (0.07 if prefix == "Ollie" else 0.045)
                         rig.rotation_euler[1] = math.radians(amount * (3.0 if ci != 1 else -3.0))
@@ -397,14 +401,14 @@ def main():
                 for part in list(bpy.data.objects):
                     if any(tag in part.name for tag in ("Leo sleeve", "Emma sleeve", "Ollie ear tuft")):
                         base = part.rotation_euler.copy()
-                        for frame, amount in ((1, 0.0), (18, 0.25), (36, 0.0)):
+                        for frame, amount in ((1, 0.0), (mid_frame, 0.25), (frames, 0.0)):
                             part.rotation_euler[1] = base[1] + amount
                             part.keyframe_insert(data_path="rotation_euler", frame=frame)
                 camera.location = Vector(location)
                 camera.keyframe_insert(data_path="location", frame=1)
                 camera.location = Vector(location) + Vector((0.12, 0.0, 0.04))
-                camera.keyframe_insert(data_path="location", frame=36)
-                scene.frame_start, scene.frame_end, scene.render.fps = 1, 36, 12
+                camera.keyframe_insert(data_path="location", frame=frames)
+                scene.frame_start, scene.frame_end, scene.render.fps = 1, frames, 12
                 scene.render.resolution_percentage = 100
                 scene.render.image_settings.file_format = "FFMPEG"
                 scene.render.image_settings.color_mode = "RGB"
