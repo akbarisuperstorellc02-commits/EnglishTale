@@ -43,4 +43,4 @@ The scene renders on CPU; GPU acceleration is optional. GitHub Actions renders b
 
 ## Animated episode shots
 
-The episode workflow renders 18 separate Blender MP4 clips with frame-by-frame character-root movement, gestures, and camera drift. These are genuine 3D rendered clips rather than still-image pans. The current procedural rigs are an intermediate animation pass: detailed facial performance, hand-to-prop contact, and dialogue lip-sync still require further production work and review.
+The episode workflow renders 18 separate Blender MP4 clips, each 8 seconds at 12 fps. This increases the previous 3-second motion take and reduces immediate repetition. The 720p review and 1080p master both use this animated shot library. Longer takes are still looped to fill the timeline durations; this is not continuous seven-minute character acting. The current procedural rigs remain an intermediate pass: detailed facial performance, hand-to-prop contact, walking cycles, and dialogue lip-sync still require further production work and review.
