@@ -117,7 +117,7 @@ jobs:
       - name: Render 18 animated 3D character shots (CPU)
         run: |
           mkdir -p build/3d-shots
-          blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --animated-shot-library --shots-dir build/3d-shots --width 640 --height 360
+          blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --animated-shot-library --clip-duration 8 --shots-dir build/3d-shots --width 640 --height 360
       - name: Validate all 18 rendered 3D animation clips
         run: |
           python3 - <<'PY'
@@ -131,9 +131,9 @@ jobs:
               video = next(s for s in data["streams"] if s["codec_type"] == "video")
               duration = float(data["format"]["duration"])
               assert (video["codec_name"], video["width"], video["height"]) == ("h264", 640, 360), (path, video)
-              assert 2.8 <= duration <= 3.2, (path, duration)
+              assert 7.8 <= duration <= 8.2, (path, duration)
               assert path.stat().st_size > 10000, path
-          print("PASS: 18 rendered 3D MP4 clips, 640x360, 12 fps, ~3 seconds each")
+          print("PASS: 18 rendered 3D MP4 clips, 640x360, 12 fps, ~8 seconds each")
           PY
       - name: Render 1080p30 master candidate with normalized English dialogue
         run: |
@@ -185,5 +185,6 @@ jobs:
             build/episode-001-review-720p.mp4
             build/episode-001-master-1080p.mp4
             build/3d-shots/*.png
+            build/3d-shots/*.mp4
           if-no-files-found: error
           retention-days: 14
