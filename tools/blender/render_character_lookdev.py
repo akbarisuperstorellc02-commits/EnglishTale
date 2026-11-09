@@ -22,6 +22,7 @@ def args_after_separator():
     parser.add_argument("--output", default="build/episode-001-3d-lookdev.png")
     parser.add_argument("--animation", action="store_true", help="Render a short procedural 3D motion study as MP4")
     parser.add_argument("--shot-library", action="store_true", help="Render 18 camera angles for the hybrid episode pipeline")
+    parser.add_argument("--animated-shot-library", action="store_true", help="Render 18 short animated 3D MP4 clips")
     parser.add_argument("--shots-dir", default="build/3d-shots", help="Output folder for the 3D shot library")
     parser.add_argument("--width", type=int, default=1280)
     parser.add_argument("--height", type=int, default=720)
@@ -290,7 +291,9 @@ def main():
     scene.render.resolution_percentage = 100
     scene.render.image_settings.color_depth = "8"
 
-    if args.shot_library:
+    if args.shot_library or args.animated_shot_library:
+        if args.shot_library and args.animated_shot_library:
+            raise SystemExit("Choose one shot-library mode.")
         if args.animation:
             raise SystemExit("Choose either --shot-library or --animation, not both.")
         if args.width < 640 or args.height < 360 or args.width > 2560 or args.height > 1440:
@@ -370,10 +373,54 @@ def main():
             camera.rotation_euler = (Vector(target_point) - camera.location).to_track_quat("-Z", "Y").to_euler()
             camera.data.lens = lens
             scene.camera = camera
-            scene.frame_set(1)
-            shot_path = shot_dir / f"shot-{index:02d}.png"
-            scene.render.filepath = str(shot_path)
-            bpy.ops.render.render(write_still=True)
+            if args.animated_shot_library:
+                # Real frame-by-frame 3D animation for every story shot.
+                frames = 36
+                rigs = []
+                for prefix in ("Leo", "Emma", "Ollie"):
+                    rig = bpy.data.objects.new(prefix + f" animated shot {index:02d}", None)
+                    bpy.context.collection.objects.link(rig)
+                    for part in list(bpy.data.objects):
+                        if part is rig or not part.name.startswith(prefix):
+                            continue
+                        matrix = part.matrix_world.copy()
+                        part.parent = rig
+                        part.matrix_world = matrix
+                    rigs.append((prefix, rig))
+                for ci, (prefix, rig) in enumerate(rigs):
+                    for frame, amount in ((1, 0.0), (18, 1.0), (36, 0.0)):
+                        scene.frame_set(frame)
+                        rig.location.z = amount * (0.07 if prefix == "Ollie" else 0.045)
+                        rig.rotation_euler[1] = math.radians(amount * (3.0 if ci != 1 else -3.0))
+                        rig.keyframe_insert(data_path="location", frame=frame)
+                        rig.keyframe_insert(data_path="rotation_euler", frame=frame)
+                for part in list(bpy.data.objects):
+                    if any(tag in part.name for tag in ("Leo sleeve", "Emma sleeve", "Ollie ear tuft")):
+                        base = part.rotation_euler.copy()
+                        for frame, amount in ((1, 0.0), (18, 0.25), (36, 0.0)):
+                            part.rotation_euler[1] = base[1] + amount
+                            part.keyframe_insert(data_path="rotation_euler", frame=frame)
+                camera.location = Vector(location)
+                camera.keyframe_insert(data_path="location", frame=1)
+                camera.location = Vector(location) + Vector((0.12, 0.0, 0.04))
+                camera.keyframe_insert(data_path="location", frame=36)
+                scene.frame_start, scene.frame_end, scene.render.fps = 1, 36, 12
+                scene.render.resolution_percentage = 100
+                scene.render.image_settings.file_format = "FFMPEG"
+                scene.render.image_settings.color_mode = "RGB"
+                scene.render.ffmpeg.format = "MPEG4"
+                scene.render.ffmpeg.codec = "H264"
+                scene.render.ffmpeg.constant_rate_factor = "MEDIUM"
+                scene.render.ffmpeg.ffmpeg_preset = "GOOD"
+                shot_path = shot_dir / f"shot-{index:02d}.mp4"
+                scene.render.filepath = str(shot_path)
+                scene.frame_set(1)
+                bpy.ops.render.render(animation=True)
+            else:
+                scene.frame_set(1)
+                shot_path = shot_dir / f"shot-{index:02d}.png"
+                scene.render.filepath = str(shot_path)
+                bpy.ops.render.render(write_still=True)
             if not shot_path.is_file() or shot_path.stat().st_size < 10000:
                 raise SystemExit(f"3D shot render missing or too small: {shot_path}")
             print(f"ENGLISHTALE_3D_SHOT_{index:02d}={shot_path}")
