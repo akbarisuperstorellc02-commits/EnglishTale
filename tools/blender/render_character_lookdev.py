@@ -1,4 +1,4 @@
-"""Procedural 3D look-development and animated shot scene for EnglishTale Episode 001.
+"""Procedural 3D look-development and animated shot scene for EnglishTale Episode 001.\n\nProduction pass: animated MP4 clips are used by the seven-minute episode edit.
 
 Run:
   blender -b -t 2 --python tools/blender/render_character_lookdev.py -- --output build/episode-001-3d-lookdev.png
