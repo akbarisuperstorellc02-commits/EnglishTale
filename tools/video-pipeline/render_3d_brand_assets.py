@@ -5,6 +5,8 @@ from __future__ import annotations
 import argparse
 import base64
 from pathlib import Path
+import subprocess
+import tempfile
 import cairosvg
 from PIL import Image
 
@@ -12,8 +14,18 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def image_data(path: Path) -> str:
+    # Current episode packages use animated MP4 takes; extract a representative frame.
+    if path.suffix.lower() == ".mp4":
+        if not path.is_file():
+            raise SystemExit(f"Required 3D clip not found: {path}")
+        with tempfile.TemporaryDirectory() as tmp:
+            still = Path(tmp) / (path.stem + ".png")
+            subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-ss", "2", "-i", str(path), "-frames:v", "1", "-y", str(still)], check=True)
+            if not still.is_file():
+                raise SystemExit(f"Could not extract a frame from: {path}")
+            return base64.b64encode(still.read_bytes()).decode("ascii")
     if not path.is_file():
-        raise SystemExit(f"Required 3D still not found: {path}")
+        raise SystemExit(f"Required 3D still or clip not found: {path}")
     return base64.b64encode(path.read_bytes()).decode("ascii")
 
 
@@ -45,11 +57,12 @@ def main() -> int:
     parser.add_argument("--output-dir", type=Path, default=ROOT / "build/brand-assets")
     args = parser.parse_args()
     shots = args.shots_dir
-    bg = image_data(shots / "shot-01.png")
-    leo = image_data(shots / "shot-02.png")
-    emma = image_data(shots / "shot-03.png")
-    ollie = image_data(shots / "shot-14.png")
-    ending = image_data(shots / "shot-18.png")
+    ext = ".mp4" if (shots / "shot-01.mp4").is_file() else ".png"
+    bg = image_data(shots / f"shot-01{ext}")
+    leo = image_data(shots / f"shot-02{ext}")
+    emma = image_data(shots / f"shot-03{ext}")
+    ollie = image_data(shots / f"shot-14{ext}")
+    ending = image_data(shots / f"shot-18{ext}")
 
     thumb = f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3840" height="2160" viewBox="0 0 3840 2160">
       <defs>
