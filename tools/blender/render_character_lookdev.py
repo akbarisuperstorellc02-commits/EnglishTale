@@ -432,13 +432,18 @@ def main():
                             part.rotation_euler[1] = base[1] + math.radians(5.0) * math.sin(t * math.tau * 2.0)
                             part.keyframe_insert(data_path="rotation_euler", frame=frame)
 
-                camera.location = Vector(location)
+                camera_base = Vector(location)
+                camera.location = camera_base
                 camera.keyframe_insert(data_path="location", frame=1)
-                camera.location = Vector(location) + Vector((0.22 if index in (10, 13) else 0.12, 0.0, 0.07))
+                camera.location = camera_base + Vector((0.22 if index in (10, 13) else 0.12, 0.0, 0.07))
+                camera.keyframe_insert(data_path="location", frame=mid_frame)
+                camera.location = camera_base
                 camera.keyframe_insert(data_path="location", frame=frames)
                 camera.data.lens = lens
                 camera.data.keyframe_insert(data_path="lens", frame=1)
                 camera.data.lens = lens * (1.035 if index in (2, 3, 7, 14) else 1.015)
+                camera.data.keyframe_insert(data_path="lens", frame=mid_frame)
+                camera.data.lens = lens
                 camera.data.keyframe_insert(data_path="lens", frame=frames)
                 scene.frame_start, scene.frame_end, scene.render.fps = 1, frames, 12
                 scene.render.resolution_percentage = 100
