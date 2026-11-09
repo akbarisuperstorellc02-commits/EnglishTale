@@ -47,7 +47,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=DEFAULT_OUT)
     parser.add_argument("--shot-list", type=Path, default=SHOT_FILE,
-                        help="JSON shot list; supports SVG scene plates or PNG 3D stills")
+                        help="JSON shot list; supports SVG/PNG plates and rendered MP4 animation clips")
     parser.add_argument("--width", type=int, default=1920)
     parser.add_argument("--height", type=int, default=1080)
     parser.add_argument("--fps", type=int, default=30)
@@ -64,7 +64,7 @@ def main() -> int:
     try:
         import cairosvg
     except ImportError:
-        raise SystemExit("CairoSVG is missing. Run: python -m pip install -r tools/video-pipeline/requirements.txt")
+        cairosvg = None
 
     for label, path in (("English audio", args.english_audio),
                         ("English subtitles", args.subtitles_en),
@@ -93,25 +93,38 @@ def main() -> int:
                 scene = SCENES / scene_ref
             if not scene.is_file():
                 raise SystemExit(f"Missing scene asset: {scene}")
-            png = tempdir / f"scene-{index:02d}.png"
             clip = tempdir / f"shot-{index:02d}.mp4"
-            if scene.suffix.lower() == ".svg":
-                cairosvg.svg2png(url=str(scene), write_to=str(png),
-                                 output_width=args.width, output_height=args.height)
-            elif scene.suffix.lower() == ".png":
-                shutil.copy2(scene, png)
+            shot_seconds = int(shot["duration"])
+            if scene.suffix.lower() == ".mp4":
+                # Actual rendered animation: no artificial zoom is applied.
+                vf = (f"scale={args.width}:{args.height}:force_original_aspect_ratio=decrease,"
+                      f"pad={args.width}:{args.height}:(ow-iw)/2:(oh-ih)/2,"
+                      f"fps={args.fps},format=yuv420p")
+                run([ffmpeg, "-y", "-stream_loop", "-1", "-i", str(scene),
+                     "-t", str(shot_seconds), "-vf", vf, "-an",
+                     "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+                     "-pix_fmt", "yuv420p", str(clip)])
             else:
-                raise SystemExit(f"Unsupported scene asset type: {scene.suffix}")
-            frames = int(shot["duration"]) * args.fps
-            vf = f"scale={args.width}:{args.height},format=yuv420p"
-            if not args.no_motion:
-                vf = (f"zoompan=z='min(zoom+0.00035,1.045)':d=1:"
-                      f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
-                      f"s={args.width}x{args.height}:fps={args.fps},format=yuv420p")
-            run([ffmpeg, "-y", "-loop", "1", "-framerate", str(args.fps),
-                 "-i", str(png), "-vf", vf, "-frames:v", str(frames),
-                 "-an", "-c:v", "libx264", "-preset", "veryfast",
-                 "-crf", "22", "-pix_fmt", "yuv420p", str(clip)])
+                png = tempdir / f"scene-{index:02d}.png"
+                if scene.suffix.lower() == ".svg":
+                    if cairosvg is None:
+                        raise SystemExit("CairoSVG is required for SVG plates.")
+                    cairosvg.svg2png(url=str(scene), write_to=str(png),
+                                     output_width=args.width, output_height=args.height)
+                elif scene.suffix.lower() == ".png":
+                    shutil.copy2(scene, png)
+                else:
+                    raise SystemExit(f"Unsupported scene asset type: {scene.suffix}")
+                frames = shot_seconds * args.fps
+                vf = f"scale={args.width}:{args.height},format=yuv420p"
+                if not args.no_motion:
+                    vf = (f"zoompan=z='min(zoom+0.00035,1.045)':d=1:"
+                          f"x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':"
+                          f"s={args.width}x{args.height}:fps={args.fps},format=yuv420p")
+                run([ffmpeg, "-y", "-loop", "1", "-framerate", str(args.fps),
+                     "-i", str(png), "-vf", vf, "-frames:v", str(frames),
+                     "-an", "-c:v", "libx264", "-preset", "veryfast",
+                     "-crf", "22", "-pix_fmt", "yuv420p", str(clip)])
             rendered.append(clip)
             print(f"Rendered shot {index}/{len(shots)}: {shot['label']}")
 
@@ -160,7 +173,7 @@ def main() -> int:
     if not args.output.is_file() or args.output.stat().st_size < 50000:
         raise SystemExit(f"Render output missing or unexpectedly small: {args.output}")
     print(f"\nReview render created: {args.output}")
-    print("Visuals use coded scene plates with camera motion; they are not full 3D character animation.")
+    print("MP4 shot assets are rendered motion clips; SVG/PNG assets remain scene plates (PNG may use camera motion only).")
     print("Afghan Dari is subtitle-only. Subtitle timestamps remain provisional until final English audio is approved.")
     return 0
 
