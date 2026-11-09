@@ -391,23 +391,54 @@ def main():
                         part.parent = rig
                         part.matrix_world = matrix
                     rigs.append((prefix, rig))
+                # Shot-specific performance beats: breathing, gestures, and walk cycles.
+                # These are procedural character motions, not full facial/lip-sync animation.
+                walk_shot = index in (10, 13)
+                gesture_shot = index in (2, 3, 5, 7, 14, 18)
                 for ci, (prefix, rig) in enumerate(rigs):
-                    for frame, amount in ((1, 0.0), (mid_frame, 1.0), (frames, 0.0)):
+                    phase = ci * 0.8
+                    for frame in (1, frames // 4, mid_frame, (frames * 3) // 4, frames):
                         scene.frame_set(frame)
-                        rig.location.z = amount * (0.07 if prefix == "Ollie" else 0.045)
-                        rig.rotation_euler[1] = math.radians(amount * (3.0 if ci != 1 else -3.0))
+                        t = (frame - 1) / max(1, frames - 1)
+                        wave = math.sin(t * math.tau * 2.0 + phase)
+                        rig.location.z = (0.045 if prefix != "Ollie" else 0.075) * (0.5 + 0.5 * wave)
+                        rig.rotation_euler[1] = math.radians((2.0 if ci != 1 else -2.0) * wave)
+                        if walk_shot and prefix in ("Leo", "Emma"):
+                            rig.location.x = (-0.16 + 0.32 * t) * (1 if prefix == "Leo" else -0.35)
+                        else:
+                            rig.location.x = 0.0
                         rig.keyframe_insert(data_path="location", frame=frame)
                         rig.keyframe_insert(data_path="rotation_euler", frame=frame)
+
                 for part in list(bpy.data.objects):
-                    if any(tag in part.name for tag in ("Leo sleeve", "Emma sleeve", "Ollie ear tuft")):
+                    for prefix in ("Leo", "Emma"):
+                        if part.name.startswith(prefix) and (" sleeve" in part.name or " trouser leg" in part.name):
+                            base = part.rotation_euler.copy()
+                            is_arm = " sleeve" in part.name
+                            side = -1 if "left" in part.name.lower() else 1
+                            amplitude = (0.30 if is_arm else 0.16) if (walk_shot or gesture_shot) else (0.10 if is_arm else 0.035)
+                            for frame in (1, frames // 4, mid_frame, (frames * 3) // 4, frames):
+                                scene.frame_set(frame)
+                                t = (frame - 1) / max(1, frames - 1)
+                                wave = math.sin(t * math.tau * 2.0 + (0.0 if side < 0 else math.pi))
+                                part.rotation_euler[1] = base[1] + amplitude * wave
+                                part.keyframe_insert(data_path="rotation_euler", frame=frame)
+                    if part.name.startswith("Ollie") and "ear tuft" in part.name:
                         base = part.rotation_euler.copy()
-                        for frame, amount in ((1, 0.0), (mid_frame, 0.25), (frames, 0.0)):
-                            part.rotation_euler[1] = base[1] + amount
+                        for frame in (1, frames // 4, mid_frame, (frames * 3) // 4, frames):
+                            scene.frame_set(frame)
+                            t = (frame - 1) / max(1, frames - 1)
+                            part.rotation_euler[1] = base[1] + math.radians(5.0) * math.sin(t * math.tau * 2.0)
                             part.keyframe_insert(data_path="rotation_euler", frame=frame)
+
                 camera.location = Vector(location)
                 camera.keyframe_insert(data_path="location", frame=1)
-                camera.location = Vector(location) + Vector((0.12, 0.0, 0.04))
+                camera.location = Vector(location) + Vector((0.22 if index in (10, 13) else 0.12, 0.0, 0.07))
                 camera.keyframe_insert(data_path="location", frame=frames)
+                camera.data.lens = lens
+                camera.data.keyframe_insert(data_path="lens", frame=1)
+                camera.data.lens = lens * (1.035 if index in (2, 3, 7, 14) else 1.015)
+                camera.data.keyframe_insert(data_path="lens", frame=frames)
                 scene.frame_start, scene.frame_end, scene.render.fps = 1, frames, 12
                 scene.render.resolution_percentage = 100
                 scene.render.image_settings.file_format = "FFMPEG"
