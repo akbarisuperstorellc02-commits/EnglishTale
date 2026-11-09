@@ -51,7 +51,7 @@ def main() -> int:
         if len(shots3d) != len(shots) or sum(int(s["duration"]) for s in shots3d) != 420:
             errors.append("3D shot list must match the 18-shot, 420-second base timeline.")
         for index, shot in enumerate(shots3d, start=1):
-            expected = f"build/3d-shots/shot-{index:02d}.png"
+            expected = f"build/3d-shots/shot-{index:02d}.mp4"
             if shot.get("scene") != expected:
                 errors.append(f"3D shot {index} must reference {expected}.")
     en = parse_srt(EP / "subtitles-en.srt")
