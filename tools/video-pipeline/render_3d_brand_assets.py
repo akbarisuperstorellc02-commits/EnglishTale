@@ -61,7 +61,7 @@ def main() -> int:
     bg = image_data(shots / f"shot-01{ext}")
     leo = image_data(shots / f"shot-02{ext}")
     emma = image_data(shots / f"shot-03{ext}")
-    ollie = image_data(shots / f"shot-14{ext}")
+    ollie = image_data(shots / f"shot-10{ext}")
     ending = image_data(shots / f"shot-18{ext}")
 
     thumb = f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="3840" height="2160" viewBox="0 0 3840 2160">
@@ -89,7 +89,7 @@ def main() -> int:
       <rect x="2780" y="370" width="820" height="1430" rx="82" fill="#ffc653"/>
       {svg_image(emma,2800,390,780,1390,"emmaClip")}
       <circle cx="2780" cy="1640" r="365" fill="#ffc653"/>
-      {svg_image(ollie,2440,1300,680,680,"owlClip")}
+      {svg_image(ollie,2440,1300,680,680,"owlClip","xMaxYMid slice")}
       <text x="3650" y="2050" text-anchor="end" font-family="DejaVu Sans, sans-serif" font-size="52" font-weight="700" fill="#ffffff">ENGLISHTALE  •  EPISODE 001</text>
     </svg>'''
     shorts = f'''<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="2160" height="3840" viewBox="0 0 2160 3840">
@@ -114,7 +114,7 @@ def main() -> int:
       <rect x="1120" y="1430" width="940" height="1720" rx="95" fill="#ffc653"/>
       {svg_image(emma,1140,1450,900,1680,"shortEmmaClip")}
       <circle cx="1080" cy="3060" r="320" fill="#ffc653"/>
-      {svg_image(ollie,780,2760,600,600,"shortOwlClip")}
+      {svg_image(ollie,780,2760,600,600,"shortOwlClip","xMaxYMid slice")}
       <text x="1080" y="3470" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="100" font-weight="800" fill="#ffffff">LEARN ENGLISH THROUGH STORY</text>
       <text x="1080" y="3620" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="72" fill="#c8e2f2">LISTEN  •  LEARN  •  SPEAK</text>
       <text x="1080" y="3770" text-anchor="middle" font-family="DejaVu Sans, sans-serif" font-size="64" font-weight="700" fill="#ffc653">ENGLISHTALE  •  EPISODE 001</text>
