@@ -39,3 +39,8 @@ The scene renders on CPU; GPU acceleration is optional. GitHub Actions renders b
 - Inspect every rendered artifact before reusing the design in production.
 - The hybrid pipeline may combine approved 3D shots with 2.5D compositing, parallax, camera movement, and original motion graphics.
 - Do not call a 2.5D fallback full 3D.
+
+
+## Animated episode shots
+
+The episode workflow renders 18 separate Blender MP4 clips with frame-by-frame character-root movement, gestures, and camera drift. These are genuine 3D rendered clips rather than still-image pans. The current procedural rigs are an intermediate animation pass: detailed facial performance, hand-to-prop contact, and dialogue lip-sync still require further production work and review.
